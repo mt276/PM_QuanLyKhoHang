@@ -23,17 +23,18 @@ namespace PM_QuanLyKhoHang
         public Login()
         {
             InitializeComponent();
-            this.StartPosition = FormStartPosition.CenterScreen;
-            
-            InitializeComponents();
+            this.StartPosition = FormStartPosition.CenterScreen; //Đặt form nằm giữa màn hình
+            this.BackgroundImage = new Bitmap(Application.StartupPath + "\\image\\BackgroundImageLogin.jpg"); // Đặt hình ảnh nền cho form
+            this.Icon = new Icon(Application.StartupPath+@"\\icon\\login.ico"); // Đặt biểu tượng cho form
+            LoginForm();
         }
-        void InitializeComponents()
+        void LoginForm()
         {
             #region Panel
             // Khởi tạo và cấu hình Panel
             pnlLogin = new Panel();
             pnlLogin.Size = new Size(300, 150);
-            pnlLogin.BackColor = Color.White;
+            pnlLogin.BackColor = Color.FromArgb(180, 240, 240, 240); // Màu nền có độ mờ
 
             // Tính toán vị trí để đặt Panel vào giữa form
             pnlLogin.Location = new Point((this.ClientSize.Width - pnlLogin.Width) / 2,
