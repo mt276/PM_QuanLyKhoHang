@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PM_QuanLyKhoHang
 {
-    public partial class Login : Form
+    public partial class UserWinform : BaseForm
     {
-        private Panel pnlLogin;
+        private Panel pnlUser;
         private TextBox txbUsername;
         private TextBox txbPassword;
         private Button btnLogin;
@@ -20,28 +20,27 @@ namespace PM_QuanLyKhoHang
         private bool usernameEntered;
         private bool passwordEntered;
 
-        public Login()
+        public UserWinform()
         {
             InitializeComponent();
-            this.StartPosition = FormStartPosition.CenterScreen; //Đặt form nằm giữa màn hình
-            this.BackgroundImage = new Bitmap(Application.StartupPath + "\\image\\BackgroundImageLogin.jpg"); // Đặt hình ảnh nền cho form
             this.Icon = new Icon(Application.StartupPath+@"\\icon\\login.ico"); // Đặt biểu tượng cho form
+            this.BackgroundImage = new Bitmap(Application.StartupPath + "\\image\\BackgroundImageLogin.jpg"); // Đặt hình ảnh nền cho form
             LoginForm();
         }
         void LoginForm()
         {
             #region Panel
             // Khởi tạo và cấu hình Panel
-            pnlLogin = new Panel();
-            pnlLogin.Size = new Size(300, 150);
-            pnlLogin.BackColor = Color.FromArgb(180, 240, 240, 240); // Màu nền có độ mờ
+            pnlUser = new Panel();
+            pnlUser.Size = new Size(300, 150);
+            pnlUser.BackColor = Color.FromArgb(180, 240, 240, 240); // Màu nền có độ mờ
 
             // Tính toán vị trí để đặt Panel vào giữa form
-            pnlLogin.Location = new Point((this.ClientSize.Width - pnlLogin.Width) / 2,
-                                                               (this.ClientSize.Height - pnlLogin.Height) / 2);
+            pnlUser.Location = new Point((this.ClientSize.Width - pnlUser.Width) / 2,
+                                                               (this.ClientSize.Height - pnlUser.Height) / 2);
 
             // Thêm Panel vào Form
-            this.Controls.Add(pnlLogin);
+            this.Controls.Add(pnlUser);
             #endregion
 
             #region txbUsername
@@ -52,14 +51,14 @@ namespace PM_QuanLyKhoHang
             txbUsername.ForeColor = Color.DarkGray;
             txbUsername.BorderStyle = BorderStyle.None;
             txbUsername.Location = new Point(50, 30); // Vị trí txbUsername
-            pnlLogin.Controls.Add(txbUsername);
+            pnlUser.Controls.Add(txbUsername);
 
             // Vẽ đường viền dưới của txbPassword
             Label underlineUsername = new Label();
             underlineUsername.BackColor = Color.Black;
             underlineUsername.Location = new Point(txbUsername.Location.X, txbUsername.Location.Y + txbUsername.Height + 5);
             underlineUsername.Size = new Size(txbUsername.Width, 1);
-            pnlLogin.Controls.Add(underlineUsername);
+            pnlUser.Controls.Add(underlineUsername);
 
             // Gắn sự kiện TextChanged cho txbUsername
             txbUsername.TextChanged += (sender, e) =>
@@ -88,14 +87,14 @@ namespace PM_QuanLyKhoHang
             txbPassword.ForeColor = Color.DarkGray;
             txbPassword.BorderStyle = BorderStyle.None;
             txbPassword.Location = new Point(50, 70); // Vị trí txbPassword
-            pnlLogin.Controls.Add(txbPassword);
+            pnlUser.Controls.Add(txbPassword);
 
             // Vẽ đường viền dưới của txbPassword
             Label underlineTxbPassword = new Label();
             underlineTxbPassword.BackColor = Color.Black;
             underlineTxbPassword.Location = new Point(txbPassword.Location.X, txbPassword.Location.Y + txbPassword.Height+5);
             underlineTxbPassword.Size = new Size(txbPassword.Width, 1);
-            pnlLogin.Controls.Add(underlineTxbPassword);
+            pnlUser.Controls.Add(underlineTxbPassword);
 
             // Gắn sự kiện TextChanged ch0 txbPassword
             txbPassword.TextChanged += (sender, e) =>
@@ -128,7 +127,7 @@ namespace PM_QuanLyKhoHang
             btnLogin.ForeColor = Color.White;
             btnLogin.FlatStyle = FlatStyle.Flat;
             btnLogin.FlatAppearance.BorderSize = 0; //loại bỏ đường viền
-            pnlLogin.Controls.Add(btnLogin);
+            pnlUser.Controls.Add(btnLogin);
             // Gắn sự kiện Click chp btnLogin
             btnLogin.Click += (sender, e) =>
             {
@@ -157,7 +156,7 @@ namespace PM_QuanLyKhoHang
             btnCancel.BackColor = Color.DarkRed;
             btnCancel.ForeColor = Color.White;
             btnCancel.FlatAppearance.BorderSize = 0; //loại bỏ đường viền
-            pnlLogin.Controls.Add(btnCancel);
+            pnlUser.Controls.Add(btnCancel);
             // Gắn sự kiện Click chp btnCancel
             btnCancel.Click += (sender, e) =>
             {

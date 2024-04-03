@@ -46,25 +46,82 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Home.cs">
+    <Compile Include="BaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Home.Designer.cs">
-      <DependentUpon>Home.cs</DependentUpon>
+    <Compile Include="BaseForm.Designer.cs">
+      <DependentUpon>BaseForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login.cs">
+    <Compile Include="CustomerWinform.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login.Designer.cs">
-      <DependentUpon>Login.cs</DependentUpon>
+    <Compile Include="CustomerWinform.Designer.cs">
+      <DependentUpon>CustomerWinform.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InputWinform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InputWinform.Designer.cs">
+      <DependentUpon>InputWinform.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainWinform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainWinform.Designer.cs">
+      <DependentUpon>MainWinform.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OutputWinform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OutputWinform.Designer.cs">
+      <DependentUpon>OutputWinform.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserWinform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserWinform.Designer.cs">
+      <DependentUpon>UserWinform.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Home.resx">
-      <DependentUpon>Home.cs</DependentUpon>
+    <Compile Include="SupplierWinform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SupplierWinform.Designer.cs">
+      <DependentUpon>SupplierWinform.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SuppliesWinform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SuppliesWinform.Designer.cs">
+      <DependentUpon>SuppliesWinform.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UnitWinform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UnitWinform.Designer.cs">
+      <DependentUpon>UnitWinform.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="CustomerWinform.resx">
+      <DependentUpon>CustomerWinform.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login.resx">
-      <DependentUpon>Login.cs</DependentUpon>
+    <EmbeddedResource Include="InputWinform.resx">
+      <DependentUpon>InputWinform.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainWinform.resx">
+      <DependentUpon>MainWinform.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OutputWinform.resx">
+      <DependentUpon>OutputWinform.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SupplierWinform.resx">
+      <DependentUpon>SupplierWinform.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SuppliesWinform.resx">
+      <DependentUpon>SuppliesWinform.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserWinform.resx">
+      <DependentUpon>UserWinform.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -76,6 +133,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UnitWinform.resx">
+      <DependentUpon>UnitWinform.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -90,7 +150,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="image\istockphoto-1323860984-612x612.jpg" />
+    <Folder Include="image\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -10,20 +10,20 @@ using System.Windows.Forms;
 
 namespace PM_QuanLyKhoHang
 {
-    public partial class Home : Form
+    public partial class MainWinform : BaseForm
     {
-        public Home()
+        public MainWinform()
         {
             InitializeComponent();
-            this.StartPosition = FormStartPosition.CenterScreen; //Cho form nằm giữa màn hình
-            this.FormBorderStyle = FormBorderStyle.FixedSingle; // Đặt kiểu border của form thành FixedSingle để không cho phép điều chỉnh kích thước
+            
             this.Width = 760;
             this.Height = 600;
             SetUpMenu();
             SetUpFilterFirst();
             SetUpFilterSecond();
-
+            
         }
+
         void SetUpMenu()
         {
             #region flpMenu
@@ -33,6 +33,15 @@ namespace PM_QuanLyKhoHang
             flpMenu.AutoSize = true;
             flpMenu.Size = new Size(this.ClientSize.Width, 50);
             flpMenu.BackColor = Color.White;
+            //flpMenu.FontChanged += (sender, e) =>
+            //{
+            //    flpMenu.Font = new Font("Roboto", 9, FontStyle.Bold);
+            //    // Lặp qua tất cả các control trong panel và thay đổi font của chúng
+            //    foreach (Control control in flpMenu.Controls)
+            //    {
+            //        control.Font = flpMenu.Font;
+            //    }
+            //};
             this.Controls.Add(flpMenu);
             #endregion
 
@@ -51,6 +60,11 @@ namespace PM_QuanLyKhoHang
             btnInput.FlatStyle = FlatStyle.Flat;
             btnInput.FlatAppearance.BorderSize = 1;
             flpMenu.Controls.Add(btnInput);
+            btnInput.Click += (sender, e) =>
+            {
+                InputWinform inputWinform = new InputWinform();
+                inputWinform.Show();
+            };
             #endregion
 
             #region btnOutput
@@ -68,6 +82,11 @@ namespace PM_QuanLyKhoHang
             btnOutput.FlatStyle = FlatStyle.Flat;
             btnOutput.FlatAppearance.BorderSize = 1;
             flpMenu.Controls.Add(btnOutput);
+            btnOutput.Click += (sender, e) =>
+            {
+                OutputWinform outputWinform = new OutputWinform();
+                outputWinform.Show();
+            };
             #endregion
 
             #region btnSupplies
@@ -85,12 +104,17 @@ namespace PM_QuanLyKhoHang
             btnSupplies.FlatStyle = FlatStyle.Flat;
             btnSupplies.FlatAppearance.BorderSize = 1;
             flpMenu.Controls.Add(btnSupplies);
+            btnSupplies.Click += (sender, e) =>
+            {
+                SuppliesWinform suppliesWinform = new SuppliesWinform();
+                suppliesWinform.Show();
+            };
             #endregion
 
             #region btnUnit
             // Tạo và thiết lập button Đơn vị
             Button btnUnit = new Button();
-            btnUnit.Text = "Đơn vị tính";
+            btnUnit.Text = "Đơn vị đo";
             btnUnit.Size = new Size(100, 30);
             Image imgUnit = Image.FromFile(Application.StartupPath + "\\image\\unit.png");
             Image rzImgUnit = new Bitmap(imgUnit, new Size(22, 22));
@@ -102,6 +126,11 @@ namespace PM_QuanLyKhoHang
             btnUnit.FlatStyle = FlatStyle.Flat;
             btnUnit.FlatAppearance.BorderSize = 1;
             flpMenu.Controls.Add(btnUnit);
+            btnUnit.Click += (sender, e) =>
+            {
+                UnitWinform unitWinform = new UnitWinform();
+                unitWinform.Show();
+            };
             #endregion
 
             #region btnSupplier
@@ -119,6 +148,11 @@ namespace PM_QuanLyKhoHang
             btnSupplier.FlatStyle = FlatStyle.Flat;
             btnSupplier.FlatAppearance.BorderSize = 1;
             flpMenu.Controls.Add(btnSupplier);
+            btnSupplier.Click += (sender, e) =>
+            {
+                SupplierWinform supplierWinform = new SupplierWinform();
+                supplierWinform.Show();
+            };
             #endregion
 
             #region btnCustomer
@@ -136,6 +170,11 @@ namespace PM_QuanLyKhoHang
             btnCustomer.FlatStyle = FlatStyle.Flat;
             btnCustomer.FlatAppearance.BorderSize = 1;
             flpMenu.Controls.Add(btnCustomer);
+            btnCustomer.Click += (sender, e) =>
+            {
+                CustomerWinform customerWinform = new CustomerWinform();
+                customerWinform.Show();
+            };
             #endregion
 
             #region btnUser
@@ -153,6 +192,12 @@ namespace PM_QuanLyKhoHang
             btnUser.FlatStyle = FlatStyle.Flat;
             btnUser.FlatAppearance.BorderSize = 1;
             flpMenu.Controls.Add(btnUser);
+
+            btnUser.Click += (sender, e) =>
+            {
+                UserWinform userWinform = new UserWinform();
+                userWinform.Show();
+            };
             #endregion
 
         }
@@ -183,7 +228,7 @@ namespace PM_QuanLyKhoHang
                 Label lbStart = new Label();
                 lbStart.Text = "Ngày bắt đầu:";
                 lbStart.AutoSize = true;
-                lbStart.Margin = new Padding(5, 5, 12, 0);
+                lbStart.Margin = new Padding(5, 5, 11, 0);
                 flpStartDate.Controls.Add(lbStart);
                 #endregion
 
@@ -242,12 +287,13 @@ namespace PM_QuanLyKhoHang
             // Tạo và cấu hình button "Lọc"
             Button btnDateFilter = new Button();
             btnDateFilter.Text = "Lọc";
-            btnDateFilter.Location = new Point(250, 15);
-            btnDateFilter.Size = new Size(100, 30);
+            btnDateFilter.Location = new Point(250, 12);
+            btnDateFilter.Size = new Size(100, 35);
             btnDateFilter.BackColor = Color.Teal;
             btnDateFilter.ForeColor = Color.White;
             btnDateFilter.FlatStyle = FlatStyle.Flat;
             btnDateFilter.FlatAppearance.BorderSize = 0; //loại bỏ đường viền
+            btnDateFilter.Font = new Font("Roboto", 8, FontStyle.Bold);
             btnDateFilter.Click += (sender, e) =>
             {
                 // Lấy ngày bắt đầu và ngày kết thúc từ DateTimePicker
@@ -394,7 +440,7 @@ namespace PM_QuanLyKhoHang
             Label lbStart = new Label();
             lbStart.Text = "Ngày bắt đầu:";
             lbStart.AutoSize = true;
-            lbStart.Margin = new Padding(5, 5, 12, 0);
+            lbStart.Margin = new Padding(5, 5, 11, 0);
             flpStartDate.Controls.Add(lbStart);
             #endregion
 
@@ -453,12 +499,13 @@ namespace PM_QuanLyKhoHang
             // Tạo và cấu hình button "Lọc"
             Button btnDateFilter = new Button();
             btnDateFilter.Text = "Lọc";
-            btnDateFilter.Location = new Point(250, 15);
-            btnDateFilter.Size = new Size(100, 30);
+            btnDateFilter.Location = new Point(250, 12);
+            btnDateFilter.Size = new Size(100, 35);
             btnDateFilter.BackColor = Color.Teal;
             btnDateFilter.ForeColor = Color.White;
             btnDateFilter.FlatStyle = FlatStyle.Flat;
             btnDateFilter.FlatAppearance.BorderSize = 0; //loại bỏ đường viền
+            btnDateFilter.Font = new Font("Roboto", 8, FontStyle.Bold);
             btnDateFilter.Click += (sender, e) =>
             {
                 // Lấy ngày bắt đầu và ngày kết thúc từ DateTimePicker

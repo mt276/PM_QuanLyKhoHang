@@ -1,7 +1,7 @@
 ﻿
 namespace PM_QuanLyKhoHang
 {
-    partial class Login
+    partial class MainWinform
     {
         /// <summary>
         /// Required designer variable.
@@ -31,13 +31,13 @@ namespace PM_QuanLyKhoHang
         {
             this.SuspendLayout();
             // 
-            // Login
+            // MainWinform
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(607, 430);
-            this.Name = "Login";
-            this.Text = "Đăng nhập";
+            this.ClientSize = new System.Drawing.Size(1253, 818);
+            this.Name = "MainWinform";
+            this.Text = "Phần mềm quản lý kho hàng";
             this.ResumeLayout(false);
 
         }
@@ -45,3 +45,4 @@ namespace PM_QuanLyKhoHang
         #endregion
     }
 }
+

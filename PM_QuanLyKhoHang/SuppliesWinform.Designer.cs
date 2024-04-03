@@ -1,7 +1,7 @@
 ﻿
 namespace PM_QuanLyKhoHang
 {
-    partial class Home
+    partial class SuppliesWinform
     {
         /// <summary>
         /// Required designer variable.
@@ -31,13 +31,13 @@ namespace PM_QuanLyKhoHang
         {
             this.SuspendLayout();
             // 
-            // Home
+            // SuppliesWinform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1128, 744);
-            this.Name = "Home";
-            this.Text = "Phần mềm quản lý kho hàng";
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Name = "SuppliesWinform";
+            this.Text = "Vật tư";
             this.ResumeLayout(false);
 
         }
@@ -45,4 +45,3 @@ namespace PM_QuanLyKhoHang
         #endregion
     }
 }
-
