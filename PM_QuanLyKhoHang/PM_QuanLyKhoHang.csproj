@@ -33,8 +33,26 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.Data.Desktop.v23.2, Version=23.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Data.v23.2, Version=23.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Drawing.v23.2, Version=23.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v23.2.Core, Version=23.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Sparkline.v23.2.Core, Version=23.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v23.2, Version=23.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v23.2, Version=23.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v23.2, Version=23.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v23.2, Version=23.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v23.2, Version=23.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v23.2, Version=23.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Messaging" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,85 +62,94 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationClient" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseForm.cs">
+    <Compile Include="FormDetails\frmBackupAndRestoreDatabase.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BaseForm.Designer.cs">
-      <DependentUpon>BaseForm.cs</DependentUpon>
+    <Compile Include="FormDetails\frmBackupAndRestoreDatabase.Designer.cs">
+      <DependentUpon>frmBackupAndRestoreDatabase.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomerWinform.cs">
+    <Compile Include="FormDetails\frmKey.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CustomerWinform.Designer.cs">
-      <DependentUpon>CustomerWinform.cs</DependentUpon>
+    <Compile Include="FormDetails\frmKey.Designer.cs">
+      <DependentUpon>frmKey.cs</DependentUpon>
     </Compile>
-    <Compile Include="InputWinform.cs">
+    <Compile Include="FormDetails\frmListProducts.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="InputWinform.Designer.cs">
-      <DependentUpon>InputWinform.cs</DependentUpon>
+    <Compile Include="FormDetails\frmListProducts.Designer.cs">
+      <DependentUpon>frmListProducts.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainWinform.cs">
+    <Compile Include="FormDetails\frmLocation.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainWinform.Designer.cs">
-      <DependentUpon>MainWinform.cs</DependentUpon>
+    <Compile Include="FormDetails\frmLocation.Designer.cs">
+      <DependentUpon>frmLocation.cs</DependentUpon>
     </Compile>
-    <Compile Include="OutputWinform.cs">
+    <Compile Include="FormDetails\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="OutputWinform.Designer.cs">
-      <DependentUpon>OutputWinform.cs</DependentUpon>
+    <Compile Include="FormDetails\frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserWinform.cs">
+    <Compile Include="FormDetails\frmPath.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UserWinform.Designer.cs">
-      <DependentUpon>UserWinform.cs</DependentUpon>
+    <Compile Include="FormDetails\frmPath.Designer.cs">
+      <DependentUpon>frmPath.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDetails\frmUnit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDetails\frmUnit.Designer.cs">
+      <DependentUpon>frmUnit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDetails\frmUpdateCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDetails\frmUpdateCustomer.Designer.cs">
+      <DependentUpon>frmUpdateCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Management.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Management.Designer.cs">
+      <DependentUpon>Management.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SupplierWinform.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SupplierWinform.Designer.cs">
-      <DependentUpon>SupplierWinform.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SuppliesWinform.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SuppliesWinform.Designer.cs">
-      <DependentUpon>SuppliesWinform.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UnitWinform.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UnitWinform.Designer.cs">
-      <DependentUpon>UnitWinform.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="CustomerWinform.resx">
-      <DependentUpon>CustomerWinform.cs</DependentUpon>
+    <EmbeddedResource Include="FormDetails\frmBackupAndRestoreDatabase.resx">
+      <DependentUpon>frmBackupAndRestoreDatabase.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="InputWinform.resx">
-      <DependentUpon>InputWinform.cs</DependentUpon>
+    <EmbeddedResource Include="FormDetails\frmKey.resx">
+      <DependentUpon>frmKey.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainWinform.resx">
-      <DependentUpon>MainWinform.cs</DependentUpon>
+    <EmbeddedResource Include="FormDetails\frmListProducts.resx">
+      <DependentUpon>frmListProducts.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OutputWinform.resx">
-      <DependentUpon>OutputWinform.cs</DependentUpon>
+    <EmbeddedResource Include="FormDetails\frmLocation.resx">
+      <DependentUpon>frmLocation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SupplierWinform.resx">
-      <DependentUpon>SupplierWinform.cs</DependentUpon>
+    <EmbeddedResource Include="FormDetails\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SuppliesWinform.resx">
-      <DependentUpon>SuppliesWinform.cs</DependentUpon>
+    <EmbeddedResource Include="FormDetails\frmPath.resx">
+      <DependentUpon>frmPath.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserWinform.resx">
-      <DependentUpon>UserWinform.cs</DependentUpon>
+    <EmbeddedResource Include="FormDetails\frmUnit.resx">
+      <DependentUpon>frmUnit.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormDetails\frmUpdateCustomer.resx">
+      <DependentUpon>frmUpdateCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Management.resx">
+      <DependentUpon>Management.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -133,9 +160,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="UnitWinform.resx">
-      <DependentUpon>UnitWinform.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -150,7 +174,78 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="image\" />
+    <Content Include="Images\001_shoppingcart_empty.ico" />
+    <Content Include="Images\001_shoppingcart_full.ico" />
+    <Content Include="Images\125.ico" />
+    <Content Include="Images\128.png" />
+    <Content Include="Images\2PlasticMessenger.ico" />
+    <Content Include="Images\Absent.ico" />
+    <Content Include="Images\Accept database.ico" />
+    <Content Include="Images\Add.ico" />
+    <Content Include="Images\apple.ico" />
+    <Content Include="Images\application_view_list.png" />
+    <Content Include="Images\auction hammer.ico" />
+    <Content Include="Images\Bar chart.ico" />
+    <Content Include="Images\Bin %28empty%29.ico" />
+    <Content Include="Images\Bin %28with item%29.ico" />
+    <Content Include="Images\Bloqué.ico" />
+    <Content Include="Images\bouée.ico" />
+    <Content Include="Images\Buddies.ico" />
+    <Content Include="Images\budy msn blanc.ico" />
+    <Content Include="Images\budy msn noir.ico" />
+    <Content Include="Images\button_cancel.ico" />
+    <Content Include="Images\button_ok.ico" />
+    <Content Include="Images\Cadenas 3D.ico" />
+    <Content Include="Images\cal.ico" />
+    <Content Include="Images\card.ico" />
+    <Content Include="Images\cargo1.ico" />
+    <Content Include="Images\cargo2.ico" />
+    <Content Include="Images\Cash register.ico" />
+    <Content Include="Images\Coins.ico" />
+    <Content Include="Images\Comprimidos_TAR.ico" />
+    <Content Include="Images\config.ico" />
+    <Content Include="Images\configure.ico" />
+    <Content Include="Images\Credit card.ico" />
+    <Content Include="Images\Database Upload.ico" />
+    <Content Include="Images\Disk utility.ico" />
+    <Content Include="Images\Download database.ico" />
+    <Content Include="Images\Download.ico" />
+    <Content Include="Images\Enligne.ico" />
+    <Content Include="Images\excel8.png" />
+    <Content Include="Images\exel 2007 3D.ico" />
+    <Content Include="Images\find.ico" />
+    <Content Include="Images\Folder.ico" />
+    <Content Include="Images\folder_black_printer.ico" />
+    <Content Include="Images\History.ico" />
+    <Content Include="Images\infopath v2.ico" />
+    <Content Include="Images\Invoice.ico" />
+    <Content Include="Images\kdmconfig.ico" />
+    <Content Include="Images\kuser.ico" />
+    <Content Include="Images\Line chart.ico" />
+    <Content Include="Images\Lock.ico" />
+    <Content Include="Images\Login Manager.ico" />
+    <Content Include="Images\Logitech.ico" />
+    <Content Include="Images\Logout Manager.ico" />
+    <Content Include="Images\logout.ico" />
+    <Content Include="Images\loupe.ico" />
+    <Content Include="Images\men.ico" />
+    <Content Include="Images\Mise-en-veille.ico" />
+    <Content Include="Images\Money Calculator.ico" />
+    <Content Include="Images\Money.ico" />
+    <Content Include="Images\Monsieur.ico" />
+    <Content Include="Images\Network_Drive.ico" />
+    <Content Include="Images\Postage stamp.ico" />
+    <Content Include="Images\Qui-Gon Jinn%27s light-saber.ico" />
+    <Content Include="Images\Qx9 Vista Mail.ico" />
+    <Content Include="Images\Spreadsheet2.ico" />
+    <Content Include="Images\Thumbs_Up.ico" />
+    <Content Include="Images\Trash.ico" />
+    <Content Include="Images\Trash1.ico" />
+    <Content Include="Images\Under-construction.ico" />
+    <Content Include="Images\User20 google buzz.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="UserControlDetails\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
