@@ -33,13 +33,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.Charts.v23.2.Core, Version=23.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Data.Desktop.v23.2, Version=23.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Data.v23.2, Version=23.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Drawing.v23.2, Version=23.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Printing.v23.2.Core, Version=23.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Sparkline.v23.2.Core, Version=23.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Utils.v23.2, Version=23.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v23.2.UI, Version=23.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraBars.v23.2, Version=23.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v23.2, Version=23.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v23.2.UI, Version=23.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v23.2.Wizard, Version=23.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraEditors.v23.2, Version=23.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraGrid.v23.2, Version=23.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v23.2, Version=23.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -122,6 +127,108 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControlDetails\ucAddCustomers.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlDetails\ucAddCustomers.Designer.cs">
+      <DependentUpon>ucAddCustomers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlDetails\ucAddProducts.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlDetails\ucAddProducts.Designer.cs">
+      <DependentUpon>ucAddProducts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlDetails\ucAddReferrer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlDetails\ucAddReferrer.Designer.cs">
+      <DependentUpon>ucAddReferrer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlDetails\ucAuthorization.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlDetails\ucAuthorization.Designer.cs">
+      <DependentUpon>ucAuthorization.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlDetails\ucBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlDetails\ucBill.Designer.cs">
+      <DependentUpon>ucBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlDetails\ucCreateBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlDetails\ucCreateBill.Designer.cs">
+      <DependentUpon>ucCreateBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlDetails\ucInput.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlDetails\ucInput.Designer.cs">
+      <DependentUpon>ucInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlDetails\ucInputReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlDetails\ucInputReport.Designer.cs">
+      <DependentUpon>ucInputReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlDetails\ucInventoryManagement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlDetails\ucInventoryManagement.Designer.cs">
+      <DependentUpon>ucInventoryManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlDetails\ucListCustomers.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlDetails\ucListCustomers.Designer.cs">
+      <DependentUpon>ucListCustomers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlDetails\ucListProducts.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlDetails\ucListProducts.Designer.cs">
+      <DependentUpon>ucListProducts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlDetails\ucMyAccount.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlDetails\ucMyAccount.Designer.cs">
+      <DependentUpon>ucMyAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlDetails\ucPriceUpdate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlDetails\ucPriceUpdate.Designer.cs">
+      <DependentUpon>ucPriceUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlDetails\ucProductInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlDetails\ucProductInfo.Designer.cs">
+      <DependentUpon>ucProductInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlDetails\ucProfit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlDetails\ucProfit.Designer.cs">
+      <DependentUpon>ucProfit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlDetails\ucSendEmail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlDetails\ucSendEmail.Designer.cs">
+      <DependentUpon>ucSendEmail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlDetails\ucTypeReferrer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlDetails\ucTypeReferrer.Designer.cs">
+      <DependentUpon>ucTypeReferrer.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FormDetails\frmBackupAndRestoreDatabase.resx">
       <DependentUpon>frmBackupAndRestoreDatabase.cs</DependentUpon>
     </EmbeddedResource>
@@ -160,6 +267,57 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UserControlDetails\ucAddCustomers.resx">
+      <DependentUpon>ucAddCustomers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlDetails\ucAddProducts.resx">
+      <DependentUpon>ucAddProducts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlDetails\ucAddReferrer.resx">
+      <DependentUpon>ucAddReferrer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlDetails\ucAuthorization.resx">
+      <DependentUpon>ucAuthorization.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlDetails\ucBill.resx">
+      <DependentUpon>ucBill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlDetails\ucCreateBill.resx">
+      <DependentUpon>ucCreateBill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlDetails\ucInput.resx">
+      <DependentUpon>ucInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlDetails\ucInputReport.resx">
+      <DependentUpon>ucInputReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlDetails\ucInventoryManagement.resx">
+      <DependentUpon>ucInventoryManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlDetails\ucListCustomers.resx">
+      <DependentUpon>ucListCustomers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlDetails\ucListProducts.resx">
+      <DependentUpon>ucListProducts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlDetails\ucMyAccount.resx">
+      <DependentUpon>ucMyAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlDetails\ucPriceUpdate.resx">
+      <DependentUpon>ucPriceUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlDetails\ucProductInfo.resx">
+      <DependentUpon>ucProductInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlDetails\ucProfit.resx">
+      <DependentUpon>ucProfit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlDetails\ucSendEmail.resx">
+      <DependentUpon>ucSendEmail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlDetails\ucTypeReferrer.resx">
+      <DependentUpon>ucTypeReferrer.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -244,8 +402,6 @@
     <Content Include="Images\Under-construction.ico" />
     <Content Include="Images\User20 google buzz.ico" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="UserControlDetails\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

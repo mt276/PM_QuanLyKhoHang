@@ -30,7 +30,7 @@ namespace PM_QuanLyKhoHang.FormDetails
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.dtgvDisplay = new DevExpress.XtraGrid.GridControl();
+            this.dtgvListProducts = new DevExpress.XtraGrid.GridControl();
             this.gvListProducts = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colSTT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNameProduct = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -40,27 +40,23 @@ namespace PM_QuanLyKhoHang.FormDetails
             this.colSalePrice = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSaleDay = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNote = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repositoryItemMemoEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit();
             this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvDisplay)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvListProducts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvListProducts)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
             this.SuspendLayout();
             // 
-            // dtgvDisplay
+            // dtgvListProducts
             // 
-            this.dtgvDisplay.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtgvDisplay.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
-            this.dtgvDisplay.Location = new System.Drawing.Point(0, 0);
-            this.dtgvDisplay.MainView = this.gvListProducts;
-            this.dtgvDisplay.Margin = new System.Windows.Forms.Padding(4);
-            this.dtgvDisplay.Name = "dtgvDisplay";
-            this.dtgvDisplay.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemMemoEdit1});
-            this.dtgvDisplay.Size = new System.Drawing.Size(1098, 403);
-            this.dtgvDisplay.TabIndex = 0;
-            this.dtgvDisplay.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.dtgvListProducts.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtgvListProducts.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
+            this.dtgvListProducts.Location = new System.Drawing.Point(0, 0);
+            this.dtgvListProducts.MainView = this.gvListProducts;
+            this.dtgvListProducts.Margin = new System.Windows.Forms.Padding(4);
+            this.dtgvListProducts.Name = "dtgvListProducts";
+            this.dtgvListProducts.Size = new System.Drawing.Size(1098, 403);
+            this.dtgvListProducts.TabIndex = 0;
+            this.dtgvListProducts.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvListProducts});
             // 
             // gvListProducts
@@ -75,7 +71,7 @@ namespace PM_QuanLyKhoHang.FormDetails
             this.colSaleDay,
             this.colNote});
             this.gvListProducts.DetailHeight = 512;
-            this.gvListProducts.GridControl = this.dtgvDisplay;
+            this.gvListProducts.GridControl = this.dtgvListProducts;
             this.gvListProducts.GroupPanelText = "Danh Sách Sản Phẩm";
             this.gvListProducts.Name = "gvListProducts";
             this.gvListProducts.OptionsEditForm.PopupEditFormWidth = 1200;
@@ -221,7 +217,6 @@ namespace PM_QuanLyKhoHang.FormDetails
             this.colNote.AppearanceHeader.Options.UseFont = true;
             this.colNote.AppearanceHeader.Options.UseForeColor = true;
             this.colNote.Caption = "Ghi Chú";
-            this.colNote.ColumnEdit = this.repositoryItemMemoEdit1;
             this.colNote.FieldName = "Note";
             this.colNote.MinWidth = 30;
             this.colNote.Name = "colNote";
@@ -229,24 +224,19 @@ namespace PM_QuanLyKhoHang.FormDetails
             this.colNote.VisibleIndex = 7;
             this.colNote.Width = 169;
             // 
-            // repositoryItemMemoEdit1
-            // 
-            this.repositoryItemMemoEdit1.Name = "repositoryItemMemoEdit1";
-            // 
             // frmListProducts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1098, 403);
-            this.Controls.Add(this.dtgvDisplay);
+            this.Controls.Add(this.dtgvListProducts);
             this.IconOptions.ShowIcon = false;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmListProducts";
             this.ShowInTaskbar = false;
             this.Text = "Danh sách các sản phẩm và giá bán trong những lần mua trước đây";
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvDisplay)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvListProducts)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvListProducts)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();
             this.ResumeLayout(false);
 
@@ -254,7 +244,7 @@ namespace PM_QuanLyKhoHang.FormDetails
 
         #endregion
 
-        private DevExpress.XtraGrid.GridControl dtgvDisplay;
+        private DevExpress.XtraGrid.GridControl dtgvListProducts;
         private DevExpress.XtraGrid.Views.Grid.GridView gvListProducts;
         private DevExpress.XtraGrid.Columns.GridColumn colSTT;
         private DevExpress.XtraGrid.Columns.GridColumn colNameProduct;
@@ -263,7 +253,6 @@ namespace PM_QuanLyKhoHang.FormDetails
         private DevExpress.XtraGrid.Columns.GridColumn colSalePrice;
         private DevExpress.XtraGrid.Columns.GridColumn colSaleDay;
         private DevExpress.XtraGrid.Columns.GridColumn colNote;
-        private DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit repositoryItemMemoEdit1;
         private DevExpress.XtraGrid.Columns.GridColumn colSpecification;
         private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
     }

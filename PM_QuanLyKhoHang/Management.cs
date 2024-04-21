@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraBars;
+using PM_QuanLyKhoHang.UserControlDetails;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +17,9 @@ namespace PM_QuanLyKhoHang
         public Management()
         {
             InitializeComponent();
+            ucProfit uc = new ucProfit();
+            pnlMain.Controls.Add(uc);
+            uc.Dock = DockStyle.Fill;
         }
     }
 }

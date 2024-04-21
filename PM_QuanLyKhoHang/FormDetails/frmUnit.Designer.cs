@@ -38,12 +38,12 @@
             this.txtUnitName = new DevExpress.XtraEditors.TextEdit();
             this.lbControlUnitName = new DevExpress.XtraEditors.LabelControl();
             this.mmedNote = new DevExpress.XtraEditors.MemoEdit();
+            this.dtgvUnit = new DevExpress.XtraGrid.GridControl();
             this.gvUnit = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colSTT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colUnitName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNote = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.dtgvDisplay = new DevExpress.XtraGrid.GridControl();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1.Panel1)).BeginInit();
             this.splitContainerControl1.Panel1.SuspendLayout();
@@ -53,8 +53,8 @@
             this.gbAction.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtUnitName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mmedNote.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvUnit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvUnit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvDisplay)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainerControl1
@@ -62,7 +62,7 @@
             this.splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerControl1.Horizontal = false;
             this.splitContainerControl1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainerControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.splitContainerControl1.Margin = new System.Windows.Forms.Padding(4);
             this.splitContainerControl1.Name = "splitContainerControl1";
             // 
             // splitContainerControl1.Panel1
@@ -76,7 +76,7 @@
             // 
             // splitContainerControl1.Panel2
             // 
-            this.splitContainerControl1.Panel2.Controls.Add(this.dtgvDisplay);
+            this.splitContainerControl1.Panel2.Controls.Add(this.dtgvUnit);
             this.splitContainerControl1.Panel2.Text = "Panel2";
             this.splitContainerControl1.Size = new System.Drawing.Size(656, 533);
             this.splitContainerControl1.SplitterPosition = 208;
@@ -90,9 +90,9 @@
             this.gbAction.Controls.Add(this.btnCancel);
             this.gbAction.Controls.Add(this.btnAdd);
             this.gbAction.Location = new System.Drawing.Point(486, 18);
-            this.gbAction.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbAction.Margin = new System.Windows.Forms.Padding(4);
             this.gbAction.Name = "gbAction";
-            this.gbAction.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbAction.Padding = new System.Windows.Forms.Padding(4);
             this.gbAction.Size = new System.Drawing.Size(166, 189);
             this.gbAction.TabIndex = 2;
             this.gbAction.TabStop = false;
@@ -101,7 +101,7 @@
             // btnUpdate
             // 
             this.btnUpdate.Location = new System.Drawing.Point(24, 146);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(112, 34);
             this.btnUpdate.TabIndex = 6;
@@ -111,7 +111,7 @@
             // btnDelete
             // 
             this.btnDelete.Location = new System.Drawing.Point(24, 104);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(112, 34);
             this.btnDelete.TabIndex = 5;
@@ -121,7 +121,7 @@
             // btnCancel
             // 
             this.btnCancel.Location = new System.Drawing.Point(24, 64);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(112, 34);
             this.btnCancel.TabIndex = 4;
@@ -131,7 +131,7 @@
             // btnAdd
             // 
             this.btnAdd.Location = new System.Drawing.Point(24, 22);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(112, 34);
             this.btnAdd.TabIndex = 3;
@@ -141,7 +141,7 @@
             // lbControlNote
             // 
             this.lbControlNote.Location = new System.Drawing.Point(40, 73);
-            this.lbControlNote.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lbControlNote.Margin = new System.Windows.Forms.Padding(4);
             this.lbControlNote.Name = "lbControlNote";
             this.lbControlNote.Size = new System.Drawing.Size(54, 19);
             this.lbControlNote.TabIndex = 0;
@@ -150,7 +150,7 @@
             // txtUnitName
             // 
             this.txtUnitName.Location = new System.Drawing.Point(124, 35);
-            this.txtUnitName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUnitName.Margin = new System.Windows.Forms.Padding(4);
             this.txtUnitName.Name = "txtUnitName";
             this.txtUnitName.Size = new System.Drawing.Size(320, 26);
             this.txtUnitName.TabIndex = 1;
@@ -160,7 +160,7 @@
             // lbControlUnitName
             // 
             this.lbControlUnitName.Location = new System.Drawing.Point(40, 35);
-            this.lbControlUnitName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lbControlUnitName.Margin = new System.Windows.Forms.Padding(4);
             this.lbControlUnitName.Name = "lbControlUnitName";
             this.lbControlUnitName.Size = new System.Drawing.Size(76, 19);
             this.lbControlUnitName.TabIndex = 0;
@@ -169,12 +169,25 @@
             // mmedNote
             // 
             this.mmedNote.Location = new System.Drawing.Point(124, 73);
-            this.mmedNote.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mmedNote.Margin = new System.Windows.Forms.Padding(4);
             this.mmedNote.Name = "mmedNote";
             this.mmedNote.Size = new System.Drawing.Size(320, 89);
             this.mmedNote.TabIndex = 2;
             this.mmedNote.ToolTip = "Ghi chú cho tên đơn vị này";
             this.mmedNote.ToolTipIconType = DevExpress.Utils.ToolTipIconType.Question;
+            // 
+            // dtgvUnit
+            // 
+            this.dtgvUnit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtgvUnit.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
+            this.dtgvUnit.Location = new System.Drawing.Point(0, 0);
+            this.dtgvUnit.MainView = this.gvUnit;
+            this.dtgvUnit.Margin = new System.Windows.Forms.Padding(4);
+            this.dtgvUnit.Name = "dtgvUnit";
+            this.dtgvUnit.Size = new System.Drawing.Size(656, 310);
+            this.dtgvUnit.TabIndex = 0;
+            this.dtgvUnit.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gvUnit});
             // 
             // gvUnit
             // 
@@ -184,7 +197,7 @@
             this.colUnitName,
             this.colNote});
             this.gvUnit.DetailHeight = 512;
-            this.gvUnit.GridControl = this.dtgvDisplay;
+            this.gvUnit.GridControl = this.dtgvUnit;
             this.gvUnit.GroupPanelText = " ";
             this.gvUnit.Name = "gvUnit";
             this.gvUnit.OptionsEditForm.PopupEditFormWidth = 1200;
@@ -232,19 +245,6 @@
             this.colNote.VisibleIndex = 2;
             this.colNote.Width = 294;
             // 
-            // dtgvDisplay
-            // 
-            this.dtgvDisplay.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtgvDisplay.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
-            this.dtgvDisplay.Location = new System.Drawing.Point(0, 0);
-            this.dtgvDisplay.MainView = this.gvUnit;
-            this.dtgvDisplay.Margin = new System.Windows.Forms.Padding(4);
-            this.dtgvDisplay.Name = "dtgvDisplay";
-            this.dtgvDisplay.Size = new System.Drawing.Size(656, 310);
-            this.dtgvDisplay.TabIndex = 0;
-            this.dtgvDisplay.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gvUnit});
-            // 
             // frmUnit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -252,7 +252,7 @@
             this.ClientSize = new System.Drawing.Size(656, 533);
             this.Controls.Add(this.splitContainerControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmUnit";
@@ -269,8 +269,8 @@
             this.gbAction.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtUnitName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mmedNote.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvUnit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvUnit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvDisplay)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -287,7 +287,7 @@
         private DevExpress.XtraEditors.TextEdit txtUnitName;
         private DevExpress.XtraEditors.LabelControl lbControlUnitName;
         private DevExpress.XtraEditors.MemoEdit mmedNote;
-        private DevExpress.XtraGrid.GridControl dtgvDisplay;
+        private DevExpress.XtraGrid.GridControl dtgvUnit;
         private DevExpress.XtraGrid.Views.Grid.GridView gvUnit;
         private DevExpress.XtraGrid.Columns.GridColumn colSTT;
         private DevExpress.XtraGrid.Columns.GridColumn colID;

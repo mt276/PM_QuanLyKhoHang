@@ -95,9 +95,9 @@ namespace PM_QuanLyKhoHang
             this.rbpContact = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbpgSendEmail = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
-            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.pnlMain = new DevExpress.XtraEditors.PanelControl();
             ((System.ComponentModel.ISupportInitialize)(this.rbMenu)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pnlMain)).BeginInit();
             this.SuspendLayout();
             // 
             // rbMenu
@@ -180,7 +180,7 @@ namespace PM_QuanLyKhoHang
             this.btnMyAccount.Caption = "Tài Khoản Của Tôi";
             this.btnMyAccount.Description = "Tài Khoản Của Tôi";
             this.btnMyAccount.Id = 6;
-            this.btnMyAccount.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnProfileAccount.ImageOptions.LargeImage")));
+            this.btnMyAccount.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnMyAccount.ImageOptions.LargeImage")));
             this.btnMyAccount.LargeWidth = 80;
             this.btnMyAccount.Name = "btnMyAccount";
             // 
@@ -490,13 +490,13 @@ namespace PM_QuanLyKhoHang
             this.ribbonStatusBar.Ribbon = this.rbMenu;
             this.ribbonStatusBar.Size = new System.Drawing.Size(1440, 36);
             // 
-            // panelControl1
+            // pnlMain
             // 
-            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl1.Location = new System.Drawing.Point(0, 236);
-            this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1440, 419);
-            this.panelControl1.TabIndex = 2;
+            this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlMain.Location = new System.Drawing.Point(0, 236);
+            this.pnlMain.Name = "pnlMain";
+            this.pnlMain.Size = new System.Drawing.Size(1440, 419);
+            this.pnlMain.TabIndex = 2;
             // 
             // Management
             // 
@@ -505,7 +505,7 @@ namespace PM_QuanLyKhoHang
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1440, 691);
-            this.Controls.Add(this.panelControl1);
+            this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.rbMenu);
             this.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -516,7 +516,7 @@ namespace PM_QuanLyKhoHang
             this.Text = "Phần Mềm Quản Lý Kho";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.rbMenu)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pnlMain)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -534,7 +534,7 @@ namespace PM_QuanLyKhoHang
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbpgConfigure;
         private DevExpress.XtraBars.Ribbon.RibbonPage rbpContact;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbpgSendEmail;
-        private DevExpress.XtraEditors.PanelControl panelControl1;
+        private DevExpress.XtraEditors.PanelControl pnlMain;
         private DevExpress.XtraBars.BarButtonItem btnLogin;
         private DevExpress.XtraBars.BarButtonItem btnLogout;
         private DevExpress.XtraBars.BarButtonItem btnExits;
