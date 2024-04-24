@@ -42,18 +42,18 @@
             this.lbNote = new DevExpress.XtraEditors.LabelControl();
             this.txtInputSource = new DevExpress.XtraEditors.TextEdit();
             this.lbInputSource = new DevExpress.XtraEditors.LabelControl();
-            this.lbSpecification = new DevExpress.XtraEditors.LabelControl();
+            this.lbDimensions = new DevExpress.XtraEditors.LabelControl();
             this.txtProductName = new DevExpress.XtraEditors.TextEdit();
             this.lbStartDate = new DevExpress.XtraEditors.LabelControl();
             this.lbProductName = new DevExpress.XtraEditors.LabelControl();
-            this.mmedSpecification = new DevExpress.XtraEditors.MemoEdit();
+            this.mmedDimensions = new DevExpress.XtraEditors.MemoEdit();
             this.mmedNote = new DevExpress.XtraEditors.MemoEdit();
             this.dtgvAddProducts = new DevExpress.XtraGrid.GridControl();
             this.gvAddProducts = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colSTT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colProductName = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colSpecification = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDimensions = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colUnit = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colStock = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colStartDate = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -73,7 +73,7 @@
             this.spccAddProducts.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtInputSource.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtProductName.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mmedSpecification.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mmedDimensions.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mmedNote.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvAddProducts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvAddProducts)).BeginInit();
@@ -121,11 +121,11 @@
             this.spccAddProducts.Panel1.Controls.Add(this.lbNote);
             this.spccAddProducts.Panel1.Controls.Add(this.txtInputSource);
             this.spccAddProducts.Panel1.Controls.Add(this.lbInputSource);
-            this.spccAddProducts.Panel1.Controls.Add(this.lbSpecification);
+            this.spccAddProducts.Panel1.Controls.Add(this.lbDimensions);
             this.spccAddProducts.Panel1.Controls.Add(this.txtProductName);
             this.spccAddProducts.Panel1.Controls.Add(this.lbStartDate);
             this.spccAddProducts.Panel1.Controls.Add(this.lbProductName);
-            this.spccAddProducts.Panel1.Controls.Add(this.mmedSpecification);
+            this.spccAddProducts.Panel1.Controls.Add(this.mmedDimensions);
             this.spccAddProducts.Panel1.Controls.Add(this.mmedNote);
             this.spccAddProducts.Panel1.Text = "Panel1";
             // 
@@ -237,14 +237,14 @@
             this.lbInputSource.TabIndex = 0;
             this.lbInputSource.Text = "Nguồn nhập";
             // 
-            // lbSpecification
+            // lbDimensions
             // 
-            this.lbSpecification.Location = new System.Drawing.Point(5, 75);
-            this.lbSpecification.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.lbSpecification.Name = "lbSpecification";
-            this.lbSpecification.Size = new System.Drawing.Size(65, 19);
-            this.lbSpecification.TabIndex = 0;
-            this.lbSpecification.Text = "Quy cách";
+            this.lbDimensions.Location = new System.Drawing.Point(5, 75);
+            this.lbDimensions.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.lbDimensions.Name = "lbDimensions";
+            this.lbDimensions.Size = new System.Drawing.Size(65, 19);
+            this.lbDimensions.TabIndex = 0;
+            this.lbDimensions.Text = "Quy cách";
             // 
             // txtProductName
             // 
@@ -272,13 +272,13 @@
             this.lbProductName.TabIndex = 0;
             this.lbProductName.Text = "Tên sản phẩm";
             // 
-            // mmedSpecification
+            // mmedDimensions
             // 
-            this.mmedSpecification.Location = new System.Drawing.Point(170, 70);
-            this.mmedSpecification.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.mmedSpecification.Name = "mmedSpecification";
-            this.mmedSpecification.Size = new System.Drawing.Size(380, 95);
-            this.mmedSpecification.TabIndex = 1;
+            this.mmedDimensions.Location = new System.Drawing.Point(170, 70);
+            this.mmedDimensions.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.mmedDimensions.Name = "mmedDimensions";
+            this.mmedDimensions.Size = new System.Drawing.Size(380, 95);
+            this.mmedDimensions.TabIndex = 1;
             // 
             // mmedNote
             // 
@@ -307,7 +307,7 @@
             this.colSTT,
             this.colID,
             this.colProductName,
-            this.colSpecification,
+            this.colDimensions,
             this.colUnit,
             this.colStock,
             this.colStartDate,
@@ -362,21 +362,21 @@
             this.colProductName.VisibleIndex = 1;
             this.colProductName.Width = 259;
             // 
-            // colSpecification
+            // colDimensions
             // 
-            this.colSpecification.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.colSpecification.AppearanceCell.Options.UseFont = true;
-            this.colSpecification.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            this.colSpecification.AppearanceHeader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.colSpecification.AppearanceHeader.Options.UseFont = true;
-            this.colSpecification.AppearanceHeader.Options.UseForeColor = true;
-            this.colSpecification.Caption = "Quy Cách";
-            this.colSpecification.FieldName = "Specification";
-            this.colSpecification.MinWidth = 30;
-            this.colSpecification.Name = "colSpecification";
-            this.colSpecification.Visible = true;
-            this.colSpecification.VisibleIndex = 2;
-            this.colSpecification.Width = 190;
+            this.colDimensions.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.colDimensions.AppearanceCell.Options.UseFont = true;
+            this.colDimensions.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.colDimensions.AppearanceHeader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.colDimensions.AppearanceHeader.Options.UseFont = true;
+            this.colDimensions.AppearanceHeader.Options.UseForeColor = true;
+            this.colDimensions.Caption = "Kích Thước";
+            this.colDimensions.FieldName = "Dimensions";
+            this.colDimensions.MinWidth = 30;
+            this.colDimensions.Name = "colDimensions";
+            this.colDimensions.Visible = true;
+            this.colDimensions.VisibleIndex = 2;
+            this.colDimensions.Width = 190;
             // 
             // colUnit
             // 
@@ -496,7 +496,7 @@
             this.spccAddProducts.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtInputSource.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtProductName.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mmedSpecification.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mmedDimensions.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mmedNote.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvAddProducts)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvAddProducts)).EndInit();
@@ -516,11 +516,11 @@
         private DevExpress.XtraEditors.LabelControl lbNote;
         private DevExpress.XtraEditors.TextEdit txtInputSource;
         private DevExpress.XtraEditors.LabelControl lbInputSource;
-        private DevExpress.XtraEditors.LabelControl lbSpecification;
+        private DevExpress.XtraEditors.LabelControl lbDimensions;
         private DevExpress.XtraEditors.TextEdit txtProductName;
         private DevExpress.XtraEditors.LabelControl lbStartDate;
         private DevExpress.XtraEditors.LabelControl lbProductName;
-        private DevExpress.XtraEditors.MemoEdit mmedSpecification;
+        private DevExpress.XtraEditors.MemoEdit mmedDimensions;
         private DevExpress.XtraGrid.GridControl dtgvAddProducts;
         private DevExpress.XtraGrid.Views.Grid.GridView gvAddProducts;
         private DevExpress.XtraEditors.MemoEdit mmedNote;
@@ -531,7 +531,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colSTT;
         private DevExpress.XtraGrid.Columns.GridColumn colID;
         private DevExpress.XtraGrid.Columns.GridColumn colProductName;
-        private DevExpress.XtraGrid.Columns.GridColumn colSpecification;
+        private DevExpress.XtraGrid.Columns.GridColumn colDimensions;
         private DevExpress.XtraGrid.Columns.GridColumn colUnit;
         private DevExpress.XtraGrid.Columns.GridColumn colStock;
         private DevExpress.XtraGrid.Columns.GridColumn colStartDate;

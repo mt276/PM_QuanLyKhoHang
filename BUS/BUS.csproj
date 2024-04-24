@@ -43,11 +43,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BUS\AccountBUS.cs" />
+    <Compile Include="BUS\TypeAccountBUS.cs" />
+    <Compile Include="BUS\TypeActBUS.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DAO\DAO.csproj">
+      <Project>{eff46342-bfca-44a0-976a-2da25a7cca85}</Project>
+      <Name>DAO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DTO\DTO.csproj">
+      <Project>{51520a50-2717-4114-ad38-c8288c30dad7}</Project>
+      <Name>DTO</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

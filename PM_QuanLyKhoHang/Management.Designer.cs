@@ -149,6 +149,7 @@ namespace PM_QuanLyKhoHang
             this.btnLogin.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N));
             this.btnLogin.LargeWidth = 80;
             this.btnLogin.Name = "btnLogin";
+            this.btnLogin.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLogin_ItemClick);
             // 
             // btnLogout
             // 
@@ -159,6 +160,7 @@ namespace PM_QuanLyKhoHang
             this.btnLogout.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.L));
             this.btnLogout.LargeWidth = 80;
             this.btnLogout.Name = "btnLogout";
+            this.btnLogout.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLogout_ItemClick);
             // 
             // btnExits
             // 
@@ -174,6 +176,7 @@ namespace PM_QuanLyKhoHang
             superToolTip1.Items.Add(toolTipTitleItem1);
             superToolTip1.Items.Add(toolTipItem1);
             this.btnExits.SuperTip = superToolTip1;
+            this.btnExits.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnExits_ItemClick);
             // 
             // btnMyAccount
             // 
@@ -183,6 +186,7 @@ namespace PM_QuanLyKhoHang
             this.btnMyAccount.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnMyAccount.ImageOptions.LargeImage")));
             this.btnMyAccount.LargeWidth = 80;
             this.btnMyAccount.Name = "btnMyAccount";
+            this.btnMyAccount.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnMyAccount_ItemClick);
             // 
             // btnAuthorization
             // 
@@ -515,6 +519,7 @@ namespace PM_QuanLyKhoHang
             this.StatusBar = this.ribbonStatusBar;
             this.Text = "Phần Mềm Quản Lý Kho";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Management_Load);
             ((System.ComponentModel.ISupportInitialize)(this.rbMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlMain)).EndInit();
             this.ResumeLayout(false);

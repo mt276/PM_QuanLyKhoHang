@@ -46,7 +46,7 @@
             this.STT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colProductName = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colSpecification = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDimensions = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colStock = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colUnit = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colUnit2 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -240,7 +240,7 @@
             this.STT,
             this.colID,
             this.colProductName,
-            this.colSpecification,
+            this.colDimensions,
             this.colStock,
             this.colUnit,
             this.colUnit2,
@@ -281,15 +281,15 @@
             this.colProductName.VisibleIndex = 1;
             this.colProductName.Width = 76;
             // 
-            // colSpecification
+            // colDimensions
             // 
-            this.colSpecification.Caption = "Quy Cách";
-            this.colSpecification.FieldName = "Specification";
-            this.colSpecification.MinWidth = 30;
-            this.colSpecification.Name = "colSpecification";
-            this.colSpecification.Visible = true;
-            this.colSpecification.VisibleIndex = 2;
-            this.colSpecification.Width = 76;
+            this.colDimensions.Caption = "Kích Thước";
+            this.colDimensions.FieldName = "Dimensions";
+            this.colDimensions.MinWidth = 30;
+            this.colDimensions.Name = "colDimensions";
+            this.colDimensions.Visible = true;
+            this.colDimensions.VisibleIndex = 2;
+            this.colDimensions.Width = 76;
             // 
             // colStock
             // 
@@ -777,7 +777,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn STT;
         private DevExpress.XtraGrid.Columns.GridColumn colID;
         private DevExpress.XtraGrid.Columns.GridColumn colProductName;
-        private DevExpress.XtraGrid.Columns.GridColumn colSpecification;
+        private DevExpress.XtraGrid.Columns.GridColumn colDimensions;
         private DevExpress.XtraGrid.Columns.GridColumn colUnit2;
         private DevExpress.XtraGrid.Columns.GridColumn colStock;
         private DevExpress.XtraGrid.Columns.GridColumn colPStartDate;

@@ -34,7 +34,7 @@ namespace PM_QuanLyKhoHang.FormDetails
             this.gvListProducts = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colSTT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNameProduct = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colSpecification = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDimensions = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCount = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colVAT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSalePrice = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -64,7 +64,7 @@ namespace PM_QuanLyKhoHang.FormDetails
             this.gvListProducts.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colSTT,
             this.colNameProduct,
-            this.colSpecification,
+            this.colDimensions,
             this.colCount,
             this.colVAT,
             this.colSalePrice,
@@ -112,23 +112,23 @@ namespace PM_QuanLyKhoHang.FormDetails
             this.colNameProduct.VisibleIndex = 1;
             this.colNameProduct.Width = 141;
             // 
-            // colSpecification
+            // colDimensions
             // 
-            this.colSpecification.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
-            this.colSpecification.AppearanceCell.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.colSpecification.AppearanceCell.Options.UseFont = true;
-            this.colSpecification.AppearanceCell.Options.UseForeColor = true;
-            this.colSpecification.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            this.colSpecification.AppearanceHeader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.colSpecification.AppearanceHeader.Options.UseFont = true;
-            this.colSpecification.AppearanceHeader.Options.UseForeColor = true;
-            this.colSpecification.Caption = "Quy Cách";
-            this.colSpecification.FieldName = "Specification";
-            this.colSpecification.MinWidth = 30;
-            this.colSpecification.Name = "colSpecification";
-            this.colSpecification.Visible = true;
-            this.colSpecification.VisibleIndex = 2;
-            this.colSpecification.Width = 134;
+            this.colDimensions.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.colDimensions.AppearanceCell.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.colDimensions.AppearanceCell.Options.UseFont = true;
+            this.colDimensions.AppearanceCell.Options.UseForeColor = true;
+            this.colDimensions.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.colDimensions.AppearanceHeader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.colDimensions.AppearanceHeader.Options.UseFont = true;
+            this.colDimensions.AppearanceHeader.Options.UseForeColor = true;
+            this.colDimensions.Caption = "Kích Thước";
+            this.colDimensions.FieldName = "Dimensions";
+            this.colDimensions.MinWidth = 30;
+            this.colDimensions.Name = "colDimensions";
+            this.colDimensions.Visible = true;
+            this.colDimensions.VisibleIndex = 2;
+            this.colDimensions.Width = 134;
             // 
             // colCount
             // 
@@ -253,7 +253,7 @@ namespace PM_QuanLyKhoHang.FormDetails
         private DevExpress.XtraGrid.Columns.GridColumn colSalePrice;
         private DevExpress.XtraGrid.Columns.GridColumn colSaleDay;
         private DevExpress.XtraGrid.Columns.GridColumn colNote;
-        private DevExpress.XtraGrid.Columns.GridColumn colSpecification;
+        private DevExpress.XtraGrid.Columns.GridColumn colDimensions;
         private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
     }
 }

@@ -44,7 +44,7 @@
             this.colSTT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colProductName = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colSpecification = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDimensions = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colUnitID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colUnit = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colStock = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -200,7 +200,7 @@
             this.colSTT,
             this.colID,
             this.colProductName,
-            this.colSpecification,
+            this.colDimensions,
             this.colUnitID,
             this.colUnit,
             this.colStock,
@@ -256,22 +256,22 @@
             this.colProductName.VisibleIndex = 1;
             this.colProductName.Width = 241;
             // 
-            // colSpecification
+            // colDimensions
             // 
-            this.colSpecification.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.colSpecification.AppearanceCell.Options.UseFont = true;
-            this.colSpecification.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.colSpecification.AppearanceHeader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.colSpecification.AppearanceHeader.Options.UseFont = true;
-            this.colSpecification.AppearanceHeader.Options.UseForeColor = true;
-            this.colSpecification.Caption = "Quy Cách";
-            this.colSpecification.FieldName = "Specification";
-            this.colSpecification.MinWidth = 30;
-            this.colSpecification.Name = "colSpecification";
-            this.colSpecification.ToolTip = "Quy cách của sản phẩm";
-            this.colSpecification.Visible = true;
-            this.colSpecification.VisibleIndex = 2;
-            this.colSpecification.Width = 180;
+            this.colDimensions.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.colDimensions.AppearanceCell.Options.UseFont = true;
+            this.colDimensions.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.colDimensions.AppearanceHeader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.colDimensions.AppearanceHeader.Options.UseFont = true;
+            this.colDimensions.AppearanceHeader.Options.UseForeColor = true;
+            this.colDimensions.Caption = "Quy Cách";
+            this.colDimensions.FieldName = "Dimensions";
+            this.colDimensions.MinWidth = 30;
+            this.colDimensions.Name = "colDimensions";
+            this.colDimensions.ToolTip = "Quy cách của sản phẩm";
+            this.colDimensions.Visible = true;
+            this.colDimensions.VisibleIndex = 2;
+            this.colDimensions.Width = 180;
             // 
             // colUnitID
             // 
@@ -419,7 +419,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colSTT;
         private DevExpress.XtraGrid.Columns.GridColumn colID;
         private DevExpress.XtraGrid.Columns.GridColumn colProductName;
-        private DevExpress.XtraGrid.Columns.GridColumn colSpecification;
+        private DevExpress.XtraGrid.Columns.GridColumn colDimensions;
         private DevExpress.XtraGrid.Columns.GridColumn colUnitID;
         private DevExpress.XtraGrid.Columns.GridColumn colUnit;
         private DevExpress.XtraGrid.Columns.GridColumn colStock;

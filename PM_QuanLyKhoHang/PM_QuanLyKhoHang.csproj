@@ -402,6 +402,15 @@
     <Content Include="Images\Under-construction.ico" />
     <Content Include="Images\User20 google buzz.ico" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\BUS\BUS.csproj">
+      <Project>{2e68470a-48bf-4388-b290-b5149493ef4c}</Project>
+      <Name>BUS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DTO\DTO.csproj">
+      <Project>{51520a50-2717-4114-ad38-c8288c30dad7}</Project>
+      <Name>DTO</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

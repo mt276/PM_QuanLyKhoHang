@@ -39,7 +39,7 @@
             this.colCompanyName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colStaffName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colStartDate = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colTotalPrice = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTotalBill = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTotalPayment = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colRevenue = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCommissions = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -154,7 +154,7 @@
             this.colCompanyName,
             this.colStaffName,
             this.colStartDate,
-            this.colTotalPrice,
+            this.colTotalBill,
             this.colTotalPayment,
             this.colRevenue,
             this.colCommissions,
@@ -245,22 +245,22 @@
             this.colStartDate.Visible = true;
             this.colStartDate.VisibleIndex = 4;
             // 
-            // colTotalPrice
+            // colTotalBill
             // 
-            this.colTotalPrice.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.colTotalPrice.AppearanceCell.Options.UseFont = true;
-            this.colTotalPrice.AppearanceCell.Options.UseTextOptions = true;
-            this.colTotalPrice.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.colTotalPrice.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            this.colTotalPrice.AppearanceHeader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.colTotalPrice.AppearanceHeader.Options.UseFont = true;
-            this.colTotalPrice.AppearanceHeader.Options.UseForeColor = true;
-            this.colTotalPrice.Caption = "Tổng Tiền Hóa Đơn";
-            this.colTotalPrice.FieldName = "TotalPrice";
-            this.colTotalPrice.MinWidth = 30;
-            this.colTotalPrice.Name = "colTotalPrice";
-            this.colTotalPrice.Visible = true;
-            this.colTotalPrice.VisibleIndex = 5;
+            this.colTotalBill.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 11F);
+            this.colTotalBill.AppearanceCell.Options.UseFont = true;
+            this.colTotalBill.AppearanceCell.Options.UseTextOptions = true;
+            this.colTotalBill.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.colTotalBill.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.colTotalBill.AppearanceHeader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.colTotalBill.AppearanceHeader.Options.UseFont = true;
+            this.colTotalBill.AppearanceHeader.Options.UseForeColor = true;
+            this.colTotalBill.Caption = "Tổng Tiền Hóa Đơn";
+            this.colTotalBill.FieldName = "TotalBill";
+            this.colTotalBill.MinWidth = 30;
+            this.colTotalBill.Name = "colTotalBill";
+            this.colTotalBill.Visible = true;
+            this.colTotalBill.VisibleIndex = 5;
             // 
             // colTotalPayment
             // 
@@ -503,7 +503,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colCompanyName;
         private DevExpress.XtraGrid.Columns.GridColumn colStaffName;
         private DevExpress.XtraGrid.Columns.GridColumn colStartDate;
-        private DevExpress.XtraGrid.Columns.GridColumn colTotalPrice;
+        private DevExpress.XtraGrid.Columns.GridColumn colTotalBill;
         private DevExpress.XtraGrid.Columns.GridColumn colTotalPayment;
         private DevExpress.XtraGrid.Columns.GridColumn colRevenue;
         private DevExpress.XtraGrid.Columns.GridColumn colCommissions;
