@@ -24,7 +24,7 @@ CREATE TABLE Account
 (
     ID        INT IDENTITY PRIMARY KEY NOT NULL,
     UserName  NVARCHAR(500),
-    Password  NVARCHAR(500),
+    Password  NVARCHAR(500) NOT NULL DEFAULT 1,
     FullName  NVARCHAR(500),
     Address   NVARCHAR(500),
     TypeId    INT  NOT NULL,
@@ -34,7 +34,7 @@ CREATE TABLE Account
     FOREIGN KEY (TypeId) REFERENCES dbo.TypeAccount (ID)
 )
 GO
-CREATE TABLE Authorizations
+CREATE TABLE Decentralization
 (
     ID        INT IDENTITY PRIMARY KEY NOT NULL,
     AccountID INT NOT NULL,
@@ -56,7 +56,7 @@ CREATE TABLE Products
 (
     ID            INT IDENTITY PRIMARY KEY NOT NULL,
     Name          NVARCHAR( MAX),
-    Dimensions NVARCHAR( MAX),
+    Dimensions	  NVARCHAR(MAX),
     UnitID        INT NOT NULL,
     Stock         INT,
     StartDate     DATE NOT NULL DEFAULT GETDATE(),
@@ -124,7 +124,7 @@ CREATE TABLE TypeReferrer
     Note      NTEXT
 )
 GO
-CREATE TABLE ReceiveCommissions
+CREATE TABLE ReceiveCommission
 (
     ID             INT IDENTITY PRIMARY KEY NOT NULL,
     Name           NVARCHAR(200),
@@ -148,13 +148,13 @@ CREATE TABLE Bill
     TotalPayment         NUMERIC(18, 0),
     PaymentDueDate       DATE,
     Dividend             NUMERIC(18, 0),
-    Commissions          NUMERIC(18, 0),
-    ReceiveCommissionsID INT,
+    Commission          NUMERIC(18, 0),
+    ReceiveCommissionID INT,
     Del                  BIT,
     Note                 NTEXT,
     FOREIGN KEY (CompanyID) REFERENCES dbo.Company (ID),
     FOREIGN KEY (AccountID) REFERENCES dbo.Account (ID),
-    FOREIGN KEY (ReceiveCommissionsID) REFERENCES dbo.ReceiveCommissions (ID)
+    FOREIGN KEY (ReceiveCommissionID) REFERENCES dbo.ReceiveCommission (ID)
 )
 GO
 CREATE TABLE Representative
@@ -188,7 +188,7 @@ CREATE TABLE PaymentInfo
 (
     ID            INT IDENTITY PRIMARY KEY NOT NULL,
     BillID        INT NOT NULL,
-    Payments      NUMERIC(18, 0),
+    Payment      NUMERIC(18, 0),
     StartDate     DATE NOT NULL DEFAULT GETDATE(),
     StartNextDate DATE,
     Del           BIT,
@@ -270,13 +270,13 @@ INSERT dbo.Input (ID, ProductID, Count, ImportPrice, AccountID, Del, Note) VALUE
 INSERT dbo.Input (ID, ProductID, Count, ImportPrice, AccountID, Del, Note) VALUES (7, 2, 12, CAST(100000 AS Numeric(18, 0)), 1, 0, N'cập nhật giá bán')
 INSERT dbo.Input (ID, ProductID, Count, ImportPrice, AccountID, Del, Note) VALUES (8, 4, 100, CAST(12000 AS Numeric(18, 0)), 1, 0, N'')
 SET IDENTITY_INSERT dbo.Input OFF
-SET IDENTITY_INSERT dbo.ReceiveCommissions ON
-INSERT dbo.ReceiveCommissions (ID, Name, Address, Phone, Fax, TypeReferrerID, Del, Note) VALUES (1, N'Nguyễn Văn An', N'123-Điện Biên Phủ', N'0947294761', N'083712343', 1, 0, N'')
-SET IDENTITY_INSERT dbo.ReceiveCommissions OFF
+SET IDENTITY_INSERT dbo.ReceiveCommission ON
+INSERT dbo.ReceiveCommission (ID, Name, Address, Phone, Fax, TypeReferrerID, Del, Note) VALUES (1, N'Nguyễn Văn An', N'123-Điện Biên Phủ', N'0947294761', N'083712343', 1, 0, N'')
+SET IDENTITY_INSERT dbo.ReceiveCommission OFF
 SET IDENTITY_INSERT dbo.Bill ON
-INSERT dbo.Bill (ID, Name, CompanyID, AccountID, TotalBill, TotalPayment, PaymentDueDate, Dividend, Commissions, ReceiveCommissionsID, Del, Note) VALUES (1, N'Hóa đơn', 2, 1, CAST(748000 AS Numeric(18, 0)), CAST(23 AS Numeric(18, 0)), Null, CAST(360000 AS Numeric(18, 0)), CAST(0 AS Numeric(18, 0)), NULL, 0, N'')
-INSERT dbo.Bill (ID, Name, CompanyID, AccountID, TotalBill, TotalPayment, PaymentDueDate, Dividend, Commissions, ReceiveCommissionsID, Del, Note) VALUES (2, N'Hóa đơn', 3, 1, CAST(748000 AS Numeric(18, 0)), CAST(23 AS Numeric(18, 0)), Null, CAST(360000 AS Numeric(18, 0)), CAST(0 AS Numeric(18, 0)), NULL, 0, N'')
-INSERT dbo.Bill (ID, Name, CompanyID, AccountID, TotalBill, TotalPayment, PaymentDueDate, Dividend, Commissions, ReceiveCommissionsID, Del, Note) VALUES (3, N'Hóa đơn', 4, 1, CAST(748000 AS Numeric(18, 0)), CAST(3123 AS Numeric(18, 0)), Null, CAST(360000 AS Numeric(18, 0)), CAST(0 AS Numeric(18, 0)), NULL, 0, N'')
+INSERT dbo.Bill (ID, Name, CompanyID, AccountID, TotalBill, TotalPayment, PaymentDueDate, Dividend, Commission, ReceiveCommissionID, Del, Note) VALUES (1, N'Hóa đơn', 2, 1, CAST(748000 AS Numeric(18, 0)), CAST(23 AS Numeric(18, 0)), Null, CAST(360000 AS Numeric(18, 0)), CAST(0 AS Numeric(18, 0)), NULL, 0, N'')
+INSERT dbo.Bill (ID, Name, CompanyID, AccountID, TotalBill, TotalPayment, PaymentDueDate, Dividend, Commission, ReceiveCommissionID, Del, Note) VALUES (2, N'Hóa đơn', 3, 1, CAST(748000 AS Numeric(18, 0)), CAST(23 AS Numeric(18, 0)), Null, CAST(360000 AS Numeric(18, 0)), CAST(0 AS Numeric(18, 0)), NULL, 0, N'')
+INSERT dbo.Bill (ID, Name, CompanyID, AccountID, TotalBill, TotalPayment, PaymentDueDate, Dividend, Commission, ReceiveCommissionID, Del, Note) VALUES (3, N'Hóa đơn', 4, 1, CAST(748000 AS Numeric(18, 0)), CAST(3123 AS Numeric(18, 0)), Null, CAST(360000 AS Numeric(18, 0)), CAST(0 AS Numeric(18, 0)), NULL, 0, N'')
 SET IDENTITY_INSERT dbo.Bill OFF
 SET IDENTITY_INSERT dbo.SalePrice ON
 INSERT dbo.SalePrice (ID, ProductID, SalePrice, AccountID, Del, Note) VALUES (1, 1, CAST(12000 AS Numeric(18, 0)), 1, 0, N'')
@@ -288,10 +288,37 @@ INSERT dbo.BillInfo (ID, BillID, ProductID, Count, SalePrice, VAT, Dividend, Del
 INSERT dbo.BillInfo (ID, BillID, ProductID, Count, SalePrice, VAT, Dividend, Del, Note) VALUES (2, 2, 2, 2, CAST(340000 AS Numeric(18, 0)), 2, CAST(180000 AS Numeric(18, 0)), 0, N'')
 INSERT dbo.BillInfo (ID, BillID, ProductID, Count, SalePrice, VAT, Dividend, Del, Note) VALUES (3, 3, 2, 2, CAST(340000 AS Numeric(18, 0)), 0, CAST(180000 AS Numeric(18, 0)), 0, N'')
 SET IDENTITY_INSERT dbo.BillInfo OFF
+
+CREATE PROC USP_DeleteRecordsBasedOnDelValue
+AS
+BEGIN
+	DELETE FROM dbo.Account WHERE DEL = 1
+	DELETE FROM dbo.Bill WHERE DEL = 1
+	DELETE FROM dbo.BillInfo WHERE DEL = 1
+	DELETE FROM dbo.Company WHERE DEL = 1
+	DELETE FROM dbo.Decentralization WHERE DEL = 1
+	DELETE FROM dbo.Input WHERE DEL = 1
+	DELETE FROM dbo.Parameter WHERE DEL = 1
+	DELETE FROM dbo.PaymentInfo WHERE DEL = 1
+	DELETE FROM dbo.Products WHERE DEL = 1
+	DELETE FROM dbo.ReceiveCommissions WHERE DEL = 1
+	DELETE FROM dbo.Representative WHERE DEL = 1
+	DELETE FROM dbo.SalePrice WHERE DEL = 1
+	DELETE FROM dbo.TypeAccount WHERE DEL = 1
+	DELETE FROM dbo.TypeAct WHERE DEL = 1
+	DELETE FROM dbo.TypeReferrer WHERE DEL = 1
+	DELETE FROM dbo.Unit WHERE DEL = 1
+	DELETE FROM dbo.SystemError WHERE DEL = 1
+	DELETE FROM dbo.FKey WHERE DEL = 1
+END
+GO
+exec USP_DeleteRecordsBasedOnDelValue
+
+
 --select * from TypeAct
 --select * from TypeAccount
 --select * from Account
---select * from Authorizations
+--select * from Decentralization
 --select * from Unit
 --select * from Company
 --select * from Products

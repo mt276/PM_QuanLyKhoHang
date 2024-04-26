@@ -13,7 +13,8 @@ namespace DAO.DAO
     public class TypeAccountDAO
     {
         public SqlConnection cn = null;
-        #region "[khởi tạo cơ bản]"
+
+        #region "[Connect]"
         public TypeAccountDAO()
         {
             cn = SqlDataHelper.Connect(SqlDataHelper.strConnectionString);
@@ -68,9 +69,9 @@ namespace DAO.DAO
                 {
                     string sql = string.Format("Select * from dbo.TypeAccount Where ID = {0}", _iID.ToString());
                     DataTable dt = SqlDataHelper.GetDataToStringSQL(sql, cn);
-                    foreach (DataRow Row in dt.Rows)
+                    foreach (DataRow row in dt.Rows)
                     {
-                        objResult = new TypeAccountDTO(Row);
+                        objResult = new TypeAccountDTO(row);
                         return objResult;
                     }
                 }
@@ -79,6 +80,7 @@ namespace DAO.DAO
             return objResult;
         }
         #endregion
+
         #region "[Update]"
         public bool Update(TypeAccountDTO _obj)
         {
@@ -87,13 +89,13 @@ namespace DAO.DAO
             {
                 if (cn != null)
                 {
-                    TypeAccountDTO Temp = SelectPrimaryKey(_obj.ID);
-                    if (Temp != null)
+                    TypeAccountDTO temp = SelectPrimaryKey(_obj.ID);
+                    if (temp != null)
                     {
                         string sql = string.Format("UPDATE dbo.TypeAccount Set name = N'{0}', del = '{1}', note = N'{2}' Where ID = {3}",
                             _obj.Name, _obj.Del.ToString(), _obj.Note, _obj.ID.ToString());
-                        int Result = SqlDataHelper.ExecuteNonQuery(sql, cn);
-                        if (Result > 0)
+                        int result = SqlDataHelper.ExecuteNonQuery(sql, cn);
+                        if (result > 0)
                             isResult = true;
                     }
                 }
@@ -115,9 +117,9 @@ namespace DAO.DAO
                     DataTable dt = SqlDataHelper.GetDataToStringSQL(sql, cn);
                     if (dt.Rows.Count > 0)
                     {
-                        foreach (DataRow Row in dt.Rows)
+                        foreach (DataRow row in dt.Rows)
                         {
-                            TypeAccountDTO obj = new TypeAccountDTO(Row);
+                            TypeAccountDTO obj = new TypeAccountDTO(row);
                             listResult.Add(obj);
                         }
                     }
@@ -139,9 +141,9 @@ namespace DAO.DAO
                 {
                     string sql = string.Format("SELECT * FROM dbo.TypeAccount WHERE name=N'{0}'", _strName);
                     DataTable dt = SqlDataHelper.GetDataToStringSQL(sql, cn);
-                    foreach (DataRow Row in dt.Rows)
+                    foreach (DataRow row in dt.Rows)
                     {
-                        objResult = new TypeAccountDTO(Row);
+                        objResult = new TypeAccountDTO(row);
                         return objResult;
                     }
                 }

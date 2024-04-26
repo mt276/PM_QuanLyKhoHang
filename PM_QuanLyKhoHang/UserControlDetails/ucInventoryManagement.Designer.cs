@@ -111,21 +111,21 @@
             this.gcInventoryManagement.TabIndex = 0;
             this.gcInventoryManagement.Text = "Quản Lý Kho Hàng & Thông báo sản phẩm sắp hết hàng";
             // 
-            // splitContainerControl1
+            // spccInventoryManagement
             // 
             this.spccInventoryManagement.Dock = System.Windows.Forms.DockStyle.Fill;
             this.spccInventoryManagement.Horizontal = false;
             this.spccInventoryManagement.Location = new System.Drawing.Point(2, 34);
             this.spccInventoryManagement.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.spccInventoryManagement.Name = "splitContainerControl1";
+            this.spccInventoryManagement.Name = "spccInventoryManagement";
             // 
-            // splitContainerControl1.Panel1
+            // spccInventoryManagement.Panel1
             // 
             this.spccInventoryManagement.Panel1.Controls.Add(this.panelControl3);
             this.spccInventoryManagement.Panel1.Controls.Add(this.pnlSearch);
             this.spccInventoryManagement.Panel1.Text = "Panel1";
             // 
-            // splitContainerControl1.Panel2
+            // spccInventoryManagement.Panel2
             // 
             this.spccInventoryManagement.Panel2.Controls.Add(this.gcAddProduct);
             this.spccInventoryManagement.Panel2.Text = "Panel2";

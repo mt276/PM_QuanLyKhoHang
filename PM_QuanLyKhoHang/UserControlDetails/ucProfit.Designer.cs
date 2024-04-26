@@ -42,8 +42,8 @@
             this.colTotalBill = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTotalPayment = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colRevenue = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colCommissions = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colShippingCosts = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colCommission = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colShippingCost = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNote = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnExportExcel = new DevExpress.XtraEditors.SimpleButton();
             this.lbTotalBill = new DevExpress.XtraEditors.LabelControl();
@@ -157,8 +157,8 @@
             this.colTotalBill,
             this.colTotalPayment,
             this.colRevenue,
-            this.colCommissions,
-            this.colShippingCosts,
+            this.colCommission,
+            this.colShippingCost,
             this.colNote});
             this.gvProfitDetails.DetailHeight = 538;
             this.gvProfitDetails.GridControl = this.dtgvProfitDetails;
@@ -296,39 +296,39 @@
             this.colRevenue.Visible = true;
             this.colRevenue.VisibleIndex = 7;
             // 
-            // colCommissions
+            // colCommission
             // 
-            this.colCommissions.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.colCommissions.AppearanceCell.Options.UseFont = true;
-            this.colCommissions.AppearanceCell.Options.UseTextOptions = true;
-            this.colCommissions.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.colCommissions.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            this.colCommissions.AppearanceHeader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.colCommissions.AppearanceHeader.Options.UseFont = true;
-            this.colCommissions.AppearanceHeader.Options.UseForeColor = true;
-            this.colCommissions.Caption = "Hoa Hồng";
-            this.colCommissions.FieldName = "Commissions";
-            this.colCommissions.MinWidth = 30;
-            this.colCommissions.Name = "colCommissions";
-            this.colCommissions.Visible = true;
-            this.colCommissions.VisibleIndex = 8;
+            this.colCommission.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 11F);
+            this.colCommission.AppearanceCell.Options.UseFont = true;
+            this.colCommission.AppearanceCell.Options.UseTextOptions = true;
+            this.colCommission.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.colCommission.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.colCommission.AppearanceHeader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.colCommission.AppearanceHeader.Options.UseFont = true;
+            this.colCommission.AppearanceHeader.Options.UseForeColor = true;
+            this.colCommission.Caption = "Hoa Hồng";
+            this.colCommission.FieldName = "Commission";
+            this.colCommission.MinWidth = 30;
+            this.colCommission.Name = "colCommission";
+            this.colCommission.Visible = true;
+            this.colCommission.VisibleIndex = 8;
             // 
-            // colShippingCosts
+            // colShippingCost
             // 
-            this.colShippingCosts.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.colShippingCosts.AppearanceCell.Options.UseFont = true;
-            this.colShippingCosts.AppearanceCell.Options.UseTextOptions = true;
-            this.colShippingCosts.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.colShippingCosts.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            this.colShippingCosts.AppearanceHeader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.colShippingCosts.AppearanceHeader.Options.UseFont = true;
-            this.colShippingCosts.AppearanceHeader.Options.UseForeColor = true;
-            this.colShippingCosts.Caption = "Phí Vận Chuyển";
-            this.colShippingCosts.FieldName = "ShippingCosts";
-            this.colShippingCosts.MinWidth = 30;
-            this.colShippingCosts.Name = "colShippingCosts";
-            this.colShippingCosts.Visible = true;
-            this.colShippingCosts.VisibleIndex = 9;
+            this.colShippingCost.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 11F);
+            this.colShippingCost.AppearanceCell.Options.UseFont = true;
+            this.colShippingCost.AppearanceCell.Options.UseTextOptions = true;
+            this.colShippingCost.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.colShippingCost.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.colShippingCost.AppearanceHeader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.colShippingCost.AppearanceHeader.Options.UseFont = true;
+            this.colShippingCost.AppearanceHeader.Options.UseForeColor = true;
+            this.colShippingCost.Caption = "Phí Vận Chuyển";
+            this.colShippingCost.FieldName = "ShippingCost";
+            this.colShippingCost.MinWidth = 30;
+            this.colShippingCost.Name = "colShippingCost";
+            this.colShippingCost.Visible = true;
+            this.colShippingCost.VisibleIndex = 9;
             // 
             // colNote
             // 
@@ -506,8 +506,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn colTotalBill;
         private DevExpress.XtraGrid.Columns.GridColumn colTotalPayment;
         private DevExpress.XtraGrid.Columns.GridColumn colRevenue;
-        private DevExpress.XtraGrid.Columns.GridColumn colCommissions;
-        private DevExpress.XtraGrid.Columns.GridColumn colShippingCosts;
+        private DevExpress.XtraGrid.Columns.GridColumn colCommission;
+        private DevExpress.XtraGrid.Columns.GridColumn colShippingCost;
         private DevExpress.XtraGrid.Columns.GridColumn colNote;
         private DevExpress.XtraEditors.SimpleButton btnExportExcel;
         private DevExpress.XtraEditors.LabelControl lbTotalBill;

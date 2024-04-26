@@ -30,6 +30,35 @@ namespace PM_QuanLyKhoHang
         }
         #endregion
 
+        #region "[Load]"
+        private void Management_Load(object sender, EventArgs e)
+        {
+            //set lại trạng thái của các button
+            ResetEnableStateButton(false);
+
+            if (UserLogin == null)
+            {
+                btnLogin_ItemClick(null, null);
+            }
+        }
+        #endregion
+
+        #region "[clear Item in pannel]"
+        /// <summary>
+        /// xóa các control đang hiển thị trên Pannel
+        /// </summary>
+        private void clearPannel()
+        {
+            try
+            {
+                pnlMain.Controls.Clear();
+            }
+            catch { }
+        }
+        #endregion
+
+        #region rbpLogin
+
         #region "[Login]"
         private void btnLogin_ItemClick(object sender, ItemClickEventArgs e)
         {
@@ -77,24 +106,11 @@ namespace PM_QuanLyKhoHang
             try
             {
                 btnLogin.Enabled = !_Flag;
-                rbpOperation.Visible = rbpConfig.Visible = rbpContact.Visible = btnLogout.Enabled = btnMyAccount.Enabled = btnAuthorization.Enabled = _Flag;
+                rbpOperation.Visible = rbpConfig.Visible = rbpContact.Visible = btnLogout.Enabled = btnMyAccount.Enabled = btnDecentralization.Enabled = _Flag;
 
             }
             catch { }
 
-        }
-        #endregion
-
-        #region "[Load]"
-        private void Management_Load(object sender, EventArgs e)
-        {
-            //set lại trạng thái của các button
-            ResetEnableStateButton(false);
-
-            if (UserLogin == null)
-            {
-                btnLogin_ItemClick(null, null);
-            }
         }
         #endregion
 
@@ -104,15 +120,6 @@ namespace PM_QuanLyKhoHang
             this.Close();
         }
         #endregion
-
-        private void btnMyAccount_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            try
-            {
-                ShowUserControlTaiKhoanCuaToi();
-            }
-            catch { }
-        }
 
         #region "[Show usercontrol MyAccount]"
         /// <summary>
@@ -131,20 +138,43 @@ namespace PM_QuanLyKhoHang
             }
             catch { }
         }
-        #endregion
 
-        #region "[clear Item in pannel]"
-        /// <summary>
-        /// xóa các control đang hiển thị trên Pannel
-        /// </summary>
-        private void clearPannel()
+        private void btnMyAccount_ItemClick(object sender, ItemClickEventArgs e)
         {
             try
             {
-                pnlMain.Controls.Clear();
+                ShowUserControlTaiKhoanCuaToi();
             }
             catch { }
         }
+        #endregion
+
+        #region "[ucAdvancedDecentralization]"
+        /// <summary>
+        /// hiển thị control phân quyền nâng cao
+        /// </summary>
+        private void ShowUserControlPhanQuyenNangCao()
+        {
+            try
+            {
+                ucAdvancedDecentralization uc = new ucAdvancedDecentralization();
+                uc.clearItem = clearPannel;
+                uc.Dock = DockStyle.Fill;
+                pnlMain.Controls.Clear();
+                pnlMain.Controls.Add(uc);
+            }
+            catch { }
+        }
+        private void btnDecentralization_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                ShowUserControlPhanQuyenNangCao();
+            }
+            catch { }
+        }
+        #endregion
+
         #endregion
     }
 }

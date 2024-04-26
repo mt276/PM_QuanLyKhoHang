@@ -6,6 +6,9 @@ namespace BUS.BUS
 {
     public static class TypeActBUS
     {
+        private static TypeActDAO handle = new TypeActDAO();
+
+
         #region "[Insert]"
         public static int Insert(TypeActDTO _obj)
         {
@@ -13,7 +16,6 @@ namespace BUS.BUS
             int iResult = -1;
             try
             {
-                TypeActDAO handle = new TypeActDAO();
                 iResult = handle.Insert(_obj);
             }
             catch { }
@@ -27,7 +29,6 @@ namespace BUS.BUS
             bool isResult = false;
             try
             {
-                TypeActDAO handle = new TypeActDAO();
                 isResult = handle.Delete(_iID);
             }
             catch { }
@@ -41,7 +42,6 @@ namespace BUS.BUS
             TypeActDTO objResult = null;
             try
             {
-                TypeActDAO handle = new TypeActDAO();
                 objResult = handle.SelectPrimaryKey(_iID);
             }
             catch { }
@@ -55,7 +55,6 @@ namespace BUS.BUS
             bool isResult = false;
             try
             {
-                TypeActDAO handle = new TypeActDAO();
                 isResult = handle.Update(_obj);
             }
             catch { }
@@ -69,7 +68,6 @@ namespace BUS.BUS
             List<TypeActDTO> listResult = new List<TypeActDTO>();
             try
             {
-                TypeActDAO handle = new TypeActDAO();
                 listResult = handle.GetAll();
             }
             catch { }
@@ -83,8 +81,7 @@ namespace BUS.BUS
             TypeActDTO objResult = null;
             try
             {
-                TypeActDAO Handle = new TypeActDAO();
-                objResult = Handle.SelectByName(_strName);
+                objResult = handle.SelectByName(_strName);
             }
             catch { }
             return objResult;

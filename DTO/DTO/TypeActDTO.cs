@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data;
 
 namespace DTO.DTO
 {
@@ -30,10 +25,11 @@ namespace DTO.DTO
         private string name;
         private bool del;
         private string note;
-
+        private bool permission;
         public int ID { get => id; set => id = value; }
         public string Name { get => name; set => name = value; }
         public bool Del { get => del; set => del = value; }
         public string Note { get => note; set => note = value; }
+        public bool Permission { get => permission; set => permission = value; }
     }
 }

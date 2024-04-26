@@ -1,16 +1,12 @@
 ﻿using DAO.DAO;
 using DTO.DTO;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BUS.BUS
 {
     public class TypeAccountBUS
     {
-        private static TypeAccountDAO Handle = new TypeAccountDAO();
+        private static TypeAccountDAO handle = new TypeAccountDAO();
 
         #region "[Insert]"
         public static int Insert(TypeAccountDTO _obj)
@@ -18,7 +14,7 @@ namespace BUS.BUS
             int iResult = -1;
             try
             {
-                iResult = Handle.Insert(_obj);
+                iResult = handle.Insert(_obj);
             }
             catch { }
             return iResult;
@@ -31,7 +27,7 @@ namespace BUS.BUS
             bool isResult = false;
             try
             {
-                isResult = Handle.Delete(_iID);
+                isResult = handle.Delete(_iID);
             }
             catch { }
             return isResult;
@@ -44,7 +40,7 @@ namespace BUS.BUS
             TypeAccountDTO objResult = null;
             try
             {
-                objResult = Handle.SelectPrimaryKey(_iID);
+                objResult = handle.SelectPrimaryKey(_iID);
             }
             catch { }
             return objResult;
@@ -57,19 +53,20 @@ namespace BUS.BUS
             bool isResult = false;
             try
             {
-                isResult = Handle.Update(_obj);
+                isResult = handle.Update(_obj);
             }
             catch { }
             return isResult;
         }
         #endregion
+
         #region "[GetAll]"
         public static List<TypeAccountDTO> GetAll()
         {
             List<TypeAccountDTO> listResult = new List<TypeAccountDTO>();
             try
             {
-                listResult = Handle.GetAll();
+                listResult = handle.GetAll();
             }
             catch { }
             return listResult;

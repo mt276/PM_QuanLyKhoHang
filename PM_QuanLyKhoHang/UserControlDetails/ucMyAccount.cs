@@ -12,9 +12,10 @@ using System.Windows.Forms;
 
 namespace PM_QuanLyKhoHang.UserControlDetails
 {
+    public delegate void DelegateClearItem();
     public partial class ucMyAccount : UserControl
     {
-        public delegate void DelegateClearItem();
+        
         public DelegateClearItem clearItem = null;
 
 

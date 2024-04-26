@@ -62,7 +62,7 @@ namespace PM_QuanLyKhoHang
             this.btnLogout = new DevExpress.XtraBars.BarButtonItem();
             this.btnExits = new DevExpress.XtraBars.BarButtonItem();
             this.btnMyAccount = new DevExpress.XtraBars.BarButtonItem();
-            this.btnAuthorization = new DevExpress.XtraBars.BarButtonItem();
+            this.btnDecentralization = new DevExpress.XtraBars.BarButtonItem();
             this.btnSell = new DevExpress.XtraBars.BarButtonItem();
             this.btnWarehouse = new DevExpress.XtraBars.BarButtonItem();
             this.btnWarehouseManagement = new DevExpress.XtraBars.BarButtonItem();
@@ -82,7 +82,7 @@ namespace PM_QuanLyKhoHang
             this.btnSendEmail = new DevExpress.XtraBars.BarButtonItem();
             this.rbpLogin = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbpgAccount = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.rbpgUserAuthorization = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rbpgUserDecentralization = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbpOperation = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbpgSell = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbpgWarehouse = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -110,7 +110,7 @@ namespace PM_QuanLyKhoHang
             this.btnLogout,
             this.btnExits,
             this.btnMyAccount,
-            this.btnAuthorization,
+            this.btnDecentralization,
             this.btnSell,
             this.btnWarehouse,
             this.btnWarehouseManagement,
@@ -188,15 +188,16 @@ namespace PM_QuanLyKhoHang
             this.btnMyAccount.Name = "btnMyAccount";
             this.btnMyAccount.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnMyAccount_ItemClick);
             // 
-            // btnAuthorization
+            // btnDecentralization
             // 
-            this.btnAuthorization.Caption = "Phân Quyền";
-            this.btnAuthorization.Description = "Phân quyền";
-            this.btnAuthorization.Id = 7;
-            this.btnAuthorization.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnAuthorization.ImageOptions.LargeImage")));
-            this.btnAuthorization.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Q));
-            this.btnAuthorization.LargeWidth = 130;
-            this.btnAuthorization.Name = "btnAuthorization";
+            this.btnDecentralization.Caption = "Phân Quyền";
+            this.btnDecentralization.Description = "Phân quyền";
+            this.btnDecentralization.Id = 7;
+            this.btnDecentralization.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnDecentralization.ImageOptions.LargeImage")));
+            this.btnDecentralization.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Q));
+            this.btnDecentralization.LargeWidth = 130;
+            this.btnDecentralization.Name = "btnDecentralization";
+            this.btnDecentralization.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDecentralization_ItemClick);
             // 
             // btnSell
             // 
@@ -384,7 +385,7 @@ namespace PM_QuanLyKhoHang
             // 
             this.rbpLogin.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rbpgAccount,
-            this.rbpgUserAuthorization});
+            this.rbpgUserDecentralization});
             this.rbpLogin.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("rbpLogin.ImageOptions.Image")));
             this.rbpLogin.Name = "rbpLogin";
             this.rbpLogin.Text = "Đăng Nhập";
@@ -398,11 +399,11 @@ namespace PM_QuanLyKhoHang
             this.rbpgAccount.Name = "rbpgAccount";
             this.rbpgAccount.Text = "Quản lý tài khoản";
             // 
-            // rbpgUserAuthorization
+            // rbpgUserDecentralization
             // 
-            this.rbpgUserAuthorization.ItemLinks.Add(this.btnAuthorization, "CTRL+Q");
-            this.rbpgUserAuthorization.Name = "rbpgUserAuthorization";
-            this.rbpgUserAuthorization.Text = "Phân quyền người dùng";
+            this.rbpgUserDecentralization.ItemLinks.Add(this.btnDecentralization, "CTRL+Q");
+            this.rbpgUserDecentralization.Name = "rbpgUserDecentralization";
+            this.rbpgUserDecentralization.Text = "Phân quyền người dùng";
             // 
             // rbpOperation
             // 
@@ -544,8 +545,8 @@ namespace PM_QuanLyKhoHang
         private DevExpress.XtraBars.BarButtonItem btnLogout;
         private DevExpress.XtraBars.BarButtonItem btnExits;
         private DevExpress.XtraBars.BarButtonItem btnMyAccount;
-        private DevExpress.XtraBars.BarButtonItem btnAuthorization;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbpgUserAuthorization;
+        private DevExpress.XtraBars.BarButtonItem btnDecentralization;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbpgUserDecentralization;
         private DevExpress.XtraBars.BarButtonItem btnSell;
         private DevExpress.XtraBars.BarButtonItem btnWarehouse;
         private DevExpress.XtraBars.BarButtonItem btnWarehouseManagement;

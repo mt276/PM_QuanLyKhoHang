@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucMyAccount));
             this.pnlMain = new DevExpress.XtraEditors.PanelControl();
             this.btnExits = new DevExpress.XtraEditors.SimpleButton();
             this.gbChangePassword = new System.Windows.Forms.GroupBox();
@@ -276,6 +277,7 @@
             // 
             // ptbMyAccount
             // 
+            this.ptbMyAccount.EditValue = ((object)(resources.GetObject("ptbMyAccount.EditValue")));
             this.ptbMyAccount.Location = new System.Drawing.Point(8, 23);
             this.ptbMyAccount.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ptbMyAccount.Name = "ptbMyAccount";

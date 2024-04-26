@@ -1,6 +1,6 @@
 ﻿namespace PM_QuanLyKhoHang.UserControlDetails
 {
-    partial class ucAuthorization
+    partial class ucDecentralization
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.pnMain = new DevExpress.XtraEditors.PanelControl();
-            this.spccAuthorization = new DevExpress.XtraEditors.SplitContainerControl();
+            this.spccDecentralization = new DevExpress.XtraEditors.SplitContainerControl();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
-            this.ddbtnStaffTypeID = new DevExpress.XtraEditors.DropDownButton();
+            this.ddbtnTypeAccountID = new DevExpress.XtraEditors.DropDownButton();
             this.lbStaffTypeID = new DevExpress.XtraEditors.LabelControl();
             this.lbPassword = new DevExpress.XtraEditors.LabelControl();
             this.lbUserName = new DevExpress.XtraEditors.LabelControl();
@@ -46,8 +46,8 @@
             this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
             this.mmedAddress = new DevExpress.XtraEditors.MemoEdit();
             this.mmedNote = new DevExpress.XtraEditors.MemoEdit();
-            this.dtgvAuthorization = new DevExpress.XtraGrid.GridControl();
-            this.gvAuthorization = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.dtgvDecentralization = new DevExpress.XtraGrid.GridControl();
+            this.gvDecentralization = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colSTT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colUserName = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -61,25 +61,25 @@
             this.colNote = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pnMain)).BeginInit();
             this.pnMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.spccAuthorization)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spccAuthorization.Panel1)).BeginInit();
-            this.spccAuthorization.Panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.spccAuthorization.Panel2)).BeginInit();
-            this.spccAuthorization.Panel2.SuspendLayout();
-            this.spccAuthorization.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spccDecentralization)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spccDecentralization.Panel1)).BeginInit();
+            this.spccDecentralization.Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spccDecentralization.Panel2)).BeginInit();
+            this.spccDecentralization.Panel2.SuspendLayout();
+            this.spccDecentralization.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUserName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtStaffName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mmedAddress.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mmedNote.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvAuthorization)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvAuthorization)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvDecentralization)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvDecentralization)).BeginInit();
             this.SuspendLayout();
             // 
             // pnMain
             // 
-            this.pnMain.Controls.Add(this.spccAuthorization);
-            this.pnMain.Controls.Add(this.dtgvAuthorization);
+            this.pnMain.Controls.Add(this.spccDecentralization);
+            this.pnMain.Controls.Add(this.dtgvDecentralization);
             this.pnMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnMain.Location = new System.Drawing.Point(0, 0);
             this.pnMain.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -87,41 +87,41 @@
             this.pnMain.Size = new System.Drawing.Size(1232, 595);
             this.pnMain.TabIndex = 0;
             // 
-            // spccAuthorization
+            // spccDecentralization
             // 
-            this.spccAuthorization.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.spccDecentralization.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.spccAuthorization.Location = new System.Drawing.Point(8, 8);
-            this.spccAuthorization.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.spccAuthorization.Name = "spccAuthorization";
+            this.spccDecentralization.Location = new System.Drawing.Point(8, 8);
+            this.spccDecentralization.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.spccDecentralization.Name = "spccDecentralization";
             // 
-            // spccAuthorization.Panel1
+            // spccDecentralization.Panel1
             // 
-            this.spccAuthorization.Panel1.Controls.Add(this.btnCancel);
-            this.spccAuthorization.Panel1.Controls.Add(this.ddbtnStaffTypeID);
-            this.spccAuthorization.Panel1.Controls.Add(this.lbStaffTypeID);
-            this.spccAuthorization.Panel1.Controls.Add(this.lbPassword);
-            this.spccAuthorization.Panel1.Controls.Add(this.lbUserName);
-            this.spccAuthorization.Panel1.Controls.Add(this.lbStaffName);
-            this.spccAuthorization.Panel1.Controls.Add(this.txtPassword);
-            this.spccAuthorization.Panel1.Controls.Add(this.txtUserName);
-            this.spccAuthorization.Panel1.Controls.Add(this.txtStaffName);
-            this.spccAuthorization.Panel1.Text = "Panel1";
+            this.spccDecentralization.Panel1.Controls.Add(this.btnCancel);
+            this.spccDecentralization.Panel1.Controls.Add(this.ddbtnTypeAccountID);
+            this.spccDecentralization.Panel1.Controls.Add(this.lbStaffTypeID);
+            this.spccDecentralization.Panel1.Controls.Add(this.lbPassword);
+            this.spccDecentralization.Panel1.Controls.Add(this.lbUserName);
+            this.spccDecentralization.Panel1.Controls.Add(this.lbStaffName);
+            this.spccDecentralization.Panel1.Controls.Add(this.txtPassword);
+            this.spccDecentralization.Panel1.Controls.Add(this.txtUserName);
+            this.spccDecentralization.Panel1.Controls.Add(this.txtStaffName);
+            this.spccDecentralization.Panel1.Text = "Panel1";
             // 
-            // spccAuthorization.Panel2
+            // spccDecentralization.Panel2
             // 
-            this.spccAuthorization.Panel2.Controls.Add(this.lbNote);
-            this.spccAuthorization.Panel2.Controls.Add(this.lbAddress);
-            this.spccAuthorization.Panel2.Controls.Add(this.btnUpdate);
-            this.spccAuthorization.Panel2.Controls.Add(this.btnDelete);
-            this.spccAuthorization.Panel2.Controls.Add(this.btnAdd);
-            this.spccAuthorization.Panel2.Controls.Add(this.mmedAddress);
-            this.spccAuthorization.Panel2.Controls.Add(this.mmedNote);
-            this.spccAuthorization.Panel2.Text = "Panel2";
-            this.spccAuthorization.Size = new System.Drawing.Size(1216, 285);
-            this.spccAuthorization.SplitterPosition = 601;
-            this.spccAuthorization.TabIndex = 1;
-            this.spccAuthorization.Text = "splitContainerControl1";
+            this.spccDecentralization.Panel2.Controls.Add(this.lbNote);
+            this.spccDecentralization.Panel2.Controls.Add(this.lbAddress);
+            this.spccDecentralization.Panel2.Controls.Add(this.btnUpdate);
+            this.spccDecentralization.Panel2.Controls.Add(this.btnDelete);
+            this.spccDecentralization.Panel2.Controls.Add(this.btnAdd);
+            this.spccDecentralization.Panel2.Controls.Add(this.mmedAddress);
+            this.spccDecentralization.Panel2.Controls.Add(this.mmedNote);
+            this.spccDecentralization.Panel2.Text = "Panel2";
+            this.spccDecentralization.Size = new System.Drawing.Size(1216, 285);
+            this.spccDecentralization.SplitterPosition = 601;
+            this.spccDecentralization.TabIndex = 1;
+            this.spccDecentralization.Text = "splitContainerControl1";
             // 
             // btnCancel
             // 
@@ -135,13 +135,13 @@
             // 
             // ddbtnStaffTypeID
             // 
-            this.ddbtnStaffTypeID.Location = new System.Drawing.Point(142, 170);
-            this.ddbtnStaffTypeID.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.ddbtnStaffTypeID.Name = "ddbtnStaffTypeID";
-            this.ddbtnStaffTypeID.Size = new System.Drawing.Size(365, 35);
-            this.ddbtnStaffTypeID.TabIndex = 4;
-            this.ddbtnStaffTypeID.Text = "(Chọn)";
-            this.ddbtnStaffTypeID.ToolTip = "Chọn loại nhân viên";
+            this.ddbtnTypeAccountID.Location = new System.Drawing.Point(142, 170);
+            this.ddbtnTypeAccountID.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ddbtnTypeAccountID.Name = "ddbtnStaffTypeID";
+            this.ddbtnTypeAccountID.Size = new System.Drawing.Size(365, 35);
+            this.ddbtnTypeAccountID.TabIndex = 4;
+            this.ddbtnTypeAccountID.Text = "(Chọn)";
+            this.ddbtnTypeAccountID.ToolTip = "Chọn loại nhân viên";
             // 
             // lbStaffTypeID
             // 
@@ -273,24 +273,24 @@
             this.mmedNote.TabIndex = 6;
             this.mmedNote.ToolTip = "Ghi chú thêm về nhân viên này";
             // 
-            // dtgvAuthorization
+            // dtgvDecentralization
             // 
-            this.dtgvAuthorization.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dtgvDecentralization.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtgvAuthorization.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.dtgvAuthorization.Location = new System.Drawing.Point(3, 302);
-            this.dtgvAuthorization.MainView = this.gvAuthorization;
-            this.dtgvAuthorization.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.dtgvAuthorization.Name = "dtgvAuthorization";
-            this.dtgvAuthorization.Size = new System.Drawing.Size(1226, 291);
-            this.dtgvAuthorization.TabIndex = 0;
-            this.dtgvAuthorization.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gvAuthorization});
+            this.dtgvDecentralization.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dtgvDecentralization.Location = new System.Drawing.Point(3, 302);
+            this.dtgvDecentralization.MainView = this.gvDecentralization;
+            this.dtgvDecentralization.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dtgvDecentralization.Name = "dtgvDecentralization";
+            this.dtgvDecentralization.Size = new System.Drawing.Size(1226, 291);
+            this.dtgvDecentralization.TabIndex = 0;
+            this.dtgvDecentralization.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gvDecentralization});
             // 
-            // gvAuthorization
+            // gvDecentralization
             // 
-            this.gvAuthorization.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gvDecentralization.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colSTT,
             this.colID,
             this.colUserName,
@@ -302,11 +302,11 @@
             this.colStartDate,
             this.colDelete,
             this.colNote});
-            this.gvAuthorization.DetailHeight = 538;
-            this.gvAuthorization.GridControl = this.dtgvAuthorization;
-            this.gvAuthorization.GroupPanelText = " ";
-            this.gvAuthorization.Name = "gvAuthorization";
-            this.gvAuthorization.OptionsEditForm.PopupEditFormWidth = 1200;
+            this.gvDecentralization.DetailHeight = 538;
+            this.gvDecentralization.GridControl = this.dtgvDecentralization;
+            this.gvDecentralization.GroupPanelText = " ";
+            this.gvDecentralization.Name = "gvDecentralization";
+            this.gvDecentralization.OptionsEditForm.PopupEditFormWidth = 1200;
             // 
             // colSTT
             // 
@@ -411,31 +411,31 @@
             this.colNote.VisibleIndex = 7;
             this.colNote.Width = 112;
             // 
-            // ucAuthorization
+            // ucDecentralization
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.pnMain);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "ucAuthorization";
+            this.Name = "ucDecentralization";
             this.Size = new System.Drawing.Size(1232, 595);
             ((System.ComponentModel.ISupportInitialize)(this.pnMain)).EndInit();
             this.pnMain.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.spccAuthorization.Panel1)).EndInit();
-            this.spccAuthorization.Panel1.ResumeLayout(false);
-            this.spccAuthorization.Panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.spccAuthorization.Panel2)).EndInit();
-            this.spccAuthorization.Panel2.ResumeLayout(false);
-            this.spccAuthorization.Panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.spccAuthorization)).EndInit();
-            this.spccAuthorization.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.spccDecentralization.Panel1)).EndInit();
+            this.spccDecentralization.Panel1.ResumeLayout(false);
+            this.spccDecentralization.Panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spccDecentralization.Panel2)).EndInit();
+            this.spccDecentralization.Panel2.ResumeLayout(false);
+            this.spccDecentralization.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spccDecentralization)).EndInit();
+            this.spccDecentralization.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUserName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtStaffName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mmedAddress.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mmedNote.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvAuthorization)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvAuthorization)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvDecentralization)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvDecentralization)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -443,12 +443,12 @@
         #endregion
 
         private DevExpress.XtraEditors.PanelControl pnMain;
-        private DevExpress.XtraEditors.SplitContainerControl spccAuthorization;
+        private DevExpress.XtraEditors.SplitContainerControl spccDecentralization;
         private DevExpress.XtraEditors.TextEdit txtUserName;
         private DevExpress.XtraEditors.TextEdit txtStaffName;
         private DevExpress.XtraEditors.SimpleButton btnAdd;
-        private DevExpress.XtraGrid.GridControl dtgvAuthorization;
-        private DevExpress.XtraGrid.Views.Grid.GridView gvAuthorization;
+        private DevExpress.XtraGrid.GridControl dtgvDecentralization;
+        private DevExpress.XtraGrid.Views.Grid.GridView gvDecentralization;
         private DevExpress.XtraEditors.LabelControl lbStaffTypeID;
         private DevExpress.XtraEditors.LabelControl lbPassword;
         private DevExpress.XtraEditors.LabelControl lbUserName;
@@ -460,7 +460,7 @@
         private DevExpress.XtraEditors.SimpleButton btnDelete;
         private DevExpress.XtraEditors.MemoEdit mmedAddress;
         private DevExpress.XtraEditors.MemoEdit mmedNote;
-        private DevExpress.XtraEditors.DropDownButton ddbtnStaffTypeID;
+        private DevExpress.XtraEditors.DropDownButton ddbtnTypeAccountID;
         private DevExpress.XtraEditors.SimpleButton btnCancel;
         private DevExpress.XtraGrid.Columns.GridColumn colSTT;
         private DevExpress.XtraGrid.Columns.GridColumn colID;

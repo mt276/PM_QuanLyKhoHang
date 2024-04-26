@@ -61,8 +61,8 @@
             this.colImportPrice = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSalePrice = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colStartDate = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colStaffInput = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colStaffID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colAccountInput = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colAccountID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDelete = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNote = new DevExpress.XtraGrid.Columns.GridColumn();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
@@ -84,36 +84,36 @@
             ((System.ComponentModel.ISupportInitialize)(this.gvInput)).BeginInit();
             this.SuspendLayout();
             // 
-            // panelControl1
+            // pnlMain
             // 
             this.pnlMain.Controls.Add(this.gcInput);
             this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlMain.Location = new System.Drawing.Point(0, 0);
             this.pnlMain.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.pnlMain.Name = "panelControl1";
+            this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(1214, 580);
             this.pnlMain.TabIndex = 0;
             // 
-            // groupControl1
+            // gcInput
             // 
             this.gcInput.Controls.Add(this.spccInput);
             this.gcInput.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gcInput.Location = new System.Drawing.Point(2, 2);
             this.gcInput.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.gcInput.Name = "groupControl1";
+            this.gcInput.Name = "gcInput";
             this.gcInput.Size = new System.Drawing.Size(1210, 576);
             this.gcInput.TabIndex = 0;
             this.gcInput.Text = "Nhập Kho";
             // 
-            // splitContainerControl1
+            // spccInput
             // 
             this.spccInput.Dock = System.Windows.Forms.DockStyle.Fill;
             this.spccInput.Horizontal = false;
             this.spccInput.Location = new System.Drawing.Point(2, 34);
             this.spccInput.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.spccInput.Name = "splitContainerControl1";
+            this.spccInput.Name = "spccInput";
             // 
-            // splitContainerControl1.Panel1
+            // spccInput.Panel1
             // 
             this.spccInput.Panel1.Controls.Add(this.btnExits);
             this.spccInput.Panel1.Controls.Add(this.btnShowAll);
@@ -136,7 +136,7 @@
             this.spccInput.Panel1.Controls.Add(this.mmedNote);
             this.spccInput.Panel1.Text = "Panel1";
             // 
-            // splitContainerControl1.Panel2
+            // spccInput.Panel2
             // 
             this.spccInput.Panel2.Controls.Add(this.dtgvInput);
             this.spccInput.Panel2.Text = "Panel2";
@@ -351,8 +351,8 @@
             this.colImportPrice,
             this.colSalePrice,
             this.colStartDate,
-            this.colStaffInput,
-            this.colStaffID,
+            this.colAccountInput,
+            this.colAccountID,
             this.colDelete,
             this.colNote});
             this.gvInput.DetailHeight = 538;
@@ -477,28 +477,28 @@
             this.colStartDate.VisibleIndex = 5;
             this.colStartDate.Width = 157;
             // 
-            // colStaffInput
+            // colAccountInput
             // 
-            this.colStaffInput.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.colStaffInput.AppearanceCell.Options.UseFont = true;
-            this.colStaffInput.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            this.colStaffInput.AppearanceHeader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.colStaffInput.AppearanceHeader.Options.UseFont = true;
-            this.colStaffInput.AppearanceHeader.Options.UseForeColor = true;
-            this.colStaffInput.Caption = "Nhân Viên Nhập";
-            this.colStaffInput.MinWidth = 30;
-            this.colStaffInput.Name = "colStaffInput";
-            this.colStaffInput.Visible = true;
-            this.colStaffInput.VisibleIndex = 6;
-            this.colStaffInput.Width = 157;
+            this.colAccountInput.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.colAccountInput.AppearanceCell.Options.UseFont = true;
+            this.colAccountInput.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.colAccountInput.AppearanceHeader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.colAccountInput.AppearanceHeader.Options.UseFont = true;
+            this.colAccountInput.AppearanceHeader.Options.UseForeColor = true;
+            this.colAccountInput.Caption = "Nhân Viên Nhập";
+            this.colAccountInput.MinWidth = 30;
+            this.colAccountInput.Name = "colAccountInput";
+            this.colAccountInput.Visible = true;
+            this.colAccountInput.VisibleIndex = 6;
+            this.colAccountInput.Width = 157;
             // 
-            // colStaffID
+            // colAccountID
             // 
-            this.colStaffID.Caption = "NhanVienID";
-            this.colStaffID.FieldName = "StaffID";
-            this.colStaffID.MinWidth = 30;
-            this.colStaffID.Name = "colStaffID";
-            this.colStaffID.Width = 112;
+            this.colAccountID.Caption = "NhanVienID";
+            this.colAccountID.FieldName = "AccountID";
+            this.colAccountID.MinWidth = 30;
+            this.colAccountID.Name = "colAccountID";
+            this.colAccountID.Width = 112;
             // 
             // colDelete
             // 
@@ -583,8 +583,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn colCount;
         private DevExpress.XtraGrid.Columns.GridColumn colImportPrice;
         private DevExpress.XtraGrid.Columns.GridColumn colStartDate;
-        private DevExpress.XtraGrid.Columns.GridColumn colStaffInput;
-        private DevExpress.XtraGrid.Columns.GridColumn colStaffID;
+        private DevExpress.XtraGrid.Columns.GridColumn colAccountInput;
+        private DevExpress.XtraGrid.Columns.GridColumn colAccountID;
         private DevExpress.XtraGrid.Columns.GridColumn colDelete;
         private DevExpress.XtraGrid.Columns.GridColumn colNote;
         private DevExpress.XtraEditors.SimpleButton btnShowAll;

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PM_QuanLyKhoHang.UserControlDetails
 {
-    public partial class ucAuthorization : UserControl
+    public partial class ucDecentralization : UserControl
     {
-        public ucAuthorization()
+        public ucDecentralization()
         {
             InitializeComponent();
         }

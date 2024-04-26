@@ -1,16 +1,12 @@
 ﻿using DAO.DAO;
 using DTO.DTO;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BUS.BUS
 {
     public class AccountBUS
     {
-        private static AccountDAO Hanlde = new AccountDAO();
+        private static AccountDAO handle = new AccountDAO();
 
         #region "[Insert]"
         public static int Insert(AccountDTO _obj)
@@ -18,7 +14,7 @@ namespace BUS.BUS
             int iResult = -1;
             try
             {
-                iResult = Hanlde.Insert(_obj);
+                iResult = handle.Insert(_obj);
             }
             catch { }
             return iResult;
@@ -31,7 +27,7 @@ namespace BUS.BUS
             bool isResult = false;
             try
             {
-                isResult = Hanlde.Delete(_iID);
+                isResult = handle.Delete(_iID);
             }
             catch { }
             return isResult;
@@ -44,7 +40,7 @@ namespace BUS.BUS
             AccountDTO objResult = null;
             try
             {
-                objResult = Hanlde.SelectPrimaryKey(_iID);
+                objResult = handle.SelectPrimaryKey(_iID);
             }
             catch { }
             return objResult;
@@ -57,7 +53,7 @@ namespace BUS.BUS
             bool isResult = false;
             try
             {
-                isResult = Hanlde.Update(_obj);
+                isResult = handle.Update(_obj);
             }
             catch { }
             return isResult;
@@ -70,7 +66,7 @@ namespace BUS.BUS
             List<AccountDTO> listResult = new List<AccountDTO>();
             try
             {
-                listResult = Hanlde.GetAll();
+                listResult = handle.GetAll();
             }
             catch { }
             return listResult;
@@ -83,7 +79,7 @@ namespace BUS.BUS
             AccountDTO obj = null;
             try
             {
-                obj = Hanlde.SelectByUserNameAnhPass(_UserName, _Pass);
+                obj = handle.SelectByUserNameAnhPass(_UserName, _Pass);
             }
             catch { }
             return obj;
@@ -96,7 +92,7 @@ namespace BUS.BUS
             bool objResult = false;
             try
             {
-                if (Hanlde.SelectByUserName(_strUserName) != null)
+                if (handle.SelectByUserName(_strUserName) != null)
                     objResult = true;
             }
             catch { }

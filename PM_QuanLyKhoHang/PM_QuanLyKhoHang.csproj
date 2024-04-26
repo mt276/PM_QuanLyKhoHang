@@ -71,6 +71,8 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClassUtils\RowInfo.cs" />
+    <Compile Include="ClassUtils\Utils.cs" />
     <Compile Include="FormDetails\frmBackupAndRestoreDatabase.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,11 +147,17 @@
     <Compile Include="UserControlDetails\ucAddReferrer.Designer.cs">
       <DependentUpon>ucAddReferrer.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControlDetails\ucAuthorization.cs">
+    <Compile Include="UserControlDetails\ucAdvancedDecentralization.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControlDetails\ucAuthorization.Designer.cs">
-      <DependentUpon>ucAuthorization.cs</DependentUpon>
+    <Compile Include="UserControlDetails\ucAdvancedDecentralization.Designer.cs">
+      <DependentUpon>ucAdvancedDecentralization.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlDetails\ucDecentralization.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlDetails\ucDecentralization.Designer.cs">
+      <DependentUpon>ucDecentralization.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControlDetails\ucBill.cs">
       <SubType>UserControl</SubType>
@@ -276,8 +284,11 @@
     <EmbeddedResource Include="UserControlDetails\ucAddReferrer.resx">
       <DependentUpon>ucAddReferrer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControlDetails\ucAuthorization.resx">
-      <DependentUpon>ucAuthorization.cs</DependentUpon>
+    <EmbeddedResource Include="UserControlDetails\ucAdvancedDecentralization.resx">
+      <DependentUpon>ucAdvancedDecentralization.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlDetails\ucDecentralization.resx">
+      <DependentUpon>ucDecentralization.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlDetails\ucBill.resx">
       <DependentUpon>ucBill.cs</DependentUpon>

@@ -44,8 +44,26 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BUS\AccountBUS.cs" />
+    <Compile Include="BUS\BillBUS.cs" />
+    <Compile Include="BUS\BillInfoBUS.cs" />
+    <Compile Include="BUS\CompanyBUS.cs" />
+    <Compile Include="BUS\DecentralizationBUS.cs" />
+    <Compile Include="BUS\DelBUS.cs" />
+    <Compile Include="BUS\ExpenditureBUS.cs" />
+    <Compile Include="BUS\ExpenditureInfoBUS.cs" />
+    <Compile Include="BUS\InputBUS.cs" />
+    <Compile Include="BUS\KeyBUS.cs" />
+    <Compile Include="BUS\ParameterBUS.cs" />
+    <Compile Include="BUS\PaymentInfoBUS.cs" />
+    <Compile Include="BUS\ProductBUS.cs" />
+    <Compile Include="BUS\ReceiveCommissionBUS.cs" />
+    <Compile Include="BUS\RepresentativeBUS.cs" />
+    <Compile Include="BUS\SalePriceBUS.cs" />
+    <Compile Include="BUS\SystemErrorBUS.cs" />
     <Compile Include="BUS\TypeAccountBUS.cs" />
     <Compile Include="BUS\TypeActBUS.cs" />
+    <Compile Include="BUS\TypeReferrerBUS.cs" />
+    <Compile Include="BUS\UnitBUS.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

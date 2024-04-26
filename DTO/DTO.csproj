@@ -47,8 +47,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DTO\AccountDTO.cs" />
+    <Compile Include="DTO\BillDTO.cs" />
+    <Compile Include="DTO\BillInfoDTO.cs" />
+    <Compile Include="DTO\CompanyDTO.cs" />
+    <Compile Include="DTO\DecentralizationDTO.cs" />
+    <Compile Include="DTO\ExpenditureDTO.cs" />
+    <Compile Include="DTO\ExpenditureInfoDTO.cs" />
+    <Compile Include="DTO\InputDTO.cs" />
+    <Compile Include="DTO\KeyDTO.cs" />
+    <Compile Include="DTO\ParameterDTO.cs" />
+    <Compile Include="DTO\PaymentInfoDTO.cs" />
+    <Compile Include="DTO\ProductDTO.cs" />
+    <Compile Include="DTO\ReceiveCommissionDTO.cs" />
+    <Compile Include="DTO\RepresentativeDTO.cs" />
+    <Compile Include="DTO\SalePriceDTO.cs" />
+    <Compile Include="DTO\SystemErrorDTO.cs" />
     <Compile Include="DTO\TypeAccountDTO.cs" />
     <Compile Include="DTO\TypeActDTO.cs" />
+    <Compile Include="DTO\TypeReferrerDTO.cs" />
+    <Compile Include="DTO\UnitDTO.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
