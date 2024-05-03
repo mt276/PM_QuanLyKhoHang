@@ -73,5 +73,18 @@ namespace BUS.BUS
         }
         #endregion
 
+        #region "[SelectByInputID]"
+        public static SalePriceDTO SelectByInputID(int _iID)
+        {
+            SalePriceDTO objResult = null;
+            try
+            {
+                objResult = handle.SelectByInputID(_iID);
+            }
+            catch { }
+            return objResult;
+        }
+        #endregion
+
     }
 }

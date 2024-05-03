@@ -26,6 +26,13 @@ namespace DAO.DAO
             {
                 if (cn != null)
                 {
+                    string check = string.Format("Select COUNT(*) from dbo.ReceiveCommission Where name = N'{0}' AND  phone = N'{1}' ", _obj.Name, _obj.Phone);
+                    int count = (int)SqlDataHelper.GetMaxID(check, cn);
+                    if (count > 0)
+                    {
+                        return -1;
+                    }
+
                     string sql = string.Format("INSERT INTO dbo.ReceiveCommission(name,address,phone,fax, TypeReferrerID, Del,Note)" +
                     "Values(N'{0}', N'{1}', N'{2}', N'{3}', {4}, '{5}', N'{6}')",
                     _obj.Name, _obj.Address, _obj.Phone, _obj.Fax, _obj.TypeReferrerID.ToString(), _obj.Del.ToString(), _obj.Note);
@@ -92,6 +99,13 @@ namespace DAO.DAO
                     ReceiveCommissionDTO temp = SelectPrimaryKey(_obj.ID);
                     if (temp != null)
                     {
+                        string check = string.Format("Select COUNT(*) from dbo.ReceiveCommission Where name = N'{0}' AND  phone = N'{1}' AND id <> {2}", _obj.Name, _obj.Phone, _obj.ID);
+                        int count = (int)SqlDataHelper.GetMaxID(check, cn);
+                        if (count > 0)
+                        {
+                            return false;
+                        }
+
                         string sql = string.Format("UPDATE dbo.ReceiveCommission SET name = N'{0}', address = N'{1}', phone = N'{2}', fax = N'{3}'" +
                             "TypeReferrerID = {4} , Del = '{5}',Note = N'{6}' Where ID = {7}",
                              _obj.Name, _obj.Address, _obj.Phone, _obj.Fax, _obj.TypeReferrerID.ToString(), _obj.Del.ToString(), _obj.Note, _obj.ID.ToString());

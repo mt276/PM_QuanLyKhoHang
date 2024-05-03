@@ -73,5 +73,43 @@ namespace BUS.BUS
         }
         #endregion
 
+        #region "[GetListByRepresentativeID]"
+        public static List<RepresentativeDTO> GetListByRepresentativeID(int _iIDCompany)
+        {
+            List<RepresentativeDTO> listResult = new List<RepresentativeDTO>();
+            try
+            {
+                listResult = handle.GetListByRepresentativeID(_iIDCompany);
+            }
+            catch { }
+            return listResult;
+        }
+        #endregion
+
+        #region "[DeleteByRepresentativeID]"
+        public static bool DeleteByRepresentativeID(int _iIDCompany)
+        {
+            bool isResult = false;
+            try
+            {
+                isResult = handle.DeleteByRepresentativeID(_iIDCompany);
+            }
+            catch { }
+            return isResult;
+        }
+        #endregion
+
+        #region "[SelectByCompanyID]"
+        public static RepresentativeDTO SelectByCompanyID(int _iID)
+        {
+            RepresentativeDTO objResult = null;
+            try
+            {
+                objResult = handle.SelectByCompanyID(_iID);
+            }
+            catch { }
+            return objResult;
+        }
+        #endregion
     }
 }

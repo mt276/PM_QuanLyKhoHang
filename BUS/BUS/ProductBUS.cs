@@ -73,5 +73,19 @@ namespace BUS.BUS
         }
         #endregion
 
+        #region "[SearchProductByname]"
+        public static List<ProductDTO> SearchProductByname(string name)
+        {
+            List<ProductDTO> listResult = new List<ProductDTO>();
+            try
+            {
+                listResult = handle.SearchProductByname(name);
+            }
+            catch { }
+            return listResult;
+        }
+        #endregion
+
+
     }
 }

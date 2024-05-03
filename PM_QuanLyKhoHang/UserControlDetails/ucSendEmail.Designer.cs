@@ -40,7 +40,7 @@
             this.lbIsRecipient = new DevExpress.XtraEditors.LabelControl();
             this.lbIsPassword = new DevExpress.XtraEditors.LabelControl();
             this.lbIsSendEmail = new DevExpress.XtraEditors.LabelControl();
-            this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
+            this.btnExits = new DevExpress.XtraEditors.SimpleButton();
             this.btnOK = new DevExpress.XtraEditors.SimpleButton();
             this.lbContent = new DevExpress.XtraEditors.LabelControl();
             this.lbTitle = new DevExpress.XtraEditors.LabelControl();
@@ -83,7 +83,7 @@
             this.gcSendEmail.Controls.Add(this.lbIsRecipient);
             this.gcSendEmail.Controls.Add(this.lbIsPassword);
             this.gcSendEmail.Controls.Add(this.lbIsSendEmail);
-            this.gcSendEmail.Controls.Add(this.btnCancel);
+            this.gcSendEmail.Controls.Add(this.btnExits);
             this.gcSendEmail.Controls.Add(this.btnOK);
             this.gcSendEmail.Controls.Add(this.lbContent);
             this.gcSendEmail.Controls.Add(this.lbTitle);
@@ -186,14 +186,15 @@
             this.lbIsSendEmail.Text = "*";
             this.lbIsSendEmail.Visible = false;
             // 
-            // btnCancel
+            // btnExits
             // 
-            this.btnCancel.Location = new System.Drawing.Point(790, 422);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(112, 35);
-            this.btnCancel.TabIndex = 7;
-            this.btnCancel.Text = "&Thoát";
+            this.btnExits.Location = new System.Drawing.Point(790, 422);
+            this.btnExits.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnExits.Name = "btnExits";
+            this.btnExits.Size = new System.Drawing.Size(112, 35);
+            this.btnExits.TabIndex = 7;
+            this.btnExits.Text = "&Thoát";
+            this.btnExits.Click += new System.EventHandler(this.btnExits_Click);
             // 
             // btnOK
             // 
@@ -203,6 +204,7 @@
             this.btnOK.Size = new System.Drawing.Size(112, 35);
             this.btnOK.TabIndex = 6;
             this.btnOK.Text = "Gửi Email";
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // lbContent
             // 
@@ -259,7 +261,7 @@
             // 
             // txtSupportEmail
             // 
-            this.txtSupportEmail.EditValue = "trieu7458@gmail.com";
+            this.txtSupportEmail.EditValue = "minhtrieu02101@gmail.com";
             this.txtSupportEmail.Enabled = false;
             this.txtSupportEmail.Location = new System.Drawing.Point(380, 160);
             this.txtSupportEmail.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -334,7 +336,7 @@
         private DevExpress.XtraEditors.LabelControl lbIsRecipient;
         private DevExpress.XtraEditors.LabelControl lbIsPassword;
         private DevExpress.XtraEditors.LabelControl lbIsSendEmail;
-        private DevExpress.XtraEditors.SimpleButton btnCancel;
+        private DevExpress.XtraEditors.SimpleButton btnExits;
         private DevExpress.XtraEditors.SimpleButton btnOK;
         private DevExpress.XtraEditors.LabelControl lbContent;
         private DevExpress.XtraEditors.LabelControl lbTitle;

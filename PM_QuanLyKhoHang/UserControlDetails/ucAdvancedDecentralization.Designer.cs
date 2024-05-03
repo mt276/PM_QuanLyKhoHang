@@ -41,7 +41,6 @@
             this.colStartDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colKey = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cbTypeID = new System.Windows.Forms.ComboBox();
-            this.lblsStartDate = new DevExpress.XtraEditors.LabelControl();
             this.lbTypeID = new DevExpress.XtraEditors.LabelControl();
             this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
             this.lblsUserName = new DevExpress.XtraEditors.LabelControl();
@@ -139,7 +138,6 @@
             // spccAdvDecentralization.Panel2
             // 
             this.spccAdvDecentralization.Panel2.Controls.Add(this.cbTypeID);
-            this.spccAdvDecentralization.Panel2.Controls.Add(this.lblsStartDate);
             this.spccAdvDecentralization.Panel2.Controls.Add(this.lbTypeID);
             this.spccAdvDecentralization.Panel2.Controls.Add(this.btnDelete);
             this.spccAdvDecentralization.Panel2.Controls.Add(this.lblsUserName);
@@ -271,21 +269,6 @@
             this.cbTypeID.Name = "cbTypeID";
             this.cbTypeID.Size = new System.Drawing.Size(400, 27);
             this.cbTypeID.TabIndex = 15;
-            // 
-            // lblsStartDate
-            // 
-            this.lblsStartDate.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.lblsStartDate.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.lblsStartDate.Appearance.Options.UseFont = true;
-            this.lblsStartDate.Appearance.Options.UseForeColor = true;
-            this.lblsStartDate.Location = new System.Drawing.Point(580, 275);
-            this.lblsStartDate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.lblsStartDate.Name = "lblsStartDate";
-            this.lblsStartDate.Size = new System.Drawing.Size(11, 24);
-            this.lblsStartDate.TabIndex = 14;
-            this.lblsStartDate.Text = "*";
-            this.lblsStartDate.Visible = false;
-            this.lblsStartDate.MouseEnter += new System.EventHandler(this.lblsStartDate_MouseEnter);
             // 
             // lbTypeID
             // 
@@ -692,7 +675,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colTypeActName;
         private DevExpress.XtraEditors.SimpleButton btnDelete;
         private DevExpress.XtraEditors.CheckEdit checkFull;
-        private DevExpress.XtraEditors.LabelControl lblsStartDate;
         private DevExpress.XtraEditors.LabelControl lbTypeID;
         private DevExpress.XtraGrid.Columns.GridColumn colTypeID;
         private System.Windows.Forms.ComboBox cbTypeID;

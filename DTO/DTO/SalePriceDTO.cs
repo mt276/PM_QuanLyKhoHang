@@ -5,10 +5,10 @@ namespace DTO.DTO
 {
     public class SalePriceDTO
     {
-        public SalePriceDTO(int id, int productID, double salePrice, int accountID, DateTime startDate, bool del, string note)
+        public SalePriceDTO(int id, int inputID, double salePrice, int accountID, DateTime startDate, bool del, string note)
         {
             this.ID = id;
-            this.ProductID = productID;
+            this.InputID = inputID;
             this.SalePrice = salePrice;
             this.AccountID = accountID;
             this.StartDate = startDate;
@@ -19,7 +19,7 @@ namespace DTO.DTO
         public SalePriceDTO(DataRow row)
         {
             this.ID = int.Parse(row["id"].ToString());
-            this.ProductID = int.Parse(row["productID"].ToString());
+            this.InputID = int.Parse(row["inputID"].ToString());
             this.SalePrice = double.Parse(row["salePrice"].ToString());
             this.AccountID = int.Parse(row["accountID"].ToString());
             this.StartDate = DateTime.Parse(row["startDate"].ToString());
@@ -30,7 +30,7 @@ namespace DTO.DTO
         public SalePriceDTO() { }
 
         private int id;
-        private int productID;
+        private int inputID;
         private string productName;
         private double salePrice;
         private string salePriceString;
@@ -41,7 +41,7 @@ namespace DTO.DTO
         private string note;
 
         public int ID { get => id; set => id = value; }
-        public int ProductID { get => productID; set => productID = value; }
+        public int InputID { get => inputID; set => inputID = value; }
         public string ProductName { get => productName; set => productName = value; }
         public double SalePrice { get => salePrice; set => salePrice = value; }
         public string SalePriceString { get => salePriceString; set => salePriceString = value; }

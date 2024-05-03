@@ -93,14 +93,14 @@ GO
 CREATE TABLE SalePrice
 (
     ID        INT IDENTITY PRIMARY KEY NOT NULL,
-    ProductID INT NOT NULL,
+    InputID   INT NOT NULL,
     SalePrice NUMERIC(18, 0),
     AccountID INT NOT NULL,
-    StartDate DATE NOT NULL DEFAULT GETDATE(),
+    StartDate DATE,
     Del       BIT,
     Note      NTEXT,
     FOREIGN KEY (AccountID) REFERENCES dbo.Account (ID),
-    FOREIGN KEY (ProductID) REFERENCES dbo.Products (ID)
+    FOREIGN KEY (InputID) REFERENCES dbo.Input (ID)
 )
 GO
 CREATE TABLE Company
@@ -188,12 +188,35 @@ CREATE TABLE PaymentInfo
 (
     ID            INT IDENTITY PRIMARY KEY NOT NULL,
     BillID        INT NOT NULL,
-    Payment      NUMERIC(18, 0),
+    Payment		  NUMERIC(18, 0),
     StartDate     DATE NOT NULL DEFAULT GETDATE(),
     StartNextDate DATE,
     Del           BIT,
     Note          NTEXT,
     FOREIGN KEY (BillID) REFERENCES dbo.Bill (ID)
+)
+GO
+CREATE TABLE Expenditure
+(
+    ID					INT IDENTITY PRIMARY KEY NOT NULL,
+	Name				NVARCHAR(500),
+    StartDate			DATE NOT NULL DEFAULT GETDATE(),
+	Expenditure			NUMERIC(18, 0),
+    AccountID			INT NOT NULL,
+    Del					BIT,
+    Note				NTEXT,
+    FOREIGN KEY (AccountID) REFERENCES dbo.Account (ID)
+)
+GO
+CREATE TABLE ExpenditureInfo
+(
+    ID            INT IDENTITY PRIMARY KEY NOT NULL,
+	ExpenditureID INT NOT NULL,
+	Price         NUMERIC(18, 0),
+    StartDate     DATE NOT NULL DEFAULT GETDATE(),
+    Del           BIT,
+    Note          NTEXT,
+    FOREIGN KEY (ExpenditureID) REFERENCES dbo.Expenditure (ID)
 )
 GO
 CREATE TABLE SystemError
@@ -279,9 +302,9 @@ INSERT dbo.Bill (ID, Name, CompanyID, AccountID, TotalBill, TotalPayment, Paymen
 INSERT dbo.Bill (ID, Name, CompanyID, AccountID, TotalBill, TotalPayment, PaymentDueDate, Dividend, Commission, ReceiveCommissionID, Del, Note) VALUES (3, N'Hóa đơn', 4, 1, CAST(748000 AS Numeric(18, 0)), CAST(3123 AS Numeric(18, 0)), Null, CAST(360000 AS Numeric(18, 0)), CAST(0 AS Numeric(18, 0)), NULL, 0, N'')
 SET IDENTITY_INSERT dbo.Bill OFF
 SET IDENTITY_INSERT dbo.SalePrice ON
-INSERT dbo.SalePrice (ID, ProductID, SalePrice, AccountID, Del, Note) VALUES (1, 1, CAST(12000 AS Numeric(18, 0)), 1, 0, N'')
-INSERT dbo.SalePrice (ID, ProductID, SalePrice, AccountID, Del, Note) VALUES (2, 2, CAST(340000 AS Numeric(18, 0)), 1, 0, N'')
-INSERT dbo.SalePrice (ID, ProductID, SalePrice, AccountID, Del, Note) VALUES (3, 4, CAST(35000 AS Numeric(18, 0)), 1, 0, N'')
+INSERT dbo.SalePrice (ID, InputID, SalePrice, AccountID,StartDate, Del, Note) VALUES (1, 1, CAST(12000 AS Numeric(18, 0)), 1,GETDATE(), 0, N'')
+INSERT dbo.SalePrice (ID, InputID, SalePrice, AccountID,StartDate, Del, Note) VALUES (2, 2, CAST(340000 AS Numeric(18, 0)), 1,GETDATE(), 0, N'')
+INSERT dbo.SalePrice (ID, InputID, SalePrice, AccountID,StartDate, Del, Note) VALUES (3, 3, CAST(35000 AS Numeric(18, 0)), 1,GETDATE(), 0, N'')
 SET IDENTITY_INSERT dbo.SalePrice OFF
 SET IDENTITY_INSERT dbo.BillInfo ON
 INSERT dbo.BillInfo (ID, BillID, ProductID, Count, SalePrice, VAT, Dividend, Del, Note) VALUES (1, 1, 2, 2, CAST(340000 AS Numeric(18, 0)), 2, CAST(180000 AS Numeric(18, 0)), 0, N'')
@@ -301,7 +324,7 @@ BEGIN
 	DELETE FROM dbo.Parameter WHERE DEL = 1
 	DELETE FROM dbo.PaymentInfo WHERE DEL = 1
 	DELETE FROM dbo.Products WHERE DEL = 1
-	DELETE FROM dbo.ReceiveCommissions WHERE DEL = 1
+	DELETE FROM dbo.ReceiveCommission WHERE DEL = 1
 	DELETE FROM dbo.Representative WHERE DEL = 1
 	DELETE FROM dbo.SalePrice WHERE DEL = 1
 	DELETE FROM dbo.TypeAccount WHERE DEL = 1
@@ -312,8 +335,8 @@ BEGIN
 	DELETE FROM dbo.FKey WHERE DEL = 1
 END
 GO
-exec USP_DeleteRecordsBasedOnDelValue
-
+--exec USP_DeleteRecordsBasedOnDelValue
+--select * from unit
 
 --select * from TypeAct
 --select * from TypeAccount
@@ -321,7 +344,7 @@ exec USP_DeleteRecordsBasedOnDelValue
 --select * from Decentralization
 --select * from Unit
 --select * from Company
---select * from Products
+--select * from Products 
 --select * from Input
 --select * from Representative
 --select * from TypeReferrer
@@ -331,4 +354,3 @@ exec USP_DeleteRecordsBasedOnDelValue
 --select * from PaymentInfo
 --select * from Parameter
 --select * from SalePrice
-

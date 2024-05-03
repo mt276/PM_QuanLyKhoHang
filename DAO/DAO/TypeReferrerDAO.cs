@@ -26,6 +26,13 @@ namespace DAO.DAO
             {
                 if (cn != null)
                 {
+                    string check = string.Format("Select COUNT(*) from dbo.TypeReferrer Where name = N'{0}'", _obj.Name);
+                    int count = (int)SqlDataHelper.GetMaxID(check, cn);
+                    if (count > 0)
+                    {
+                        return -1;
+                    }
+
                     string sql = string.Format("INSERT INTO dbo.TypeReferrer(Name, del, note)" +
                     "Values(N'{0}', '{1}', N'{2}')",
                     _obj.Name, _obj.Del.ToString(), _obj.Note);
@@ -89,6 +96,13 @@ namespace DAO.DAO
             {
                 if (cn != null)
                 {
+                    string check = string.Format("Select COUNT(*) from dbo.TypeReferrer Where name = N'{0}' AND ID <> {1}", _obj.Name, _obj.ID);
+                    int count = (int)SqlDataHelper.GetMaxID(check, cn);
+                    if (count > 0)
+                    {
+                        return false;
+                    }
+
                     TypeReferrerDTO temp = SelectPrimaryKey(_obj.ID);
                     if (temp != null)
                     {

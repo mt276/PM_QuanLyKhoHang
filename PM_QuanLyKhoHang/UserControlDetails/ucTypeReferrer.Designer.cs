@@ -121,7 +121,7 @@
             // 
             // dtpkStartDate
             // 
-            this.dtpkStartDate.Location = new System.Drawing.Point(150, 65);
+            this.dtpkStartDate.Location = new System.Drawing.Point(206, 89);
             this.dtpkStartDate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtpkStartDate.Name = "dtpkStartDate";
             this.dtpkStartDate.Size = new System.Drawing.Size(298, 27);
@@ -129,7 +129,7 @@
             // 
             // lbNote
             // 
-            this.lbNote.Location = new System.Drawing.Point(490, 25);
+            this.lbNote.Location = new System.Drawing.Point(546, 25);
             this.lbNote.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lbNote.Name = "lbNote";
             this.lbNote.Size = new System.Drawing.Size(57, 19);
@@ -138,7 +138,7 @@
             // 
             // lbStartDate
             // 
-            this.lbStartDate.Location = new System.Drawing.Point(5, 70);
+            this.lbStartDate.Location = new System.Drawing.Point(10, 95);
             this.lbStartDate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lbStartDate.Name = "lbStartDate";
             this.lbStartDate.Size = new System.Drawing.Size(68, 19);
@@ -147,16 +147,16 @@
             // 
             // lbTypeName
             // 
-            this.lbTypeName.Location = new System.Drawing.Point(5, 25);
+            this.lbTypeName.Location = new System.Drawing.Point(10, 30);
             this.lbTypeName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lbTypeName.Name = "lbTypeName";
-            this.lbTypeName.Size = new System.Drawing.Size(126, 19);
+            this.lbTypeName.Size = new System.Drawing.Size(187, 19);
             this.lbTypeName.TabIndex = 2;
-            this.lbTypeName.Text = "Tên Loại Cá Nhân";
+            this.lbTypeName.Text = "Tên Loại Người Giới Thiệu";
             // 
             // txtTypeName
             // 
-            this.txtTypeName.Location = new System.Drawing.Point(150, 20);
+            this.txtTypeName.Location = new System.Drawing.Point(206, 25);
             this.txtTypeName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtTypeName.Name = "txtTypeName";
             this.txtTypeName.Size = new System.Drawing.Size(300, 26);
@@ -170,33 +170,37 @@
             this.btnExits.Size = new System.Drawing.Size(112, 35);
             this.btnExits.TabIndex = 8;
             this.btnExits.Text = "Thoát";
+            this.btnExits.Click += new System.EventHandler(this.btnExits_Click);
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(676, 157);
+            this.btnCancel.Location = new System.Drawing.Point(416, 157);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(112, 35);
             this.btnCancel.TabIndex = 7;
             this.btnCancel.Text = "Hủy";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(546, 157);
+            this.btnUpdate.Location = new System.Drawing.Point(676, 157);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(112, 35);
             this.btnUpdate.TabIndex = 6;
             this.btnUpdate.Text = "Cập Nhật";
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(416, 157);
+            this.btnDelete.Location = new System.Drawing.Point(546, 157);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(112, 35);
             this.btnDelete.TabIndex = 5;
             this.btnDelete.Text = "Xóa";
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnAdd
             // 
@@ -206,13 +210,14 @@
             this.btnAdd.Size = new System.Drawing.Size(112, 35);
             this.btnAdd.TabIndex = 4;
             this.btnAdd.Text = "Thêm";
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // mmedNote
             // 
-            this.mmedNote.Location = new System.Drawing.Point(585, 25);
+            this.mmedNote.Location = new System.Drawing.Point(627, 25);
             this.mmedNote.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.mmedNote.Name = "mmedNote";
-            this.mmedNote.Size = new System.Drawing.Size(374, 91);
+            this.mmedNote.Size = new System.Drawing.Size(332, 91);
             this.mmedNote.TabIndex = 3;
             // 
             // dtgvTypeReferrer
@@ -243,6 +248,8 @@
             this.gvTypeReferrer.Name = "gvTypeReferrer";
             this.gvTypeReferrer.OptionsEditForm.PopupEditFormWidth = 1200;
             this.gvTypeReferrer.RowHeight = 46;
+            this.gvTypeReferrer.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gvTypeReferrer_RowClick);
+            this.gvTypeReferrer.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.gvTypeReferrer_CustomDrawCell);
             // 
             // colSTT
             // 
@@ -276,7 +283,7 @@
             this.colTypeName.AppearanceHeader.Options.UseFont = true;
             this.colTypeName.AppearanceHeader.Options.UseForeColor = true;
             this.colTypeName.Caption = "Tên Loại";
-            this.colTypeName.FieldName = "TypeName";
+            this.colTypeName.FieldName = "Name";
             this.colTypeName.MinWidth = 30;
             this.colTypeName.Name = "colTypeName";
             this.colTypeName.Visible = true;
@@ -337,6 +344,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ucTypeReferrer";
             this.Size = new System.Drawing.Size(976, 503);
+            this.Load += new System.EventHandler(this.ucTypeReferrer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pnlMain)).EndInit();
             this.pnlMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcTypeReferrer)).EndInit();

@@ -1,49 +1,60 @@
 ﻿using DAO.DAO;
 using DTO.DTO;
+using System;
 using System.Collections.Generic;
 
 namespace BUS.BUS
 {
     public class KeyBUS
     {
-        private static KeyDAO handle = new KeyDAO();
-
-        #region "[Insert]"
-        public static int Insert(KeyDTO _obj)
+        #region "[Insert Key]"
+        public static bool InsertKey(KeyDTO _item)
         {
-            int iResult = -1;
+            bool isSuccess = false;
             try
             {
-                iResult = handle.Insert(_obj);
+                KeyDAO m_Handle = new KeyDAO();
+                KeyDTO item = null;
+                try
+                {
+
+                    item = m_Handle.SelectPrimaryKey();
+                }
+                catch { }
+                if (item != null)
+                {
+                    isSuccess = m_Handle.Update(_item.TimeDateLine);
+                }
+                else
+                {
+                    int ID = m_Handle.Insert(_item);
+                    if (ID > 0)
+                        isSuccess = true;
+
+                }
             }
             catch { }
-            return iResult;
+            return isSuccess;
         }
         #endregion
 
-        #region "[Select Primary Key]"
-        public static KeyDTO SelectPrimaryKey(int _iID)
+        #region "[Check Key]"
+        public static bool CheckKey()
         {
-            KeyDTO objResult = null;
+            bool isSuccess = false;
             try
             {
-                objResult = handle.SelectPrimaryKey(_iID);
-            }
-            catch { }
-            return objResult;
-        }
-        #endregion
+                KeyDAO m_Handle = new KeyDAO();
+                string text = m_Handle.SelectPrimaryKey().TimeDateLine;
+                string mask = "64A119EKEY" + DateTime.Now.ToString("dd.MM.yyyy");
+                int i = text.IndexOf("64A119EKEY") + 10;
+                string d = text.Substring(i);
+                if (DateTime.Parse(d) > DateTime.Now)
+                    return true;
 
-        #region "[Update]"
-        public static bool Update(KeyDTO _obj)
-        {
-            bool isResult = false;
-            try
-            {
-                isResult = handle.Update(_obj);
             }
             catch { }
-            return isResult;
+            return isSuccess;
         }
         #endregion
 

@@ -12,6 +12,7 @@ using System.Windows.Forms;
 
 namespace PM_QuanLyKhoHang.FormDetails
 {
+    public delegate void DelegateClearItem();
     public partial class frmLogin : DevExpress.XtraEditors.XtraForm
     {
         #region "[Default Constructor]"

@@ -124,11 +124,6 @@ namespace PM_QuanLyKhoHang.UserControlDetails
             }
             catch { }
         }
-        private void lblsStartDate_MouseEnter(object sender, EventArgs e)
-        {
-            ToolTip toolTip = new ToolTip();
-            toolTip.SetToolTip(lblsStartDate, "Ngày khởi tạo không thể thay đổi!");
-        }
         #endregion
 
         #region "[Load List Account]"
@@ -242,7 +237,9 @@ namespace PM_QuanLyKhoHang.UserControlDetails
             {
                 EnableButton(true);
                 txtFullName.Text = mmedAddress.Text = mmedNote.Text = txtUserName.Text = string.Empty;
-                lblsFullName.Visible = lblsUserName.Visible = lblsStartDate.Visible = false;
+                lblsFullName.Visible = lblsUserName.Visible = false;
+                txtUserName.ReadOnly = false;
+                dtpkStartDate.Enabled = true;
                 dtpkStartDate.Value = DateTime.Now;
                 cbTypeID.SelectedIndex = 1;
                 lbHeader.Text = "Thêm Mới Tài Khoản";
@@ -263,7 +260,8 @@ namespace PM_QuanLyKhoHang.UserControlDetails
                     LoadInfomation(acc);
                     EnableButton(false);
                     cbTypeID.SelectedValue = acc.TypeID;
-                    lblsStartDate.Visible = true;
+                    txtUserName.ReadOnly = true;
+                    dtpkStartDate.Enabled = false;
                 }
             }
             catch { }
@@ -305,13 +303,11 @@ namespace PM_QuanLyKhoHang.UserControlDetails
             {
                 if (e.Column.Name == "colSTT")
                     e.DisplayText = (e.RowHandle + 1).ToString();
+
             }
             catch { }
         }
         #endregion
-
-
-
 
     }
 }

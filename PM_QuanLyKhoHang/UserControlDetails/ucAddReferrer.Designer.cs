@@ -31,20 +31,21 @@
             this.pnlMain = new DevExpress.XtraEditors.PanelControl();
             this.gcAddReferrer = new DevExpress.XtraEditors.GroupControl();
             this.spccW64AddReferrer = new DevExpress.XtraCharts.Wizard.SplitContainerControlWin64();
-            this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
-            this.hplTypeReferrer = new DevExpress.XtraEditors.HyperLinkEdit();
-            this.luTypeReferrer = new DevExpress.XtraEditors.LookUpEdit();
-            this.btnExits = new DevExpress.XtraEditors.SimpleButton();
+            this.pnlBottom = new DevExpress.XtraEditors.PanelControl();
             this.btnUpdate = new DevExpress.XtraEditors.SimpleButton();
-            this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
             this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
+            this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
+            this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
+            this.btnExits = new DevExpress.XtraEditors.SimpleButton();
+            this.mmedAddress = new DevExpress.XtraEditors.MemoEdit();
+            this.cbTypeReferrer = new System.Windows.Forms.ComboBox();
+            this.hplTypeReferrer = new DevExpress.XtraEditors.HyperLinkEdit();
             this.lbNote = new DevExpress.XtraEditors.LabelControl();
             this.lbTypeReferrer = new DevExpress.XtraEditors.LabelControl();
             this.txtFax = new DevExpress.XtraEditors.TextEdit();
             this.lbFax = new DevExpress.XtraEditors.LabelControl();
             this.txtPhone = new DevExpress.XtraEditors.TextEdit();
             this.lbPhone = new DevExpress.XtraEditors.LabelControl();
-            this.txtAddress = new DevExpress.XtraEditors.TextEdit();
             this.lbAddress = new DevExpress.XtraEditors.LabelControl();
             this.txtFullName = new DevExpress.XtraEditors.TextEdit();
             this.lbFullName = new DevExpress.XtraEditors.LabelControl();
@@ -58,7 +59,7 @@
             this.colPhone = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colFax = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTypeReferrerID = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colTypeReferrer = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTypeReferrerName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDelete = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNote = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pnlMain)).BeginInit();
@@ -71,11 +72,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.spccW64AddReferrer.Panel2)).BeginInit();
             this.spccW64AddReferrer.Panel2.SuspendLayout();
             this.spccW64AddReferrer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pnlBottom)).BeginInit();
+            this.pnlBottom.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mmedAddress.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hplTypeReferrer.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.luTypeReferrer.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFax.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPhone.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtAddress.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFullName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mmedNote.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvAddReferrer)).BeginInit();
@@ -89,7 +91,7 @@
             this.pnlMain.Location = new System.Drawing.Point(0, 0);
             this.pnlMain.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(1104, 600);
+            this.pnlMain.Size = new System.Drawing.Size(1104, 679);
             this.pnlMain.TabIndex = 0;
             // 
             // gcAddReferrer
@@ -99,7 +101,7 @@
             this.gcAddReferrer.Location = new System.Drawing.Point(2, 2);
             this.gcAddReferrer.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.gcAddReferrer.Name = "gcAddReferrer";
-            this.gcAddReferrer.Size = new System.Drawing.Size(1100, 596);
+            this.gcAddReferrer.Size = new System.Drawing.Size(1100, 675);
             this.gcAddReferrer.TabIndex = 0;
             this.gcAddReferrer.Text = "Thêm Người Giới Thiệu";
             // 
@@ -113,20 +115,17 @@
             // 
             // spccW64AddReferrer.Panel1
             // 
-            this.spccW64AddReferrer.Panel1.Controls.Add(this.btnCancel);
+            this.spccW64AddReferrer.Panel1.AutoScroll = true;
+            this.spccW64AddReferrer.Panel1.Controls.Add(this.pnlBottom);
+            this.spccW64AddReferrer.Panel1.Controls.Add(this.mmedAddress);
+            this.spccW64AddReferrer.Panel1.Controls.Add(this.cbTypeReferrer);
             this.spccW64AddReferrer.Panel1.Controls.Add(this.hplTypeReferrer);
-            this.spccW64AddReferrer.Panel1.Controls.Add(this.luTypeReferrer);
-            this.spccW64AddReferrer.Panel1.Controls.Add(this.btnExits);
-            this.spccW64AddReferrer.Panel1.Controls.Add(this.btnUpdate);
-            this.spccW64AddReferrer.Panel1.Controls.Add(this.btnDelete);
-            this.spccW64AddReferrer.Panel1.Controls.Add(this.btnAdd);
             this.spccW64AddReferrer.Panel1.Controls.Add(this.lbNote);
             this.spccW64AddReferrer.Panel1.Controls.Add(this.lbTypeReferrer);
             this.spccW64AddReferrer.Panel1.Controls.Add(this.txtFax);
             this.spccW64AddReferrer.Panel1.Controls.Add(this.lbFax);
             this.spccW64AddReferrer.Panel1.Controls.Add(this.txtPhone);
             this.spccW64AddReferrer.Panel1.Controls.Add(this.lbPhone);
-            this.spccW64AddReferrer.Panel1.Controls.Add(this.txtAddress);
             this.spccW64AddReferrer.Panel1.Controls.Add(this.lbAddress);
             this.spccW64AddReferrer.Panel1.Controls.Add(this.txtFullName);
             this.spccW64AddReferrer.Panel1.Controls.Add(this.lbFullName);
@@ -137,19 +136,90 @@
             // 
             this.spccW64AddReferrer.Panel2.Controls.Add(this.dtgvAddReferrer);
             this.spccW64AddReferrer.Panel2.Text = "Panel2";
-            this.spccW64AddReferrer.Size = new System.Drawing.Size(1096, 560);
-            this.spccW64AddReferrer.SplitterPosition = 254;
+            this.spccW64AddReferrer.Size = new System.Drawing.Size(1096, 639);
+            this.spccW64AddReferrer.SplitterPosition = 320;
             this.spccW64AddReferrer.TabIndex = 0;
             this.spccW64AddReferrer.Text = "splitContainerControlWin641";
             // 
+            // pnlBottom
+            // 
+            this.pnlBottom.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.pnlBottom.Controls.Add(this.btnUpdate);
+            this.pnlBottom.Controls.Add(this.btnAdd);
+            this.pnlBottom.Controls.Add(this.btnDelete);
+            this.pnlBottom.Controls.Add(this.btnCancel);
+            this.pnlBottom.Controls.Add(this.btnExits);
+            this.pnlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlBottom.Location = new System.Drawing.Point(0, 276);
+            this.pnlBottom.Name = "pnlBottom";
+            this.pnlBottom.Size = new System.Drawing.Size(1096, 44);
+            this.pnlBottom.TabIndex = 15;
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Location = new System.Drawing.Point(839, 5);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(112, 35);
+            this.btnUpdate.TabIndex = 10;
+            this.btnUpdate.Text = "Cập Nhật";
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Location = new System.Drawing.Point(434, 5);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(112, 35);
+            this.btnAdd.TabIndex = 8;
+            this.btnAdd.Text = "&Thêm";
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(704, 5);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(112, 35);
+            this.btnDelete.TabIndex = 9;
+            this.btnDelete.Text = "Xóa";
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(763, 213);
+            this.btnCancel.Location = new System.Drawing.Point(569, 5);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(112, 35);
             this.btnCancel.TabIndex = 11;
             this.btnCancel.Text = "Hủy";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // btnExits
+            // 
+            this.btnExits.Location = new System.Drawing.Point(974, 5);
+            this.btnExits.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnExits.Name = "btnExits";
+            this.btnExits.Size = new System.Drawing.Size(112, 35);
+            this.btnExits.TabIndex = 12;
+            this.btnExits.Text = "T&hoát";
+            this.btnExits.Click += new System.EventHandler(this.btnExits_Click);
+            // 
+            // mmedAddress
+            // 
+            this.mmedAddress.Location = new System.Drawing.Point(145, 125);
+            this.mmedAddress.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.mmedAddress.Name = "mmedAddress";
+            this.mmedAddress.Size = new System.Drawing.Size(330, 102);
+            this.mmedAddress.TabIndex = 14;
+            // 
+            // cbTypeReferrer
+            // 
+            this.cbTypeReferrer.FormattingEnabled = true;
+            this.cbTypeReferrer.Location = new System.Drawing.Point(640, 20);
+            this.cbTypeReferrer.Name = "cbTypeReferrer";
+            this.cbTypeReferrer.Size = new System.Drawing.Size(350, 27);
+            this.cbTypeReferrer.TabIndex = 13;
             // 
             // hplTypeReferrer
             // 
@@ -159,56 +229,11 @@
             this.hplTypeReferrer.Name = "hplTypeReferrer";
             this.hplTypeReferrer.Size = new System.Drawing.Size(86, 26);
             this.hplTypeReferrer.TabIndex = 6;
-            // 
-            // luTypeReferrer
-            // 
-            this.luTypeReferrer.Location = new System.Drawing.Point(640, 20);
-            this.luTypeReferrer.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.luTypeReferrer.Name = "luTypeReferrer";
-            this.luTypeReferrer.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.luTypeReferrer.Size = new System.Drawing.Size(350, 26);
-            this.luTypeReferrer.TabIndex = 5;
-            // 
-            // btnExits
-            // 
-            this.btnExits.Location = new System.Drawing.Point(898, 213);
-            this.btnExits.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnExits.Name = "btnExits";
-            this.btnExits.Size = new System.Drawing.Size(112, 35);
-            this.btnExits.TabIndex = 12;
-            this.btnExits.Text = "T&hoát";
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.Location = new System.Drawing.Point(628, 213);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(112, 35);
-            this.btnUpdate.TabIndex = 10;
-            this.btnUpdate.Text = "Cập Nhật";
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Location = new System.Drawing.Point(493, 213);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(112, 35);
-            this.btnDelete.TabIndex = 9;
-            this.btnDelete.Text = "Xóa";
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Location = new System.Drawing.Point(358, 213);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(112, 35);
-            this.btnAdd.TabIndex = 8;
-            this.btnAdd.Text = "&Thêm";
+            this.hplTypeReferrer.OpenLink += new DevExpress.XtraEditors.Controls.OpenLinkEventHandler(this.hplTypeReferrer_OpenLink);
             // 
             // lbNote
             // 
-            this.lbNote.Location = new System.Drawing.Point(520, 75);
+            this.lbNote.Location = new System.Drawing.Point(520, 125);
             this.lbNote.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lbNote.Name = "lbNote";
             this.lbNote.Size = new System.Drawing.Size(54, 19);
@@ -226,15 +251,16 @@
             // 
             // txtFax
             // 
-            this.txtFax.Location = new System.Drawing.Point(140, 170);
+            this.txtFax.Location = new System.Drawing.Point(640, 70);
             this.txtFax.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtFax.Name = "txtFax";
-            this.txtFax.Size = new System.Drawing.Size(330, 26);
+            this.txtFax.Size = new System.Drawing.Size(350, 26);
             this.txtFax.TabIndex = 4;
+            this.txtFax.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFax_KeyPress);
             // 
             // lbFax
             // 
-            this.lbFax.Location = new System.Drawing.Point(5, 175);
+            this.lbFax.Location = new System.Drawing.Point(520, 75);
             this.lbFax.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lbFax.Name = "lbFax";
             this.lbFax.Size = new System.Drawing.Size(24, 19);
@@ -243,41 +269,34 @@
             // 
             // txtPhone
             // 
-            this.txtPhone.Location = new System.Drawing.Point(140, 120);
+            this.txtPhone.Location = new System.Drawing.Point(145, 70);
             this.txtPhone.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(330, 26);
             this.txtPhone.TabIndex = 3;
+            this.txtPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPhone_KeyPress);
             // 
             // lbPhone
             // 
-            this.lbPhone.Location = new System.Drawing.Point(5, 125);
+            this.lbPhone.Location = new System.Drawing.Point(10, 75);
             this.lbPhone.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lbPhone.Name = "lbPhone";
             this.lbPhone.Size = new System.Drawing.Size(72, 19);
             this.lbPhone.TabIndex = 0;
             this.lbPhone.Text = "Điện thoại";
             // 
-            // txtAddress
-            // 
-            this.txtAddress.Location = new System.Drawing.Point(140, 70);
-            this.txtAddress.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(330, 26);
-            this.txtAddress.TabIndex = 2;
-            // 
             // lbAddress
             // 
-            this.lbAddress.Location = new System.Drawing.Point(5, 75);
+            this.lbAddress.Location = new System.Drawing.Point(10, 125);
             this.lbAddress.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lbAddress.Name = "lbAddress";
             this.lbAddress.Size = new System.Drawing.Size(54, 19);
             this.lbAddress.TabIndex = 0;
-            this.lbAddress.Text = "Đia chỉ";
+            this.lbAddress.Text = "Địa chỉ";
             // 
             // txtFullName
             // 
-            this.txtFullName.Location = new System.Drawing.Point(140, 20);
+            this.txtFullName.Location = new System.Drawing.Point(145, 20);
             this.txtFullName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtFullName.Name = "txtFullName";
             this.txtFullName.Size = new System.Drawing.Size(330, 26);
@@ -285,7 +304,7 @@
             // 
             // lbFullName
             // 
-            this.lbFullName.Location = new System.Drawing.Point(5, 25);
+            this.lbFullName.Location = new System.Drawing.Point(10, 25);
             this.lbFullName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lbFullName.Name = "lbFullName";
             this.lbFullName.Size = new System.Drawing.Size(68, 19);
@@ -294,7 +313,7 @@
             // 
             // mmedNote
             // 
-            this.mmedNote.Location = new System.Drawing.Point(640, 75);
+            this.mmedNote.Location = new System.Drawing.Point(640, 125);
             this.mmedNote.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.mmedNote.Name = "mmedNote";
             this.mmedNote.Size = new System.Drawing.Size(350, 102);
@@ -308,7 +327,7 @@
             this.dtgvAddReferrer.MainView = this.gvAddReferrer;
             this.dtgvAddReferrer.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtgvAddReferrer.Name = "dtgvAddReferrer";
-            this.dtgvAddReferrer.Size = new System.Drawing.Size(1096, 291);
+            this.dtgvAddReferrer.Size = new System.Drawing.Size(1096, 304);
             this.dtgvAddReferrer.TabIndex = 0;
             this.dtgvAddReferrer.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvAddReferrer});
@@ -323,7 +342,7 @@
             this.colPhone,
             this.colFax,
             this.colTypeReferrerID,
-            this.colTypeReferrer,
+            this.colTypeReferrerName,
             this.colDelete,
             this.colNote});
             this.gvAddReferrer.DetailHeight = 538;
@@ -332,6 +351,8 @@
             this.gvAddReferrer.Name = "gvAddReferrer";
             this.gvAddReferrer.OptionsEditForm.PopupEditFormWidth = 1200;
             this.gvAddReferrer.RowHeight = 46;
+            this.gvAddReferrer.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gvAddReferrer_RowClick);
+            this.gvAddReferrer.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.gvAddReferrer_CustomDrawCell);
             // 
             // colSTT
             // 
@@ -365,7 +386,7 @@
             this.colFullName.AppearanceHeader.Options.UseFont = true;
             this.colFullName.AppearanceHeader.Options.UseForeColor = true;
             this.colFullName.Caption = "Họ và Tên";
-            this.colFullName.FieldName = "FullName";
+            this.colFullName.FieldName = "Name";
             this.colFullName.MinWidth = 30;
             this.colFullName.Name = "colFullName";
             this.colFullName.Visible = true;
@@ -428,21 +449,20 @@
             this.colTypeReferrerID.Name = "colTypeReferrerID";
             this.colTypeReferrerID.Width = 112;
             // 
-            // colTypeReferrer
+            // colTypeReferrerName
             // 
-            this.colTypeReferrer.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.colTypeReferrer.AppearanceCell.Options.UseFont = true;
-            this.colTypeReferrer.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            this.colTypeReferrer.AppearanceHeader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.colTypeReferrer.AppearanceHeader.Options.UseFont = true;
-            this.colTypeReferrer.AppearanceHeader.Options.UseForeColor = true;
-            this.colTypeReferrer.Caption = "Loại Cá Nhân";
-            this.colTypeReferrer.FieldName = "TypeReferrer";
-            this.colTypeReferrer.MinWidth = 30;
-            this.colTypeReferrer.Name = "colTypeReferrer";
-            this.colTypeReferrer.Visible = true;
-            this.colTypeReferrer.VisibleIndex = 5;
-            this.colTypeReferrer.Width = 166;
+            this.colTypeReferrerName.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.colTypeReferrerName.AppearanceCell.Options.UseFont = true;
+            this.colTypeReferrerName.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.colTypeReferrerName.AppearanceHeader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.colTypeReferrerName.AppearanceHeader.Options.UseFont = true;
+            this.colTypeReferrerName.AppearanceHeader.Options.UseForeColor = true;
+            this.colTypeReferrerName.Caption = "Loại Cá Nhân";
+            this.colTypeReferrerName.MinWidth = 30;
+            this.colTypeReferrerName.Name = "colTypeReferrerName";
+            this.colTypeReferrerName.Visible = true;
+            this.colTypeReferrerName.VisibleIndex = 5;
+            this.colTypeReferrerName.Width = 166;
             // 
             // colDelete
             // 
@@ -475,7 +495,8 @@
             this.Controls.Add(this.pnlMain);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ucAddReferrer";
-            this.Size = new System.Drawing.Size(1104, 600);
+            this.Size = new System.Drawing.Size(1104, 679);
+            this.Load += new System.EventHandler(this.ucAddReferrer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pnlMain)).EndInit();
             this.pnlMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcAddReferrer)).EndInit();
@@ -487,11 +508,12 @@
             this.spccW64AddReferrer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.spccW64AddReferrer)).EndInit();
             this.spccW64AddReferrer.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pnlBottom)).EndInit();
+            this.pnlBottom.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.mmedAddress.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hplTypeReferrer.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.luTypeReferrer.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFax.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPhone.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtAddress.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFullName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mmedNote.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvAddReferrer)).EndInit();
@@ -506,7 +528,6 @@
         private DevExpress.XtraEditors.GroupControl gcAddReferrer;
         private DevExpress.XtraCharts.Wizard.SplitContainerControlWin64 spccW64AddReferrer;
         private DevExpress.XtraEditors.HyperLinkEdit hplTypeReferrer;
-        private DevExpress.XtraEditors.LookUpEdit luTypeReferrer;
         private DevExpress.XtraEditors.SimpleButton btnExits;
         private DevExpress.XtraEditors.SimpleButton btnUpdate;
         private DevExpress.XtraEditors.SimpleButton btnDelete;
@@ -517,7 +538,6 @@
         private DevExpress.XtraEditors.LabelControl lbFax;
         private DevExpress.XtraEditors.TextEdit txtPhone;
         private DevExpress.XtraEditors.LabelControl lbPhone;
-        private DevExpress.XtraEditors.TextEdit txtAddress;
         private DevExpress.XtraEditors.LabelControl lbAddress;
         private DevExpress.XtraEditors.TextEdit txtFullName;
         private DevExpress.XtraEditors.LabelControl lbFullName;
@@ -532,8 +552,11 @@
         private DevExpress.XtraGrid.Columns.GridColumn colPhone;
         private DevExpress.XtraGrid.Columns.GridColumn colFax;
         private DevExpress.XtraGrid.Columns.GridColumn colTypeReferrerID;
-        private DevExpress.XtraGrid.Columns.GridColumn colTypeReferrer;
+        private DevExpress.XtraGrid.Columns.GridColumn colTypeReferrerName;
         private DevExpress.XtraGrid.Columns.GridColumn colDelete;
         private DevExpress.XtraGrid.Columns.GridColumn colNote;
+        private System.Windows.Forms.ComboBox cbTypeReferrer;
+        private DevExpress.XtraEditors.MemoEdit mmedAddress;
+        private DevExpress.XtraEditors.PanelControl pnlBottom;
     }
 }

@@ -30,10 +30,6 @@
         {
             this.pnlMain = new DevExpress.XtraEditors.PanelControl();
             this.gcProductInfo = new DevExpress.XtraEditors.GroupControl();
-            this.pnlAct = new DevExpress.XtraEditors.PanelControl();
-            this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
-            this.btnExits = new DevExpress.XtraEditors.SimpleButton();
-            this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
             this.pnlSearch = new DevExpress.XtraEditors.PanelControl();
             this.txtSearch = new DevExpress.XtraEditors.TextEdit();
             this.btnSearch = new DevExpress.XtraEditors.SimpleButton();
@@ -52,12 +48,14 @@
             this.colInputSource = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNote = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDelete = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.flpBottom = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnExits = new DevExpress.XtraEditors.SimpleButton();
+            this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
+            this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.pnlMain)).BeginInit();
             this.pnlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcProductInfo)).BeginInit();
             this.gcProductInfo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pnlAct)).BeginInit();
-            this.pnlAct.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnlSearch)).BeginInit();
             this.pnlSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtSearch.Properties)).BeginInit();
@@ -65,6 +63,7 @@
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvProductInfo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvProductInfo)).BeginInit();
+            this.flpBottom.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlMain
@@ -79,7 +78,7 @@
             // 
             // gcProductInfo
             // 
-            this.gcProductInfo.Controls.Add(this.pnlAct);
+            this.gcProductInfo.Controls.Add(this.flpBottom);
             this.gcProductInfo.Controls.Add(this.pnlSearch);
             this.gcProductInfo.Controls.Add(this.panelControl1);
             this.gcProductInfo.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -89,46 +88,6 @@
             this.gcProductInfo.Size = new System.Drawing.Size(815, 454);
             this.gcProductInfo.TabIndex = 0;
             this.gcProductInfo.Text = "Danh sách các sản phẩm hiện có trong công ty";
-            // 
-            // pnlAct
-            // 
-            this.pnlAct.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlAct.Controls.Add(this.btnCancel);
-            this.pnlAct.Controls.Add(this.btnExits);
-            this.pnlAct.Controls.Add(this.btnDelete);
-            this.pnlAct.Location = new System.Drawing.Point(-3, 382);
-            this.pnlAct.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.pnlAct.Name = "pnlAct";
-            this.pnlAct.Size = new System.Drawing.Size(816, 69);
-            this.pnlAct.TabIndex = 6;
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Location = new System.Drawing.Point(562, 20);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(112, 35);
-            this.btnCancel.TabIndex = 4;
-            this.btnCancel.Text = "Hủy";
-            // 
-            // btnExits
-            // 
-            this.btnExits.Location = new System.Drawing.Point(687, 20);
-            this.btnExits.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnExits.Name = "btnExits";
-            this.btnExits.Size = new System.Drawing.Size(112, 35);
-            this.btnExits.TabIndex = 3;
-            this.btnExits.Text = "Thoát";
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Location = new System.Drawing.Point(436, 20);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(112, 35);
-            this.btnDelete.TabIndex = 2;
-            this.btnDelete.Text = "Xóa";
             // 
             // pnlSearch
             // 
@@ -159,10 +118,11 @@
             this.btnSearch.Size = new System.Drawing.Size(112, 35);
             this.btnSearch.TabIndex = 1;
             this.btnSearch.Text = "Tìm Kiếm";
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // lbSearchResults
             // 
-            this.lbSearchResults.Location = new System.Drawing.Point(540, 20);
+            this.lbSearchResults.Location = new System.Drawing.Point(540, 17);
             this.lbSearchResults.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lbSearchResults.Name = "lbSearchResults";
             this.lbSearchResults.Size = new System.Drawing.Size(126, 19);
@@ -215,6 +175,8 @@
             this.gvProductInfo.Name = "gvProductInfo";
             this.gvProductInfo.OptionsEditForm.PopupEditFormWidth = 1200;
             this.gvProductInfo.RowHeight = 46;
+            this.gvProductInfo.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gvProductInfo_RowClick);
+            this.gvProductInfo.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.gvProductInfo_CustomDrawCell);
             // 
             // colSTT
             // 
@@ -229,7 +191,7 @@
             this.colSTT.Name = "colSTT";
             this.colSTT.Visible = true;
             this.colSTT.VisibleIndex = 0;
-            this.colSTT.Width = 94;
+            this.colSTT.Width = 66;
             // 
             // colID
             // 
@@ -248,13 +210,13 @@
             this.colProductName.AppearanceHeader.Options.UseFont = true;
             this.colProductName.AppearanceHeader.Options.UseForeColor = true;
             this.colProductName.Caption = "Tên Sản Phẩm";
-            this.colProductName.FieldName = "ProductName";
+            this.colProductName.FieldName = "Name";
             this.colProductName.MinWidth = 30;
             this.colProductName.Name = "colProductName";
             this.colProductName.ToolTip = "Tên sản phẩm";
             this.colProductName.Visible = true;
             this.colProductName.VisibleIndex = 1;
-            this.colProductName.Width = 241;
+            this.colProductName.Width = 181;
             // 
             // colDimensions
             // 
@@ -264,14 +226,14 @@
             this.colDimensions.AppearanceHeader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.colDimensions.AppearanceHeader.Options.UseFont = true;
             this.colDimensions.AppearanceHeader.Options.UseForeColor = true;
-            this.colDimensions.Caption = "Quy Cách";
+            this.colDimensions.Caption = "Kích thước";
             this.colDimensions.FieldName = "Dimensions";
             this.colDimensions.MinWidth = 30;
             this.colDimensions.Name = "colDimensions";
-            this.colDimensions.ToolTip = "Quy cách của sản phẩm";
+            this.colDimensions.ToolTip = "Kích thước của sản phẩm";
             this.colDimensions.Visible = true;
             this.colDimensions.VisibleIndex = 2;
-            this.colDimensions.Width = 180;
+            this.colDimensions.Width = 124;
             // 
             // colUnitID
             // 
@@ -296,7 +258,7 @@
             this.colUnit.ToolTip = "Tên đơn vị tính";
             this.colUnit.Visible = true;
             this.colUnit.VisibleIndex = 3;
-            this.colUnit.Width = 196;
+            this.colUnit.Width = 135;
             // 
             // colStock
             // 
@@ -313,7 +275,7 @@
             this.colStock.ToolTip = "Số lượng tồn trong kho";
             this.colStock.Visible = true;
             this.colStock.VisibleIndex = 4;
-            this.colStock.Width = 190;
+            this.colStock.Width = 131;
             // 
             // colStartDate
             // 
@@ -331,7 +293,7 @@
             this.colStartDate.Name = "colStartDate";
             this.colStartDate.Visible = true;
             this.colStartDate.VisibleIndex = 5;
-            this.colStartDate.Width = 196;
+            this.colStartDate.Width = 135;
             // 
             // colInputSource
             // 
@@ -348,7 +310,7 @@
             this.colInputSource.ToolTip = "Nguồn nhập sản phẩm";
             this.colInputSource.Visible = true;
             this.colInputSource.VisibleIndex = 6;
-            this.colInputSource.Width = 196;
+            this.colInputSource.Width = 135;
             // 
             // colNote
             // 
@@ -365,7 +327,7 @@
             this.colNote.ToolTip = "Ghi chú thông tin thêm cho sản phẩm";
             this.colNote.Visible = true;
             this.colNote.VisibleIndex = 7;
-            this.colNote.Width = 189;
+            this.colNote.Width = 138;
             // 
             // colDelete
             // 
@@ -380,9 +342,50 @@
             this.colDelete.MinWidth = 30;
             this.colDelete.Name = "colDelete";
             this.colDelete.ToolTip = "Đánh dấu sản phẩm cần xóa";
-            this.colDelete.Visible = true;
-            this.colDelete.VisibleIndex = 8;
             this.colDelete.Width = 82;
+            // 
+            // flpBottom
+            // 
+            this.flpBottom.Controls.Add(this.btnExits);
+            this.flpBottom.Controls.Add(this.btnDelete);
+            this.flpBottom.Controls.Add(this.btnCancel);
+            this.flpBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.flpBottom.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flpBottom.Location = new System.Drawing.Point(2, 405);
+            this.flpBottom.Name = "flpBottom";
+            this.flpBottom.Size = new System.Drawing.Size(811, 47);
+            this.flpBottom.TabIndex = 7;
+            // 
+            // btnExits
+            // 
+            this.btnExits.Location = new System.Drawing.Point(677, 5);
+            this.btnExits.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnExits.Name = "btnExits";
+            this.btnExits.Size = new System.Drawing.Size(130, 35);
+            this.btnExits.TabIndex = 5;
+            this.btnExits.Text = "Thoát";
+            this.btnExits.Click += new System.EventHandler(this.btnExits_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(539, 5);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(130, 35);
+            this.btnDelete.TabIndex = 3;
+            this.btnDelete.Text = "&Xóa";
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(401, 5);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(130, 35);
+            this.btnCancel.TabIndex = 4;
+            this.btnCancel.Text = "&Hủy";
+            this.btnCancel.ToolTip = "Hủy thao tác xóa trước đó";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // ucProductInfo
             // 
@@ -392,12 +395,11 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ucProductInfo";
             this.Size = new System.Drawing.Size(819, 458);
+            this.Load += new System.EventHandler(this.ucProductInfo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pnlMain)).EndInit();
             this.pnlMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcProductInfo)).EndInit();
             this.gcProductInfo.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pnlAct)).EndInit();
-            this.pnlAct.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pnlSearch)).EndInit();
             this.pnlSearch.ResumeLayout(false);
             this.pnlSearch.PerformLayout();
@@ -406,6 +408,7 @@
             this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvProductInfo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvProductInfo)).EndInit();
+            this.flpBottom.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -430,13 +433,12 @@
         private DevExpress.XtraEditors.TextEdit txtSearch;
         private DevExpress.XtraEditors.SimpleButton btnSearch;
         private DevExpress.XtraEditors.LabelControl lbSearchResults;
-        private DevExpress.XtraEditors.PanelControl pnlAct;
         private DevExpress.XtraEditors.PanelControl pnlSearch;
         private DevExpress.XtraEditors.PanelControl panelControl1;
+        private System.Windows.Forms.FlowLayoutPanel flpBottom;
         private DevExpress.XtraEditors.SimpleButton btnExits;
         private DevExpress.XtraEditors.SimpleButton btnDelete;
         private DevExpress.XtraEditors.SimpleButton btnCancel;
-
     }
 }
 

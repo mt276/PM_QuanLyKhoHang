@@ -79,6 +79,28 @@ namespace DAO.DAO
         }
         #endregion
 
+        #region "[SelectByCompanyID]"
+        public RepresentativeDTO SelectByCompanyID(int _iID)
+        {
+            RepresentativeDTO objResult = null;
+            try
+            {
+                if (cn != null)
+                {
+                    string sql = string.Format("Select * from dbo.Representative Where CompanyID = {0}", _iID.ToString());
+                    DataTable dt = SqlDataHelper.GetDataToStringSQL(sql, cn);
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        objResult = new RepresentativeDTO(row);
+                        return objResult;
+                    }
+                }
+            }
+            catch { }
+            return objResult;
+        }
+        #endregion
+
         #region "[Update]"
         public bool Update(RepresentativeDTO _obj)
         {
@@ -125,6 +147,47 @@ namespace DAO.DAO
             }
             catch { }
             return listResult;
+        }
+        #endregion
+
+        #region "[GetListByRepresentativeID]"
+        public List<RepresentativeDTO> GetListByRepresentativeID(int _iIDCompany)
+        {
+            List<RepresentativeDTO> listResult = new List<RepresentativeDTO>();
+            try
+            {
+                if (cn != null)
+                {
+                    string sql = "SELECT * FROM dbo.Representative Where CompanyID = " + _iIDCompany.ToString();
+                    DataTable dt = SqlDataHelper.GetDataToStringSQL(sql, cn);
+                    if (dt.Rows.Count > 0)
+                    {
+                        foreach (DataRow row in dt.Rows)
+                        {
+                            RepresentativeDTO obj = new RepresentativeDTO(row);
+                            listResult.Add(obj);
+                        }
+                    }
+                }
+            }
+            catch { }
+            return listResult;
+        }
+        #endregion
+
+        #region "[DeleteByRepresentativeID]"
+        public bool DeleteByRepresentativeID(int _iIDCompany)
+        {
+            bool isResult = false;
+            try
+            {
+                string sql = "DELETE FROM dbo.Representative WHERE CompanyID= " + _iIDCompany.ToString();
+                int iR = SqlDataHelper.ExecuteNonQuery(sql, cn);
+                if (iR > 0)
+                    isResult = true;
+            }
+            catch { }
+            return isResult;
         }
         #endregion
 

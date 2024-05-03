@@ -1,6 +1,6 @@
 ﻿namespace PM_QuanLyKhoHang.UserControlDetails
 {
-    partial class ucPriceUpdate
+    partial class ucSalePrice
     {
         /// <summary> 
         /// Required designer variable.
@@ -30,16 +30,18 @@
         {
             this.gcPriceUpdate = new DevExpress.XtraEditors.GroupControl();
             this.spccPriceUpdate = new DevExpress.XtraEditors.SplitContainerControl();
-            this.dtgvProduct = new DevExpress.XtraGrid.GridControl();
-            this.gvProduct = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.dtgvInput = new DevExpress.XtraGrid.GridControl();
+            this.gvInput = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colSTT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colProductName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNote = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
+            this.lbAccountName = new DevExpress.XtraEditors.LabelControl();
             this.btnExits = new DevExpress.XtraEditors.SimpleButton();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.btnUpdatePrice = new DevExpress.XtraEditors.SimpleButton();
             this.lbUpdateDate = new DevExpress.XtraEditors.LabelControl();
-            this.txtGiaBan = new DevExpress.XtraEditors.TextEdit();
+            this.txtSalePrice = new DevExpress.XtraEditors.TextEdit();
             this.lbSalePrice = new DevExpress.XtraEditors.LabelControl();
             this.lbImportPrice = new DevExpress.XtraEditors.LabelControl();
             this.lbStartDate = new DevExpress.XtraEditors.LabelControl();
@@ -53,9 +55,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.spccPriceUpdate.Panel2)).BeginInit();
             this.spccPriceUpdate.Panel2.SuspendLayout();
             this.spccPriceUpdate.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvProduct)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvProduct)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtGiaBan.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvInput)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvInput)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSalePrice.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // gcPriceUpdate
@@ -78,16 +80,18 @@
             // 
             // spccPriceUpdate.Panel1
             // 
-            this.spccPriceUpdate.Panel1.Controls.Add(this.dtgvProduct);
+            this.spccPriceUpdate.Panel1.Controls.Add(this.dtgvInput);
             this.spccPriceUpdate.Panel1.Text = "Panel1";
             // 
             // spccPriceUpdate.Panel2
             // 
+            this.spccPriceUpdate.Panel2.Controls.Add(this.btnAdd);
+            this.spccPriceUpdate.Panel2.Controls.Add(this.lbAccountName);
             this.spccPriceUpdate.Panel2.Controls.Add(this.btnExits);
             this.spccPriceUpdate.Panel2.Controls.Add(this.btnCancel);
             this.spccPriceUpdate.Panel2.Controls.Add(this.btnUpdatePrice);
             this.spccPriceUpdate.Panel2.Controls.Add(this.lbUpdateDate);
-            this.spccPriceUpdate.Panel2.Controls.Add(this.txtGiaBan);
+            this.spccPriceUpdate.Panel2.Controls.Add(this.txtSalePrice);
             this.spccPriceUpdate.Panel2.Controls.Add(this.lbSalePrice);
             this.spccPriceUpdate.Panel2.Controls.Add(this.lbImportPrice);
             this.spccPriceUpdate.Panel2.Controls.Add(this.lbStartDate);
@@ -99,31 +103,33 @@
             this.spccPriceUpdate.TabIndex = 0;
             this.spccPriceUpdate.Text = "splitContainerControl1";
             // 
-            // dtgvProduct
+            // dtgvInput
             // 
-            this.dtgvProduct.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtgvProduct.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.dtgvProduct.Location = new System.Drawing.Point(0, 0);
-            this.dtgvProduct.MainView = this.gvProduct;
-            this.dtgvProduct.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.dtgvProduct.Name = "dtgvProduct";
-            this.dtgvProduct.Size = new System.Drawing.Size(592, 473);
-            this.dtgvProduct.TabIndex = 0;
-            this.dtgvProduct.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gvProduct});
+            this.dtgvInput.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtgvInput.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dtgvInput.Location = new System.Drawing.Point(0, 0);
+            this.dtgvInput.MainView = this.gvInput;
+            this.dtgvInput.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dtgvInput.Name = "dtgvInput";
+            this.dtgvInput.Size = new System.Drawing.Size(592, 473);
+            this.dtgvInput.TabIndex = 0;
+            this.dtgvInput.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gvInput});
             // 
-            // gvProduct
+            // gvInput
             // 
-            this.gvProduct.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gvInput.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colSTT,
             this.colProductName,
             this.colNote});
-            this.gvProduct.DetailHeight = 538;
-            this.gvProduct.GridControl = this.dtgvProduct;
-            this.gvProduct.GroupPanelText = "Danh sách sản phẩm chưa cập nhật giá bán";
-            this.gvProduct.Name = "gvProduct";
-            this.gvProduct.OptionsEditForm.PopupEditFormWidth = 1200;
-            this.gvProduct.RowHeight = 38;
+            this.gvInput.DetailHeight = 538;
+            this.gvInput.GridControl = this.dtgvInput;
+            this.gvInput.GroupPanelText = "Danh sách sản phẩm chưa cập nhật giá bán";
+            this.gvInput.Name = "gvInput";
+            this.gvInput.OptionsEditForm.PopupEditFormWidth = 1200;
+            this.gvInput.RowHeight = 38;
+            this.gvInput.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gvInput_RowClick);
+            this.gvInput.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.gvInput_CustomDrawCell);
             // 
             // colSTT
             // 
@@ -149,7 +155,6 @@
             this.colProductName.AppearanceHeader.Options.UseFont = true;
             this.colProductName.AppearanceHeader.Options.UseForeColor = true;
             this.colProductName.Caption = "Tên Sản Phẩm";
-            this.colProductName.FieldName = "ProductName";
             this.colProductName.MinWidth = 30;
             this.colProductName.Name = "colProductName";
             this.colProductName.Visible = true;
@@ -172,53 +177,77 @@
             this.colNote.VisibleIndex = 2;
             this.colNote.Width = 112;
             // 
+            // btnAdd
+            // 
+            this.btnAdd.Location = new System.Drawing.Point(157, 393);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(112, 35);
+            this.btnAdd.TabIndex = 6;
+            this.btnAdd.Text = "Thêm";
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // lbAccountName
+            // 
+            this.lbAccountName.Location = new System.Drawing.Point(8, 25);
+            this.lbAccountName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.lbAccountName.Name = "lbAccountName";
+            this.lbAccountName.Size = new System.Drawing.Size(117, 19);
+            this.lbAccountName.TabIndex = 5;
+            this.lbAccountName.Text = "Nhân viên nhập:";
+            // 
             // btnExits
             // 
-            this.btnExits.Location = new System.Drawing.Point(378, 368);
+            this.btnExits.Location = new System.Drawing.Point(520, 393);
             this.btnExits.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnExits.Name = "btnExits";
             this.btnExits.Size = new System.Drawing.Size(112, 35);
             this.btnExits.TabIndex = 4;
             this.btnExits.Text = "&Đóng Lại";
+            this.btnExits.Click += new System.EventHandler(this.btnExits_Click);
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(256, 368);
+            this.btnCancel.Location = new System.Drawing.Point(398, 393);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(112, 35);
             this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "&Hủy";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnUpdatePrice
             // 
-            this.btnUpdatePrice.Location = new System.Drawing.Point(135, 368);
+            this.btnUpdatePrice.Location = new System.Drawing.Point(277, 393);
             this.btnUpdatePrice.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnUpdatePrice.Name = "btnUpdatePrice";
             this.btnUpdatePrice.Size = new System.Drawing.Size(112, 35);
             this.btnUpdatePrice.TabIndex = 4;
             this.btnUpdatePrice.Text = "&Cập Nhật";
+            this.btnUpdatePrice.Click += new System.EventHandler(this.btnUpdatePrice_Click);
             // 
             // lbUpdateDate
             // 
-            this.lbUpdateDate.Location = new System.Drawing.Point(19, 262);
+            this.lbUpdateDate.Location = new System.Drawing.Point(17, 325);
             this.lbUpdateDate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lbUpdateDate.Name = "lbUpdateDate";
             this.lbUpdateDate.Size = new System.Drawing.Size(107, 19);
             this.lbUpdateDate.TabIndex = 3;
             this.lbUpdateDate.Text = "Ngày cập nhật:";
             // 
-            // txtGiaBan
+            // txtSalePrice
             // 
-            this.txtGiaBan.Location = new System.Drawing.Point(165, 194);
-            this.txtGiaBan.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtGiaBan.Name = "txtGiaBan";
-            this.txtGiaBan.Size = new System.Drawing.Size(303, 26);
-            this.txtGiaBan.TabIndex = 2;
+            this.txtSalePrice.Location = new System.Drawing.Point(160, 270);
+            this.txtSalePrice.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtSalePrice.Name = "txtSalePrice";
+            this.txtSalePrice.Size = new System.Drawing.Size(303, 26);
+            this.txtSalePrice.TabIndex = 2;
+            this.txtSalePrice.TextChanged += new System.EventHandler(this.txtSalePrice_TextChanged);
+            this.txtSalePrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSalePrice_KeyPress);
             // 
             // lbSalePrice
             // 
-            this.lbSalePrice.Location = new System.Drawing.Point(68, 198);
+            this.lbSalePrice.Location = new System.Drawing.Point(67, 275);
             this.lbSalePrice.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lbSalePrice.Name = "lbSalePrice";
             this.lbSalePrice.Size = new System.Drawing.Size(60, 19);
@@ -227,7 +256,7 @@
             // 
             // lbImportPrice
             // 
-            this.lbImportPrice.Location = new System.Drawing.Point(59, 149);
+            this.lbImportPrice.Location = new System.Drawing.Point(58, 225);
             this.lbImportPrice.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lbImportPrice.Name = "lbImportPrice";
             this.lbImportPrice.Size = new System.Drawing.Size(69, 19);
@@ -236,7 +265,7 @@
             // 
             // lbStartDate
             // 
-            this.lbStartDate.Location = new System.Drawing.Point(46, 103);
+            this.lbStartDate.Location = new System.Drawing.Point(43, 175);
             this.lbStartDate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lbStartDate.Name = "lbStartDate";
             this.lbStartDate.Size = new System.Drawing.Size(82, 19);
@@ -245,30 +274,31 @@
             // 
             // lbCount
             // 
-            this.lbCount.Location = new System.Drawing.Point(13, 58);
+            this.lbCount.Location = new System.Drawing.Point(17, 125);
             this.lbCount.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lbCount.Name = "lbCount";
-            this.lbCount.Size = new System.Drawing.Size(115, 19);
+            this.lbCount.Size = new System.Drawing.Size(110, 19);
             this.lbCount.TabIndex = 0;
-            this.lbCount.Text = "Số lượng  nhập:";
+            this.lbCount.Text = "Số lượng nhập:";
             // 
             // lbProductName
             // 
-            this.lbProductName.Location = new System.Drawing.Point(21, 15);
+            this.lbProductName.Location = new System.Drawing.Point(20, 75);
             this.lbProductName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lbProductName.Name = "lbProductName";
             this.lbProductName.Size = new System.Drawing.Size(107, 19);
             this.lbProductName.TabIndex = 0;
             this.lbProductName.Text = "Tên sản phẩm:";
             // 
-            // ucPriceUpdate
+            // ucSalePrice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gcPriceUpdate);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "ucPriceUpdate";
+            this.Name = "ucSalePrice";
             this.Size = new System.Drawing.Size(1138, 509);
+            this.Load += new System.EventHandler(this.ucPriceUpdate_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gcPriceUpdate)).EndInit();
             this.gcPriceUpdate.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.spccPriceUpdate.Panel1)).EndInit();
@@ -278,9 +308,9 @@
             this.spccPriceUpdate.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spccPriceUpdate)).EndInit();
             this.spccPriceUpdate.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvProduct)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvProduct)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtGiaBan.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvInput)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvInput)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSalePrice.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -289,13 +319,13 @@
 
         private DevExpress.XtraEditors.GroupControl gcPriceUpdate;
         private DevExpress.XtraEditors.SplitContainerControl spccPriceUpdate;
-        private DevExpress.XtraGrid.GridControl dtgvProduct;
-        private DevExpress.XtraGrid.Views.Grid.GridView gvProduct;
+        private DevExpress.XtraGrid.GridControl dtgvInput;
+        private DevExpress.XtraGrid.Views.Grid.GridView gvInput;
         private DevExpress.XtraEditors.LabelControl lbImportPrice;
         private DevExpress.XtraEditors.LabelControl lbStartDate;
         private DevExpress.XtraEditors.LabelControl lbCount;
         private DevExpress.XtraEditors.LabelControl lbProductName;
-        private DevExpress.XtraEditors.TextEdit txtGiaBan;
+        private DevExpress.XtraEditors.TextEdit txtSalePrice;
         private DevExpress.XtraEditors.LabelControl lbSalePrice;
         private DevExpress.XtraEditors.LabelControl lbUpdateDate;
         private DevExpress.XtraEditors.SimpleButton btnExits;
@@ -304,5 +334,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colSTT;
         private DevExpress.XtraGrid.Columns.GridColumn colProductName;
         private DevExpress.XtraGrid.Columns.GridColumn colNote;
+        private DevExpress.XtraEditors.LabelControl lbAccountName;
+        private DevExpress.XtraEditors.SimpleButton btnAdd;
     }
 }

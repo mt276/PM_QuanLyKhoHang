@@ -30,33 +30,33 @@ namespace PM_QuanLyKhoHang
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Management));
-            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem3 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip4 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem4 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem4 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip5 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem5 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem5 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip6 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem6 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem6 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip7 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem7 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem7 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip8 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem8 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem8 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip9 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem9 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem9 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip46 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem46 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem46 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip47 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem47 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem47 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip48 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem48 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem48 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip49 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem49 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem49 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip50 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem50 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem50 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip51 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem51 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem51 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip52 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem52 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem52 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip53 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem53 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem53 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip54 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem54 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem54 = new DevExpress.Utils.ToolTipItem();
             this.rbMenu = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnLogin = new DevExpress.XtraBars.BarButtonItem();
             this.btnLogout = new DevExpress.XtraBars.BarButtonItem();
@@ -171,11 +171,11 @@ namespace PM_QuanLyKhoHang
             this.btnExits.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E));
             this.btnExits.LargeWidth = 80;
             this.btnExits.Name = "btnExits";
-            toolTipTitleItem1.Text = "Thoát";
-            toolTipItem1.Text = "Thoát chương trình";
-            superToolTip1.Items.Add(toolTipTitleItem1);
-            superToolTip1.Items.Add(toolTipItem1);
-            this.btnExits.SuperTip = superToolTip1;
+            toolTipTitleItem46.Text = "Thoát";
+            toolTipItem46.Text = "Thoát chương trình";
+            superToolTip46.Items.Add(toolTipTitleItem46);
+            superToolTip46.Items.Add(toolTipItem46);
+            this.btnExits.SuperTip = superToolTip46;
             this.btnExits.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnExits_ItemClick);
             // 
             // btnMyAccount
@@ -207,11 +207,12 @@ namespace PM_QuanLyKhoHang
             this.btnSell.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnSell.ImageOptions.LargeImage")));
             this.btnSell.LargeWidth = 100;
             this.btnSell.Name = "btnSell";
-            toolTipTitleItem2.Text = "Bán Hàng";
-            toolTipItem2.Text = "Chức năng bán hàng cho khách hàng";
-            superToolTip2.Items.Add(toolTipTitleItem2);
-            superToolTip2.Items.Add(toolTipItem2);
-            this.btnSell.SuperTip = superToolTip2;
+            toolTipTitleItem47.Text = "Bán Hàng";
+            toolTipItem47.Text = "Chức năng bán hàng cho khách hàng";
+            superToolTip47.Items.Add(toolTipTitleItem47);
+            superToolTip47.Items.Add(toolTipItem47);
+            this.btnSell.SuperTip = superToolTip47;
+            this.btnSell.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSell_ItemClick);
             // 
             // btnWarehouse
             // 
@@ -221,11 +222,12 @@ namespace PM_QuanLyKhoHang
             this.btnWarehouse.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnWarehouse.ImageOptions.LargeImage")));
             this.btnWarehouse.LargeWidth = 100;
             this.btnWarehouse.Name = "btnWarehouse";
-            toolTipTitleItem3.Text = "Nhập Kho";
-            toolTipItem3.Text = "Nhập sản phẩm đã có vào kho";
-            superToolTip3.Items.Add(toolTipTitleItem3);
-            superToolTip3.Items.Add(toolTipItem3);
-            this.btnWarehouse.SuperTip = superToolTip3;
+            toolTipTitleItem48.Text = "Nhập Kho";
+            toolTipItem48.Text = "Nhập sản phẩm đã có vào kho";
+            superToolTip48.Items.Add(toolTipTitleItem48);
+            superToolTip48.Items.Add(toolTipItem48);
+            this.btnWarehouse.SuperTip = superToolTip48;
+            this.btnWarehouse.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnWarehouse_ItemClick);
             // 
             // btnWarehouseManagement
             // 
@@ -235,12 +237,13 @@ namespace PM_QuanLyKhoHang
             this.btnWarehouseManagement.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnWarehouseManagement.ImageOptions.LargeImage")));
             this.btnWarehouseManagement.LargeWidth = 100;
             this.btnWarehouseManagement.Name = "btnWarehouseManagement";
-            toolTipTitleItem4.Text = "Quản lý kho hàng";
-            toolTipItem4.Text = "Chức năng quản lý kho hàng.\r\n\r\nThông báo các sản phẩm sắp hết hàng và" +
+            toolTipTitleItem49.Text = "Quản lý kho hàng";
+            toolTipItem49.Text = "Chức năng quản lý kho hàng.\r\n\r\nThông báo các sản phẩm sắp hết hàng và" +
     " các sản phẩm đã hết hàng";
-            superToolTip4.Items.Add(toolTipTitleItem4);
-            superToolTip4.Items.Add(toolTipItem4);
-            this.btnWarehouseManagement.SuperTip = superToolTip4;
+            superToolTip49.Items.Add(toolTipTitleItem49);
+            superToolTip49.Items.Add(toolTipItem49);
+            this.btnWarehouseManagement.SuperTip = superToolTip49;
+            this.btnWarehouseManagement.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnWarehouseManagement_ItemClick);
             // 
             // btnPriceUpdate
             // 
@@ -250,13 +253,14 @@ namespace PM_QuanLyKhoHang
             this.btnPriceUpdate.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnPriceUpdate.ImageOptions.LargeImage")));
             this.btnPriceUpdate.LargeWidth = 100;
             this.btnPriceUpdate.Name = "btnPriceUpdate";
-            toolTipTitleItem5.Text = "Cập nhật giá bán";
-            toolTipItem5.Text = "Chức năng cập nhật giá bán cho từng sản phẩm.\r\n\r\n* Nếu không cập nhật giá bán thì" +
+            toolTipTitleItem50.Text = "Cập nhật giá bán";
+            toolTipItem50.Text = "Chức năng cập nhật giá bán cho từng sản phẩm.\r\n\r\n* Nếu không cập nhật giá bán thì" +
     " mặc định giá bán bằng giá nhập vào.\r\n\r\n* Nếu Cập nhật giá bán nhỏ hơn giá nhập " +
     "hệ thống sẽ tự động nhắc nhở.";
-            superToolTip5.Items.Add(toolTipTitleItem5);
-            superToolTip5.Items.Add(toolTipItem5);
-            this.btnPriceUpdate.SuperTip = superToolTip5;
+            superToolTip50.Items.Add(toolTipTitleItem50);
+            superToolTip50.Items.Add(toolTipItem50);
+            this.btnPriceUpdate.SuperTip = superToolTip50;
+            this.btnPriceUpdate.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPriceUpdate_ItemClick);
             // 
             // btnAddCustomer
             // 
@@ -266,12 +270,13 @@ namespace PM_QuanLyKhoHang
             this.btnAddCustomer.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnAddCustomer.ImageOptions.LargeImage")));
             this.btnAddCustomer.LargeWidth = 100;
             this.btnAddCustomer.Name = "btnAddCustomer";
-            toolTipTitleItem6.Text = "Thêm khách hàng";
-            toolTipItem6.Text = "Thêm thông tin khách hàng mới\r\n\r\nGhi chú: Khách hàng có thể là doanh ngh" +
+            toolTipTitleItem51.Text = "Thêm khách hàng";
+            toolTipItem51.Text = "Thêm thông tin khách hàng mới\r\n\r\nGhi chú: Khách hàng có thể là doanh ngh" +
     "iệp(công ty) hoặc là cá nhân.";
-            superToolTip6.Items.Add(toolTipTitleItem6);
-            superToolTip6.Items.Add(toolTipItem6);
-            this.btnAddCustomer.SuperTip = superToolTip6;
+            superToolTip51.Items.Add(toolTipTitleItem51);
+            superToolTip51.Items.Add(toolTipItem51);
+            this.btnAddCustomer.SuperTip = superToolTip51;
+            this.btnAddCustomer.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnAddCustomer_ItemClick);
             // 
             // btnListCustomer
             // 
@@ -280,11 +285,12 @@ namespace PM_QuanLyKhoHang
             this.btnListCustomer.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnListCustomer.ImageOptions.LargeImage")));
             this.btnListCustomer.LargeWidth = 100;
             this.btnListCustomer.Name = "btnListCustomer";
-            toolTipTitleItem7.Text = "Danh sách khách hàng";
-            toolTipItem7.Text = "Danh sách các khách hàng trong công ty\r\n";
-            superToolTip7.Items.Add(toolTipTitleItem7);
-            superToolTip7.Items.Add(toolTipItem7);
-            this.btnListCustomer.SuperTip = superToolTip7;
+            toolTipTitleItem52.Text = "Danh sách khách hàng";
+            toolTipItem52.Text = "Danh sách các khách hàng trong công ty\r\n";
+            superToolTip52.Items.Add(toolTipTitleItem52);
+            superToolTip52.Items.Add(toolTipItem52);
+            this.btnListCustomer.SuperTip = superToolTip52;
+            this.btnListCustomer.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnListCustomer_ItemClick);
             // 
             // btnAddReferrer
             // 
@@ -293,6 +299,7 @@ namespace PM_QuanLyKhoHang
             this.btnAddReferrer.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnAddReferrer.ImageOptions.LargeImage")));
             this.btnAddReferrer.LargeWidth = 100;
             this.btnAddReferrer.Name = "btnAddReferrer";
+            this.btnAddReferrer.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnAddReferrer_ItemClick);
             // 
             // btnAddProduct
             // 
@@ -301,12 +308,13 @@ namespace PM_QuanLyKhoHang
             this.btnAddProduct.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnAddProduct.ImageOptions.LargeImage")));
             this.btnAddProduct.LargeWidth = 100;
             this.btnAddProduct.Name = "btnAddProduct";
-            toolTipTitleItem8.Text = "Thêm sản phẩm";
-            toolTipItem8.Text = "Thêm sản phẩm mới\r\n\r\n+ Người dùng chỉ thấy danh sách các khách hàng ma" +
+            toolTipTitleItem53.Text = "Thêm sản phẩm";
+            toolTipItem53.Text = "Thêm sản phẩm mới\r\n\r\n+ Người dùng chỉ thấy danh sách các khách hàng ma" +
     "̀ người dùng đó đã thêm trước đây.";
-            superToolTip8.Items.Add(toolTipTitleItem8);
-            superToolTip8.Items.Add(toolTipItem8);
-            this.btnAddProduct.SuperTip = superToolTip8;
+            superToolTip53.Items.Add(toolTipTitleItem53);
+            superToolTip53.Items.Add(toolTipItem53);
+            this.btnAddProduct.SuperTip = superToolTip53;
+            this.btnAddProduct.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnAddProduct_ItemClick);
             // 
             // btnListProduct
             // 
@@ -315,11 +323,12 @@ namespace PM_QuanLyKhoHang
             this.btnListProduct.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnListProduct.ImageOptions.LargeImage")));
             this.btnListProduct.LargeWidth = 100;
             this.btnListProduct.Name = "btnListProduct";
-            toolTipTitleItem9.Text = "Danh sách sản phẩm";
-            toolTipItem9.Text = "Danh Sách Các Sản Phẩm Trong Công Ty";
-            superToolTip9.Items.Add(toolTipTitleItem9);
-            superToolTip9.Items.Add(toolTipItem9);
-            this.btnListProduct.SuperTip = superToolTip9;
+            toolTipTitleItem54.Text = "Danh sách sản phẩm";
+            toolTipItem54.Text = "Danh Sách Các Sản Phẩm Trong Công Ty";
+            superToolTip54.Items.Add(toolTipTitleItem54);
+            superToolTip54.Items.Add(toolTipItem54);
+            this.btnListProduct.SuperTip = superToolTip54;
+            this.btnListProduct.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnListProduct_ItemClick);
             // 
             // barButtonItem7
             // 
@@ -340,6 +349,7 @@ namespace PM_QuanLyKhoHang
             this.btnStatistics.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnStatistics.ImageOptions.LargeImage")));
             this.btnStatistics.LargeWidth = 130;
             this.btnStatistics.Name = "btnStatistics";
+            this.btnStatistics.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnStatistics_ItemClick);
             // 
             // btnAddTypeReferrer
             // 
@@ -348,6 +358,7 @@ namespace PM_QuanLyKhoHang
             this.btnAddTypeReferrer.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnAddTypeReferrer.ImageOptions.LargeImage")));
             this.btnAddTypeReferrer.LargeWidth = 140;
             this.btnAddTypeReferrer.Name = "btnAddTypeReferrer";
+            this.btnAddTypeReferrer.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnAddTypeReferrer_ItemClick);
             // 
             // btnConfigure
             // 
@@ -356,6 +367,7 @@ namespace PM_QuanLyKhoHang
             this.btnConfigure.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnConfigure.ImageOptions.LargeImage")));
             this.btnConfigure.LargeWidth = 100;
             this.btnConfigure.Name = "btnConfigure";
+            this.btnConfigure.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnConfigure_ItemClick);
             // 
             // btnTrashCan
             // 
@@ -364,6 +376,7 @@ namespace PM_QuanLyKhoHang
             this.btnTrashCan.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnTrashCan.ImageOptions.LargeImage")));
             this.btnTrashCan.LargeWidth = 100;
             this.btnTrashCan.Name = "btnTrashCan";
+            this.btnTrashCan.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTrashCan_ItemClick);
             // 
             // btnUpdateSystem
             // 
@@ -372,6 +385,7 @@ namespace PM_QuanLyKhoHang
             this.btnUpdateSystem.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnUpdateSystem.ImageOptions.LargeImage")));
             this.btnUpdateSystem.LargeWidth = 100;
             this.btnUpdateSystem.Name = "btnUpdateSystem";
+            this.btnUpdateSystem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnUpdateSystem_ItemClick);
             // 
             // btnSendEmail
             // 
@@ -380,6 +394,7 @@ namespace PM_QuanLyKhoHang
             this.btnSendEmail.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnSendEmail.ImageOptions.LargeImage")));
             this.btnSendEmail.LargeWidth = 160;
             this.btnSendEmail.Name = "btnSendEmail";
+            this.btnSendEmail.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSendEmail_ItemClick);
             // 
             // rbpLogin
             // 

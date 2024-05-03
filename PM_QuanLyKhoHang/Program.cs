@@ -17,7 +17,8 @@ namespace PM_QuanLyKhoHang
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Management());
+            //Application.Run(new FormDetails.frmUnit());
         }
 
     }
-}
+} 

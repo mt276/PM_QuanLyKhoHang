@@ -26,6 +26,13 @@ namespace DAO.DAO
             {
                 if (cn != null)
                 {
+                    string check = string.Format("Select COUNT(*) from dbo.Company Where name = N'{0}'", _obj.Name);
+                    int count = (int)SqlDataHelper.GetMaxID(check, cn);
+                    if (count > 0)
+                    {
+                        return -1;
+                    }
+
                     string sql = string.Format("INSERT INTO dbo.Company(name,address,phone,fax,Del,Note)" +
                     "Values(N'{0}', N'{1}', N'{2}', N'{3}', '{4}', N'{5}')",
                     _obj.Name, _obj.Address, _obj.Phone, _obj.Fax, _obj.Del.ToString(), _obj.Note);
@@ -130,6 +137,54 @@ namespace DAO.DAO
         }
         #endregion
 
-        
+        #region "[Get Date]"
+        public List<CompanyDTO> GetDate()
+        {
+            List<CompanyDTO> listResult = new List<CompanyDTO>();
+            try
+            {
+                if (cn != null)
+                {
+                    string sql = "SELECT * FROM dbo.Company WHERE CONVERT(DATE, StartDate) = CONVERT(DATE, GETDATE())";
+                    DataTable dt = SqlDataHelper.GetDataToStringSQL(sql, cn);
+                    if (dt.Rows.Count > 0)
+                    {
+                        foreach (DataRow row in dt.Rows)
+                        {
+                            CompanyDTO obj = new CompanyDTO(row);
+                            listResult.Add(obj);
+                        }
+                    }
+                }
+            }
+            catch { }
+            return listResult;
+        }
+        #endregion
+
+        #region "[SearchCompanyByname]"
+        public List<CompanyDTO> SearchCompanyByname(string name)
+        {
+            List<CompanyDTO> listResult = new List<CompanyDTO>();
+            try
+            {
+                if (cn != null)
+                {
+                    string sql = string.Format("SELECT * FROM dbo.Company WHERE dbo.fuConvertToUnsign1(name) LIKE N'%' + dbo.fuConvertToUnsign1(N'{0}') + '%'", name);
+                    DataTable dt = SqlDataHelper.GetDataToStringSQL(sql, cn);
+                    if (dt.Rows.Count > 0)
+                    {
+                        foreach (DataRow row in dt.Rows)
+                        {
+                            CompanyDTO obj = new CompanyDTO(row);
+                            listResult.Add(obj);
+                        }
+                    }
+                }
+            }
+            catch { }
+            return listResult;
+        }
+        #endregion
     }
 }

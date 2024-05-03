@@ -207,11 +207,11 @@
     <Compile Include="UserControlDetails\ucMyAccount.Designer.cs">
       <DependentUpon>ucMyAccount.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControlDetails\ucPriceUpdate.cs">
+    <Compile Include="UserControlDetails\ucSalePrice.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControlDetails\ucPriceUpdate.Designer.cs">
-      <DependentUpon>ucPriceUpdate.cs</DependentUpon>
+    <Compile Include="UserControlDetails\ucSalePrice.Designer.cs">
+      <DependentUpon>ucSalePrice.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControlDetails\ucProductInfo.cs">
       <SubType>UserControl</SubType>
@@ -314,8 +314,8 @@
     <EmbeddedResource Include="UserControlDetails\ucMyAccount.resx">
       <DependentUpon>ucMyAccount.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControlDetails\ucPriceUpdate.resx">
-      <DependentUpon>ucPriceUpdate.cs</DependentUpon>
+    <EmbeddedResource Include="UserControlDetails\ucSalePrice.resx">
+      <DependentUpon>ucSalePrice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlDetails\ucProductInfo.resx">
       <DependentUpon>ucProductInfo.cs</DependentUpon>

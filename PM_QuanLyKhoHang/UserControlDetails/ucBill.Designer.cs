@@ -49,7 +49,7 @@
             this.colDimensions = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colStock = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colUnit = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colUnit2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colUnitName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colPStartDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colImportSource = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colPDelete = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -60,7 +60,6 @@
             this.btnExits = new DevExpress.XtraEditors.SimpleButton();
             this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
             this.btnCreateBill = new DevExpress.XtraEditors.SimpleButton();
-            this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.btnAddProduct = new DevExpress.XtraEditors.SimpleButton();
             this.lbNote = new DevExpress.XtraEditors.LabelControl();
             this.txtVAT = new DevExpress.XtraEditors.TextEdit();
@@ -69,11 +68,9 @@
             this.lbSalePrice = new DevExpress.XtraEditors.LabelControl();
             this.txtCount = new DevExpress.XtraEditors.TextEdit();
             this.lbCount = new DevExpress.XtraEditors.LabelControl();
-            this.txtProductName = new DevExpress.XtraEditors.TextEdit();
             this.lbCompanyName = new DevExpress.XtraEditors.LabelControl();
             this.lbProductName = new DevExpress.XtraEditors.LabelControl();
             this.mmedNote = new DevExpress.XtraEditors.MemoEdit();
-            this.luCompanyName = new DevExpress.XtraEditors.LookUpEdit();
             this.dtgvBill = new DevExpress.XtraGrid.GridControl();
             this.gvBill = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colSTT = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -86,6 +83,9 @@
             this.colDelete = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNote = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDeleteProduct = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.cbCompanyName = new System.Windows.Forms.ComboBox();
+            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.txtProductName = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.pnmain)).BeginInit();
             this.pnmain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gbBill)).BeginInit();
@@ -108,11 +108,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtVAT.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSalePrice.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCount.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtProductName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mmedNote.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.luCompanyName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvBill)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvBill)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
+            this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtProductName.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // pnmain
@@ -154,7 +155,7 @@
             this.spccBill.Panel2.Controls.Add(this.dtgvBill);
             this.spccBill.Panel2.Text = "Panel2";
             this.spccBill.Size = new System.Drawing.Size(1622, 454);
-            this.spccBill.SplitterPosition = 283;
+            this.spccBill.SplitterPosition = 296;
             this.spccBill.TabIndex = 0;
             this.spccBill.Text = "splitContainerControl1";
             // 
@@ -167,21 +168,21 @@
             // 
             // spccProductInfo.Panel1
             // 
-            this.spccProductInfo.Panel1.Controls.Add(this.btnSearch);
-            this.spccProductInfo.Panel1.Controls.Add(this.txtSearch);
+            this.spccProductInfo.Panel1.Controls.Add(this.panelControl1);
             this.spccProductInfo.Panel1.Controls.Add(this.dtgvProductInfo);
             this.spccProductInfo.Panel1.Text = "Panel1";
             // 
             // spccProductInfo.Panel2
             // 
             this.spccProductInfo.Panel2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Default;
+            this.spccProductInfo.Panel2.Controls.Add(this.txtProductName);
+            this.spccProductInfo.Panel2.Controls.Add(this.cbCompanyName);
             this.spccProductInfo.Panel2.Controls.Add(this.btnProductDetails);
             this.spccProductInfo.Panel2.Controls.Add(this.cbUnit);
             this.spccProductInfo.Panel2.Controls.Add(this.btnNewBill);
             this.spccProductInfo.Panel2.Controls.Add(this.btnExits);
             this.spccProductInfo.Panel2.Controls.Add(this.btnDelete);
             this.spccProductInfo.Panel2.Controls.Add(this.btnCreateBill);
-            this.spccProductInfo.Panel2.Controls.Add(this.btnCancel);
             this.spccProductInfo.Panel2.Controls.Add(this.btnAddProduct);
             this.spccProductInfo.Panel2.Controls.Add(this.lbNote);
             this.spccProductInfo.Panel2.Controls.Add(this.txtVAT);
@@ -190,13 +191,11 @@
             this.spccProductInfo.Panel2.Controls.Add(this.lbSalePrice);
             this.spccProductInfo.Panel2.Controls.Add(this.txtCount);
             this.spccProductInfo.Panel2.Controls.Add(this.lbCount);
-            this.spccProductInfo.Panel2.Controls.Add(this.txtProductName);
             this.spccProductInfo.Panel2.Controls.Add(this.lbCompanyName);
             this.spccProductInfo.Panel2.Controls.Add(this.lbProductName);
             this.spccProductInfo.Panel2.Controls.Add(this.mmedNote);
-            this.spccProductInfo.Panel2.Controls.Add(this.luCompanyName);
             this.spccProductInfo.Panel2.Text = "Panel2";
-            this.spccProductInfo.Size = new System.Drawing.Size(1622, 283);
+            this.spccProductInfo.Size = new System.Drawing.Size(1622, 296);
             this.spccProductInfo.SplitterPosition = 510;
             this.spccProductInfo.TabIndex = 2;
             this.spccProductInfo.Text = "splitContainerControl2";
@@ -204,8 +203,8 @@
             // btnSearch
             // 
             this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSearch.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("sbtnSearch.ImageOptions.Image")));
-            this.btnSearch.Location = new System.Drawing.Point(439, 247);
+            this.btnSearch.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.ImageOptions.Image")));
+            this.btnSearch.Location = new System.Drawing.Point(439, 8);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(66, 31);
@@ -216,7 +215,7 @@
             // 
             this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSearch.Location = new System.Drawing.Point(4, 250);
+            this.txtSearch.Location = new System.Drawing.Point(4, 10);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(416, 26);
@@ -225,7 +224,7 @@
             // dtgvProductInfo
             // 
             this.dtgvProductInfo.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.dtgvProductInfo.Location = new System.Drawing.Point(4, 0);
+            this.dtgvProductInfo.Location = new System.Drawing.Point(4, 54);
             this.dtgvProductInfo.MainView = this.gvProductInfo;
             this.dtgvProductInfo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtgvProductInfo.Name = "dtgvProductInfo";
@@ -243,7 +242,7 @@
             this.colDimensions,
             this.colStock,
             this.colUnit,
-            this.colUnit2,
+            this.colUnitName,
             this.colPStartDate,
             this.colImportSource,
             this.colPDelete,
@@ -253,6 +252,8 @@
             this.gvProductInfo.GroupPanelText = " ";
             this.gvProductInfo.Name = "gvProductInfo";
             this.gvProductInfo.OptionsEditForm.PopupEditFormWidth = 1200;
+            this.gvProductInfo.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gvProductInfo_RowClick);
+            this.gvProductInfo.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.gvProductInfo_CustomDrawCell);
             // 
             // STT
             // 
@@ -261,7 +262,7 @@
             this.STT.Name = "STT";
             this.STT.Visible = true;
             this.STT.VisibleIndex = 0;
-            this.STT.Width = 45;
+            this.STT.Width = 99;
             // 
             // colID
             // 
@@ -279,7 +280,7 @@
             this.colProductName.Name = "colProductName";
             this.colProductName.Visible = true;
             this.colProductName.VisibleIndex = 1;
-            this.colProductName.Width = 76;
+            this.colProductName.Width = 213;
             // 
             // colDimensions
             // 
@@ -289,7 +290,7 @@
             this.colDimensions.Name = "colDimensions";
             this.colDimensions.Visible = true;
             this.colDimensions.VisibleIndex = 2;
-            this.colDimensions.Width = 76;
+            this.colDimensions.Width = 161;
             // 
             // colStock
             // 
@@ -299,24 +300,24 @@
             this.colStock.Name = "colStock";
             this.colStock.Visible = true;
             this.colStock.VisibleIndex = 3;
-            this.colStock.Width = 76;
+            this.colStock.Width = 211;
             // 
             // colUnit
             // 
             this.colUnit.Caption = "Đơn vị tính";
             this.colUnit.MinWidth = 30;
             this.colUnit.Name = "colUnit";
-            this.colUnit.Visible = true;
-            this.colUnit.VisibleIndex = 4;
             this.colUnit.Width = 76;
             // 
-            // colUnit2
+            // colUnitName
             // 
-            this.colUnit2.Caption = "Đơn vị tính";
-            this.colUnit2.FieldName = "Unit";
-            this.colUnit2.MinWidth = 30;
-            this.colUnit2.Name = "colUnit2";
-            this.colUnit2.Width = 112;
+            this.colUnitName.Caption = "Tên đơn vị tính";
+            this.colUnitName.FieldName = "Unit";
+            this.colUnitName.MinWidth = 30;
+            this.colUnitName.Name = "colUnitName";
+            this.colUnitName.Visible = true;
+            this.colUnitName.VisibleIndex = 4;
+            this.colUnitName.Width = 196;
             // 
             // colPStartDate
             // 
@@ -334,7 +335,7 @@
             this.colImportSource.Name = "colImportSource";
             this.colImportSource.Visible = true;
             this.colImportSource.VisibleIndex = 5;
-            this.colImportSource.Width = 88;
+            this.colImportSource.Width = 165;
             // 
             // colPDelete
             // 
@@ -354,7 +355,7 @@
             // 
             // btnProductDetails
             // 
-            this.btnProductDetails.Location = new System.Drawing.Point(431, 17);
+            this.btnProductDetails.Location = new System.Drawing.Point(430, 50);
             this.btnProductDetails.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnProductDetails.Name = "btnProductDetails";
             this.btnProductDetails.Size = new System.Drawing.Size(50, 35);
@@ -365,7 +366,7 @@
             // 
             this.cbUnit.Enabled = false;
             this.cbUnit.FormattingEnabled = true;
-            this.cbUnit.Location = new System.Drawing.Point(301, 97);
+            this.cbUnit.Location = new System.Drawing.Point(301, 95);
             this.cbUnit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cbUnit.Name = "cbUnit";
             this.cbUnit.Size = new System.Drawing.Size(108, 27);
@@ -373,7 +374,7 @@
             // 
             // btnNewBill
             // 
-            this.btnNewBill.Location = new System.Drawing.Point(945, 226);
+            this.btnNewBill.Location = new System.Drawing.Point(765, 236);
             this.btnNewBill.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnNewBill.Name = "btnNewBill";
             this.btnNewBill.Size = new System.Drawing.Size(153, 35);
@@ -385,10 +386,11 @@
             this.btnNewBill.SuperTip = superToolTip1;
             this.btnNewBill.TabIndex = 13;
             this.btnNewBill.Text = "Tạo Mới Hóa Đơn";
+            this.btnNewBill.Click += new System.EventHandler(this.btnNewBill_Click);
             // 
             // btnExits
             // 
-            this.btnExits.Location = new System.Drawing.Point(680, 226);
+            this.btnExits.Location = new System.Drawing.Point(974, 236);
             this.btnExits.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnExits.Name = "btnExits";
             this.btnExits.Size = new System.Drawing.Size(112, 35);
@@ -400,42 +402,37 @@
             this.btnExits.SuperTip = superToolTip2;
             this.btnExits.TabIndex = 10;
             this.btnExits.Text = "&Thoát";
+            this.btnExits.Click += new System.EventHandler(this.btnExits_Click);
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(548, 226);
+            this.btnDelete.Location = new System.Drawing.Point(258, 236);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(112, 35);
+            this.btnDelete.Size = new System.Drawing.Size(134, 35);
             this.btnDelete.TabIndex = 9;
             this.btnDelete.Text = "Xóa sản phẩm";
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnCreateBill
             // 
-            this.btnCreateBill.Location = new System.Drawing.Point(813, 226);
+            this.btnCreateBill.Location = new System.Drawing.Point(590, 236);
             this.btnCreateBill.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCreateBill.Name = "btnCreateBill";
             this.btnCreateBill.Size = new System.Drawing.Size(112, 35);
             this.btnCreateBill.TabIndex = 12;
             this.btnCreateBill.Text = "Lập Hóa Đơn";
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Location = new System.Drawing.Point(410, 226);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(118, 35);
-            this.btnCancel.TabIndex = 8;
-            this.btnCancel.Text = "Hủy Thao Tác";
+            this.btnCreateBill.Click += new System.EventHandler(this.btnCreateBill_Click);
             // 
             // btnAddProduct
             // 
-            this.btnAddProduct.Location = new System.Drawing.Point(165, 226);
+            this.btnAddProduct.Location = new System.Drawing.Point(57, 236);
             this.btnAddProduct.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAddProduct.Name = "btnAddProduct";
             this.btnAddProduct.Size = new System.Drawing.Size(134, 35);
             this.btnAddProduct.TabIndex = 7;
             this.btnAddProduct.Text = "Thêm Sản Phẩm";
+            this.btnAddProduct.Click += new System.EventHandler(this.btnAddProduct_Click);
             // 
             // lbNote
             // 
@@ -448,7 +445,7 @@
             // 
             // txtVAT
             // 
-            this.txtVAT.Location = new System.Drawing.Point(165, 177);
+            this.txtVAT.Location = new System.Drawing.Point(165, 175);
             this.txtVAT.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtVAT.Name = "txtVAT";
             this.txtVAT.Size = new System.Drawing.Size(244, 26);
@@ -466,7 +463,7 @@
             // 
             // txtSalePrice
             // 
-            this.txtSalePrice.Location = new System.Drawing.Point(165, 137);
+            this.txtSalePrice.Location = new System.Drawing.Point(165, 135);
             this.txtSalePrice.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtSalePrice.Name = "txtSalePrice";
             this.txtSalePrice.Size = new System.Drawing.Size(244, 26);
@@ -484,7 +481,7 @@
             // 
             // txtCount
             // 
-            this.txtCount.Location = new System.Drawing.Point(165, 97);
+            this.txtCount.Location = new System.Drawing.Point(165, 95);
             this.txtCount.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtCount.Name = "txtCount";
             this.txtCount.Size = new System.Drawing.Size(126, 26);
@@ -499,16 +496,6 @@
             this.lbCount.Size = new System.Drawing.Size(64, 19);
             this.lbCount.TabIndex = 0;
             this.lbCount.Text = "Số lượng";
-            // 
-            // txtProductName
-            // 
-            this.txtProductName.Enabled = false;
-            this.txtProductName.Location = new System.Drawing.Point(165, 57);
-            this.txtProductName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtProductName.Name = "txtProductName";
-            this.txtProductName.Size = new System.Drawing.Size(244, 26);
-            this.txtProductName.TabIndex = 2;
-            this.txtProductName.ToolTip = "Tên sản phẩm đang chọn";
             // 
             // lbCompanyName
             // 
@@ -537,17 +524,6 @@
             this.mmedNote.TabIndex = 6;
             this.mmedNote.ToolTip = "ghi chú cho sản phẩm này";
             // 
-            // luCompanyName
-            // 
-            this.luCompanyName.Location = new System.Drawing.Point(165, 17);
-            this.luCompanyName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.luCompanyName.Name = "luCompanyName";
-            this.luCompanyName.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.luCompanyName.Size = new System.Drawing.Size(244, 26);
-            this.luCompanyName.TabIndex = 1;
-            this.luCompanyName.ToolTip = "Chọn tên công ty muốn bán hàng";
-            // 
             // dtgvBill
             // 
             this.dtgvBill.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -556,7 +532,7 @@
             this.dtgvBill.MainView = this.gvBill;
             this.dtgvBill.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtgvBill.Name = "dtgvBill";
-            this.dtgvBill.Size = new System.Drawing.Size(1622, 156);
+            this.dtgvBill.Size = new System.Drawing.Size(1622, 143);
             this.dtgvBill.TabIndex = 0;
             this.dtgvBill.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvBill});
@@ -580,6 +556,8 @@
             this.gvBill.Name = "gvBill";
             this.gvBill.OptionsEditForm.PopupEditFormWidth = 1200;
             this.gvBill.RowHeight = 46;
+            this.gvBill.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gvBill_RowClick);
+            this.gvBill.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.gvBill_CustomDrawCell);
             // 
             // colSTT
             // 
@@ -724,6 +702,33 @@
             this.colDeleteProduct.VisibleIndex = 6;
             this.colDeleteProduct.Width = 235;
             // 
+            // cbCompanyName
+            // 
+            this.cbCompanyName.FormattingEnabled = true;
+            this.cbCompanyName.Location = new System.Drawing.Point(165, 15);
+            this.cbCompanyName.Name = "cbCompanyName";
+            this.cbCompanyName.Size = new System.Drawing.Size(244, 27);
+            this.cbCompanyName.TabIndex = 16;
+            // 
+            // panelControl1
+            // 
+            this.panelControl1.Controls.Add(this.btnSearch);
+            this.panelControl1.Controls.Add(this.txtSearch);
+            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelControl1.Location = new System.Drawing.Point(0, 0);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(510, 46);
+            this.panelControl1.TabIndex = 1;
+            // 
+            // txtProductName
+            // 
+            this.txtProductName.Location = new System.Drawing.Point(165, 55);
+            this.txtProductName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtProductName.Name = "txtProductName";
+            this.txtProductName.Size = new System.Drawing.Size(244, 26);
+            this.txtProductName.TabIndex = 17;
+            this.txtProductName.ToolTip = "Số lượng sản phẩm";
+            // 
             // ucBill
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -755,11 +760,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtVAT.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSalePrice.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCount.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtProductName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mmedNote.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.luCompanyName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvBill)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvBill)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
+            this.panelControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtProductName.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -778,7 +784,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colID;
         private DevExpress.XtraGrid.Columns.GridColumn colProductName;
         private DevExpress.XtraGrid.Columns.GridColumn colDimensions;
-        private DevExpress.XtraGrid.Columns.GridColumn colUnit2;
+        private DevExpress.XtraGrid.Columns.GridColumn colUnitName;
         private DevExpress.XtraGrid.Columns.GridColumn colStock;
         private DevExpress.XtraGrid.Columns.GridColumn colPStartDate;
         private DevExpress.XtraGrid.Columns.GridColumn colImportSource;
@@ -802,11 +808,9 @@
         private DevExpress.XtraEditors.LabelControl lbSalePrice;
         private DevExpress.XtraEditors.TextEdit txtCount;
         private DevExpress.XtraEditors.LabelControl lbCount;
-        private DevExpress.XtraEditors.TextEdit txtProductName;
         private DevExpress.XtraEditors.LabelControl lbProductName;
         private DevExpress.XtraEditors.MemoEdit mmedNote;
         private DevExpress.XtraEditors.SimpleButton btnCreateBill;
-        private DevExpress.XtraEditors.SimpleButton btnCancel;
         private DevExpress.XtraEditors.SimpleButton btnAddProduct;
         private DevExpress.XtraGrid.Columns.GridColumn colUnit;
         private DevExpress.XtraEditors.LabelControl lbCompanyName;
@@ -815,7 +819,9 @@
         private DevExpress.XtraEditors.SimpleButton btnDelete;
         private DevExpress.XtraEditors.SimpleButton btnNewBill;
         private System.Windows.Forms.ComboBox cbUnit;
-        private DevExpress.XtraEditors.LookUpEdit luCompanyName;
         private DevExpress.XtraEditors.SimpleButton btnProductDetails;
+        private System.Windows.Forms.ComboBox cbCompanyName;
+        private DevExpress.XtraEditors.PanelControl panelControl1;
+        private DevExpress.XtraEditors.TextEdit txtProductName;
     }
 }

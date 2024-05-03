@@ -73,5 +73,31 @@ namespace BUS.BUS
         }
         #endregion
 
+        #region "[GetDate]"
+        public static List<CompanyDTO> GetDate()
+        {
+            List<CompanyDTO> listResult = new List<CompanyDTO>();
+            try
+            {
+                listResult = handle.GetDate();
+            }
+            catch { }
+            return listResult;
+        }
+        #endregion
+
+        #region "[SearchCompanyByname]"
+        public static List<CompanyDTO> SearchCompanyByname(string name)
+        {
+            List<CompanyDTO> listResult = new List<CompanyDTO>();
+            try
+            {
+                listResult = handle.SearchCompanyByname(name);
+            }
+            catch { }
+            return listResult;
+        }
+        #endregion
+
     }
 }

@@ -19,6 +19,7 @@ namespace DTO.DTO
             this.Note = row["note"].ToString();
         }
 
+        public UnitDTO() { }
 
         private int id;
         private string name;

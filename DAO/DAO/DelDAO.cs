@@ -19,7 +19,11 @@ namespace DAO.DAO
         public int DeleteRecordsBasedOnDelValue()
         {
             int iResult = -1;
-            iResult = SQLHelper.SqlDataHelper.ExecuteNonQuery("exec USP_DeleteRecordsBasedOnDelValue", cn);
+            try
+            {
+                iResult = SQLHelper.SqlDataHelper.ExecuteNonQuery("exec USP_DeleteRecordsBasedOnDelValue", cn);
+            }
+            catch { }
             return iResult;
         }
 

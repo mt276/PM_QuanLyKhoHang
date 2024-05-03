@@ -42,7 +42,7 @@
             this.gvUnit = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colSTT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colID = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colUnitName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNote = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1.Panel1)).BeginInit();
@@ -107,6 +107,7 @@
             this.btnUpdate.TabIndex = 6;
             this.btnUpdate.Text = "Cập nhật";
             this.btnUpdate.ToolTip = "Cập nhật đơn vị tính";
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnDelete
             // 
@@ -117,6 +118,7 @@
             this.btnDelete.TabIndex = 5;
             this.btnDelete.Text = "Xóa";
             this.btnDelete.ToolTip = "Xóa đơn vị tính này";
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnCancel
             // 
@@ -127,6 +129,7 @@
             this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "Hủy thao tác";
             this.btnCancel.ToolTip = "Hủy thao tác thêm này";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnAdd
             // 
@@ -137,10 +140,11 @@
             this.btnAdd.TabIndex = 3;
             this.btnAdd.Text = "Thêm";
             this.btnAdd.ToolTip = "Thêm đơn vị tính mới";
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // lbControlNote
             // 
-            this.lbControlNote.Location = new System.Drawing.Point(40, 73);
+            this.lbControlNote.Location = new System.Drawing.Point(40, 78);
             this.lbControlNote.Margin = new System.Windows.Forms.Padding(4);
             this.lbControlNote.Name = "lbControlNote";
             this.lbControlNote.Size = new System.Drawing.Size(54, 19);
@@ -149,7 +153,7 @@
             // 
             // txtUnitName
             // 
-            this.txtUnitName.Location = new System.Drawing.Point(124, 35);
+            this.txtUnitName.Location = new System.Drawing.Point(124, 28);
             this.txtUnitName.Margin = new System.Windows.Forms.Padding(4);
             this.txtUnitName.Name = "txtUnitName";
             this.txtUnitName.Size = new System.Drawing.Size(320, 26);
@@ -159,7 +163,7 @@
             // 
             // lbControlUnitName
             // 
-            this.lbControlUnitName.Location = new System.Drawing.Point(40, 35);
+            this.lbControlUnitName.Location = new System.Drawing.Point(40, 28);
             this.lbControlUnitName.Margin = new System.Windows.Forms.Padding(4);
             this.lbControlUnitName.Name = "lbControlUnitName";
             this.lbControlUnitName.Size = new System.Drawing.Size(76, 19);
@@ -168,7 +172,7 @@
             // 
             // mmedNote
             // 
-            this.mmedNote.Location = new System.Drawing.Point(124, 73);
+            this.mmedNote.Location = new System.Drawing.Point(124, 78);
             this.mmedNote.Margin = new System.Windows.Forms.Padding(4);
             this.mmedNote.Name = "mmedNote";
             this.mmedNote.Size = new System.Drawing.Size(320, 89);
@@ -194,13 +198,15 @@
             this.gvUnit.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colSTT,
             this.colID,
-            this.colUnitName,
+            this.colName,
             this.colNote});
             this.gvUnit.DetailHeight = 512;
             this.gvUnit.GridControl = this.dtgvUnit;
             this.gvUnit.GroupPanelText = " ";
             this.gvUnit.Name = "gvUnit";
             this.gvUnit.OptionsEditForm.PopupEditFormWidth = 1200;
+            this.gvUnit.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gvUnit_RowClick);
+            this.gvUnit.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.gvUnit_CustomDrawCell);
             // 
             // colSTT
             // 
@@ -221,17 +227,17 @@
             this.colID.Name = "colID";
             this.colID.Width = 112;
             // 
-            // colUnitName
+            // colName
             // 
-            this.colUnitName.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.colUnitName.AppearanceHeader.Options.UseFont = true;
-            this.colUnitName.Caption = "Tên Đơn Vị Tính";
-            this.colUnitName.FieldName = "UnitName";
-            this.colUnitName.MinWidth = 30;
-            this.colUnitName.Name = "colUnitName";
-            this.colUnitName.Visible = true;
-            this.colUnitName.VisibleIndex = 1;
-            this.colUnitName.Width = 289;
+            this.colName.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.colName.AppearanceHeader.Options.UseFont = true;
+            this.colName.Caption = "Tên Đơn Vị Tính";
+            this.colName.FieldName = "Name";
+            this.colName.MinWidth = 30;
+            this.colName.Name = "colName";
+            this.colName.Visible = true;
+            this.colName.VisibleIndex = 1;
+            this.colName.Width = 289;
             // 
             // colNote
             // 
@@ -259,6 +265,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thêm ĐơnVị Tính";
+            this.Load += new System.EventHandler(this.frmUnit_Load);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1.Panel1)).EndInit();
             this.splitContainerControl1.Panel1.ResumeLayout(false);
             this.splitContainerControl1.Panel1.PerformLayout();
@@ -291,7 +298,7 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gvUnit;
         private DevExpress.XtraGrid.Columns.GridColumn colSTT;
         private DevExpress.XtraGrid.Columns.GridColumn colID;
-        private DevExpress.XtraGrid.Columns.GridColumn colUnitName;
+        private DevExpress.XtraGrid.Columns.GridColumn colName;
         private DevExpress.XtraGrid.Columns.GridColumn colNote;
     }
 }

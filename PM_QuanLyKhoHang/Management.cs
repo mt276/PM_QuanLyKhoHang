@@ -21,6 +21,7 @@ namespace PM_QuanLyKhoHang
         /// Thông tin Account đang đăng nhập
         /// </summary>
         public static AccountDTO UserLogin = null;
+
         #endregion
 
         #region "[Default Constructor]"
@@ -57,7 +58,7 @@ namespace PM_QuanLyKhoHang
         }
         #endregion
 
-        #region rbpLogin
+        #region "[rbpLogin]"
 
         #region "[Login]"
         private void btnLogin_ItemClick(object sender, ItemClickEventArgs e)
@@ -176,5 +177,181 @@ namespace PM_QuanLyKhoHang
         #endregion
 
         #endregion
+
+        #region "[rbpOperation]"
+
+        #region "[btnSell_ItemClick]"
+        private void btnSell_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
+        #endregion
+
+        #region "[btnWarehouse_ItemClick]"
+        private void btnWarehouse_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
+        #endregion
+
+        #region "[btnWarehouseManagement_ItemClick]"
+        private void btnWarehouseManagement_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
+        #endregion
+
+        #region "[PriceUpdate]"
+        private void btnPriceUpdate_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                pnlMain.Controls.Clear();
+                ucSalePrice uc = new ucSalePrice();
+                uc.clearItem = clearPannel;
+                uc.Dock = DockStyle.Fill;
+                pnlMain.Controls.Add(uc);
+            }
+            catch { }
+        }
+        #endregion
+
+        #region "[Add Customers]"
+        private void btnAddCustomer_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                pnlMain.Controls.Clear();
+                ucAddCustomers uc = new ucAddCustomers();
+                uc.clearItem = clearPannel;
+                uc.Dock = DockStyle.Fill;
+                pnlMain.Controls.Add(uc);
+            }
+            catch { }
+        }
+        #endregion
+
+        #region "[List Customer]"
+        private void btnListCustomer_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                pnlMain.Controls.Clear();
+                ucListCustomers uc = new ucListCustomers();
+                uc.clearItem = clearPannel;
+                uc.Dock = DockStyle.Fill;
+                pnlMain.Controls.Add(uc);
+            }
+            catch { }
+        }
+        #endregion
+
+        #region "[Add Referrer]"
+        private void btnAddReferrer_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                pnlMain.Controls.Clear();
+                ucAddReferrer uc = new ucAddReferrer();
+                uc.clearItem = clearPannel;
+                uc.Dock = DockStyle.Fill;
+                pnlMain.Controls.Add(uc);
+            }
+            catch { }
+        }
+
+        #endregion
+
+        #region "[Add Product]"
+        private void btnAddProduct_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                pnlMain.Controls.Clear();
+                ucAddProducts uc = new ucAddProducts();
+                uc.clearItem = clearPannel;
+                uc.Dock = DockStyle.Fill;
+                pnlMain.Controls.Add(uc);
+            }
+            catch { }
+        }
+        #endregion
+
+        #region "[btnListProduct_ItemClick]"
+        private void btnListProduct_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                pnlMain.Controls.Clear();
+                ucProductInfo uc = new ucProductInfo();
+                uc.clearItem = clearPannel;
+                uc.Dock = DockStyle.Fill;
+                pnlMain.Controls.Add(uc);
+            }
+            catch { }
+        }
+        #endregion
+
+        #region "[btnStatistics_ItemClick]"
+        private void btnStatistics_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
+
+        #region "[Add TypeReferrer]"
+        private void btnAddTypeReferrer_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ucTypeReferrer uc = new ucTypeReferrer();
+            uc.clearItem = clearPannel;
+            uc.Dock = DockStyle.Fill;
+            pnlMain.Controls.Clear();
+            pnlMain.Controls.Add(uc);
+        }
+        #endregion
+
+        #endregion
+
+        #endregion
+
+        #region "[rbpConfig]"
+
+        #region "[btnConfigure_ItemClick]"
+        private void btnConfigure_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
+        #endregion
+
+        #region "[btnTrashCan_ItemClick]"
+        private void btnTrashCan_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
+        #endregion
+
+        #region "[btnUpdateSystem_ItemClick]"
+        private void btnUpdateSystem_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
+        #endregion
+
+        #endregion
+
+        #region "[Send Email]"
+        private void btnSendEmail_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                pnlMain.Controls.Clear();
+                ucSendEmail uc = new ucSendEmail();
+                uc.clearItem = clearPannel;
+                uc.Dock = DockStyle.Fill;
+                pnlMain.Controls.Add(uc);
+            }
+            catch { }
+        }
+        #endregion
+
     }
 }

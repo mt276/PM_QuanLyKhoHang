@@ -176,7 +176,7 @@
             // 
             // lbStartDate
             // 
-            this.lbStartDate.Location = new System.Drawing.Point(5, 205);
+            this.lbStartDate.Location = new System.Drawing.Point(10, 205);
             this.lbStartDate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lbStartDate.Name = "lbStartDate";
             this.lbStartDate.Size = new System.Drawing.Size(76, 19);
@@ -195,7 +195,7 @@
             // 
             // dtpkStartDate
             // 
-            this.dtpkStartDate.Location = new System.Drawing.Point(130, 200);
+            this.dtpkStartDate.Location = new System.Drawing.Point(135, 200);
             this.dtpkStartDate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtpkStartDate.Name = "dtpkStartDate";
             this.dtpkStartDate.Size = new System.Drawing.Size(295, 27);
@@ -215,7 +215,7 @@
             // txtSalePrice
             // 
             this.txtSalePrice.Enabled = false;
-            this.txtSalePrice.Location = new System.Drawing.Point(130, 155);
+            this.txtSalePrice.Location = new System.Drawing.Point(135, 155);
             this.txtSalePrice.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtSalePrice.Name = "txtSalePrice";
             this.txtSalePrice.Size = new System.Drawing.Size(295, 26);
@@ -234,7 +234,7 @@
             // 
             // txtImportPrice
             // 
-            this.txtImportPrice.Location = new System.Drawing.Point(130, 110);
+            this.txtImportPrice.Location = new System.Drawing.Point(135, 110);
             this.txtImportPrice.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtImportPrice.Name = "txtImportPrice";
             this.txtImportPrice.Size = new System.Drawing.Size(295, 26);
@@ -244,7 +244,7 @@
             // 
             // txtCount
             // 
-            this.txtCount.Location = new System.Drawing.Point(130, 65);
+            this.txtCount.Location = new System.Drawing.Point(135, 65);
             this.txtCount.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtCount.Name = "txtCount";
             this.txtCount.Size = new System.Drawing.Size(174, 26);
@@ -255,7 +255,7 @@
             // cbUnit
             // 
             this.cbUnit.FormattingEnabled = true;
-            this.cbUnit.Location = new System.Drawing.Point(313, 65);
+            this.cbUnit.Location = new System.Drawing.Point(318, 65);
             this.cbUnit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cbUnit.Name = "cbUnit";
             this.cbUnit.Size = new System.Drawing.Size(112, 27);
@@ -265,7 +265,7 @@
             // cbProductName
             // 
             this.cbProductName.FormattingEnabled = true;
-            this.cbProductName.Location = new System.Drawing.Point(130, 20);
+            this.cbProductName.Location = new System.Drawing.Point(135, 20);
             this.cbProductName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cbProductName.Name = "cbProductName";
             this.cbProductName.Size = new System.Drawing.Size(295, 27);
@@ -274,7 +274,7 @@
             // 
             // lbSalePrice
             // 
-            this.lbSalePrice.Location = new System.Drawing.Point(5, 160);
+            this.lbSalePrice.Location = new System.Drawing.Point(10, 160);
             this.lbSalePrice.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lbSalePrice.Name = "lbSalePrice";
             this.lbSalePrice.Size = new System.Drawing.Size(54, 19);
@@ -292,7 +292,7 @@
             // 
             // lbImportPrice
             // 
-            this.lbImportPrice.Location = new System.Drawing.Point(5, 115);
+            this.lbImportPrice.Location = new System.Drawing.Point(10, 115);
             this.lbImportPrice.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lbImportPrice.Name = "lbImportPrice";
             this.lbImportPrice.Size = new System.Drawing.Size(63, 19);
@@ -301,7 +301,7 @@
             // 
             // lbCount
             // 
-            this.lbCount.Location = new System.Drawing.Point(5, 70);
+            this.lbCount.Location = new System.Drawing.Point(10, 70);
             this.lbCount.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lbCount.Name = "lbCount";
             this.lbCount.Size = new System.Drawing.Size(64, 19);
@@ -310,7 +310,7 @@
             // 
             // lbProductName
             // 
-            this.lbProductName.Location = new System.Drawing.Point(5, 25);
+            this.lbProductName.Location = new System.Drawing.Point(10, 25);
             this.lbProductName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lbProductName.Name = "lbProductName";
             this.lbProductName.Size = new System.Drawing.Size(101, 19);
