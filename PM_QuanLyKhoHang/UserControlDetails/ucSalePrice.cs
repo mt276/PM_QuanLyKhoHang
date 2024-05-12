@@ -23,58 +23,58 @@ namespace PM_QuanLyKhoHang.UserControlDetails
         }
         #endregion
 
-        #region "[LoadListPriceUpdate]"
-        private void LoadListPriceUpdate()
+        #region "[LoadListSalePrice]"
+        private void LoadListSalePrice()
         {
             try
             {
-                List<InputDTO> list = InputBUS.GetAll().OrderByDescending(p => p.StartDate).ToList();
+                List<ProductDTO> list = ProductBUS.GetAll().OrderByDescending(p => p.StartDate).ToList();
                 if (list.Count > 0)
-                    dtgvInput.DataSource = list;
-                dtgvInput.RefreshDataSource();
+                    dtgvProduct.DataSource = list;
+                dtgvProduct.RefreshDataSource();
             }
             catch { }
         }
         #endregion
 
         #region "[ShowInfomation]"
-        private void ShowInfomation(InputDTO inputInfo)
+        private void ShowInfomation(ProductDTO productInfo)
         {
-            
-            ProductDTO product = ProductBUS.SelectPrimaryKey(inputInfo.ProductID);
-            lbProductName.Text = "Tên sản phẩm:         " + product.Name;
-            lbCount.Text = "Số lượng nhập:         " + string.Format("{0:N0}", inputInfo.Count);
-            lbImportPrice.Text = "Giá nhập:         " + string.Format("{0:N0}",inputInfo.ImportPrice);
-            lbStartDate.Text = "Ngày nhập:         " + inputInfo.StartDate.Day.ToString() + "/" + inputInfo.StartDate.Month.ToString() + "/" + inputInfo.StartDate.Year.ToString();
+            lbProductName.Text = "Tên sản phẩm:         " + productInfo.Name;
+            lbCount.Text = "Số lượng tồn:         " + string.Format("{0:N0}", productInfo.Stock);
+
+            InputDTO input = InputBUS.GetListInputProductByProductID(productInfo.ID).OrderByDescending(p => p.StartDate).FirstOrDefault();
+            if(input!=null)
+            {
+                lbImportPrice.Text = "Giá nhập:         " + string.Format("{0:N0}", input.ImportPrice);
+
+            }
+            lbStartDate.Text = "Ngày nhập:         " + productInfo.StartDate.Day.ToString() + "/" + productInfo.StartDate.Month.ToString() + "/" + productInfo.StartDate.Year.ToString();
             DateTime date = DateTime.Now;
             lbUpdateDate.Text = "Ngày cập nhật:         " + date.Day.ToString() + "/" + date.Month.ToString() + "/" + date.Year.ToString();
-            SalePriceDTO salePrice = SalePriceBUS.SelectByInputID(inputInfo.ID);
-            if (salePrice != null)
-            {
-                btnAdd.Enabled = false;
-                btnUpdatePrice.Enabled = true;
-                txtSalePrice.Text = salePrice.SalePrice.ToString();
-                AccountDTO acc = AccountBUS.SelectPrimaryKey(salePrice.AccountID);
-                lbAccountName.Text = "Nhân viên nhập:         " + acc.FullName;                    
-            }
-            else
-            {
-                btnAdd.Enabled = true;
-                btnUpdatePrice.Enabled = false;
-                txtSalePrice.Text = string.Empty;
-                lbAccountName.Text = "Nhân viên nhập:";
-            }
+            //SalePriceDTO salePrice = SalePriceBUS.GetListByProductID(productInfo.ID).OrderByDescending(p => p.StartDate).FirstOrDefault();
+            //if (salePrice != null)
+            //{
+            //    txtSalePrice.Text = salePrice.SalePrice.ToString();
+            //    AccountDTO acc = AccountBUS.SelectPrimaryKey(salePrice.AccountID);
+            //    lbAccountName.Text = "Tên nhân viên:         " + acc.FullName + " - " + acc.UserName;
+            //}
+            //else
+            //{
+            //    txtSalePrice.Text = string.Empty;
+            //    lbAccountName.Text = "Tên nhân viên:";
+            //}
 
         }
         #endregion
 
         #region "[Load]"
-        private void ucPriceUpdate_Load(object sender, EventArgs e)
+        private void ucSalePrice_Load(object sender, EventArgs e)
         {
-            LoadListPriceUpdate();
+            LoadListSalePrice();
 
             #region "[Gridview selection is not allowed]"
-            gvInput.OptionsBehavior.Editable = gvInput.OptionsSelection.EnableAppearanceFocusedCell = false;
+            gvProduct.OptionsBehavior.Editable = gvProduct.OptionsSelection.EnableAppearanceFocusedCell = false;
             #endregion
         }
         #endregion
@@ -94,7 +94,7 @@ namespace PM_QuanLyKhoHang.UserControlDetails
                     }
 
                     SalePriceDTO salePriceInfo = new SalePriceDTO();
-                    salePriceInfo.InputID = _iID;
+                    salePriceInfo.ProductID = _iID;
                     salePriceInfo.SalePrice = double.Parse(txtSalePrice.Text.Trim());
                     salePriceInfo.AccountID = Management.UserLogin.ID;
                     salePriceInfo.StartDate = DateTime.Now;
@@ -104,7 +104,7 @@ namespace PM_QuanLyKhoHang.UserControlDetails
                     int iResult = SalePriceBUS.Insert(salePriceInfo);
                     if (iResult > 0)
                     {
-                        LoadListPriceUpdate();
+                        LoadListSalePrice();
                         ClearData();
                         ClassUtils.Utils.MessageBoxInfomation("Thêm giá bán thành công", "Thông báo");
                     }
@@ -125,36 +125,37 @@ namespace PM_QuanLyKhoHang.UserControlDetails
         {
             try
             {
-                if (_iID > 0)
+                if (_iID > -1)
                 {
-                    
                     if (txtSalePrice.Text.Trim() == string.Empty)
                     {
                         ClassUtils.Utils.MessageBoxERROR("Chưa nhập giá bán", "Thông báo");
                         return;
                     }
 
-                    SalePriceDTO salePriceInfo = SalePriceBUS.SelectByInputID(_iID);
-                    salePriceInfo.SalePrice = double.Parse(txtSalePrice.Text.Trim());
+                    //Refresh lại giá trị của sản phẩm
+                    SalePriceDTO salePriceInfo = new SalePriceDTO();
+                    salePriceInfo.ProductID = _iID;
+                    salePriceInfo.SalePrice = double.Parse(txtSalePrice.Text);
                     salePriceInfo.AccountID = Management.UserLogin.ID;
                     salePriceInfo.StartDate = DateTime.Now;
+                    salePriceInfo.Del = false;
+                    salePriceInfo.Note = string.Empty;
 
-                    bool isSuccess = SalePriceBUS.Update(salePriceInfo);
-                    if (isSuccess)
+                    int iResult = SalePriceBUS.Insert(salePriceInfo);
+                    if (iResult > 0)
                     {
-                        _iID = -1;
-                        LoadListPriceUpdate();
+                        LoadListSalePrice();
                         ClearData();
-                        ClassUtils.Utils.MessageBoxInfomation("Cập nhật thành công", "Thông báo");
+                        ClassUtils.Utils.MessageBoxInfomation("Cập nhật giá bán thành công", "Thông báo");
                     }
-                    else
-                    {
-                        ClassUtils.Utils.MessageBoxInfomation("Cập nhật giá bán thất bại", "Thông báo");
-                    }
-
+                    _iID = -1;
                 }
             }
-            catch { }
+            catch
+            {
+                ClassUtils.Utils.MessageBoxInfomation("Cập nhật giá bán thất bại", "Thông báo");
+            }
         }
         #endregion
 
@@ -186,9 +187,9 @@ namespace PM_QuanLyKhoHang.UserControlDetails
         {
             try
             {
-                lbAccountName.Text = "Nhân viên nhập:";
+                lbAccountName.Text = "Tên nhân viên:";
                 lbProductName.Text = "Tên sản phẩm:";
-                lbCount.Text = "Số lượng nhập:";
+                lbCount.Text = "Số lượng tồn:";
                 lbStartDate.Text = "Ngày nhập:";
                 lbUpdateDate.Text = "Ngày cập nhật:";
                 lbImportPrice.Text = "Giá nhập:";
@@ -206,30 +207,22 @@ namespace PM_QuanLyKhoHang.UserControlDetails
             {
                 if (e.Column.Name == "colSTT")
                     e.DisplayText = (e.RowHandle + 1).ToString();
-
-                if (e.Column.Name == "colProductName")
-                {
-                    InputDTO item = (InputDTO)gvInput.GetRow(e.RowHandle);
-                    ProductDTO itemP = ProductBUS.SelectPrimaryKey(item.ProductID);
-                    if (item != null && itemP != null)
-                        e.DisplayText = itemP.Name;
-                }
             }
             catch { }
         }
         #endregion
 
         #region "[Get information in one line]"
-        private void gvInput_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
+        private void gvProduct_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
             try
             {
                 //lấy thông tin của dòng đang được chọn
-                InputDTO inputInfo = (InputDTO)gvInput.GetRow(e.RowHandle);
-                if (inputInfo != null)
+                ProductDTO product = (ProductDTO)gvProduct.GetRow(e.RowHandle);
+                if (product != null)
                 {
-                    _iID = inputInfo.ID;
-                    ShowInfomation(inputInfo);
+                    _iID = product.ID;
+                    ShowInfomation(product);
                 }
             }
             catch { }
@@ -290,6 +283,7 @@ namespace PM_QuanLyKhoHang.UserControlDetails
                 txtSalePrice.SelectionStart = txtSalePrice.Text.Length;
             }
         }
+
         #endregion
 
 

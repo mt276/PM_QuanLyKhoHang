@@ -73,5 +73,31 @@ namespace BUS.BUS
         }
         #endregion
 
+        #region "[SumPrices]"
+        /// <summary>
+        /// Tính tổng tiền của chi tiết hóa đơn
+        /// </summary>
+        /// <param name="_listInput">danh sách các chi tiết hóa đơn</param>
+        /// <returns></returns>
+        public static double SumPrices(List<BillInfoDTO> _listInput)
+        {
+            double dResult = 0;
+            try
+            {
+                if (_listInput.Count > 0)
+                {
+                    foreach (BillInfoDTO item in _listInput)
+                    {
+                        dResult += 1.0 * (item.Count * item.SalePrice);
+                    }
+                }
+            }
+            catch { }
+            return dResult;
+        }
+
+
+        #endregion
+
     }
 }

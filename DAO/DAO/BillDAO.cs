@@ -1,5 +1,6 @@
 ﻿using DAO.SQLHelper;
 using DTO.DTO;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -27,13 +28,12 @@ namespace DAO.DAO
             {
                 if (cn != null)
                 {
-                    string sql = string.Format("INSERT INTO dbo.Bill(name, companyID, accountID, totalBill, TotalPayment, PaymentDueDate, " +
-                        "Dividend, Commission, ReciveCommissionID, Del, Note) " +
-                        "VALUES ( N'{0}', {1}, {2}, {3}, {4}, '{5}', {6}, {7}, {8}, '{9}', N'{10}')",
+                    string sql = string.Format("INSERT INTO dbo.Bill (Name, CompanyID, AccountID, TotalBill, TotalPayment,StartDate, PaymentDueDate, Dividend, Commission, ReceiveCommissionID, Del, Note, ShippingCost)" +
+                        "VALUES ( N'{0}', {1}, {2}, {3}, {4}, '{5}','{6}', {7}, {8}, {9}, '{10}', N'{11}', {12})",
                         _obj.Name, _obj.CompanyID.ToString(), _obj.AccountID.ToString(), _obj.TotalBill.ToString(), _obj.TotalPayment.ToString(),
-                        _obj.PaymentDueDate.ToString(), _obj.Dividend.ToString(), _obj.Commission.ToString(), 
-                        (_obj.ReceiveCommissionsID>0?_obj.ReceiveCommissionsID.ToString():"NULL"), 
-                        _obj.Del.ToString(), _obj.Note);
+                        _obj.StartDate.ToString(), _obj.PaymentDueDate.ToString(), _obj.Dividend.ToString(), _obj.Commission.ToString(),
+                        _obj.ReceiveCommissionsID>0?_obj.ReceiveCommissionsID.ToString(): "NULL", 
+                        _obj.Del.ToString(), _obj.Note, _obj.ShippingCost.ToString());
                     iResult = SqlDataHelper.ExecuteNonQuery(sql, cn);
                     if (iResult == 1)
                     {
@@ -96,11 +96,11 @@ namespace DAO.DAO
                 if (temp != null)
                 {
                     string sql = string.Format("UPDATE dbo.Bill SET name = N'{0}', companyID = {1}, accountID = {2}, totalBill = {3}, TotalPayment = {4}, " +
-                        "PaymentDueDate = '{5}', Divident = {6}, Commission = {7}, ReciveCommissionID = {8}, Del = '{9}', Note = N'{10}' WHERE ID = {11}",
+                        "StartDate ='{5}', PaymentDueDate = '{6}', Divident = {7}, Commission = {8}, ReciveCommissionID = {9}, Del = '{10}', Note = N'{11}', ShippingCost = {12} WHERE ID = {13}",
                         _obj.Name, _obj.CompanyID.ToString(), _obj.AccountID.ToString(), _obj.TotalBill.ToString(), _obj.TotalPayment.ToString(),
-                        _obj.PaymentDueDate.ToString(), _obj.Dividend.ToString(), _obj.Commission.ToString(),
-                        (_obj.ReceiveCommissionsID > 0 ? _obj.ReceiveCommissionsID.ToString() : "NULL"),
-                        _obj.Del.ToString(), _obj.Note, _obj.ID);
+                        _obj.StartDate.ToString(), _obj.PaymentDueDate.ToString(), _obj.Dividend.ToString(), _obj.Commission.ToString(),
+                        (_obj.ReceiveCommissionsID > 0 ? _obj.ReceiveCommissionsID.ToString() : (object)DBNull.Value),
+                        _obj.Del.ToString(), _obj.Note, _obj.ShippingCost.ToString(), _obj.ID);
                     int result = SqlDataHelper.ExecuteNonQuery(sql, cn);
                     if (result > 0)
                         isResult = true;

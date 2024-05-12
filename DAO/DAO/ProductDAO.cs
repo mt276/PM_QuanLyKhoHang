@@ -75,7 +75,7 @@ namespace DAO.DAO
             {
                 if (cn != null)
                 {
-                    string sql = "SELECT * FROM dbo.Products WHERE ID=" + _iID.ToString();
+                    string sql = "SELECT * FROM dbo.Products WHERE ID =" + _iID.ToString();
                     DataTable dt = SqlDataHelper.GetDataToStringSQL(sql, cn);
                     foreach (DataRow row in dt.Rows)
                     {

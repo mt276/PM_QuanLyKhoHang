@@ -31,11 +31,15 @@
             this.pnlMain = new DevExpress.XtraEditors.PanelControl();
             this.gbCreateBill = new DevExpress.XtraEditors.GroupControl();
             this.spccCreateBill = new DevExpress.XtraEditors.SplitContainerControl();
-            this.cbReceiveCommission = new System.Windows.Forms.ComboBox();
-            this.cbCustomerName = new System.Windows.Forms.ComboBox();
-            this.lbTotalBill = new DevExpress.XtraEditors.LabelControl();
-            this.btnExportExcel = new DevExpress.XtraEditors.SimpleButton();
+            this.luReceiveCommission = new DevExpress.XtraEditors.LookUpEdit();
+            this.luCustomerName = new DevExpress.XtraEditors.LookUpEdit();
+            this.pnlBottom = new DevExpress.XtraEditors.PanelControl();
+            this.btnPrev = new DevExpress.XtraEditors.SimpleButton();
+            this.btnCreateBill = new DevExpress.XtraEditors.SimpleButton();
+            this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
             this.btnExits = new DevExpress.XtraEditors.SimpleButton();
+            this.btnExportExcel = new DevExpress.XtraEditors.SimpleButton();
+            this.lbTotalBill = new DevExpress.XtraEditors.LabelControl();
             this.hplReceiveCommission = new DevExpress.XtraEditors.HyperLinkEdit();
             this.dtpkPaymentDate = new System.Windows.Forms.DateTimePicker();
             this.dtpkStartDate = new System.Windows.Forms.DateTimePicker();
@@ -55,9 +59,6 @@
             this.lbCustomerName = new DevExpress.XtraEditors.LabelControl();
             this.txtBillName = new DevExpress.XtraEditors.TextEdit();
             this.lbBillName = new DevExpress.XtraEditors.LabelControl();
-            this.btnPrev = new DevExpress.XtraEditors.SimpleButton();
-            this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
-            this.btnCreateBill = new DevExpress.XtraEditors.SimpleButton();
             this.mmedNote = new DevExpress.XtraEditors.MemoEdit();
             this.dtgvCreateBill = new DevExpress.XtraGrid.GridControl();
             this.gvCreateBill = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -73,7 +74,6 @@
             this.colDelete = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNote = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colRemove = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.pnlBottom = new DevExpress.XtraEditors.PanelControl();
             ((System.ComponentModel.ISupportInitialize)(this.pnlMain)).BeginInit();
             this.pnlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gbCreateBill)).BeginInit();
@@ -84,6 +84,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.spccCreateBill.Panel2)).BeginInit();
             this.spccCreateBill.Panel2.SuspendLayout();
             this.spccCreateBill.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.luReceiveCommission.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.luCustomerName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pnlBottom)).BeginInit();
+            this.pnlBottom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.hplReceiveCommission.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCommission.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTotalBill.Properties)).BeginInit();
@@ -94,8 +98,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.mmedNote.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvCreateBill)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvCreateBill)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pnlBottom)).BeginInit();
-            this.pnlBottom.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlMain
@@ -129,9 +131,9 @@
             // 
             // spccCreateBill.Panel1
             // 
+            this.spccCreateBill.Panel1.Controls.Add(this.luReceiveCommission);
+            this.spccCreateBill.Panel1.Controls.Add(this.luCustomerName);
             this.spccCreateBill.Panel1.Controls.Add(this.pnlBottom);
-            this.spccCreateBill.Panel1.Controls.Add(this.cbReceiveCommission);
-            this.spccCreateBill.Panel1.Controls.Add(this.cbCustomerName);
             this.spccCreateBill.Panel1.Controls.Add(this.lbTotalBill);
             this.spccCreateBill.Panel1.Controls.Add(this.hplReceiveCommission);
             this.spccCreateBill.Panel1.Controls.Add(this.dtpkPaymentDate);
@@ -164,39 +166,67 @@
             this.spccCreateBill.TabIndex = 0;
             this.spccCreateBill.Text = "splitContainerControl1";
             // 
-            // cbReceiveCommission
+            // luReceiveCommission
             // 
-            this.cbReceiveCommission.FormattingEnabled = true;
-            this.cbReceiveCommission.Location = new System.Drawing.Point(625, 110);
-            this.cbReceiveCommission.Name = "cbReceiveCommission";
-            this.cbReceiveCommission.Size = new System.Drawing.Size(265, 27);
-            this.cbReceiveCommission.TabIndex = 19;
+            this.luReceiveCommission.Location = new System.Drawing.Point(627, 155);
+            this.luReceiveCommission.Name = "luReceiveCommission";
+            this.luReceiveCommission.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.luReceiveCommission.Size = new System.Drawing.Size(277, 26);
+            this.luReceiveCommission.TabIndex = 22;
             // 
-            // cbCustomerName
+            // luCustomerName
             // 
-            this.cbCustomerName.FormattingEnabled = true;
-            this.cbCustomerName.Location = new System.Drawing.Point(155, 65);
-            this.cbCustomerName.Name = "cbCustomerName";
-            this.cbCustomerName.Size = new System.Drawing.Size(265, 27);
-            this.cbCustomerName.TabIndex = 18;
+            this.luCustomerName.Location = new System.Drawing.Point(155, 65);
+            this.luCustomerName.Name = "luCustomerName";
+            this.luCustomerName.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.luCustomerName.Size = new System.Drawing.Size(276, 26);
+            this.luCustomerName.TabIndex = 21;
             // 
-            // lbTotalBill
+            // pnlBottom
             // 
-            this.lbTotalBill.Location = new System.Drawing.Point(10, 160);
-            this.lbTotalBill.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.lbTotalBill.Name = "lbTotalBill";
-            this.lbTotalBill.Size = new System.Drawing.Size(135, 19);
-            this.lbTotalBill.TabIndex = 17;
-            this.lbTotalBill.Text = "Tổng tiền Hóa Đơn";
+            this.pnlBottom.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.pnlBottom.Controls.Add(this.btnPrev);
+            this.pnlBottom.Controls.Add(this.btnCreateBill);
+            this.pnlBottom.Controls.Add(this.btnDelete);
+            this.pnlBottom.Controls.Add(this.btnExits);
+            this.pnlBottom.Controls.Add(this.btnExportExcel);
+            this.pnlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlBottom.Location = new System.Drawing.Point(0, 279);
+            this.pnlBottom.Name = "pnlBottom";
+            this.pnlBottom.Size = new System.Drawing.Size(1459, 43);
+            this.pnlBottom.TabIndex = 20;
             // 
-            // btnExportExcel
+            // btnPrev
             // 
-            this.btnExportExcel.Location = new System.Drawing.Point(949, 4);
-            this.btnExportExcel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnExportExcel.Name = "btnExportExcel";
-            this.btnExportExcel.Size = new System.Drawing.Size(156, 35);
-            this.btnExportExcel.TabIndex = 15;
-            this.btnExportExcel.Text = "Xuất ra file excel";
+            this.btnPrev.Location = new System.Drawing.Point(741, 4);
+            this.btnPrev.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnPrev.Name = "btnPrev";
+            this.btnPrev.Size = new System.Drawing.Size(178, 35);
+            this.btnPrev.TabIndex = 14;
+            this.btnPrev.Text = "Quay lại bước trước";
+            this.btnPrev.Click += new System.EventHandler(this.btnPrev_Click);
+            // 
+            // btnCreateBill
+            // 
+            this.btnCreateBill.Location = new System.Drawing.Point(457, 4);
+            this.btnCreateBill.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnCreateBill.Name = "btnCreateBill";
+            this.btnCreateBill.Size = new System.Drawing.Size(112, 35);
+            this.btnCreateBill.TabIndex = 12;
+            this.btnCreateBill.Text = "Lập Hóa Đơn";
+            this.btnCreateBill.Click += new System.EventHandler(this.btnCreateBill_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(599, 4);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(112, 35);
+            this.btnDelete.TabIndex = 13;
+            this.btnDelete.Text = "Xóa Sản Phẩm";
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnExits
             // 
@@ -208,10 +238,29 @@
             this.btnExits.Text = "Thoát";
             this.btnExits.Click += new System.EventHandler(this.btnExits_Click);
             // 
+            // btnExportExcel
+            // 
+            this.btnExportExcel.Location = new System.Drawing.Point(949, 4);
+            this.btnExportExcel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnExportExcel.Name = "btnExportExcel";
+            this.btnExportExcel.Size = new System.Drawing.Size(156, 35);
+            this.btnExportExcel.TabIndex = 15;
+            this.btnExportExcel.Text = "Xuất ra file excel";
+            this.btnExportExcel.Click += new System.EventHandler(this.btnExportExcel_Click);
+            // 
+            // lbTotalBill
+            // 
+            this.lbTotalBill.Location = new System.Drawing.Point(10, 115);
+            this.lbTotalBill.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.lbTotalBill.Name = "lbTotalBill";
+            this.lbTotalBill.Size = new System.Drawing.Size(135, 19);
+            this.lbTotalBill.TabIndex = 17;
+            this.lbTotalBill.Text = "Tổng tiền Hóa Đơn";
+            // 
             // hplReceiveCommission
             // 
             this.hplReceiveCommission.EditValue = "Thêm Mới";
-            this.hplReceiveCommission.Location = new System.Drawing.Point(897, 110);
+            this.hplReceiveCommission.Location = new System.Drawing.Point(914, 108);
             this.hplReceiveCommission.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.hplReceiveCommission.Name = "hplReceiveCommission";
             this.hplReceiveCommission.Size = new System.Drawing.Size(81, 26);
@@ -220,23 +269,23 @@
             // 
             // dtpkPaymentDate
             // 
-            this.dtpkPaymentDate.Location = new System.Drawing.Point(625, 20);
+            this.dtpkPaymentDate.Location = new System.Drawing.Point(627, 65);
             this.dtpkPaymentDate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtpkPaymentDate.Name = "dtpkPaymentDate";
-            this.dtpkPaymentDate.Size = new System.Drawing.Size(265, 27);
+            this.dtpkPaymentDate.Size = new System.Drawing.Size(277, 27);
             this.dtpkPaymentDate.TabIndex = 6;
             // 
             // dtpkStartDate
             // 
-            this.dtpkStartDate.Location = new System.Drawing.Point(155, 110);
+            this.dtpkStartDate.Location = new System.Drawing.Point(627, 20);
             this.dtpkStartDate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtpkStartDate.Name = "dtpkStartDate";
-            this.dtpkStartDate.Size = new System.Drawing.Size(265, 27);
+            this.dtpkStartDate.Size = new System.Drawing.Size(277, 27);
             this.dtpkStartDate.TabIndex = 2;
             // 
             // lbReceiveCommission
             // 
-            this.lbReceiveCommission.Location = new System.Drawing.Point(455, 115);
+            this.lbReceiveCommission.Location = new System.Drawing.Point(457, 160);
             this.lbReceiveCommission.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lbReceiveCommission.Name = "lbReceiveCommission";
             this.lbReceiveCommission.Size = new System.Drawing.Size(161, 19);
@@ -245,15 +294,15 @@
             // 
             // txtCommission
             // 
-            this.txtCommission.Location = new System.Drawing.Point(625, 65);
+            this.txtCommission.Location = new System.Drawing.Point(627, 110);
             this.txtCommission.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtCommission.Name = "txtCommission";
-            this.txtCommission.Size = new System.Drawing.Size(265, 26);
+            this.txtCommission.Size = new System.Drawing.Size(277, 26);
             this.txtCommission.TabIndex = 7;
             // 
             // lbCommission
             // 
-            this.lbCommission.Location = new System.Drawing.Point(455, 70);
+            this.lbCommission.Location = new System.Drawing.Point(457, 115);
             this.lbCommission.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lbCommission.Name = "lbCommission";
             this.lbCommission.Size = new System.Drawing.Size(71, 19);
@@ -262,7 +311,7 @@
             // 
             // lbPaymentDate
             // 
-            this.lbPaymentDate.Location = new System.Drawing.Point(455, 25);
+            this.lbPaymentDate.Location = new System.Drawing.Point(457, 70);
             this.lbPaymentDate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lbPaymentDate.Name = "lbPaymentDate";
             this.lbPaymentDate.Size = new System.Drawing.Size(98, 19);
@@ -281,23 +330,23 @@
             // txtTotalBill
             // 
             this.txtTotalBill.Enabled = false;
-            this.txtTotalBill.Location = new System.Drawing.Point(155, 155);
+            this.txtTotalBill.Location = new System.Drawing.Point(155, 110);
             this.txtTotalBill.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtTotalBill.Name = "txtTotalBill";
-            this.txtTotalBill.Size = new System.Drawing.Size(265, 26);
+            this.txtTotalBill.Size = new System.Drawing.Size(276, 26);
             this.txtTotalBill.TabIndex = 3;
             // 
             // txtShippingCosts
             // 
-            this.txtShippingCosts.Location = new System.Drawing.Point(625, 155);
+            this.txtShippingCosts.Location = new System.Drawing.Point(627, 200);
             this.txtShippingCosts.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtShippingCosts.Name = "txtShippingCosts";
-            this.txtShippingCosts.Size = new System.Drawing.Size(265, 26);
+            this.txtShippingCosts.Size = new System.Drawing.Size(277, 26);
             this.txtShippingCosts.TabIndex = 10;
             // 
             // lbShippingCosts
             // 
-            this.lbShippingCosts.Location = new System.Drawing.Point(455, 160);
+            this.lbShippingCosts.Location = new System.Drawing.Point(457, 205);
             this.lbShippingCosts.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lbShippingCosts.Name = "lbShippingCosts";
             this.lbShippingCosts.Size = new System.Drawing.Size(112, 19);
@@ -307,15 +356,15 @@
             // txtChange
             // 
             this.txtChange.Enabled = false;
-            this.txtChange.Location = new System.Drawing.Point(155, 245);
+            this.txtChange.Location = new System.Drawing.Point(155, 200);
             this.txtChange.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtChange.Name = "txtChange";
-            this.txtChange.Size = new System.Drawing.Size(265, 26);
+            this.txtChange.Size = new System.Drawing.Size(276, 26);
             this.txtChange.TabIndex = 5;
             // 
             // lbChange
             // 
-            this.lbChange.Location = new System.Drawing.Point(9, 250);
+            this.lbChange.Location = new System.Drawing.Point(9, 205);
             this.lbChange.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lbChange.Name = "lbChange";
             this.lbChange.Size = new System.Drawing.Size(99, 19);
@@ -324,15 +373,15 @@
             // 
             // txtPrepay
             // 
-            this.txtPrepay.Location = new System.Drawing.Point(155, 200);
+            this.txtPrepay.Location = new System.Drawing.Point(155, 155);
             this.txtPrepay.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtPrepay.Name = "txtPrepay";
-            this.txtPrepay.Size = new System.Drawing.Size(265, 26);
+            this.txtPrepay.Size = new System.Drawing.Size(276, 26);
             this.txtPrepay.TabIndex = 4;
             // 
             // lbPrepay
             // 
-            this.lbPrepay.Location = new System.Drawing.Point(10, 205);
+            this.lbPrepay.Location = new System.Drawing.Point(10, 160);
             this.lbPrepay.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lbPrepay.Name = "lbPrepay";
             this.lbPrepay.Size = new System.Drawing.Size(71, 19);
@@ -341,7 +390,7 @@
             // 
             // lbStartDate
             // 
-            this.lbStartDate.Location = new System.Drawing.Point(10, 115);
+            this.lbStartDate.Location = new System.Drawing.Point(454, 25);
             this.lbStartDate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lbStartDate.Name = "lbStartDate";
             this.lbStartDate.Size = new System.Drawing.Size(66, 19);
@@ -362,7 +411,7 @@
             this.txtBillName.Location = new System.Drawing.Point(155, 20);
             this.txtBillName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtBillName.Name = "txtBillName";
-            this.txtBillName.Size = new System.Drawing.Size(265, 26);
+            this.txtBillName.Size = new System.Drawing.Size(276, 26);
             this.txtBillName.TabIndex = 0;
             // 
             // lbBillName
@@ -373,35 +422,6 @@
             this.lbBillName.Size = new System.Drawing.Size(94, 19);
             this.lbBillName.TabIndex = 1;
             this.lbBillName.Text = "Tên Hóa Đơn";
-            // 
-            // btnPrev
-            // 
-            this.btnPrev.Location = new System.Drawing.Point(741, 4);
-            this.btnPrev.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnPrev.Name = "btnPrev";
-            this.btnPrev.Size = new System.Drawing.Size(178, 35);
-            this.btnPrev.TabIndex = 14;
-            this.btnPrev.Text = "Quay lại bước trước";
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Location = new System.Drawing.Point(599, 4);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(112, 35);
-            this.btnDelete.TabIndex = 13;
-            this.btnDelete.Text = "Xóa Sản Phẩm";
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // btnCreateBill
-            // 
-            this.btnCreateBill.Location = new System.Drawing.Point(457, 4);
-            this.btnCreateBill.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnCreateBill.Name = "btnCreateBill";
-            this.btnCreateBill.Size = new System.Drawing.Size(112, 35);
-            this.btnCreateBill.TabIndex = 12;
-            this.btnCreateBill.Text = "Lập Hóa Đơn";
-            this.btnCreateBill.Click += new System.EventHandler(this.btnCreateBill_Click);
             // 
             // mmedNote
             // 
@@ -445,7 +465,6 @@
             this.gvCreateBill.Name = "gvCreateBill";
             this.gvCreateBill.OptionsEditForm.PopupEditFormWidth = 1200;
             this.gvCreateBill.RowHeight = 46;
-            this.gvCreateBill.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gvCreateBill_RowClick);
             this.gvCreateBill.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.gvCreateBill_CustomDrawCell);
             // 
             // colSTT
@@ -604,20 +623,6 @@
             this.colRemove.VisibleIndex = 6;
             this.colRemove.Width = 205;
             // 
-            // pnlBottom
-            // 
-            this.pnlBottom.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.pnlBottom.Controls.Add(this.btnPrev);
-            this.pnlBottom.Controls.Add(this.btnCreateBill);
-            this.pnlBottom.Controls.Add(this.btnDelete);
-            this.pnlBottom.Controls.Add(this.btnExits);
-            this.pnlBottom.Controls.Add(this.btnExportExcel);
-            this.pnlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlBottom.Location = new System.Drawing.Point(0, 279);
-            this.pnlBottom.Name = "pnlBottom";
-            this.pnlBottom.Size = new System.Drawing.Size(1459, 43);
-            this.pnlBottom.TabIndex = 20;
-            // 
             // ucCreateBill
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -626,6 +631,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ucCreateBill";
             this.Size = new System.Drawing.Size(1467, 578);
+            this.Load += new System.EventHandler(this.ucCreateBill_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pnlMain)).EndInit();
             this.pnlMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gbCreateBill)).EndInit();
@@ -637,6 +643,10 @@
             this.spccCreateBill.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.spccCreateBill)).EndInit();
             this.spccCreateBill.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.luReceiveCommission.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.luCustomerName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pnlBottom)).EndInit();
+            this.pnlBottom.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.hplReceiveCommission.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCommission.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTotalBill.Properties)).EndInit();
@@ -647,8 +657,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.mmedNote.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvCreateBill)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvCreateBill)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pnlBottom)).EndInit();
-            this.pnlBottom.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -698,8 +706,8 @@
         private DevExpress.XtraEditors.TextEdit txtChange;
         private DevExpress.XtraEditors.LabelControl lbChange;
         private DevExpress.XtraEditors.LabelControl lbTotalBill;
-        private System.Windows.Forms.ComboBox cbReceiveCommission;
-        private System.Windows.Forms.ComboBox cbCustomerName;
         private DevExpress.XtraEditors.PanelControl pnlBottom;
+        private DevExpress.XtraEditors.LookUpEdit luReceiveCommission;
+        private DevExpress.XtraEditors.LookUpEdit luCustomerName;
     }
 }

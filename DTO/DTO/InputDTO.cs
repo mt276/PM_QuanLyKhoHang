@@ -6,15 +6,14 @@ namespace DTO.DTO
 {
     public class InputDTO
     {
-        public InputDTO(int id, int productID, int count, double importPrice, DateTime startDate, int accountID, bool del, string note)
+        public InputDTO(int id, int productID, int count, double importPrice, int accountID, DateTime startDate, bool del, string note)
         {
             this.ID = id;
             this.ProductID = productID;
-            this.ProductName = productName;
             this.Count = count;
             this.ImportPrice = importPrice;
-            this.StartDate = startDate;
             this.AccountID = accountID;
+            this.StartDate = startDate;
             this.Del = del;
             this.Note = note;
         }
@@ -25,8 +24,8 @@ namespace DTO.DTO
             this.ProductID = int.Parse(row["productID"].ToString());
             this.Count = int.Parse(row["count"].ToString());
             this.ImportPrice = double.Parse(row["importPrice"].ToString());
-            this.StartDate = DateTime.Parse(row["startDate"].ToString());
             this.AccountID = int.Parse(row["accountID"].ToString());
+            this.StartDate = DateTime.Parse(row["startDate"].ToString());
             this.Del = bool.Parse(row["del"].ToString());
             this.Note = row["note"].ToString();
         }

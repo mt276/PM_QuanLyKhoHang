@@ -9,6 +9,11 @@ namespace PM_QuanLyKhoHang
     static class Program
     {
         /// <summary>
+        /// đường dẫn backup dữ liệu
+        /// </summary>
+        public static string strPath = string.Empty;
+
+        /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]

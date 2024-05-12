@@ -1,6 +1,6 @@
 ﻿namespace PM_QuanLyKhoHang.UserControlDetails
 {
-    partial class ucListProducts
+    partial class ucProductSell
     {
         /// <summary> 
         /// Required designer variable.
@@ -45,6 +45,7 @@
             this.lbStartDate = new DevExpress.XtraEditors.LabelControl();
             this.dtpkEndDate = new System.Windows.Forms.DateTimePicker();
             this.dtpkStartDate = new System.Windows.Forms.DateTimePicker();
+            this.colStartDate = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pnlMain)).BeginInit();
             this.pnlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tcListProducts)).BeginInit();
@@ -145,13 +146,15 @@
             this.gvStatistical.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colSTT,
             this.colProductName,
-            this.colCount});
+            this.colCount,
+            this.colStartDate});
             this.gvStatistical.DetailHeight = 538;
             this.gvStatistical.GridControl = this.dtgvStatistical;
             this.gvStatistical.GroupPanelText = " ";
             this.gvStatistical.Name = "gvStatistical";
             this.gvStatistical.OptionsEditForm.PopupEditFormWidth = 1200;
             this.gvStatistical.OptionsView.ShowGroupPanel = false;
+            this.gvStatistical.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.gvStatistical_CustomDrawCell);
             // 
             // colSTT
             // 
@@ -169,7 +172,7 @@
             this.colSTT.Name = "colSTT";
             this.colSTT.Visible = true;
             this.colSTT.VisibleIndex = 0;
-            this.colSTT.Width = 52;
+            this.colSTT.Width = 95;
             // 
             // colProductName
             // 
@@ -185,7 +188,7 @@
             this.colProductName.Name = "colProductName";
             this.colProductName.Visible = true;
             this.colProductName.VisibleIndex = 1;
-            this.colProductName.Width = 366;
+            this.colProductName.Width = 405;
             // 
             // colCount
             // 
@@ -199,11 +202,12 @@
             this.colCount.AppearanceHeader.Options.UseFont = true;
             this.colCount.AppearanceHeader.Options.UseForeColor = true;
             this.colCount.Caption = "Số Lượng Bán";
-            this.colCount.FieldName = "Count";
+            this.colCount.FieldName = "SellNumber";
             this.colCount.MinWidth = 30;
             this.colCount.Name = "colCount";
             this.colCount.Visible = true;
             this.colCount.VisibleIndex = 2;
+            this.colCount.Width = 272;
             // 
             // pnlSearch
             // 
@@ -228,6 +232,7 @@
             this.btnAll.Size = new System.Drawing.Size(120, 35);
             this.btnAll.TabIndex = 3;
             this.btnAll.Text = "Tất cả";
+            this.btnAll.Click += new System.EventHandler(this.btnAll_Click);
             // 
             // btnSearch
             // 
@@ -237,6 +242,7 @@
             this.btnSearch.Size = new System.Drawing.Size(120, 35);
             this.btnSearch.TabIndex = 2;
             this.btnSearch.Text = "&Tìm Kiếm";
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // lbEndDate
             // 
@@ -272,6 +278,25 @@
             this.dtpkStartDate.Size = new System.Drawing.Size(298, 27);
             this.dtpkStartDate.TabIndex = 0;
             // 
+            // colStartDate
+            // 
+            this.colStartDate.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.colStartDate.AppearanceCell.Options.UseFont = true;
+            this.colStartDate.AppearanceCell.Options.UseTextOptions = true;
+            this.colStartDate.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colStartDate.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.colStartDate.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.colStartDate.AppearanceHeader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.colStartDate.AppearanceHeader.Options.UseFont = true;
+            this.colStartDate.AppearanceHeader.Options.UseForeColor = true;
+            this.colStartDate.Caption = "Ngày bán";
+            this.colStartDate.FieldName = "StartDate";
+            this.colStartDate.MinWidth = 30;
+            this.colStartDate.Name = "colStartDate";
+            this.colStartDate.Visible = true;
+            this.colStartDate.VisibleIndex = 3;
+            this.colStartDate.Width = 283;
+            // 
             // ucListProducts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -280,6 +305,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ucListProducts";
             this.Size = new System.Drawing.Size(978, 502);
+            this.Load += new System.EventHandler(this.ucListProducts_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pnlMain)).EndInit();
             this.pnlMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tcListProducts)).EndInit();
@@ -320,5 +346,6 @@
         private DevExpress.XtraEditors.LabelControl lbStartDate;
         private System.Windows.Forms.DateTimePicker dtpkEndDate;
         private System.Windows.Forms.DateTimePicker dtpkStartDate;
+        private DevExpress.XtraGrid.Columns.GridColumn colStartDate;
     }
 }

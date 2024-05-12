@@ -129,5 +129,37 @@ namespace DAO.DAO
             return listResult;
         }
         #endregion
+
+        #region "[SelectByProductID]"
+        /// <summary>
+        /// Lấy thông tin thông qua mã sàn phẩm
+        /// </summary>
+        /// <param name="_ProductID">mã sản phẩm</param>
+        /// <returns></returns>
+        public ParameterDTO SelectByProductID(int _ProductID)
+        {
+            ParameterDTO objResult = null;
+            try
+            {
+                if (cn != null)
+                {
+                    //lấy thông tin điểm theo mã.
+                    string sql = "SELECT * FROM dbo.Parameter WHERE ProductID =" + _ProductID.ToString();
+                    DataTable dt = SqlDataHelper.GetDataToStringSQL(sql, cn);
+                    if (dt.Rows.Count == 1)
+                    {
+                        foreach (DataRow row in dt.Rows)
+                        {
+                            objResult = new ParameterDTO(row);
+                            return objResult;
+                        }
+                    }
+                }
+            }
+            catch { }
+            return objResult;
+
+        }
+        #endregion
     }
 }

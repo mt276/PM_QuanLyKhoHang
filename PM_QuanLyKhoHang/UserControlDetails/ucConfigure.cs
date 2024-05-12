@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PM_QuanLyKhoHang.UserControlDetails
 {
-    public partial class ucInventoryManagement : UserControl
+    public partial class ucConfigure : UserControl
     {
-        public ucInventoryManagement()
+        public ucConfigure()
         {
             InitializeComponent();
         }

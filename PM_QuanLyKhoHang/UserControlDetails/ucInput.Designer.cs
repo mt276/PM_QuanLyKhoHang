@@ -32,6 +32,10 @@
             this.pnlMain = new DevExpress.XtraEditors.PanelControl();
             this.gcInput = new DevExpress.XtraEditors.GroupControl();
             this.spccInput = new DevExpress.XtraEditors.SplitContainerControl();
+            this.cbUnit = new System.Windows.Forms.ComboBox();
+            this.txtSalePrice = new DevExpress.XtraEditors.TextEdit();
+            this.lbSalePrice = new DevExpress.XtraEditors.LabelControl();
+            this.lklbAddProduct = new System.Windows.Forms.LinkLabel();
             this.btnExits = new DevExpress.XtraEditors.SimpleButton();
             this.btnShowAll = new DevExpress.XtraEditors.SimpleButton();
             this.btnUpdate = new DevExpress.XtraEditors.SimpleButton();
@@ -39,13 +43,10 @@
             this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
             this.dtpkStartDate = new System.Windows.Forms.DateTimePicker();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
-            this.txtSalePrice = new DevExpress.XtraEditors.TextEdit();
             this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
             this.txtImportPrice = new DevExpress.XtraEditors.TextEdit();
             this.txtCount = new DevExpress.XtraEditors.TextEdit();
-            this.cbUnit = new System.Windows.Forms.ComboBox();
             this.cbProductName = new System.Windows.Forms.ComboBox();
-            this.lbSalePrice = new DevExpress.XtraEditors.LabelControl();
             this.lbNote = new DevExpress.XtraEditors.LabelControl();
             this.lbImportPrice = new DevExpress.XtraEditors.LabelControl();
             this.lbCount = new DevExpress.XtraEditors.LabelControl();
@@ -115,6 +116,10 @@
             // 
             // spccInput.Panel1
             // 
+            this.spccInput.Panel1.Controls.Add(this.cbUnit);
+            this.spccInput.Panel1.Controls.Add(this.txtSalePrice);
+            this.spccInput.Panel1.Controls.Add(this.lbSalePrice);
+            this.spccInput.Panel1.Controls.Add(this.lklbAddProduct);
             this.spccInput.Panel1.Controls.Add(this.btnExits);
             this.spccInput.Panel1.Controls.Add(this.btnShowAll);
             this.spccInput.Panel1.Controls.Add(this.btnUpdate);
@@ -122,13 +127,10 @@
             this.spccInput.Panel1.Controls.Add(this.btnDelete);
             this.spccInput.Panel1.Controls.Add(this.dtpkStartDate);
             this.spccInput.Panel1.Controls.Add(this.btnCancel);
-            this.spccInput.Panel1.Controls.Add(this.txtSalePrice);
             this.spccInput.Panel1.Controls.Add(this.btnAdd);
             this.spccInput.Panel1.Controls.Add(this.txtImportPrice);
             this.spccInput.Panel1.Controls.Add(this.txtCount);
-            this.spccInput.Panel1.Controls.Add(this.cbUnit);
             this.spccInput.Panel1.Controls.Add(this.cbProductName);
-            this.spccInput.Panel1.Controls.Add(this.lbSalePrice);
             this.spccInput.Panel1.Controls.Add(this.lbNote);
             this.spccInput.Panel1.Controls.Add(this.lbImportPrice);
             this.spccInput.Panel1.Controls.Add(this.lbCount);
@@ -141,42 +143,85 @@
             this.spccInput.Panel2.Controls.Add(this.dtgvInput);
             this.spccInput.Panel2.Text = "Panel2";
             this.spccInput.Size = new System.Drawing.Size(1206, 540);
-            this.spccInput.SplitterPosition = 291;
+            this.spccInput.SplitterPosition = 294;
             this.spccInput.TabIndex = 0;
             this.spccInput.Text = "splitContainerControl1";
             // 
+            // cbUnit
+            // 
+            this.cbUnit.Enabled = false;
+            this.cbUnit.FormattingEnabled = true;
+            this.cbUnit.Location = new System.Drawing.Point(295, 64);
+            this.cbUnit.Name = "cbUnit";
+            this.cbUnit.Size = new System.Drawing.Size(135, 27);
+            this.cbUnit.TabIndex = 38;
+            // 
+            // txtSalePrice
+            // 
+            this.txtSalePrice.Enabled = false;
+            this.txtSalePrice.Location = new System.Drawing.Point(135, 160);
+            this.txtSalePrice.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtSalePrice.Name = "txtSalePrice";
+            this.txtSalePrice.Size = new System.Drawing.Size(295, 26);
+            this.txtSalePrice.TabIndex = 36;
+            this.txtSalePrice.ToolTipIconType = DevExpress.Utils.ToolTipIconType.Question;
+            // 
+            // lbSalePrice
+            // 
+            this.lbSalePrice.Location = new System.Drawing.Point(10, 165);
+            this.lbSalePrice.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.lbSalePrice.Name = "lbSalePrice";
+            this.lbSalePrice.Size = new System.Drawing.Size(54, 19);
+            this.lbSalePrice.TabIndex = 37;
+            this.lbSalePrice.Text = "Giá bán";
+            // 
+            // lklbAddProduct
+            // 
+            this.lklbAddProduct.AutoSize = true;
+            this.lklbAddProduct.Location = new System.Drawing.Point(449, 18);
+            this.lklbAddProduct.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lklbAddProduct.Name = "lklbAddProduct";
+            this.lklbAddProduct.Size = new System.Drawing.Size(86, 38);
+            this.lklbAddProduct.TabIndex = 35;
+            this.lklbAddProduct.TabStop = true;
+            this.lklbAddProduct.Text = "Thêm Sản \r\nPhẩm Mới";
+            this.lklbAddProduct.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lklbAddProduct_LinkClicked);
+            // 
             // btnExits
             // 
-            this.btnExits.Location = new System.Drawing.Point(1041, 250);
+            this.btnExits.Location = new System.Drawing.Point(1194, 251);
             this.btnExits.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnExits.Name = "btnExits";
             this.btnExits.Size = new System.Drawing.Size(112, 35);
             this.btnExits.TabIndex = 12;
             this.btnExits.Text = "Thoát";
+            this.btnExits.Click += new System.EventHandler(this.btnExits_Click);
             // 
             // btnShowAll
             // 
-            this.btnShowAll.Location = new System.Drawing.Point(847, 250);
+            this.btnShowAll.Location = new System.Drawing.Point(947, 251);
             this.btnShowAll.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnShowAll.Name = "btnShowAll";
-            this.btnShowAll.Size = new System.Drawing.Size(176, 35);
+            this.btnShowAll.Size = new System.Drawing.Size(230, 35);
             this.btnShowAll.TabIndex = 11;
-            this.btnShowAll.Text = "Danh sách nhập kho";
+            this.btnShowAll.Text = "Hiển thị mới thêm trong ngày";
             this.btnShowAll.ToolTip = "Danh sách mà nhân viên này từng nhập vào kho";
+            this.btnShowAll.Click += new System.EventHandler(this.btnListInput_Click);
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(717, 250);
+            this.btnUpdate.Location = new System.Drawing.Point(817, 251);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(112, 35);
             this.btnUpdate.TabIndex = 10;
             this.btnUpdate.Text = "Cập nhật";
             this.toolTip1.SetToolTip(this.btnUpdate, "Cập nhật sản phẩm này");
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // lbStartDate
             // 
-            this.lbStartDate.Location = new System.Drawing.Point(10, 205);
+            this.lbStartDate.Location = new System.Drawing.Point(10, 215);
             this.lbStartDate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lbStartDate.Name = "lbStartDate";
             this.lbStartDate.Size = new System.Drawing.Size(76, 19);
@@ -185,17 +230,18 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(587, 250);
+            this.btnDelete.Location = new System.Drawing.Point(687, 251);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(112, 35);
             this.btnDelete.TabIndex = 9;
             this.btnDelete.Text = "Xóa";
             this.toolTip1.SetToolTip(this.btnDelete, "Xóa sản phầm này");
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // dtpkStartDate
             // 
-            this.dtpkStartDate.Location = new System.Drawing.Point(135, 200);
+            this.dtpkStartDate.Location = new System.Drawing.Point(135, 210);
             this.dtpkStartDate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtpkStartDate.Name = "dtpkStartDate";
             this.dtpkStartDate.Size = new System.Drawing.Size(295, 27);
@@ -204,33 +250,25 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(457, 250);
+            this.btnCancel.Location = new System.Drawing.Point(557, 251);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(112, 35);
             this.btnCancel.TabIndex = 8;
             this.btnCancel.Text = "Hủy thao tác";
             this.toolTip1.SetToolTip(this.btnCancel, "Hủy thao tác này");
-            // 
-            // txtSalePrice
-            // 
-            this.txtSalePrice.Enabled = false;
-            this.txtSalePrice.Location = new System.Drawing.Point(135, 155);
-            this.txtSalePrice.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtSalePrice.Name = "txtSalePrice";
-            this.txtSalePrice.Size = new System.Drawing.Size(295, 26);
-            this.txtSalePrice.TabIndex = 4;
-            this.txtSalePrice.ToolTipIconType = DevExpress.Utils.ToolTipIconType.Question;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(327, 250);
+            this.btnAdd.Location = new System.Drawing.Point(427, 251);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(112, 35);
             this.btnAdd.TabIndex = 7;
             this.btnAdd.Text = "Nhập vào kho";
             this.toolTip1.SetToolTip(this.btnAdd, "Nhập sản phẩm này vào kho");
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // txtImportPrice
             // 
@@ -241,26 +279,18 @@
             this.txtImportPrice.TabIndex = 3;
             this.txtImportPrice.ToolTip = "Giá nhập";
             this.txtImportPrice.ToolTipIconType = DevExpress.Utils.ToolTipIconType.Question;
+            this.txtImportPrice.TextChanged += new System.EventHandler(this.txtImportPrice_TextChanged);
+            this.txtImportPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtImportPrice_KeyPress);
             // 
             // txtCount
             // 
             this.txtCount.Location = new System.Drawing.Point(135, 65);
             this.txtCount.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtCount.Name = "txtCount";
-            this.txtCount.Size = new System.Drawing.Size(174, 26);
+            this.txtCount.Size = new System.Drawing.Size(137, 26);
             this.txtCount.TabIndex = 1;
             this.txtCount.ToolTip = "Số lượng sản phẩm";
             this.txtCount.ToolTipIconType = DevExpress.Utils.ToolTipIconType.Question;
-            // 
-            // cbUnit
-            // 
-            this.cbUnit.FormattingEnabled = true;
-            this.cbUnit.Location = new System.Drawing.Point(318, 65);
-            this.cbUnit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cbUnit.Name = "cbUnit";
-            this.cbUnit.Size = new System.Drawing.Size(112, 27);
-            this.cbUnit.TabIndex = 2;
-            this.toolTip1.SetToolTip(this.cbUnit, "đơn vị tính");
             // 
             // cbProductName
             // 
@@ -271,15 +301,7 @@
             this.cbProductName.Size = new System.Drawing.Size(295, 27);
             this.cbProductName.TabIndex = 0;
             this.toolTip1.SetToolTip(this.cbProductName, "Tên sản phẩm");
-            // 
-            // lbSalePrice
-            // 
-            this.lbSalePrice.Location = new System.Drawing.Point(10, 160);
-            this.lbSalePrice.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.lbSalePrice.Name = "lbSalePrice";
-            this.lbSalePrice.Size = new System.Drawing.Size(54, 19);
-            this.lbSalePrice.TabIndex = 6;
-            this.lbSalePrice.Text = "Giá bán";
+            this.cbProductName.SelectedIndexChanged += new System.EventHandler(this.cbProductName_SelectedIndexChanged);
             // 
             // lbNote
             // 
@@ -322,7 +344,7 @@
             this.mmedNote.Location = new System.Drawing.Point(668, 25);
             this.mmedNote.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.mmedNote.Name = "mmedNote";
-            this.mmedNote.Size = new System.Drawing.Size(452, 135);
+            this.mmedNote.Size = new System.Drawing.Size(452, 157);
             this.mmedNote.TabIndex = 6;
             this.mmedNote.ToolTip = "Ghi chú cho sản phầm này";
             this.mmedNote.ToolTipIconType = DevExpress.Utils.ToolTipIconType.Question;
@@ -335,7 +357,7 @@
             this.dtgvInput.MainView = this.gvInput;
             this.dtgvInput.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtgvInput.Name = "dtgvInput";
-            this.dtgvInput.Size = new System.Drawing.Size(1206, 234);
+            this.dtgvInput.Size = new System.Drawing.Size(1206, 231);
             this.dtgvInput.TabIndex = 0;
             this.dtgvInput.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvInput});
@@ -361,6 +383,8 @@
             this.gvInput.Name = "gvInput";
             this.gvInput.OptionsEditForm.PopupEditFormWidth = 1200;
             this.gvInput.RowHeight = 62;
+            this.gvInput.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gvInput_RowClick);
+            this.gvInput.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.gvInput_CustomDrawCell);
             // 
             // colSTT
             // 
@@ -517,7 +541,7 @@
             this.colNote.AppearanceHeader.Options.UseFont = true;
             this.colNote.AppearanceHeader.Options.UseForeColor = true;
             this.colNote.Caption = "Ghi Chú";
-            this.colNote.FieldName = "GhiChu";
+            this.colNote.FieldName = "Note";
             this.colNote.MinWidth = 30;
             this.colNote.Name = "colNote";
             this.colNote.Visible = true;
@@ -532,6 +556,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ucInput";
             this.Size = new System.Drawing.Size(1214, 580);
+            this.Load += new System.EventHandler(this.ucInput_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pnlMain)).EndInit();
             this.pnlMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcInput)).EndInit();
@@ -575,7 +600,6 @@
         private DevExpress.XtraGrid.GridControl dtgvInput;
         private DevExpress.XtraGrid.Views.Grid.GridView gvInput;
         private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.ComboBox cbUnit;
         private DevExpress.XtraGrid.Columns.GridColumn colSTT;
         private DevExpress.XtraGrid.Columns.GridColumn colID;
         private DevExpress.XtraGrid.Columns.GridColumn colProductName;
@@ -588,9 +612,11 @@
         private DevExpress.XtraGrid.Columns.GridColumn colDelete;
         private DevExpress.XtraGrid.Columns.GridColumn colNote;
         private DevExpress.XtraEditors.SimpleButton btnShowAll;
-        private DevExpress.XtraEditors.TextEdit txtSalePrice;
-        private DevExpress.XtraEditors.LabelControl lbSalePrice;
         private DevExpress.XtraGrid.Columns.GridColumn colSalePrice;
         private DevExpress.XtraEditors.SimpleButton btnExits;
+        private System.Windows.Forms.LinkLabel lklbAddProduct;
+        private DevExpress.XtraEditors.TextEdit txtSalePrice;
+        private DevExpress.XtraEditors.LabelControl lbSalePrice;
+        private System.Windows.Forms.ComboBox cbUnit;
     }
 }

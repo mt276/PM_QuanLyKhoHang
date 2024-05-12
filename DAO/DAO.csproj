@@ -53,12 +53,14 @@
     <Compile Include="DAO\ExpenditureInfoDAO.cs" />
     <Compile Include="DAO\InputDAO.cs" />
     <Compile Include="DAO\KeyDAO.cs" />
+    <Compile Include="DAO\ListProductDAO.cs" />
     <Compile Include="DAO\ParameterDAO.cs" />
     <Compile Include="DAO\PaymentInfoDAO.cs" />
     <Compile Include="DAO\ProductDAO.cs" />
     <Compile Include="DAO\ReceiveCommissionDAO.cs" />
     <Compile Include="DAO\RepresentativeDAO.cs" />
     <Compile Include="DAO\SalePriceDAO.cs" />
+    <Compile Include="DAO\StatisticalDAO.cs" />
     <Compile Include="DAO\SystemErrorDAO.cs" />
     <Compile Include="DAO\TypeAccountDAO.cs" />
     <Compile Include="DAO\TypeActDAO.cs" />

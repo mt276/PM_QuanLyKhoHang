@@ -12,6 +12,9 @@ namespace PM_QuanLyKhoHang.UserControlDetails
         #region "[Declare Global Variable]"
         public DelegateClearItem clearItem = null;
 
+        public DelegateShowUserControl itemShow = null;
+
+
         private int _iID = -1;
         #endregion
 
@@ -27,11 +30,12 @@ namespace PM_QuanLyKhoHang.UserControlDetails
         {
             try
             {
+                if (itemShow != null)
+                    itemShow();
                 ucTypeReferrer uc = new ucTypeReferrer();
                 uc.InsertTR += Uc_InsertTR;
                 uc.UpdateTR += Uc_UpdateTR;
                 uc.DeleteTR += Uc_DeleteTR;
-                uc.Show();
             }
             catch { }
         }

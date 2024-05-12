@@ -1,6 +1,8 @@
 ﻿using DAO.DAO;
 using DTO.DTO;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BUS.BUS
 {
@@ -73,5 +75,171 @@ namespace BUS.BUS
         }
         #endregion
 
+        #region "[GetDate]"
+        public static List<InputDTO> GetDate()
+        {
+            List<InputDTO> listResult = new List<InputDTO>();
+            try
+            {
+                listResult = handle.GetDate();
+            }
+            catch { }
+            return listResult;
+        }
+        #endregion
+
+        #region "[SearchInputByProductName]"
+        public static List<InputDTO> SearchInputByProductName(string name)
+        {
+            List<InputDTO> listResult = new List<InputDTO>();
+            try
+            {
+                listResult = handle.SearchInputByProductName(name);
+            }
+            catch { }
+            return listResult;
+        }
+        #endregion
+
+        #region "[GetInputProductByProductID]"
+        public static List<InputDTO> GetInputProductByProductID(int _ProductID)
+        {
+            List<InputDTO> listResult = new List<InputDTO>();
+            try
+            {
+                listResult = handle.GetInputProductByProductID(_ProductID);
+            }
+            catch { }
+            return listResult;
+        }
+        #endregion
+
+        #region "[GetListInputProductByProductID]"
+        public static List<InputDTO> GetListInputProductByProductID(int _ProductID)
+        {
+            List<InputDTO> listResult = new List<InputDTO>();
+            try
+            {
+
+                listResult = GetInputProductByProductID(_ProductID);
+                if(listResult.Count > 0)
+                {
+                    foreach (InputDTO item in listResult)
+                    {
+                        item.AccountName = AccountBUS.SelectPrimaryKey(item.AccountID).FullName;
+                        item.ProductName = ProductBUS.SelectPrimaryKey(item.ProductID).Name;
+                        item.ImportPriceString = Utils.UtilsOperator.StandardizeTheMoneyChain(item.ImportPrice.ToString());
+                    }
+                }
+            }
+            catch { }
+            return listResult;
+        }
+        #endregion
+
+        #region "[GetInputProductByAccountID]"
+        public static List<InputDTO> GetInputProductByAccountID(int _AccountID)
+        {
+            List<InputDTO> listResult = new List<InputDTO>();
+            try
+            {
+                listResult = handle.GetInputProductByAccountID(_AccountID);
+            }
+            catch { }
+            return listResult;
+        }
+        #endregion
+
+        #region "[GetListInputProductByProductIDByTime]"
+        /// <summary>
+        /// Lấy danh sách Nhập của 1 sản phẩm theo thời gian
+        /// <para>nếu loại là -1,1,0 thì chỉ cần thời gian bắt đầu còn thời gian kết thúc sẽ truyền mặc định</para>
+        /// </summary>
+        /// <param name="_ProductID">mã sản phẩm</param>
+        /// <param name="_date">thời gian bắt đầu</param>
+        /// <param name="_dateEnd">thời gian kết thúc</param>
+        /// <param name="_iType">-1: theo ngày, 0: theo tháng,1:theo năm, 2: theo khoản thời gian</param>
+        /// <returns></returns>
+        public static List<InputDTO> GetListInputProductByProductIDByTime(int _ProductID, DateTime _dateStart, DateTime _dateEnd, int _iType)
+        {
+            List<InputDTO> listResult = new List<InputDTO>();
+            try
+            {
+                listResult = GetListInputProductByProductID(_ProductID);
+                if (listResult.Count > 0)
+                {
+                    switch (Utils.EnumClassDetails.GetTypeImportPrice(_iType))
+                    {
+                        case Utils.EnumClassDetails.TypeImportPriceStatistics.ByDate:
+                            //lấy danh sách các giá nhập trong ngày hôm nay.
+                            listResult = listResult.Where(p => Utils.UtilsOperator.CompareSimilarDateTime(p.StartDate, _dateStart)).ToList();
+                            break;
+                        case Utils.EnumClassDetails.TypeImportPriceStatistics.ByMonth:
+                            listResult = listResult.Where(p => p.StartDate.Month == _dateStart.Month && p.StartDate.Year == _dateStart.Year).ToList();
+                            break;
+                        case Utils.EnumClassDetails.TypeImportPriceStatistics.ByYear:
+                            listResult = listResult.Where(p => p.StartDate.Year == DateTime.Now.Year).ToList();
+                            break;
+                        case Utils.EnumClassDetails.TypeImportPriceStatistics.Period:
+                            DateTime dateStart = _dateStart;
+                            DateTime dateEnd = _dateEnd;
+                            if (Utils.UtilsOperator.TimeAIsGreaterThanTimeB(_dateStart, _dateEnd))
+                            {
+                                dateStart = _dateEnd;
+                                dateEnd = _dateStart;
+                            }
+                            listResult = listResult.Where(p => Utils.UtilsOperator.TimeAIsGreaterThanTimeB(p.StartDate, dateStart)
+                                && Utils.UtilsOperator.TimeAIsGreaterThanTimeB(dateEnd, p.StartDate)).ToList();
+                            break;
+                    }
+                }
+            }
+            catch { }
+            return listResult;
+        }
+        #endregion
+
+        #region "[DeleteInputProduct]"
+        public static bool DeleteInputProduct(int _ProductID, int _InputID, int _Count)
+        {
+            bool isSuccess = false;
+            try
+            {
+                //cập nhật lại số lượng
+                ProductDTO productItem = ProductBUS.SelectPrimaryKey(_ProductID);
+                if (productItem != null)
+                {
+                    if (_Count <= productItem.Stock)
+                    {
+                        productItem.Stock -= _Count;
+                        isSuccess = ProductBUS.Update(productItem);
+
+                        //xóa 1 dòng trong bảng Nhập sản phẩm.
+                        isSuccess = handle.Delete(_InputID);
+                    }
+                }
+            }
+            catch { }
+            return isSuccess;
+        }
+        #endregion
+
+        #region "[SelectByProductID]"
+        /// <summary>
+        /// Lấy sản phẩm nhập mới nhất theo mã sản phẩm
+        /// </summary>
+        /// <param name="_iProductID">mã sản phẩm</param>
+        /// <returns></returns>
+        public static InputDTO SelectByProductID(int _iProductID)
+        {
+            InputDTO objResult = null;
+            try
+            {
+                objResult = GetAll().Where(p=> p.ProductID == _iProductID).OrderByDescending(p => p.StartDate).FirstOrDefault();
+            }
+            catch { }
+            return objResult;
+        }
+        #endregion
     }
 }

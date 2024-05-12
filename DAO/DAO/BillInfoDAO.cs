@@ -27,10 +27,10 @@ namespace DAO.DAO
             {
                 if (cn != null)
                 {
-                    string sql = string.Format("INSERT INTO dbo.BillInfo(billID, productID, count, importPrice, salePrice, VAT, Dividend, Del, Note) " +
-                        "VALUES({0}, {1}, {2}, {3}, {4}, {5}, {6}, '{7}', N'{8}')",
-                        _obj.BillID.ToString(), _obj.ProductID.ToString(), _obj.Count.ToString(), _obj.ImportPrice.ToString(), 
-                        _obj.SalePrice.ToString(), _obj.VAT.ToString(), _obj.Divedend.ToString(), _obj.Del.ToString(), _obj.Note);
+                    string sql = string.Format("INSERT INTO dbo.BillInfo (BillID, ProductID, Count, SalePrice, VAT, Dividend, Del, Note) " +
+                        "VALUES({0}, {1}, {2}, {3}, {4}, {5}, '{6}', N'{7}')",
+                        _obj.BillID.ToString(), _obj.ProductID.ToString(), _obj.Count.ToString(),_obj.SalePrice.ToString(), 
+                        _obj.VAT.ToString(), _obj.Divedend.ToString(), _obj.Del.ToString(), _obj.Note);
                     iResult = SqlDataHelper.ExecuteNonQuery(sql, cn);
                     if (iResult == 1)
                     {
@@ -130,5 +130,7 @@ namespace DAO.DAO
             return listResult;
         }
         #endregion
+
+
     }
 }

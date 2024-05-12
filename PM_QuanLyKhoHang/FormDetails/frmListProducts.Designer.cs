@@ -76,6 +76,7 @@ namespace PM_QuanLyKhoHang.FormDetails
             this.gvListProducts.Name = "gvListProducts";
             this.gvListProducts.OptionsEditForm.PopupEditFormWidth = 1200;
             this.gvListProducts.RowHeight = 37;
+            this.gvListProducts.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.gvListProducts_CustomDrawCell);
             // 
             // colSTT
             // 
@@ -92,7 +93,7 @@ namespace PM_QuanLyKhoHang.FormDetails
             this.colSTT.Name = "colSTT";
             this.colSTT.Visible = true;
             this.colSTT.VisibleIndex = 0;
-            this.colSTT.Width = 54;
+            this.colSTT.Width = 53;
             // 
             // colNameProduct
             // 
@@ -105,12 +106,12 @@ namespace PM_QuanLyKhoHang.FormDetails
             this.colNameProduct.AppearanceHeader.Options.UseFont = true;
             this.colNameProduct.AppearanceHeader.Options.UseForeColor = true;
             this.colNameProduct.Caption = "Tên Sản Phẩm";
-            this.colNameProduct.FieldName = "NameProduct";
+            this.colNameProduct.FieldName = "Name";
             this.colNameProduct.MinWidth = 30;
             this.colNameProduct.Name = "colNameProduct";
             this.colNameProduct.Visible = true;
             this.colNameProduct.VisibleIndex = 1;
-            this.colNameProduct.Width = 141;
+            this.colNameProduct.Width = 173;
             // 
             // colDimensions
             // 
@@ -128,7 +129,7 @@ namespace PM_QuanLyKhoHang.FormDetails
             this.colDimensions.Name = "colDimensions";
             this.colDimensions.Visible = true;
             this.colDimensions.VisibleIndex = 2;
-            this.colDimensions.Width = 134;
+            this.colDimensions.Width = 160;
             // 
             // colCount
             // 
@@ -146,7 +147,7 @@ namespace PM_QuanLyKhoHang.FormDetails
             this.colCount.Name = "colCount";
             this.colCount.Visible = true;
             this.colCount.VisibleIndex = 3;
-            this.colCount.Width = 141;
+            this.colCount.Width = 132;
             // 
             // colVAT
             // 
@@ -164,7 +165,7 @@ namespace PM_QuanLyKhoHang.FormDetails
             this.colVAT.Name = "colVAT";
             this.colVAT.Visible = true;
             this.colVAT.VisibleIndex = 4;
-            this.colVAT.Width = 141;
+            this.colVAT.Width = 113;
             // 
             // colSalePrice
             // 
@@ -184,7 +185,7 @@ namespace PM_QuanLyKhoHang.FormDetails
             this.colSalePrice.Name = "colSalePrice";
             this.colSalePrice.Visible = true;
             this.colSalePrice.VisibleIndex = 5;
-            this.colSalePrice.Width = 141;
+            this.colSalePrice.Width = 127;
             // 
             // colSaleDay
             // 
@@ -199,12 +200,12 @@ namespace PM_QuanLyKhoHang.FormDetails
             this.colSaleDay.AppearanceHeader.Options.UseFont = true;
             this.colSaleDay.AppearanceHeader.Options.UseForeColor = true;
             this.colSaleDay.Caption = "Ngày Bán";
-            this.colSaleDay.FieldName = "SaleDay";
+            this.colSaleDay.FieldName = "StartDate";
             this.colSaleDay.MinWidth = 30;
             this.colSaleDay.Name = "colSaleDay";
             this.colSaleDay.Visible = true;
             this.colSaleDay.VisibleIndex = 6;
-            this.colSaleDay.Width = 141;
+            this.colSaleDay.Width = 143;
             // 
             // colNote
             // 
@@ -222,7 +223,7 @@ namespace PM_QuanLyKhoHang.FormDetails
             this.colNote.Name = "colNote";
             this.colNote.Visible = true;
             this.colNote.VisibleIndex = 7;
-            this.colNote.Width = 169;
+            this.colNote.Width = 154;
             // 
             // frmListProducts
             // 
@@ -235,6 +236,7 @@ namespace PM_QuanLyKhoHang.FormDetails
             this.Name = "frmListProducts";
             this.ShowInTaskbar = false;
             this.Text = "Danh sách các sản phẩm và giá bán trong những lần mua trước đây";
+            this.Load += new System.EventHandler(this.frmListProducts_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvListProducts)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvListProducts)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();

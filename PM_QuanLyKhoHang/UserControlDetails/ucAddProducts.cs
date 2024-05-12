@@ -67,7 +67,6 @@ namespace PM_QuanLyKhoHang.UserControlDetails
             }
             catch { }
         }
-
         #endregion
 
         #region "[Load]"
@@ -110,6 +109,10 @@ namespace PM_QuanLyKhoHang.UserControlDetails
                     LoadListAddProducts();
                     ClearData();
                     ClassUtils.Utils.MessageBoxInfomation("Thêm sản phẩm thành công", "Thông báo");
+                    if (insert != null)
+                    {
+                        insert(this, new EventArgs());
+                    }
 
                 }
                 else
@@ -149,6 +152,10 @@ namespace PM_QuanLyKhoHang.UserControlDetails
                         LoadListAddProducts();
                         ClearData();
                         ClassUtils.Utils.MessageBoxInfomation("Cập nhật thành công", "Thông báo");
+                        if (update != null)
+                        {
+                            update(this, new EventArgs());
+                        }
                     }
                     else
                     {
@@ -199,7 +206,10 @@ namespace PM_QuanLyKhoHang.UserControlDetails
                             ClassUtils.Utils.MessageBoxInfomation("Xóa sản phẩm thành công", "Thông Báo");
                             LoadListAddProducts();
                             ClearData();
-                            return;
+                            if (delete != null)
+                            {
+                                delete(this, new EventArgs());
+                            }
                         }
                     }
                 }
@@ -316,6 +326,27 @@ namespace PM_QuanLyKhoHang.UserControlDetails
             cb.DataSource = UnitBUS.GetAll();
             cb.DisplayMember = "Name";
             cb.ValueMember = "ID";
+        }
+        #endregion
+
+        #region "[Event]"
+        private event EventHandler insert;
+        public event EventHandler Insert
+        {
+            add { insert += value; }
+            remove { insert -= value; }
+        }
+        private event EventHandler update;
+        public event EventHandler Update
+        {
+            add { update += value; }
+            remove { update -= value; }
+        }
+        private event EventHandler delete;
+        public event EventHandler Delete
+        {
+            add { delete += value; }
+            remove { delete -= value; }
         }
         #endregion
     }

@@ -14,6 +14,9 @@ using PM_QuanLyKhoHang.FormDetails;
 
 namespace PM_QuanLyKhoHang
 {
+    public delegate void MyDelegate();
+    public delegate void DelegateClearItem();
+    public delegate void DelegateShowUserControl();
     public partial class Management : DevExpress.XtraBars.Ribbon.RibbonForm
     {
         #region "[Declare Global Variables]"
@@ -34,7 +37,6 @@ namespace PM_QuanLyKhoHang
         #region "[Load]"
         private void Management_Load(object sender, EventArgs e)
         {
-            //set lại trạng thái của các button
             ResetEnableStateButton(false);
 
             if (UserLogin == null)
@@ -180,29 +182,115 @@ namespace PM_QuanLyKhoHang
 
         #region "[rbpOperation]"
 
-        #region "[btnSell_ItemClick]"
+        #region "[Bill]"
+        private void ShowUserControlBill()
+        {
+            try
+            {
+                pnlMain.Controls.Clear();
+                ucBill uc = new ucBill();
+                uc.showBillInfo = ShowBillInfo;
+                uc.clearItem = clearPannel;
+                uc.itemShow = ShowUserControlAddProduct;
+                uc.Dock = DockStyle.Fill;
+                pnlMain.Controls.Add(uc);
+
+            }
+            catch { }
+        }
         private void btnSell_ItemClick(object sender, ItemClickEventArgs e)
         {
-
+            try
+            {
+                ShowUserControlBill();
+            }
+            catch { }
         }
+
+        public void ShowBillInfo(List<BillInfoDTO> _listobjBillInfo, int _companyID)
+        {
+            try
+            {
+                ucCreateBill uc = new ucCreateBill(_listobjBillInfo, _companyID);
+                uc.showBill = ShowBill;
+                uc.itemShow = ShowUserControlAddReferrer;
+                uc.clearItem = clearPannel;
+                uc.Dock = DockStyle.Fill;
+                pnlMain.Controls.Clear();
+                pnlMain.Controls.Add(uc);
+            }
+            catch { }
+        }
+
+        private void ShowBill(List<BillInfoDTO> _listobjBillInfo, int _companyID)
+        {
+            try
+            {
+                ucBill uc = new ucBill(_listobjBillInfo, _companyID);
+                uc.showBillInfo = ShowBillInfo;
+                uc.Dock = DockStyle.Fill;
+                pnlMain.Controls.Clear();
+                pnlMain.Controls.Add(uc);
+            }
+            catch { }
+        }
+        
         #endregion
 
-        #region "[btnWarehouse_ItemClick]"
+        #region "[Input]"
+
+        private void ShowUserControlInput()
+        {
+            try
+            {
+                pnlMain.Controls.Clear();
+                ucInput uc = new ucInput();
+                uc.clearItem = clearPannel;
+                uc.itemShow = ShowUserControlAddProduct;
+                uc.Dock = DockStyle.Fill;
+                pnlMain.Controls.Add(uc);
+
+            }
+            catch { }
+        }
         private void btnWarehouse_ItemClick(object sender, ItemClickEventArgs e)
         {
-
+            try
+            {
+                ShowUserControlInput();
+            }
+            catch { }
         }
         #endregion
 
-        #region "[btnWarehouseManagement_ItemClick]"
+        #region "[ListInput]"
+
+        private void ShowUserControlListInput()
+        {
+            try
+            {
+                pnlMain.Controls.Clear();
+                ucListInput uc = new ucListInput();
+                uc.clearItem = clearPannel;
+                uc.itemShow = ShowUserControlAddProduct;
+                uc.Dock = DockStyle.Fill;
+                pnlMain.Controls.Add(uc);
+
+            }
+            catch { }
+        }
         private void btnWarehouseManagement_ItemClick(object sender, ItemClickEventArgs e)
         {
-
+            try
+            {
+                ShowUserControlListInput();
+            }
+            catch { }
         }
         #endregion
 
         #region "[PriceUpdate]"
-        private void btnPriceUpdate_ItemClick(object sender, ItemClickEventArgs e)
+        private void ShowUserControlPriceUpdate()
         {
             try
             {
@@ -211,13 +299,23 @@ namespace PM_QuanLyKhoHang
                 uc.clearItem = clearPannel;
                 uc.Dock = DockStyle.Fill;
                 pnlMain.Controls.Add(uc);
+
+            }
+            catch { }
+        }
+
+        private void btnPriceUpdate_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                ShowUserControlPriceUpdate();
             }
             catch { }
         }
         #endregion
 
         #region "[Add Customers]"
-        private void btnAddCustomer_ItemClick(object sender, ItemClickEventArgs e)
+        private void ShowUserControlAddCustomers()
         {
             try
             {
@@ -226,13 +324,22 @@ namespace PM_QuanLyKhoHang
                 uc.clearItem = clearPannel;
                 uc.Dock = DockStyle.Fill;
                 pnlMain.Controls.Add(uc);
+
+            }
+            catch { }
+        }
+        private void btnAddCustomer_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                ShowUserControlAddCustomers();
             }
             catch { }
         }
         #endregion
 
         #region "[List Customer]"
-        private void btnListCustomer_ItemClick(object sender, ItemClickEventArgs e)
+        private void ShowUserControlListCustomer()
         {
             try
             {
@@ -241,21 +348,40 @@ namespace PM_QuanLyKhoHang
                 uc.clearItem = clearPannel;
                 uc.Dock = DockStyle.Fill;
                 pnlMain.Controls.Add(uc);
+
+            }
+            catch { }
+        }
+        private void btnListCustomer_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                ShowUserControlListCustomer();
             }
             catch { }
         }
         #endregion
 
         #region "[Add Referrer]"
-        private void btnAddReferrer_ItemClick(object sender, ItemClickEventArgs e)
+        private void ShowUserControlAddReferrer()
         {
             try
             {
                 pnlMain.Controls.Clear();
                 ucAddReferrer uc = new ucAddReferrer();
                 uc.clearItem = clearPannel;
+                uc.itemShow = ShowUserControlTypeReferrer;
                 uc.Dock = DockStyle.Fill;
                 pnlMain.Controls.Add(uc);
+
+            }
+            catch { }
+        }
+        private void btnAddReferrer_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                ShowUserControlAddReferrer();
             }
             catch { }
         }
@@ -263,7 +389,7 @@ namespace PM_QuanLyKhoHang
         #endregion
 
         #region "[Add Product]"
-        private void btnAddProduct_ItemClick(object sender, ItemClickEventArgs e)
+        private void ShowUserControlAddProduct()
         {
             try
             {
@@ -272,13 +398,22 @@ namespace PM_QuanLyKhoHang
                 uc.clearItem = clearPannel;
                 uc.Dock = DockStyle.Fill;
                 pnlMain.Controls.Add(uc);
+
+            }
+            catch { }
+        }
+        private void btnAddProduct_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                ShowUserControlAddProduct();
             }
             catch { }
         }
         #endregion
 
-        #region "[btnListProduct_ItemClick]"
-        private void btnListProduct_ItemClick(object sender, ItemClickEventArgs e)
+        #region "[ProductInfo]"
+        private void ShowUserControlProductInfo()
         {
             try
             {
@@ -287,30 +422,64 @@ namespace PM_QuanLyKhoHang
                 uc.clearItem = clearPannel;
                 uc.Dock = DockStyle.Fill;
                 pnlMain.Controls.Add(uc);
+
+            }
+            catch { }
+        }
+        private void btnListProduct_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                ShowUserControlProductInfo();
             }
             catch { }
         }
         #endregion
 
-        #region "[btnStatistics_ItemClick]"
+        #region "[Statistics]"
+        private void ShowUserControlStatistics()
+        {
+            try
+            {
+                pnlMain.Controls.Clear();
+                ucSaleStatistics uc = new ucSaleStatistics();
+                uc.clearItem = clearPannel;
+                uc.Dock = DockStyle.Fill;
+                pnlMain.Controls.Add(uc);
+
+            }
+            catch { }
+        }
         private void btnStatistics_ItemClick(object sender, ItemClickEventArgs e)
         {
-
+            try
+            {
+                ShowUserControlStatistics();
+            }
+            catch { }
         }
+        #endregion
 
         #region "[Add TypeReferrer]"
+        private void ShowUserControlTypeReferrer()
+        {
+            try
+            {
+                ucTypeReferrer uc = new ucTypeReferrer();
+                uc.clearItem = clearPannel;
+                uc.Dock = DockStyle.Fill;
+                pnlMain.Controls.Clear();
+                pnlMain.Controls.Add(uc);
+
+            }
+            catch { }
+        }
         private void btnAddTypeReferrer_ItemClick(object sender, ItemClickEventArgs e)
         {
-            ucTypeReferrer uc = new ucTypeReferrer();
-            uc.clearItem = clearPannel;
-            uc.Dock = DockStyle.Fill;
-            pnlMain.Controls.Clear();
-            pnlMain.Controls.Add(uc);
+            ShowUserControlTypeReferrer();
         }
         #endregion
-
-        #endregion
-
+            
         #endregion
 
         #region "[rbpConfig]"
@@ -329,17 +498,17 @@ namespace PM_QuanLyKhoHang
         }
         #endregion
 
-        #region "[btnUpdateSystem_ItemClick]"
+        #region "[UpdateSystem]"
         private void btnUpdateSystem_ItemClick(object sender, ItemClickEventArgs e)
         {
-
+            ClassUtils.Utils.MessageBoxInfomation("Cập nhật thành công", "Thông báo");
         }
         #endregion
 
         #endregion
 
         #region "[Send Email]"
-        private void btnSendEmail_ItemClick(object sender, ItemClickEventArgs e)
+        private void ShowUserControlSendEmail()
         {
             try
             {
@@ -348,10 +517,30 @@ namespace PM_QuanLyKhoHang
                 uc.clearItem = clearPannel;
                 uc.Dock = DockStyle.Fill;
                 pnlMain.Controls.Add(uc);
+
+            }
+            catch { }
+        }
+        private void btnSendEmail_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                ShowUserControlSendEmail();
             }
             catch { }
         }
         #endregion
 
+        #region "[SqlServer]"
+        private void btnSqlServer_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                FormDetails.frmLocation frm = new FormDetails.frmLocation();
+                frm.ShowDialog();
+            }
+            catch { }
+        }
+        #endregion
     }
 }

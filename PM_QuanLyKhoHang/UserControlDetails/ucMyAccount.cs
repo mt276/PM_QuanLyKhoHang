@@ -11,8 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PM_QuanLyKhoHang.UserControlDetails
-{
-    public delegate void DelegateClearItem();
+{   
     public partial class ucMyAccount : UserControl
     {
         

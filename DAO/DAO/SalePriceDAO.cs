@@ -27,9 +27,9 @@ namespace DAO.DAO
             {
                 if (cn != null)
                 {
-                    string sql = string.Format("INSERT INTO dbo.SalePrice(InputID, SalePrice, AccountID, StartDate, del, note)" +
+                    string sql = string.Format("INSERT INTO dbo.SalePrice(ProductID, SalePrice, AccountID, StartDate, del, note)" +
                     "Values({0}, {1}, {2}, '{3}', '{4}', N'{5}')",
-                    _obj.InputID.ToString(), _obj.SalePrice.ToString(), _obj.AccountID.ToString(),_obj.StartDate, _obj.Del.ToString(), _obj.Note);
+                    _obj.ProductID.ToString(), _obj.SalePrice.ToString(), _obj.AccountID.ToString(),_obj.StartDate, _obj.Del.ToString(), _obj.Note);
                     iResult = SqlDataHelper.ExecuteNonQuery(sql, cn);
                     if (iResult == 1)
                     {
@@ -93,8 +93,8 @@ namespace DAO.DAO
                     SalePriceDTO temp = SelectPrimaryKey(_obj.ID);
                     if (temp != null)
                     {
-                        string sql = string.Format("UPDATE dbo.SalePrice SET InputID = {0}, SalePrice = {1}, AccountID = {2}, StartDate = '{3}', Del = '{4}',Note = N'{5}' Where ID = {6}",
-                            _obj.InputID.ToString(), _obj.SalePrice.ToString(), _obj.AccountID.ToString(),_obj.StartDate, _obj.Del.ToString(), _obj.Note, _obj.ID.ToString());
+                        string sql = string.Format("UPDATE dbo.SalePrice SET ProductID = {0}, SalePrice = {1}, AccountID = {2}, StartDate = '{3}', Del = '{4}',Note = N'{5}' Where ID = {6}",
+                            _obj.ProductID.ToString(), _obj.SalePrice.ToString(), _obj.AccountID.ToString(),_obj.StartDate, _obj.Del.ToString(), _obj.Note, _obj.ID.ToString());
                         int result = SqlDataHelper.ExecuteNonQuery(sql, cn);
                         if (result > 0)
                             isResult = true;
@@ -131,26 +131,28 @@ namespace DAO.DAO
         }
         #endregion
 
-        #region "[SelectByInputID]"
-        public SalePriceDTO SelectByInputID(int _iID)
+        #region "[SelectByProductID]"
+        public List<SalePriceDTO> GetListByProductID(int _iID)
         {
-            SalePriceDTO objResult = null;
+            List<SalePriceDTO> listObj = new List<SalePriceDTO>();
             try
             {
-
                 if (cn != null)
                 {
-                    string sql = "SELECT * FROM dbo.SalePrice WHERE InputID=" + _iID.ToString();
+                    string sql = "SELECT * FROM dbo.SalePrice WHERE ProductID =" + _iID.ToString();
                     DataTable dt = SqlDataHelper.GetDataToStringSQL(sql, cn);
-                    foreach (DataRow row in dt.Rows)
+                    if (dt.Rows.Count > 0)
                     {
-                        objResult = new SalePriceDTO(row);
-                        return objResult;
+                        foreach (DataRow row in dt.Rows)
+                        {
+                            SalePriceDTO obj = new SalePriceDTO(row);
+                            listObj.Add(obj);
+                        }
                     }
                 }
             }
             catch { }
-            return objResult;
+            return listObj;
         }
         #endregion
 

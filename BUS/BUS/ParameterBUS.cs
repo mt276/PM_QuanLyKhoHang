@@ -73,5 +73,28 @@ namespace BUS.BUS
         }
         #endregion
 
+        #region "[SelectByProductID]"
+        public static ParameterDTO SelectByProductID(int _ProductID)
+        {
+            ParameterDTO objResult = null;
+            try
+            {
+                objResult = handle.SelectByProductID(_ProductID);
+                if (objResult == null)
+                {
+                    objResult = new ParameterDTO();
+                    objResult.ID = -1;
+                    objResult.Del = false;
+                    objResult.Note = string.Empty;
+                    objResult.ProductID = -1;
+                    objResult.Value = 0;
+
+                }
+            }
+            catch { }
+            return objResult;
+        }
+        #endregion
+
     }
 }

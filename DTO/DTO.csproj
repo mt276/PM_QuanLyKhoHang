@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ACK\BillACK.cs" />
+    <Compile Include="ACK\BillInfoACK.cs" />
+    <Compile Include="ACK\ListProductACK.cs" />
+    <Compile Include="ACK\ListProductSellACK.cs" />
+    <Compile Include="ACK\ProductPriceStatisticACK.cs" />
+    <Compile Include="ACK\ProductStatisticACK.cs" />
     <Compile Include="DTO\AccountDTO.cs" />
     <Compile Include="DTO\BillDTO.cs" />
     <Compile Include="DTO\BillInfoDTO.cs" />
@@ -72,8 +78,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ACK\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -35,10 +35,12 @@
             DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
             DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
-            this.pnmain = new DevExpress.XtraEditors.PanelControl();
-            this.gbBill = new DevExpress.XtraEditors.GroupControl();
+            this.pnlMain = new DevExpress.XtraEditors.PanelControl();
+            this.gcBill = new DevExpress.XtraEditors.GroupControl();
             this.spccBill = new DevExpress.XtraEditors.SplitContainerControl();
             this.spccProductInfo = new DevExpress.XtraEditors.SplitContainerControl();
+            this.lbSearchResults = new DevExpress.XtraEditors.LabelControl();
+            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.btnSearch = new DevExpress.XtraEditors.SimpleButton();
             this.txtSearch = new DevExpress.XtraEditors.TextEdit();
             this.dtgvProductInfo = new DevExpress.XtraGrid.GridControl();
@@ -54,7 +56,11 @@
             this.colImportSource = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colPDelete = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colPNote = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.btnProductDetails = new DevExpress.XtraEditors.SimpleButton();
+            this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
+            this.luCompanyName = new DevExpress.XtraEditors.LookUpEdit();
+            this.nrudVAT = new System.Windows.Forms.NumericUpDown();
+            this.txtProductName = new DevExpress.XtraEditors.TextEdit();
+            this.btnFrmListProduct = new DevExpress.XtraEditors.SimpleButton();
             this.cbUnit = new System.Windows.Forms.ComboBox();
             this.btnNewBill = new DevExpress.XtraEditors.SimpleButton();
             this.btnExits = new DevExpress.XtraEditors.SimpleButton();
@@ -62,7 +68,6 @@
             this.btnCreateBill = new DevExpress.XtraEditors.SimpleButton();
             this.btnAddProduct = new DevExpress.XtraEditors.SimpleButton();
             this.lbNote = new DevExpress.XtraEditors.LabelControl();
-            this.txtVAT = new DevExpress.XtraEditors.TextEdit();
             this.lbVAT = new DevExpress.XtraEditors.LabelControl();
             this.txtSalePrice = new DevExpress.XtraEditors.TextEdit();
             this.lbSalePrice = new DevExpress.XtraEditors.LabelControl();
@@ -83,13 +88,11 @@
             this.colDelete = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNote = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDeleteProduct = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.cbCompanyName = new System.Windows.Forms.ComboBox();
-            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.txtProductName = new DevExpress.XtraEditors.TextEdit();
-            ((System.ComponentModel.ISupportInitialize)(this.pnmain)).BeginInit();
-            this.pnmain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gbBill)).BeginInit();
-            this.gbBill.SuspendLayout();
+            this.check = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            ((System.ComponentModel.ISupportInitialize)(this.pnlMain)).BeginInit();
+            this.pnlMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gcBill)).BeginInit();
+            this.gcBill.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spccBill)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spccBill.Panel1)).BeginInit();
             this.spccBill.Panel1.SuspendLayout();
@@ -102,40 +105,42 @@
             ((System.ComponentModel.ISupportInitialize)(this.spccProductInfo.Panel2)).BeginInit();
             this.spccProductInfo.Panel2.SuspendLayout();
             this.spccProductInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
+            this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtSearch.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvProductInfo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvProductInfo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtVAT.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.luCompanyName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nrudVAT)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtProductName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSalePrice.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCount.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mmedNote.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvBill)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvBill)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
-            this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtProductName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.check)).BeginInit();
             this.SuspendLayout();
             // 
-            // pnmain
+            // pnlMain
             // 
-            this.pnmain.Controls.Add(this.gbBill);
-            this.pnmain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnmain.Location = new System.Drawing.Point(0, 0);
-            this.pnmain.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.pnmain.Name = "pnmain";
-            this.pnmain.Size = new System.Drawing.Size(1630, 494);
-            this.pnmain.TabIndex = 0;
+            this.pnlMain.Controls.Add(this.gcBill);
+            this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlMain.Location = new System.Drawing.Point(0, 0);
+            this.pnlMain.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pnlMain.Name = "pnlMain";
+            this.pnlMain.Size = new System.Drawing.Size(1630, 494);
+            this.pnlMain.TabIndex = 0;
             // 
-            // gbBill
+            // gcBill
             // 
-            this.gbBill.Controls.Add(this.spccBill);
-            this.gbBill.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbBill.Location = new System.Drawing.Point(2, 2);
-            this.gbBill.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.gbBill.Name = "gbBill";
-            this.gbBill.Size = new System.Drawing.Size(1626, 490);
-            this.gbBill.TabIndex = 0;
-            this.gbBill.Text = "Lập hóa đơn bán hàng";
+            this.gcBill.Controls.Add(this.spccBill);
+            this.gcBill.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcBill.Location = new System.Drawing.Point(2, 2);
+            this.gcBill.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.gcBill.Name = "gcBill";
+            this.gcBill.Size = new System.Drawing.Size(1626, 490);
+            this.gcBill.TabIndex = 0;
+            this.gcBill.Text = "Lập hóa đơn bán hàng";
             // 
             // spccBill
             // 
@@ -155,7 +160,7 @@
             this.spccBill.Panel2.Controls.Add(this.dtgvBill);
             this.spccBill.Panel2.Text = "Panel2";
             this.spccBill.Size = new System.Drawing.Size(1622, 454);
-            this.spccBill.SplitterPosition = 296;
+            this.spccBill.SplitterPosition = 310;
             this.spccBill.TabIndex = 0;
             this.spccBill.Text = "splitContainerControl1";
             // 
@@ -168,6 +173,7 @@
             // 
             // spccProductInfo.Panel1
             // 
+            this.spccProductInfo.Panel1.Controls.Add(this.lbSearchResults);
             this.spccProductInfo.Panel1.Controls.Add(this.panelControl1);
             this.spccProductInfo.Panel1.Controls.Add(this.dtgvProductInfo);
             this.spccProductInfo.Panel1.Text = "Panel1";
@@ -175,9 +181,11 @@
             // spccProductInfo.Panel2
             // 
             this.spccProductInfo.Panel2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Default;
+            this.spccProductInfo.Panel2.Controls.Add(this.btnCancel);
+            this.spccProductInfo.Panel2.Controls.Add(this.luCompanyName);
+            this.spccProductInfo.Panel2.Controls.Add(this.nrudVAT);
             this.spccProductInfo.Panel2.Controls.Add(this.txtProductName);
-            this.spccProductInfo.Panel2.Controls.Add(this.cbCompanyName);
-            this.spccProductInfo.Panel2.Controls.Add(this.btnProductDetails);
+            this.spccProductInfo.Panel2.Controls.Add(this.btnFrmListProduct);
             this.spccProductInfo.Panel2.Controls.Add(this.cbUnit);
             this.spccProductInfo.Panel2.Controls.Add(this.btnNewBill);
             this.spccProductInfo.Panel2.Controls.Add(this.btnExits);
@@ -185,7 +193,6 @@
             this.spccProductInfo.Panel2.Controls.Add(this.btnCreateBill);
             this.spccProductInfo.Panel2.Controls.Add(this.btnAddProduct);
             this.spccProductInfo.Panel2.Controls.Add(this.lbNote);
-            this.spccProductInfo.Panel2.Controls.Add(this.txtVAT);
             this.spccProductInfo.Panel2.Controls.Add(this.lbVAT);
             this.spccProductInfo.Panel2.Controls.Add(this.txtSalePrice);
             this.spccProductInfo.Panel2.Controls.Add(this.lbSalePrice);
@@ -195,40 +202,58 @@
             this.spccProductInfo.Panel2.Controls.Add(this.lbProductName);
             this.spccProductInfo.Panel2.Controls.Add(this.mmedNote);
             this.spccProductInfo.Panel2.Text = "Panel2";
-            this.spccProductInfo.Size = new System.Drawing.Size(1622, 296);
-            this.spccProductInfo.SplitterPosition = 510;
+            this.spccProductInfo.Size = new System.Drawing.Size(1622, 310);
+            this.spccProductInfo.SplitterPosition = 636;
             this.spccProductInfo.TabIndex = 2;
             this.spccProductInfo.Text = "splitContainerControl2";
+            // 
+            // lbSearchResults
+            // 
+            this.lbSearchResults.Location = new System.Drawing.Point(15, 67);
+            this.lbSearchResults.Name = "lbSearchResults";
+            this.lbSearchResults.Size = new System.Drawing.Size(0, 19);
+            this.lbSearchResults.TabIndex = 2;
+            // 
+            // panelControl1
+            // 
+            this.panelControl1.Controls.Add(this.btnSearch);
+            this.panelControl1.Controls.Add(this.txtSearch);
+            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelControl1.Location = new System.Drawing.Point(0, 0);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(636, 54);
+            this.panelControl1.TabIndex = 1;
             // 
             // btnSearch
             // 
             this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSearch.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.ImageOptions.Image")));
-            this.btnSearch.Location = new System.Drawing.Point(439, 8);
+            this.btnSearch.Location = new System.Drawing.Point(527, 7);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(66, 31);
+            this.btnSearch.Size = new System.Drawing.Size(75, 40);
             this.btnSearch.TabIndex = 14;
             this.btnSearch.Text = "Tìm";
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // txtSearch
             // 
             this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSearch.Location = new System.Drawing.Point(4, 10);
+            this.txtSearch.Location = new System.Drawing.Point(4, 15);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(416, 26);
+            this.txtSearch.Size = new System.Drawing.Size(501, 26);
             this.txtSearch.TabIndex = 8;
             // 
             // dtgvProductInfo
             // 
             this.dtgvProductInfo.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.dtgvProductInfo.Location = new System.Drawing.Point(4, 54);
+            this.dtgvProductInfo.Location = new System.Drawing.Point(4, 62);
             this.dtgvProductInfo.MainView = this.gvProductInfo;
             this.dtgvProductInfo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtgvProductInfo.Name = "dtgvProductInfo";
-            this.dtgvProductInfo.Size = new System.Drawing.Size(501, 232);
+            this.dtgvProductInfo.Size = new System.Drawing.Size(628, 232);
             this.dtgvProductInfo.TabIndex = 0;
             this.dtgvProductInfo.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvProductInfo});
@@ -257,15 +282,23 @@
             // 
             // STT
             // 
+            this.STT.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 7.5F);
+            this.STT.AppearanceCell.Options.UseFont = true;
+            this.STT.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 7.5F);
+            this.STT.AppearanceHeader.Options.UseFont = true;
             this.STT.Caption = "STT";
             this.STT.MinWidth = 30;
             this.STT.Name = "STT";
             this.STT.Visible = true;
             this.STT.VisibleIndex = 0;
-            this.STT.Width = 99;
+            this.STT.Width = 76;
             // 
             // colID
             // 
+            this.colID.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 7.5F);
+            this.colID.AppearanceCell.Options.UseFont = true;
+            this.colID.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 7.5F);
+            this.colID.AppearanceHeader.Options.UseFont = true;
             this.colID.Caption = "ID";
             this.colID.FieldName = "ID";
             this.colID.MinWidth = 30;
@@ -274,36 +307,52 @@
             // 
             // colProductName
             // 
+            this.colProductName.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 7.5F);
+            this.colProductName.AppearanceCell.Options.UseFont = true;
+            this.colProductName.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 7.5F);
+            this.colProductName.AppearanceHeader.Options.UseFont = true;
             this.colProductName.Caption = "Tên Sản Phẩm";
-            this.colProductName.FieldName = "ProductName";
+            this.colProductName.FieldName = "Name";
             this.colProductName.MinWidth = 30;
             this.colProductName.Name = "colProductName";
             this.colProductName.Visible = true;
             this.colProductName.VisibleIndex = 1;
-            this.colProductName.Width = 213;
+            this.colProductName.Width = 178;
             // 
             // colDimensions
             // 
+            this.colDimensions.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 7.5F);
+            this.colDimensions.AppearanceCell.Options.UseFont = true;
+            this.colDimensions.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 7.5F);
+            this.colDimensions.AppearanceHeader.Options.UseFont = true;
             this.colDimensions.Caption = "Kích Thước";
             this.colDimensions.FieldName = "Dimensions";
             this.colDimensions.MinWidth = 30;
             this.colDimensions.Name = "colDimensions";
             this.colDimensions.Visible = true;
             this.colDimensions.VisibleIndex = 2;
-            this.colDimensions.Width = 161;
+            this.colDimensions.Width = 118;
             // 
             // colStock
             // 
+            this.colStock.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 7.5F);
+            this.colStock.AppearanceCell.Options.UseFont = true;
+            this.colStock.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 7.5F);
+            this.colStock.AppearanceHeader.Options.UseFont = true;
             this.colStock.Caption = "Số Lượng Tồn";
             this.colStock.FieldName = "Stock";
             this.colStock.MinWidth = 30;
             this.colStock.Name = "colStock";
             this.colStock.Visible = true;
             this.colStock.VisibleIndex = 3;
-            this.colStock.Width = 211;
+            this.colStock.Width = 107;
             // 
             // colUnit
             // 
+            this.colUnit.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 7.5F);
+            this.colUnit.AppearanceCell.Options.UseFont = true;
+            this.colUnit.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 7.5F);
+            this.colUnit.AppearanceHeader.Options.UseFont = true;
             this.colUnit.Caption = "Đơn vị tính";
             this.colUnit.MinWidth = 30;
             this.colUnit.Name = "colUnit";
@@ -311,31 +360,43 @@
             // 
             // colUnitName
             // 
+            this.colUnitName.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 7.5F);
+            this.colUnitName.AppearanceCell.Options.UseFont = true;
+            this.colUnitName.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 7.5F);
+            this.colUnitName.AppearanceHeader.Options.UseFont = true;
             this.colUnitName.Caption = "Tên đơn vị tính";
             this.colUnitName.FieldName = "Unit";
             this.colUnitName.MinWidth = 30;
             this.colUnitName.Name = "colUnitName";
             this.colUnitName.Visible = true;
             this.colUnitName.VisibleIndex = 4;
-            this.colUnitName.Width = 196;
+            this.colUnitName.Width = 120;
             // 
             // colPStartDate
             // 
+            this.colPStartDate.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 7.5F);
+            this.colPStartDate.AppearanceCell.Options.UseFont = true;
+            this.colPStartDate.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 7.5F);
+            this.colPStartDate.AppearanceHeader.Options.UseFont = true;
             this.colPStartDate.Caption = "Ngày Tạo";
-            this.colPStartDate.FieldName = "NgayTao";
+            this.colPStartDate.FieldName = "StartDate";
             this.colPStartDate.MinWidth = 30;
             this.colPStartDate.Name = "colPStartDate";
             this.colPStartDate.Width = 112;
             // 
             // colImportSource
             // 
+            this.colImportSource.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 7.5F);
+            this.colImportSource.AppearanceCell.Options.UseFont = true;
+            this.colImportSource.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 7.5F);
+            this.colImportSource.AppearanceHeader.Options.UseFont = true;
             this.colImportSource.Caption = "Nguồn Nhập";
-            this.colImportSource.FieldName = "ImportSource";
+            this.colImportSource.FieldName = "InputSource";
             this.colImportSource.MinWidth = 30;
             this.colImportSource.Name = "colImportSource";
             this.colImportSource.Visible = true;
             this.colImportSource.VisibleIndex = 5;
-            this.colImportSource.Width = 165;
+            this.colImportSource.Width = 173;
             // 
             // colPDelete
             // 
@@ -347,20 +408,64 @@
             // 
             // colPNote
             // 
+            this.colPNote.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 7.5F);
+            this.colPNote.AppearanceCell.Options.UseFont = true;
+            this.colPNote.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 7.5F);
+            this.colPNote.AppearanceHeader.Options.UseFont = true;
             this.colPNote.Caption = "Ghi Chú";
-            this.colPNote.FieldName = "Ghi Chú";
+            this.colPNote.FieldName = "Note";
             this.colPNote.MinWidth = 30;
             this.colPNote.Name = "colPNote";
-            this.colPNote.Width = 112;
+            this.colPNote.Visible = true;
+            this.colPNote.VisibleIndex = 6;
+            this.colPNote.Width = 283;
             // 
-            // btnProductDetails
+            // btnCancel
             // 
-            this.btnProductDetails.Location = new System.Drawing.Point(430, 50);
-            this.btnProductDetails.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnProductDetails.Name = "btnProductDetails";
-            this.btnProductDetails.Size = new System.Drawing.Size(50, 35);
-            this.btnProductDetails.TabIndex = 15;
-            this.btnProductDetails.Text = "...";
+            this.btnCancel.Location = new System.Drawing.Point(493, 236);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(127, 35);
+            this.btnCancel.TabIndex = 20;
+            this.btnCancel.Text = "Hủy thao tác";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // luCompanyName
+            // 
+            this.luCompanyName.Location = new System.Drawing.Point(165, 16);
+            this.luCompanyName.Name = "luCompanyName";
+            this.luCompanyName.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.luCompanyName.Size = new System.Drawing.Size(244, 26);
+            this.luCompanyName.TabIndex = 19;
+            this.luCompanyName.EditValueChanged += new System.EventHandler(this.luCompanyName_EditValueChanged);
+            // 
+            // nrudVAT
+            // 
+            this.nrudVAT.Location = new System.Drawing.Point(165, 175);
+            this.nrudVAT.Name = "nrudVAT";
+            this.nrudVAT.Size = new System.Drawing.Size(244, 27);
+            this.nrudVAT.TabIndex = 18;
+            // 
+            // txtProductName
+            // 
+            this.txtProductName.Enabled = false;
+            this.txtProductName.Location = new System.Drawing.Point(165, 55);
+            this.txtProductName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtProductName.Name = "txtProductName";
+            this.txtProductName.Size = new System.Drawing.Size(244, 26);
+            this.txtProductName.TabIndex = 17;
+            this.txtProductName.ToolTip = "Số lượng sản phẩm";
+            // 
+            // btnFrmListProduct
+            // 
+            this.btnFrmListProduct.Location = new System.Drawing.Point(430, 50);
+            this.btnFrmListProduct.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnFrmListProduct.Name = "btnFrmListProduct";
+            this.btnFrmListProduct.Size = new System.Drawing.Size(50, 35);
+            this.btnFrmListProduct.TabIndex = 15;
+            this.btnFrmListProduct.Text = "...";
+            this.btnFrmListProduct.Click += new System.EventHandler(this.btnFrmListProduct_Click);
             // 
             // cbUnit
             // 
@@ -374,7 +479,7 @@
             // 
             // btnNewBill
             // 
-            this.btnNewBill.Location = new System.Drawing.Point(765, 236);
+            this.btnNewBill.Location = new System.Drawing.Point(802, 236);
             this.btnNewBill.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnNewBill.Name = "btnNewBill";
             this.btnNewBill.Size = new System.Drawing.Size(153, 35);
@@ -406,7 +511,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(258, 236);
+            this.btnDelete.Location = new System.Drawing.Point(248, 236);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(134, 35);
@@ -416,10 +521,10 @@
             // 
             // btnCreateBill
             // 
-            this.btnCreateBill.Location = new System.Drawing.Point(590, 236);
+            this.btnCreateBill.Location = new System.Drawing.Point(650, 236);
             this.btnCreateBill.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCreateBill.Name = "btnCreateBill";
-            this.btnCreateBill.Size = new System.Drawing.Size(112, 35);
+            this.btnCreateBill.Size = new System.Drawing.Size(124, 35);
             this.btnCreateBill.TabIndex = 12;
             this.btnCreateBill.Text = "Lập Hóa Đơn";
             this.btnCreateBill.Click += new System.EventHandler(this.btnCreateBill_Click);
@@ -443,15 +548,6 @@
             this.lbNote.TabIndex = 0;
             this.lbNote.Text = "Ghi Chú";
             // 
-            // txtVAT
-            // 
-            this.txtVAT.Location = new System.Drawing.Point(165, 175);
-            this.txtVAT.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtVAT.Name = "txtVAT";
-            this.txtVAT.Size = new System.Drawing.Size(244, 26);
-            this.txtVAT.TabIndex = 5;
-            this.txtVAT.ToolTip = "thuế VAT";
-            // 
             // lbVAT
             // 
             this.lbVAT.Location = new System.Drawing.Point(35, 180);
@@ -463,12 +559,15 @@
             // 
             // txtSalePrice
             // 
+            this.txtSalePrice.Enabled = false;
             this.txtSalePrice.Location = new System.Drawing.Point(165, 135);
             this.txtSalePrice.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtSalePrice.Name = "txtSalePrice";
             this.txtSalePrice.Size = new System.Drawing.Size(244, 26);
             this.txtSalePrice.TabIndex = 4;
             this.txtSalePrice.ToolTip = "giá bán sản phẩm";
+            this.txtSalePrice.TextChanged += new System.EventHandler(this.txtSalePrice_TextChanged);
+            this.txtSalePrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSalePrice_KeyPress);
             // 
             // lbSalePrice
             // 
@@ -487,6 +586,7 @@
             this.txtCount.Size = new System.Drawing.Size(126, 26);
             this.txtCount.TabIndex = 3;
             this.txtCount.ToolTip = "Số lượng sản phẩm";
+            this.txtCount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCount_KeyPress);
             // 
             // lbCount
             // 
@@ -532,7 +632,9 @@
             this.dtgvBill.MainView = this.gvBill;
             this.dtgvBill.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtgvBill.Name = "dtgvBill";
-            this.dtgvBill.Size = new System.Drawing.Size(1622, 143);
+            this.dtgvBill.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.check});
+            this.dtgvBill.Size = new System.Drawing.Size(1622, 129);
             this.dtgvBill.TabIndex = 0;
             this.dtgvBill.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvBill});
@@ -556,7 +658,6 @@
             this.gvBill.Name = "gvBill";
             this.gvBill.OptionsEditForm.PopupEditFormWidth = 1200;
             this.gvBill.RowHeight = 46;
-            this.gvBill.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gvBill_RowClick);
             this.gvBill.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.gvBill_CustomDrawCell);
             // 
             // colSTT
@@ -572,7 +673,7 @@
             this.colSTT.Name = "colSTT";
             this.colSTT.Visible = true;
             this.colSTT.VisibleIndex = 0;
-            this.colSTT.Width = 52;
+            this.colSTT.Width = 59;
             // 
             // colBillID
             // 
@@ -595,11 +696,11 @@
             this.colProductID.Name = "colProductID";
             this.colProductID.Visible = true;
             this.colProductID.VisibleIndex = 1;
-            this.colProductID.Width = 213;
+            this.colProductID.Width = 199;
             // 
             // colCount
             // 
-            this.colCount.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colCount.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 14F);
             this.colCount.AppearanceCell.Options.UseFont = true;
             this.colCount.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
             this.colCount.AppearanceHeader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
@@ -611,7 +712,7 @@
             this.colCount.Name = "colCount";
             this.colCount.Visible = true;
             this.colCount.VisibleIndex = 2;
-            this.colCount.Width = 213;
+            this.colCount.Width = 199;
             // 
             // colSalePrice
             // 
@@ -629,7 +730,7 @@
             this.colSalePrice.Name = "colSalePrice";
             this.colSalePrice.Visible = true;
             this.colSalePrice.VisibleIndex = 3;
-            this.colSalePrice.Width = 213;
+            this.colSalePrice.Width = 199;
             // 
             // colVAT
             // 
@@ -645,7 +746,7 @@
             this.colVAT.Name = "colVAT";
             this.colVAT.Visible = true;
             this.colVAT.VisibleIndex = 4;
-            this.colVAT.Width = 213;
+            this.colVAT.Width = 199;
             // 
             // colDividend
             // 
@@ -685,7 +786,7 @@
             this.colNote.Name = "colNote";
             this.colNote.Visible = true;
             this.colNote.VisibleIndex = 5;
-            this.colNote.Width = 213;
+            this.colNote.Width = 200;
             // 
             // colDeleteProduct
             // 
@@ -696,51 +797,29 @@
             this.colDeleteProduct.AppearanceHeader.Options.UseFont = true;
             this.colDeleteProduct.AppearanceHeader.Options.UseForeColor = true;
             this.colDeleteProduct.Caption = "Loại Bỏ";
+            this.colDeleteProduct.ColumnEdit = this.check;
             this.colDeleteProduct.MinWidth = 30;
             this.colDeleteProduct.Name = "colDeleteProduct";
-            this.colDeleteProduct.Visible = true;
-            this.colDeleteProduct.VisibleIndex = 6;
             this.colDeleteProduct.Width = 235;
             // 
-            // cbCompanyName
+            // check
             // 
-            this.cbCompanyName.FormattingEnabled = true;
-            this.cbCompanyName.Location = new System.Drawing.Point(165, 15);
-            this.cbCompanyName.Name = "cbCompanyName";
-            this.cbCompanyName.Size = new System.Drawing.Size(244, 27);
-            this.cbCompanyName.TabIndex = 16;
-            // 
-            // panelControl1
-            // 
-            this.panelControl1.Controls.Add(this.btnSearch);
-            this.panelControl1.Controls.Add(this.txtSearch);
-            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl1.Location = new System.Drawing.Point(0, 0);
-            this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(510, 46);
-            this.panelControl1.TabIndex = 1;
-            // 
-            // txtProductName
-            // 
-            this.txtProductName.Location = new System.Drawing.Point(165, 55);
-            this.txtProductName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtProductName.Name = "txtProductName";
-            this.txtProductName.Size = new System.Drawing.Size(244, 26);
-            this.txtProductName.TabIndex = 17;
-            this.txtProductName.ToolTip = "Số lượng sản phẩm";
+            this.check.AutoHeight = false;
+            this.check.Name = "check";
             // 
             // ucBill
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.pnmain);
+            this.Controls.Add(this.pnlMain);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ucBill";
             this.Size = new System.Drawing.Size(1630, 494);
-            ((System.ComponentModel.ISupportInitialize)(this.pnmain)).EndInit();
-            this.pnmain.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gbBill)).EndInit();
-            this.gbBill.ResumeLayout(false);
+            this.Load += new System.EventHandler(this.ucBill_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pnlMain)).EndInit();
+            this.pnlMain.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gcBill)).EndInit();
+            this.gcBill.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.spccBill.Panel1)).EndInit();
             this.spccBill.Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.spccBill.Panel2)).EndInit();
@@ -749,31 +828,34 @@
             this.spccBill.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.spccProductInfo.Panel1)).EndInit();
             this.spccProductInfo.Panel1.ResumeLayout(false);
+            this.spccProductInfo.Panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spccProductInfo.Panel2)).EndInit();
             this.spccProductInfo.Panel2.ResumeLayout(false);
             this.spccProductInfo.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spccProductInfo)).EndInit();
             this.spccProductInfo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
+            this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtSearch.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvProductInfo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvProductInfo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtVAT.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.luCompanyName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nrudVAT)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtProductName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSalePrice.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCount.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mmedNote.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvBill)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvBill)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
-            this.panelControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.txtProductName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.check)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private DevExpress.XtraEditors.PanelControl pnmain;
-        private DevExpress.XtraEditors.GroupControl gbBill;
+        private DevExpress.XtraEditors.PanelControl pnlMain;
+        private DevExpress.XtraEditors.GroupControl gcBill;
         private DevExpress.XtraEditors.SplitContainerControl spccBill;
         private DevExpress.XtraGrid.GridControl dtgvBill;
         private DevExpress.XtraGrid.Views.Grid.GridView gvBill;
@@ -802,7 +884,6 @@
         private DevExpress.XtraEditors.SimpleButton btnSearch;
         private DevExpress.XtraEditors.TextEdit txtSearch;
         private DevExpress.XtraEditors.LabelControl lbNote;
-        private DevExpress.XtraEditors.TextEdit txtVAT;
         private DevExpress.XtraEditors.LabelControl lbVAT;
         private DevExpress.XtraEditors.TextEdit txtSalePrice;
         private DevExpress.XtraEditors.LabelControl lbSalePrice;
@@ -819,9 +900,13 @@
         private DevExpress.XtraEditors.SimpleButton btnDelete;
         private DevExpress.XtraEditors.SimpleButton btnNewBill;
         private System.Windows.Forms.ComboBox cbUnit;
-        private DevExpress.XtraEditors.SimpleButton btnProductDetails;
-        private System.Windows.Forms.ComboBox cbCompanyName;
+        private DevExpress.XtraEditors.SimpleButton btnFrmListProduct;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.TextEdit txtProductName;
+        private System.Windows.Forms.NumericUpDown nrudVAT;
+        private DevExpress.XtraEditors.LabelControl lbSearchResults;
+        private DevExpress.XtraEditors.LookUpEdit luCompanyName;
+        private DevExpress.XtraEditors.SimpleButton btnCancel;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit check;
     }
 }

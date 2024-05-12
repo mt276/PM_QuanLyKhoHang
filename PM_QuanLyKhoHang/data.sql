@@ -93,14 +93,14 @@ GO
 CREATE TABLE SalePrice
 (
     ID        INT IDENTITY PRIMARY KEY NOT NULL,
-    InputID   INT NOT NULL,
+    ProductID INT NOT NULL,
     SalePrice NUMERIC(18, 0),
     AccountID INT NOT NULL,
     StartDate DATE,
     Del       BIT,
     Note      NTEXT,
     FOREIGN KEY (AccountID) REFERENCES dbo.Account (ID),
-    FOREIGN KEY (InputID) REFERENCES dbo.Input (ID)
+    FOREIGN KEY (ProductID) REFERENCES dbo.Products (ID)
 )
 GO
 CREATE TABLE Company
@@ -148,8 +148,9 @@ CREATE TABLE Bill
     TotalPayment         NUMERIC(18, 0),
     PaymentDueDate       DATE,
     Dividend             NUMERIC(18, 0),
-    Commission          NUMERIC(18, 0),
-    ReceiveCommissionID INT,
+    Commission           NUMERIC(18, 0),
+    ReceiveCommissionID  INT,
+	ShippingCost         NUMERIC(18, 0),
     Del                  BIT,
     Note                 NTEXT,
     FOREIGN KEY (CompanyID) REFERENCES dbo.Company (ID),
@@ -176,7 +177,7 @@ CREATE TABLE BillInfo
     ProductID INt NOT NULL,
     Count     INT,
     SalePrice NUMERIC(18, 0),
-    VAT       INT,
+    VAT       INT NOT NULL DEFAULT 0,
     Dividend  NUMERIC(18, 0),
     Del       BIT,
     Note      NTEXT,
@@ -243,8 +244,8 @@ SET IDENTITY_INSERT dbo.TypeReferrer ON
 INSERT dbo.TypeReferrer (ID, name, Del, Note) VALUES (1, N'Người Giới Thiệu Tự Do',0, N'')
 SET IDENTITY_INSERT dbo.TypeReferrer OFF	
 SET IDENTITY_INSERT dbo.Unit ON
-INSERT dbo.Unit (ID, name, Del, Note) VALUES (1, N'Tấm', 0, N'Tấm tôn')
-INSERT dbo.Unit (ID, name, Del, Note) VALUES (2, N'Miếng', 0, N'miếng gỗ')
+INSERT dbo.Unit (ID, name, Del, Note) VALUES (1, N'Tấm', 0, N'')
+INSERT dbo.Unit (ID, name, Del, Note) VALUES (2, N'Miếng', 0, N'')
 SET IDENTITY_INSERT dbo.Unit OFF
 SET IDENTITY_INSERT dbo.Company ON
 INSERT dbo.Company (ID, Name, Address, Phone, Fax, Del, Note) VALUES (1, N'Công ty TNHH PaoYeng', N'123-Đường số 10- khu công nghiệp tân tạo', N'08376621544', N'082112123344', 0, N'thường nhập hàng mủ')
@@ -258,9 +259,9 @@ INSERT dbo.Company (ID, Name, Address, Phone, Fax, Del, Note) VALUES (8, N'Công
 INSERT dbo.Company (ID, Name, Address, Phone, Fax, Del, Note) VALUES (9, N'Công ty bánh kẹo Phạm Nguyên', N'12 -Trần đại nghĩa- khu công nghiệp Lê Minh Xuân', N'081212123', N'2133213213', 0, N'công ty bánh kẹo')
 SET IDENTITY_INSERT dbo.Company OFF
 SET IDENTITY_INSERT dbo.Account ON
-INSERT dbo.Account (ID, UserName, Password, FullName, Address, TypeId, Del, Note) VALUES (1, N'admin', N'123', N'Dương Minh Triều', N'TPHCM', 1, 0, N'giám đốc ')
-INSERT dbo.Account (ID, UserName, Password, FullName, Address, TypeId, Del, Note) VALUES (2, N'mt276', N'123', N'Triều Minh', N'TPHCM', 2, 0, N'nhân viên nhập kho')
-INSERT dbo.Account (ID, UserName, Password, FullName, Address, TypeId, Del, Note) VALUES (3, N'eni', N'123', N'Kim Anh', N'TPHCM', 2, 0, N'nhân viên nhập kho')
+INSERT dbo.Account (ID, UserName, Password, FullName, Address, TypeId, Del, Note) VALUES (1, N'admin', N'1', N'Dương Minh Triều', N'TPHCM', 1, 0, N'giám đốc ')
+INSERT dbo.Account (ID, UserName, Password, FullName, Address, TypeId, Del, Note) VALUES (2, N'mt276', N'1', N'Triều Minh', N'TPHCM', 2, 0, N'nhân viên nhập kho')
+INSERT dbo.Account (ID, UserName, Password, FullName, Address, TypeId, Del, Note) VALUES (3, N'eni', N'1', N'Kim Anh', N'TPHCM', 2, 0, N'nhân viên nhập kho')
 SET IDENTITY_INSERT dbo.Account OFF
 SET IDENTITY_INSERT dbo.Representative ON
 INSERT dbo.Representative (ID, Name, Phone, CompanyID, Del, Note) VALUES (1, N'ông Trần Tiến', N'12313132313', 1, 0, N'')
@@ -274,10 +275,10 @@ INSERT dbo.Representative (ID, Name, Phone, CompanyID, Del, Note) VALUES (8, N'b
 INSERT dbo.Representative (ID, Name, Phone, CompanyID, Del, Note) VALUES (9, N'ông Phạm Thắng', N'092121234', 9, 0, N'')
 SET IDENTITY_INSERT dbo.Representative OFF
 SET IDENTITY_INSERT dbo.Products ON
-INSERT dbo.Products (ID, Name, Dimensions, UnitID, Stock, InputSource, Del, Note) VALUES (1, N'Bìa cứng', N'130x12', 2, 12, N'canada', 0, N'hàng trong nước')
-INSERT dbo.Products (ID, Name, Dimensions, UnitID, Stock, InputSource, Del, Note) VALUES (2, N'Bế cuộn', N'13x 213', 1, 32, N'malaysia', 0, N'hàng nhập từ nước ngoài')
-INSERT dbo.Products (ID, Name, Dimensions, UnitID, Stock, InputSource, Del, Note) VALUES (3, N'Chỉ bế', N'0.6 x 3.2', 2, 0, N'indonesia', 0, N'hàng nhập từ nước ngoài')
-INSERT dbo.Products (ID, Name, Dimensions, UnitID, Stock, InputSource, Del, Note) VALUES (4, N'Keo dính chuột', N'12x12.00', 1, 100, N'malaisia', 0, N'hàng trong nước')
+INSERT dbo.Products (ID, Name, Dimensions, UnitID, Stock, InputSource, Del, Note) VALUES (1, N'Bìa cứng', N'130x12', 2, 0, N'canada', 0, N'hàng trong nước')
+INSERT dbo.Products (ID, Name, Dimensions, UnitID, Stock, InputSource, Del, Note) VALUES (2, N'Bế cuộn', N'13x 213', 1, 0, N'malaysia', 0, N'hàng nhập từ nước ngoài')
+INSERT dbo.Products (ID, Name, Dimensions, UnitID, Stock, InputSource, Del, Note) VALUES (3, N'Chỉ bế', N'0.6 x 3.2', 2, 0, N'indonesia', 0, N'hàng nhập từ nước ngoài')
+INSERT dbo.Products (ID, Name, Dimensions, UnitID, Stock, InputSource, Del, Note) VALUES (4, N'Keo dính chuột', N'12x12.00', 1, 0, N'malaisia', 0, N'hàng trong nước')
 SET IDENTITY_INSERT dbo.Products OFF
 SET IDENTITY_INSERT dbo.Parameter ON
 INSERT dbo.Parameter (ID, ProductID, Value,Del,Note) VALUES (1, 1, 5, 0, N'Giá trị nhỏ nhất')
@@ -285,33 +286,31 @@ INSERT dbo.Parameter (ID, ProductID, Value,Del,Note) VALUES (2, 2, 3, 0, N'Giá 
 INSERT dbo.Parameter (ID, ProductID, Value,Del,Note) VALUES (3, 3, 3, 0, N'Giá trị nhỏ nhất')
 SET IDENTITY_INSERT dbo.Parameter OFF
 SET IDENTITY_INSERT dbo.Input ON
-INSERT dbo.Input (ID, ProductID, Count, ImportPrice, AccountID, Del, Note) VALUES (1, 2, 123, CAST(1500000 AS Numeric(18, 0)), 1, 0, N'bế cuộng sấm')
-INSERT dbo.Input (ID, ProductID, Count, ImportPrice, AccountID, Del, Note) VALUES (2, 2, 10, CAST(15000000 AS Numeric(18, 0)), 1, 0, N'bế cuộn nhập mới')
-INSERT dbo.Input (ID, ProductID, Count, ImportPrice, AccountID, Del, Note) VALUES (3, 1, 1200000, CAST(13000 AS Numeric(18, 0)), 1, 0, N'parasetamon')
-INSERT dbo.Input (ID, ProductID, Count, ImportPrice, AccountID, Del, Note) VALUES (5, 1, 12, CAST(50000 AS Numeric(18, 0)), 1, 0, N'bìa cứng')
-INSERT dbo.Input (ID, ProductID, Count, ImportPrice, AccountID, Del, Note) VALUES (6, 2, 20, CAST(200000 AS Numeric(18, 0)), 1, 0, N'bế cuộng mỏng')
-INSERT dbo.Input (ID, ProductID, Count, ImportPrice, AccountID, Del, Note) VALUES (7, 2, 12, CAST(100000 AS Numeric(18, 0)), 1, 0, N'cập nhật giá bán')
-INSERT dbo.Input (ID, ProductID, Count, ImportPrice, AccountID, Del, Note) VALUES (8, 4, 100, CAST(12000 AS Numeric(18, 0)), 1, 0, N'')
+INSERT dbo.Input (ID, ProductID, Count, ImportPrice, AccountID, Del, Note) VALUES (1, 1, 1200000, CAST(13000 AS Numeric(18, 0)), 1, 0, N'')
+INSERT dbo.Input (ID, ProductID, Count, ImportPrice, AccountID, Del, Note) VALUES (2, 1, 12, CAST(50000 AS Numeric(18, 0)), 1, 0, N'')
+INSERT dbo.Input (ID, ProductID, Count, ImportPrice, AccountID, Del, Note) VALUES (3, 2, 123, CAST(1500000 AS Numeric(18, 0)), 1, 0, N'Bế cuộn')
+INSERT dbo.Input (ID, ProductID, Count, ImportPrice, AccountID, Del, Note) VALUES (4, 2, 10, CAST(15000000 AS Numeric(18, 0)), 1, 0, N'Bế cuộn nhập mới')
+INSERT dbo.Input (ID, ProductID, Count, ImportPrice, AccountID, Del, Note) VALUES (5, 4, 100, CAST(12000 AS Numeric(18, 0)), 1, 0, N'')
 SET IDENTITY_INSERT dbo.Input OFF
 SET IDENTITY_INSERT dbo.ReceiveCommission ON
 INSERT dbo.ReceiveCommission (ID, Name, Address, Phone, Fax, TypeReferrerID, Del, Note) VALUES (1, N'Nguyễn Văn An', N'123-Điện Biên Phủ', N'0947294761', N'083712343', 1, 0, N'')
 SET IDENTITY_INSERT dbo.ReceiveCommission OFF
 SET IDENTITY_INSERT dbo.Bill ON
-INSERT dbo.Bill (ID, Name, CompanyID, AccountID, TotalBill, TotalPayment, PaymentDueDate, Dividend, Commission, ReceiveCommissionID, Del, Note) VALUES (1, N'Hóa đơn', 2, 1, CAST(748000 AS Numeric(18, 0)), CAST(23 AS Numeric(18, 0)), Null, CAST(360000 AS Numeric(18, 0)), CAST(0 AS Numeric(18, 0)), NULL, 0, N'')
-INSERT dbo.Bill (ID, Name, CompanyID, AccountID, TotalBill, TotalPayment, PaymentDueDate, Dividend, Commission, ReceiveCommissionID, Del, Note) VALUES (2, N'Hóa đơn', 3, 1, CAST(748000 AS Numeric(18, 0)), CAST(23 AS Numeric(18, 0)), Null, CAST(360000 AS Numeric(18, 0)), CAST(0 AS Numeric(18, 0)), NULL, 0, N'')
-INSERT dbo.Bill (ID, Name, CompanyID, AccountID, TotalBill, TotalPayment, PaymentDueDate, Dividend, Commission, ReceiveCommissionID, Del, Note) VALUES (3, N'Hóa đơn', 4, 1, CAST(748000 AS Numeric(18, 0)), CAST(3123 AS Numeric(18, 0)), Null, CAST(360000 AS Numeric(18, 0)), CAST(0 AS Numeric(18, 0)), NULL, 0, N'')
+INSERT dbo.Bill (ID, Name, CompanyID, AccountID, TotalBill, TotalPayment, PaymentDueDate, Dividend, Commission, ReceiveCommissionID, ShippingCost, Del, Note) VALUES (1, N'Hóa đơn', 2, 1, CAST(748000 AS Numeric(18, 0)), CAST(23 AS Numeric(18, 0)), Null, CAST(360000 AS Numeric(18, 0)), CAST(0 AS Numeric(18, 0)), NULL,0, 0, N'')
+INSERT dbo.Bill (ID, Name, CompanyID, AccountID, TotalBill, TotalPayment, PaymentDueDate, Dividend, Commission, ReceiveCommissionID, ShippingCost, Del, Note) VALUES (2, N'Hóa đơn', 3, 1, CAST(748000 AS Numeric(18, 0)), CAST(23 AS Numeric(18, 0)), Null, CAST(360000 AS Numeric(18, 0)), CAST(0 AS Numeric(18, 0)), NULL,0, 0, N'')
+INSERT dbo.Bill (ID, Name, CompanyID, AccountID, TotalBill, TotalPayment, PaymentDueDate, Dividend, Commission, ReceiveCommissionID, ShippingCost, Del, Note) VALUES (3, N'Hóa đơn', 4, 1, CAST(748000 AS Numeric(18, 0)), CAST(3123 AS Numeric(18, 0)), Null, CAST(360000 AS Numeric(18, 0)), CAST(0 AS Numeric(18, 0)), NULL,0, 0, N'')
 SET IDENTITY_INSERT dbo.Bill OFF
 SET IDENTITY_INSERT dbo.SalePrice ON
-INSERT dbo.SalePrice (ID, InputID, SalePrice, AccountID,StartDate, Del, Note) VALUES (1, 1, CAST(12000 AS Numeric(18, 0)), 1,GETDATE(), 0, N'')
-INSERT dbo.SalePrice (ID, InputID, SalePrice, AccountID,StartDate, Del, Note) VALUES (2, 2, CAST(340000 AS Numeric(18, 0)), 1,GETDATE(), 0, N'')
-INSERT dbo.SalePrice (ID, InputID, SalePrice, AccountID,StartDate, Del, Note) VALUES (3, 3, CAST(35000 AS Numeric(18, 0)), 1,GETDATE(), 0, N'')
+INSERT dbo.SalePrice (ID, ProductID, SalePrice, AccountID,StartDate, Del, Note) VALUES (1, 1, CAST(12000 AS Numeric(18, 0)), 1,GETDATE(), 0, N'')
+INSERT dbo.SalePrice (ID, ProductID, SalePrice, AccountID,StartDate, Del, Note) VALUES (2, 2, CAST(340000 AS Numeric(18, 0)), 1,GETDATE(), 0, N'')
+INSERT dbo.SalePrice (ID, ProductID, SalePrice, AccountID,StartDate, Del, Note) VALUES (3, 3, CAST(35000 AS Numeric(18, 0)), 1,GETDATE(), 0, N'')
 SET IDENTITY_INSERT dbo.SalePrice OFF
 SET IDENTITY_INSERT dbo.BillInfo ON
 INSERT dbo.BillInfo (ID, BillID, ProductID, Count, SalePrice, VAT, Dividend, Del, Note) VALUES (1, 1, 2, 2, CAST(340000 AS Numeric(18, 0)), 2, CAST(180000 AS Numeric(18, 0)), 0, N'')
 INSERT dbo.BillInfo (ID, BillID, ProductID, Count, SalePrice, VAT, Dividend, Del, Note) VALUES (2, 2, 2, 2, CAST(340000 AS Numeric(18, 0)), 2, CAST(180000 AS Numeric(18, 0)), 0, N'')
 INSERT dbo.BillInfo (ID, BillID, ProductID, Count, SalePrice, VAT, Dividend, Del, Note) VALUES (3, 3, 2, 2, CAST(340000 AS Numeric(18, 0)), 0, CAST(180000 AS Numeric(18, 0)), 0, N'')
 SET IDENTITY_INSERT dbo.BillInfo OFF
-
+GO
 CREATE PROC USP_DeleteRecordsBasedOnDelValue
 AS
 BEGIN
@@ -335,6 +334,66 @@ BEGIN
 	DELETE FROM dbo.FKey WHERE DEL = 1
 END
 GO
+CREATE FUNCTION [dbo].[fuConvertToUnsign1] ( @strInput NVARCHAR(4000) ) RETURNS NVARCHAR(4000) AS BEGIN IF @strInput IS NULL RETURN @strInput IF @strInput = '' RETURN @strInput DECLARE @RT NVARCHAR(4000) DECLARE @SIGN_CHARS NCHAR(136) DECLARE @UNSIGN_CHARS NCHAR (136) SET @SIGN_CHARS = N'ăâđêôơưàảãạáằẳẵặắầẩẫậấèẻẽẹéềểễệế ìỉĩịíòỏõọóồổỗộốờởỡợớùủũụúừửữựứỳỷỹỵý ĂÂĐÊÔƠƯÀẢÃẠÁẰẲẴẶẮẦẨẪẬẤÈẺẼẸÉỀỂỄỆẾÌỈĨỊÍ ÒỎÕỌÓỒỔỖỘỐỜỞỠỢỚÙỦŨỤÚỪỬỮỰỨỲỶỸỴÝ' +NCHAR(272)+ NCHAR(208) SET @UNSIGN_CHARS = N'aadeoouaaaaaaaaaaaaaaaeeeeeeeeee iiiiiooooooooooooooouuuuuuuuuuyyyyy AADEOOUAAAAAAAAAAAAAAAEEEEEEEEEEIIIII OOOOOOOOOOOOOOOUUUUUUUUUUYYYYYDD' DECLARE @COUNTER int DECLARE @COUNTER1 int SET @COUNTER = 1 WHILE (@COUNTER <=LEN(@strInput)) BEGIN SET @COUNTER1 = 1 WHILE (@COUNTER1 <=LEN(@SIGN_CHARS)+1) BEGIN IF UNICODE(SUBSTRING(@SIGN_CHARS, @COUNTER1,1)) = UNICODE(SUBSTRING(@strInput,@COUNTER ,1) ) BEGIN IF @COUNTER=1 SET @strInput = SUBSTRING(@UNSIGN_CHARS, @COUNTER1,1) + SUBSTRING(@strInput, @COUNTER+1,LEN(@strInput)-1) ELSE SET @strInput = SUBSTRING(@strInput, 1, @COUNTER-1) +SUBSTRING(@UNSIGN_CHARS, @COUNTER1,1) + SUBSTRING(@strInput, @COUNTER+1,LEN(@strInput)- @COUNTER) BREAK END SET @COUNTER1 = @COUNTER1 +1 END SET @COUNTER = @COUNTER +1 END SET @strInput = replace(@strInput,' ','-') RETURN @strInput END
+GO
+CREATE TRIGGER UpdateStock
+ON Input
+AFTER INSERT, UPDATE, DELETE
+AS
+BEGIN
+    -- Bảng tạm để lưu các ProductID bị ảnh hưởng duy nhất được chèn, cập nhật hoặc xóa
+    DECLARE @AffectedProducts TABLE (ProductID INT);
+
+    -- Thu thập các ProductID bị ảnh hưởng từ bảng inserted và deleted
+    INSERT INTO @AffectedProducts (ProductID)
+    SELECT ProductID FROM inserted
+    UNION
+    SELECT ProductID FROM deleted;
+
+    -- Cập nhật tồn kho trong bảng Products dựa trên tổng số lượng hiện tại trong bảng Input
+    UPDATE Products
+    SET Stock = ISNULL((SELECT SUM(Count) FROM Input WHERE Input.ProductID = p.ID), 0)
+    FROM Products p
+    INNER JOIN @AffectedProducts ap ON p.ID = ap.ProductID;
+END
+GO
+CREATE TRIGGER trg_AddParameterForNewProduct
+ON Products
+AFTER INSERT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    DECLARE @ProductID INT;
+    
+    -- Lấy ID của sản phẩm vừa được thêm vào
+    SELECT @ProductID = ID FROM inserted;
+    
+    -- Thêm parameter cho sản phẩm với giá trị mặc định là 10
+    INSERT INTO Parameter (ProductID, Value, Del, Note)
+    VALUES (@ProductID, 10, 0, 'Default parameter value added automatically');
+END
+GO
+CREATE TRIGGER trg_UpdateSalePrice
+ON SalePrice
+AFTER INSERT
+AS
+BEGIN
+    DECLARE @ProductID INT;
+
+    -- Lấy ProductID của giá bán mới được thêm vào
+    SELECT @ProductID = ProductID
+    FROM inserted;
+
+    -- Cập nhật giá bán trong bảng SalePrice cho tất cả các sản phẩm có cùng ProductID
+    UPDATE SalePrice
+    SET SalePrice = i.SalePrice
+    FROM SalePrice sp
+    INNER JOIN inserted i ON sp.ProductID = i.ProductID
+    WHERE sp.ProductID = @ProductID;
+
+END
+GO
 --exec USP_DeleteRecordsBasedOnDelValue
 --select * from unit
 
@@ -344,13 +403,25 @@ GO
 --select * from Decentralization
 --select * from Unit
 --select * from Company
---select * from Products 
---select * from Input
+
 --select * from Representative
 --select * from TypeReferrer
 --select * from ReceiveCommissions
---select * from Bill
---select * from BillInfo
+select * from Bill
+select * from BillInfo
 --select * from PaymentInfo
 --select * from Parameter
---select * from SalePrice
+select * from Products 
+select * from SalePrice
+select * from Input
+----delete from SalePrice where id>4
+--SELECT * FROM dbo.Products WHERE ID =6
+select * from input i, Products p where p.id = ProductID
+select * from Company where id = 2
+
+Select bi.BillID, b.StartDate, b.TotalBill, b.TotalPayment, b.PaymentDueDate, b.Dividend, bi.ProductID, p.Name, bi.Count, bi.Dividend, bi.VAT
+from dbo.Bill b, dbo.BillInfo bi, dbo.Products p 
+where bi.BillID = b.ID AND bi.ProductID = p.ID 
+Order by (b.Startdate) desc
+
+Select p.Name, p.Dimensions, bi.Count, bi.VAT, bi.SalePrice, bi.Note, b.StartDate from dbo.Bill b, dbo.BillInfo bi, dbo.Products p where b.CompanyID = 2 AND bi.BillID = b.ID AND bi.ProductID = 2 AND bi.ProductID = p.ID Order by (b.Startdate) desc
