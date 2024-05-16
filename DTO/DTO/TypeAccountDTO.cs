@@ -24,11 +24,13 @@ namespace DTO.DTO
         private string name;
         private bool del;
         private string note;
+        private bool permission;
 
         public int ID { get => id; set => id = value; }
         public string Name { get => name; set => name = value; }
         public bool Del { get => del; set => del = value; }
         public string Note { get => note; set => note = value; }
+        public bool Permission { get => permission; set => permission = value; }
     }
 }
 

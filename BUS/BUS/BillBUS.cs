@@ -1,6 +1,7 @@
 ﻿using DAO.DAO;
 using DTO.ACK;
 using DTO.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -157,7 +158,7 @@ namespace BUS.BUS
                         //insertBillInfo.ImportPrice = itemBillInfo.ImportPrice;
                         insertBillInfo.SalePrice = itemBillInfo.SalePrice;
                         insertBillInfo.VAT = itemBillInfo.VAT;
-                        insertBillInfo.Divedend = itemBillInfo.Divedend;
+                        insertBillInfo.Dividend = itemBillInfo.Dividend;
                         insertBillInfo.Del = itemBillInfo.Del;
                         insertBillInfo.Note = itemBillInfo.Note;
 
@@ -210,6 +211,125 @@ namespace BUS.BUS
             }
             catch { }
             return objResult;
+        }
+        #endregion
+
+        #region "[GetAllDept]"
+        /// <summary>
+        /// Lấy danh sách các công nợ
+        /// </summary>
+        /// <returns></returns>
+        public static List<DeptACK> GetAllDept()
+        {
+            List<DeptACK> list = new List<DeptACK>();
+            try
+            {
+                //lấy danh sách các hóa đơn.
+                List<BillDTO> listBill = GetAll();
+
+                //Lấy trong danh sách các hóa đơn những hóa đơn có TotalBill < TotalPayment
+                listBill = listBill.Where(p => p.TotalBill > p.TotalPayment).ToList();
+                if (listBill.Count > 0)
+                {
+                    foreach (BillDTO item in listBill)
+                    {
+                        DeptACK itemInsert = new DeptACK();
+                        itemInsert.BillID = item.ID;
+                        itemInsert.BillName = item.Name;
+                        itemInsert.CompanyName = CompanyBUS.SelectPrimaryKey(item.CompanyID).Name;
+                        itemInsert.CompanyID = item.CompanyID;
+                        itemInsert.AccountName = AccountBUS.SelectPrimaryKey(item.AccountID).FullName;
+                        itemInsert.StartDate = item.StartDate;
+                        itemInsert.TotalBill = item.TotalBill;
+                        itemInsert.TotalBillString = Utils.UtilsOperator.StandardizeTheMoneyChain(item.TotalBill.ToString());
+                        itemInsert.TotalPayment = item.TotalPayment;
+                        itemInsert.TotalPaymentString = Utils.UtilsOperator.StandardizeTheMoneyChain(item.TotalPayment.ToString());
+                        itemInsert.PaymentDueDate = item.PaymentDueDate;
+                        itemInsert.Commission = item.Commission;
+                        itemInsert.CommissionString = Utils.UtilsOperator.StandardizeTheMoneyChain(item.Commission.ToString());
+                        itemInsert.ReceiveCommission = string.Empty;
+                        itemInsert.Dept = (item.TotalBill - item.TotalPayment);
+                        itemInsert.DeptString = Utils.UtilsOperator.StandardizeTheMoneyChain(itemInsert.Dept.ToString());
+                        if (item.ReceiveCommissionsID > 0)
+                            itemInsert.ReceiveCommission = ReceiveCommissionBUS.SelectPrimaryKey(item.ReceiveCommissionsID).Name;
+                        else
+                            itemInsert.ReceiveCommission = string.Empty;
+                        itemInsert.Note = item.Note;
+
+                        list.Add(itemInsert);
+                    }
+                }
+            }
+            catch { }
+            return list;
+        }
+        #endregion
+
+        #region "[GetAllBillByTimes]"
+        /// <summary>
+        /// Lấy danh sách hóa đơn bán được theo thời gian
+        /// </summary>
+        /// <param name="_dateStart">thời gian bắt đầu</param>
+        /// <param name="_dateEnd">thời gian kết thúc</param>
+        /// <returns></returns>
+        public static List<BillDTO> GetAllBillByTimes(DateTime _dateStart, DateTime _dateEnd)
+        {
+            List<BillDTO> listResult = new List<BillDTO>();
+            try
+            {
+                DateTime dateStart = _dateStart;
+                DateTime dateEnd = _dateEnd;
+                List<BillDTO> list = new List<BillDTO>();
+
+                if (Utils.UtilsOperator.CompareSimilarDateTime(dateStart, dateEnd))
+                    list = GetAll().Where(p => Utils.UtilsOperator.CompareSimilarDateTime(p.StartDate, dateEnd)).ToList();
+                else if (Utils.UtilsOperator.TimeAIsGreaterThanTimeB(_dateStart, _dateEnd))
+                {
+                    dateStart = _dateEnd;
+                    dateEnd = _dateStart;
+                }
+                if (list.Count == 0)
+                {
+                    list = GetAll().Where(p => Utils.UtilsOperator.TimeAIsGreaterThanTimeB(p.StartDate, dateStart) && Utils.UtilsOperator.TimeAIsGreaterThanTimeB(dateEnd, p.StartDate)).ToList();
+
+                }
+                listResult = list;
+            }
+            catch { }
+            return listResult;
+        }
+        #endregion
+
+        #region "[SelectByCompanyID]"
+        /// <summary>
+        /// Lấy danh sách các hóa đơn của 1 khách hàng
+        /// </summary>
+        /// <param name="_iCompanyID">mã công ty</param>
+        /// <returns></returns>
+        public static List<BillDTO> SelectByCompanyID(int _iCompanyID)
+        {
+            List<BillDTO> listResult = new List<BillDTO>();
+            try
+            {
+                listResult = handle.SelectByCompanyID(_iCompanyID);
+                if (listResult.Count > 0)
+                {
+                    foreach (BillDTO item in listResult)
+                    {
+                        item.CommissionString = Utils.UtilsOperator.StandardizeTheMoneyChain(item.Commission.ToString());
+                        item.ShippingCostString = Utils.UtilsOperator.StandardizeTheMoneyChain(item.ShippingCost.ToString());
+                        item.DividendString = Utils.UtilsOperator.StandardizeTheMoneyChain(item.Dividend.ToString());
+                        item.TotalPaymentString = Utils.UtilsOperator.StandardizeTheMoneyChain(item.TotalPayment.ToString());
+                        item.TotalBillString = Utils.UtilsOperator.StandardizeTheMoneyChain(item.TotalBill.ToString());
+                        if (item.ReceiveCommissionsID > 0)
+                            item.ReceiveCommissionName = ReceiveCommissionBUS.SelectPrimaryKey(item.ReceiveCommissionsID).Name;
+                        else
+                            item.ReceiveCommissionName = string.Empty;
+                    }
+                }
+            }
+            catch { }
+            return listResult;
         }
         #endregion
 

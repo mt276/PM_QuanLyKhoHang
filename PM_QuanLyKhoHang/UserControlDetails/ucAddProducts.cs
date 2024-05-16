@@ -337,7 +337,7 @@ namespace PM_QuanLyKhoHang.UserControlDetails
             remove { insert -= value; }
         }
         private event EventHandler update;
-        public event EventHandler Update
+        public event EventHandler UpdateAP
         {
             add { update += value; }
             remove { update -= value; }

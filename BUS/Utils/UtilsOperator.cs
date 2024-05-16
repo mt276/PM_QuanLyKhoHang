@@ -182,8 +182,8 @@ namespace BUS.Utils
                 itemResult.ProductID = _obj.ProductID;
                 itemResult.Count = _obj.Count;
                 itemResult.ProductName = ProductBUS.SelectPrimaryKey(_obj.ProductID).Name;
-                itemResult.Divedend = _obj.Divedend;
-                itemResult.DivedendString = _obj.DivedendString;
+                itemResult.Divedend = _obj.Dividend;
+                itemResult.DivedendString = _obj.DividendString;
                 itemResult.VAT = _obj.VAT;
                 itemResult.Del = _obj.Del;
                 itemResult.Note = _obj.Note;
@@ -205,7 +205,7 @@ namespace BUS.Utils
             {
                 foreach (BillInfoDTO item in _listItems)
                 {
-                    item.DivedendString = Utils.UtilsOperator.StandardizeTheMoneyChain(item.Divedend.ToString());
+                    item.DividendString = Utils.UtilsOperator.StandardizeTheMoneyChain(item.Dividend.ToString());
                     item.SalePriceString = Utils.UtilsOperator.StandardizeTheMoneyChain(item.SalePriceString.ToString());
                     listResult.Add(ConvertFromBillInfoDTO(item));
                 }

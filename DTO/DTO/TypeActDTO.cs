@@ -19,6 +19,7 @@ namespace DTO.DTO
             this.Del = bool.Parse(row["del"].ToString());
             this.Note = row["note"].ToString();
         }
+        public TypeActDTO() { }
 
 
         private int id;

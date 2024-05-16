@@ -126,7 +126,7 @@ namespace PM_QuanLyKhoHang.UserControlDetails
                     itemShow();
                 ucAddProducts uc = new ucAddProducts();
                 uc.Insert += Uc_Insert;
-                uc.Update += Uc_Update;
+                uc.UpdateAP += Uc_Update;
                 uc.Delete += Uc_Delete;
             }
             catch { }

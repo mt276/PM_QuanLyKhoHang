@@ -99,5 +99,24 @@ namespace BUS.BUS
 
         #endregion
 
+        #region "Select By BillID]"
+        public static List<BillInfoDTO> SelectByBillID(int _iBillID)
+        {
+            List<BillInfoDTO> list = new List<BillInfoDTO>();
+            try
+            {
+                list = handle.SelectByBillID(_iBillID);
+                foreach (BillInfoDTO item in list)
+                {
+                    item.SalePriceString = Utils.UtilsOperator.StandardizeTheMoneyChain(item.SalePrice.ToString());
+                    item.DividendString = Utils.UtilsOperator.StandardizeTheMoneyChain(item.Dividend.ToString());
+
+                }
+            }
+            catch { }
+            return list;
+        }
+        #endregion
+
     }
 }

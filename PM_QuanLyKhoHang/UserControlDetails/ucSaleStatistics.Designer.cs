@@ -39,12 +39,9 @@ namespace PM_QuanLyKhoHang.UserControlDetails
             this.nbgDebtAndBill = new DevExpress.XtraNavBar.NavBarGroup();
             this.nbiDebtStatistics = new DevExpress.XtraNavBar.NavBarItem();
             this.nbiBillStatistics = new DevExpress.XtraNavBar.NavBarItem();
-            this.nbiVAT = new DevExpress.XtraNavBar.NavBarItem();
             this.nbgWarehouse = new DevExpress.XtraNavBar.NavBarGroup();
-            this.nbiWarehouseReport = new DevExpress.XtraNavBar.NavBarItem();
-            this.nbgExpenditure = new DevExpress.XtraNavBar.NavBarGroup();
+            this.nbiInputReport = new DevExpress.XtraNavBar.NavBarItem();
             this.nbiExpenseInfo = new DevExpress.XtraNavBar.NavBarItem();
-            this.nbgProfit = new DevExpress.XtraNavBar.NavBarGroup();
             this.nbiProfitOverTime = new DevExpress.XtraNavBar.NavBarItem();
             this.nbiReportOverTheYears = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.pnlMain)).BeginInit();
@@ -81,17 +78,14 @@ namespace PM_QuanLyKhoHang.UserControlDetails
             this.nvcStatistics.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
             this.nbgProductStatistics,
             this.nbgDebtAndBill,
-            this.nbgWarehouse,
-            this.nbgExpenditure,
-            this.nbgProfit});
+            this.nbgWarehouse});
             this.nvcStatistics.Items.AddRange(new DevExpress.XtraNavBar.NavBarItem[] {
             this.nbiProductSell,
             this.nbiProductPriceStatistics,
             this.nbiChartProductPrices,
             this.nbiDebtStatistics,
             this.nbiBillStatistics,
-            this.nbiVAT,
-            this.nbiWarehouseReport,
+            this.nbiInputReport,
             this.nbiExpenseInfo,
             this.nbiProfitOverTime,
             this.nbiReportOverTheYears});
@@ -128,6 +122,7 @@ namespace PM_QuanLyKhoHang.UserControlDetails
             // 
             this.nbiChartProductPrices.Caption = "Biểu đồ thể hiện giá sản phẩm";
             this.nbiChartProductPrices.Name = "nbiChartProductPrices";
+            this.nbiChartProductPrices.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbiChartProductPrices_LinkClicked);
             // 
             // nbgDebtAndBill
             // 
@@ -135,59 +130,39 @@ namespace PM_QuanLyKhoHang.UserControlDetails
             this.nbgDebtAndBill.Expanded = true;
             this.nbgDebtAndBill.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.nbiDebtStatistics),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.nbiBillStatistics),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.nbiVAT)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.nbiBillStatistics)});
             this.nbgDebtAndBill.Name = "nbgDebtAndBill";
             // 
             // nbiDebtStatistics
             // 
             this.nbiDebtStatistics.Caption = "Thống kê Công nợ";
             this.nbiDebtStatistics.Name = "nbiDebtStatistics";
+            this.nbiDebtStatistics.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbiDebtStatistics_LinkClicked);
             // 
             // nbiBillStatistics
             // 
             this.nbiBillStatistics.Caption = "Thống kê Hóa đơn bán hàng";
             this.nbiBillStatistics.Name = "nbiBillStatistics";
-            // 
-            // nbiVAT
-            // 
-            this.nbiVAT.Caption = "Thuế VAT và Thuế Doanh Nghiệp";
-            this.nbiVAT.Name = "nbiVAT";
+            this.nbiBillStatistics.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbiBillStatistics_LinkClicked);
             // 
             // nbgWarehouse
             // 
             this.nbgWarehouse.Caption = "Kho Hàng";
             this.nbgWarehouse.Expanded = true;
             this.nbgWarehouse.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
-            new DevExpress.XtraNavBar.NavBarItemLink(this.nbiWarehouseReport)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.nbiInputReport)});
             this.nbgWarehouse.Name = "nbgWarehouse";
             // 
-            // nbiWarehouseReport
+            // nbiInputReport
             // 
-            this.nbiWarehouseReport.Caption = "Báo Cáo Nhập Kho";
-            this.nbiWarehouseReport.Name = "nbiWarehouseReport";
-            // 
-            // nbgExpenditure
-            // 
-            this.nbgExpenditure.Caption = "Khoản Chi";
-            this.nbgExpenditure.Expanded = true;
-            this.nbgExpenditure.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
-            new DevExpress.XtraNavBar.NavBarItemLink(this.nbiExpenseInfo)});
-            this.nbgExpenditure.Name = "nbgExpenditure";
+            this.nbiInputReport.Caption = "Báo Cáo Nhập Kho";
+            this.nbiInputReport.Name = "nbiInputReport";
+            this.nbiInputReport.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbiWarehouseReport_LinkClicked);
             // 
             // nbiExpenseInfo
             // 
             this.nbiExpenseInfo.Caption = "Thông Tin Khoản Chi";
             this.nbiExpenseInfo.Name = "nbiExpenseInfo";
-            // 
-            // nbgProfit
-            // 
-            this.nbgProfit.Caption = "Lợi Nhuận";
-            this.nbgProfit.Expanded = true;
-            this.nbgProfit.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
-            new DevExpress.XtraNavBar.NavBarItemLink(this.nbiProfitOverTime),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.nbiReportOverTheYears)});
-            this.nbgProfit.Name = "nbgProfit";
             // 
             // nbiProfitOverTime
             // 
@@ -207,6 +182,7 @@ namespace PM_QuanLyKhoHang.UserControlDetails
             this.Controls.Add(this.pnlMain);
             this.Name = "ucSaleStatistics";
             this.Size = new System.Drawing.Size(885, 489);
+            this.Load += new System.EventHandler(this.ucSaleStatistics_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pnlMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlMenu)).EndInit();
             this.pnlMenu.ResumeLayout(false);
@@ -227,12 +203,9 @@ namespace PM_QuanLyKhoHang.UserControlDetails
         private DevExpress.XtraNavBar.NavBarGroup nbgDebtAndBill;
         private DevExpress.XtraNavBar.NavBarItem nbiDebtStatistics;
         private DevExpress.XtraNavBar.NavBarItem nbiBillStatistics;
-        private DevExpress.XtraNavBar.NavBarItem nbiVAT;
         private DevExpress.XtraNavBar.NavBarGroup nbgWarehouse;
-        private DevExpress.XtraNavBar.NavBarItem nbiWarehouseReport;
-        private DevExpress.XtraNavBar.NavBarGroup nbgExpenditure;
+        private DevExpress.XtraNavBar.NavBarItem nbiInputReport;
         private DevExpress.XtraNavBar.NavBarItem nbiExpenseInfo;
-        private DevExpress.XtraNavBar.NavBarGroup nbgProfit;
         private DevExpress.XtraNavBar.NavBarItem nbiProfitOverTime;
         private DevExpress.XtraNavBar.NavBarItem nbiReportOverTheYears;
     }

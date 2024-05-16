@@ -417,9 +417,23 @@ namespace PM_QuanLyKhoHang.UserControlDetails
             try
             {
                 if (!char.IsNumber(e.KeyChar) && !char.IsControl(e.KeyChar))
+                {
                     e.Handled = true;
+                }
             }
             catch { }
+        }
+        private void txtPhone_TextChanged(object sender, EventArgs e)
+        {
+            // Giới hạn chỉ nhập tối đa 10 ký tự
+            if (txtPhone.Text.Length > 10)
+            {
+                ClassUtils.Utils.MessageBoxERROR("Nhập sai số điện thoại", "Thông báo");
+                txtPhone.Text = txtPhone.Text.Substring(0, 10);
+                // Đặt con trỏ về cuối text
+                txtPhone.SelectionStart = txtPhone.Text.Length;
+
+            }
         }
 
         private void txtFax_KeyPress(object sender, KeyPressEventArgs e)
@@ -427,10 +441,24 @@ namespace PM_QuanLyKhoHang.UserControlDetails
             try
             {
                 if (!char.IsNumber(e.KeyChar) && !char.IsControl(e.KeyChar))
-                    e.Handled = true;
+                {
+                    e.Handled = true;                    
+                }
             }
             catch { }
         }
+
+        private void txtFax_TextChanged(object sender, EventArgs e)
+        {
+            // Giới hạn chỉ nhập tối đa 10 ký tự
+            if (txtFax.Text.Length > 10)
+            {
+                ClassUtils.Utils.MessageBoxERROR("Nhập sai số Fax", "Thông báo");
+                txtFax.Text = txtFax.Text.Substring(0, 10);
+                // Đặt con trỏ về cuối text
+                txtFax.SelectionStart = txtFax.Text.Length;
+            }
+        }        
 
         private void txtPhoneRepresentative_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -441,7 +469,23 @@ namespace PM_QuanLyKhoHang.UserControlDetails
             }
             catch { }
         }
-
+        private void txtPhoneRepresentative_TextChanged(object sender, EventArgs e)
+        {
+            // Giới hạn chỉ nhập tối đa 10 ký tự
+            if (txtPhoneRepresentative.Text.Length > 10)
+            {
+                ClassUtils.Utils.MessageBoxERROR("Nhập sai số điện thoại", "Thông báo");
+                txtPhoneRepresentative.Text = txtPhoneRepresentative.Text.Substring(0, 10);
+                // Đặt con trỏ về cuối text
+                txtPhoneRepresentative.SelectionStart = txtPhoneRepresentative.Text.Length;
+            }
+        }
         #endregion
+
+
+
+
+
+
     }
 }

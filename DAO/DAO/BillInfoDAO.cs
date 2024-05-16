@@ -30,7 +30,7 @@ namespace DAO.DAO
                     string sql = string.Format("INSERT INTO dbo.BillInfo (BillID, ProductID, Count, SalePrice, VAT, Dividend, Del, Note) " +
                         "VALUES({0}, {1}, {2}, {3}, {4}, {5}, '{6}', N'{7}')",
                         _obj.BillID.ToString(), _obj.ProductID.ToString(), _obj.Count.ToString(),_obj.SalePrice.ToString(), 
-                        _obj.VAT.ToString(), _obj.Divedend.ToString(), _obj.Del.ToString(), _obj.Note);
+                        _obj.VAT.ToString(), _obj.Dividend.ToString(), _obj.Del.ToString(), _obj.Note);
                     iResult = SqlDataHelper.ExecuteNonQuery(sql, cn);
                     if (iResult == 1)
                     {
@@ -95,7 +95,7 @@ namespace DAO.DAO
                     string sql = string.Format("UPDATE dbo.BillInfo SET billID = {0}, productID = {1}, count = {2}, importPrice = {3}, salePrice = {4}, " +
                         "VAT = {5}, Dividend = {6}, Del = '{7}', Note = N'{8}' WHERE ID = {9}",
                         _obj.BillID.ToString(), _obj.ProductID.ToString(), _obj.Count.ToString(), _obj.ImportPrice.ToString(), _obj.SalePrice.ToString(),
-                        _obj.VAT.ToString(), _obj.Divedend.ToString(), _obj.Del.ToString(), _obj.Note, _obj.ID.ToString());
+                        _obj.VAT.ToString(), _obj.Dividend.ToString(), _obj.Del.ToString(), _obj.Note, _obj.ID.ToString());
                     int result = SqlDataHelper.ExecuteNonQuery(sql, cn);
                     if (result > 0)
                         isResult = true;
@@ -115,6 +115,31 @@ namespace DAO.DAO
                 if (cn != null)
                 {
                     string sql = "Select * from dbo.BillInfo";
+                    DataTable dt = SqlDataHelper.GetDataToStringSQL(sql, cn);
+                    if (dt.Rows.Count > 0)
+                    {
+                        foreach (DataRow row in dt.Rows)
+                        {
+                            BillInfoDTO obj = new BillInfoDTO(row);
+                            listResult.Add(obj);
+                        }
+                    }
+                }
+            }
+            catch { }
+            return listResult;
+        }
+        #endregion
+
+        #region "[Select By BillID]"
+        public List<BillInfoDTO> SelectByBillID(int _iBillID)
+        {
+            List<BillInfoDTO> listResult = new List<BillInfoDTO>();
+            try
+            {
+                if (cn != null)
+                {
+                    string sql = "SELECT * FROM dbo.BillInfo where BillID=" + _iBillID.ToString();
                     DataTable dt = SqlDataHelper.GetDataToStringSQL(sql, cn);
                     if (dt.Rows.Count > 0)
                     {

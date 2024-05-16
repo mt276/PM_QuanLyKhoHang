@@ -48,6 +48,9 @@
   <ItemGroup>
     <Compile Include="ACK\BillACK.cs" />
     <Compile Include="ACK\BillInfoACK.cs" />
+    <Compile Include="ACK\DeptACK.cs" />
+    <Compile Include="ACK\ImportPriceStatisticsACK.cs" />
+    <Compile Include="ACK\ImportPriceStatisticsByYearACK.cs" />
     <Compile Include="ACK\ListProductACK.cs" />
     <Compile Include="ACK\ListProductSellACK.cs" />
     <Compile Include="ACK\ProductPriceStatisticACK.cs" />

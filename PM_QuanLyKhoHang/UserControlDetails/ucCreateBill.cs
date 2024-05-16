@@ -615,8 +615,123 @@ namespace PM_QuanLyKhoHang.UserControlDetails
         }
         #endregion
 
+        #region "[Only enter numbers]"
 
+        private void txtChange_TextChanged(object sender, EventArgs e)
+        {
+            if (decimal.TryParse(txtChange.Text, out decimal salePrice))
+            {
+                // Chuyển đổi giá trị thành chuỗi có định dạng tiền tệ
+                txtChange.Text = salePrice.ToString("#,##0");
+                // Di chuyển con trỏ về cuối textbox
+                txtChange.SelectionStart = txtChange.Text.Length;
+            }
+        }
 
+        private void txtPrepay_TextChanged(object sender, EventArgs e)
+        {
+            if (decimal.TryParse(txtPrepay.Text, out decimal salePrice))
+            {
+                // Chuyển đổi giá trị thành chuỗi có định dạng tiền tệ
+                txtPrepay.Text = salePrice.ToString("#,##0");
+                // Di chuyển con trỏ về cuối textbox
+                txtPrepay.SelectionStart = txtPrepay.Text.Length;
+            }
+        }
+
+        private void txtPrepay_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Chỉ cho phép nhập các ký tự số và ký tự phân cách thập phân (nếu có)
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.') && (e.KeyChar != ','))
+            {
+                e.Handled = true;
+                return;
+            }
+
+            // Kiểm tra xem đã có ký tự phân cách thập phân (',' hoặc '.') trong textbox chưa
+            bool hasDecimalSeparator = txtPrepay.Text.Contains(".") || txtPrepay.Text.Contains(",");
+
+            // Kiểm tra ký tự hiện tại có phải là ký tự phân cách thập phân hay không
+            if ((e.KeyChar == '.') || (e.KeyChar == ','))
+            {
+                // Nếu đã có ký tự phân cách thập phân trong textbox, không cho phép nhập thêm
+                if (hasDecimalSeparator)
+                {
+                    e.Handled = true;
+                    return;
+                }
+                // Nếu chưa có ký tự phân cách thập phân, thêm vào textbox
+                else
+                {
+                    // Thay thế ký tự phân cách thập phân thành ký tự thích hợp (ví dụ: nếu ký tự phân cách là '.', thì thay bằng ',')
+                    e.KeyChar = txtPrepay.Text.Contains(".") ? ',' : '.';
+                }
+            }
+        }
+
+        private void txtTotalBill_TextChanged(object sender, EventArgs e)
+        {
+            if (decimal.TryParse(txtTotalBill.Text, out decimal salePrice))
+            {
+                // Chuyển đổi giá trị thành chuỗi có định dạng tiền tệ
+                txtTotalBill.Text = salePrice.ToString("#,##0");
+                // Di chuyển con trỏ về cuối textbox
+                txtTotalBill.SelectionStart = txtTotalBill.Text.Length;
+            }
+        }
+
+        private void txtCommission_TextChanged(object sender, EventArgs e)
+        {
+            if (decimal.TryParse(txtCommission.Text, out decimal salePrice))
+            {
+                // Chuyển đổi giá trị thành chuỗi có định dạng tiền tệ
+                txtCommission.Text = salePrice.ToString("#,##0");
+                // Di chuyển con trỏ về cuối textbox
+                txtCommission.SelectionStart = txtCommission.Text.Length;
+            }
+        }
+
+        private void txtShippingCosts_TextChanged(object sender, EventArgs e)
+        {
+            if (decimal.TryParse(txtShippingCosts.Text, out decimal salePrice))
+            {
+                // Chuyển đổi giá trị thành chuỗi có định dạng tiền tệ
+                txtShippingCosts.Text = salePrice.ToString("#,##0");
+                // Di chuyển con trỏ về cuối textbox
+                txtShippingCosts.SelectionStart = txtShippingCosts.Text.Length;
+            }
+        }
+
+        private void txtShippingCosts_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Chỉ cho phép nhập các ký tự số và ký tự phân cách thập phân (nếu có)
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.') && (e.KeyChar != ','))
+            {
+                e.Handled = true;
+                return;
+            }
+
+            // Kiểm tra xem đã có ký tự phân cách thập phân (',' hoặc '.') trong textbox chưa
+            bool hasDecimalSeparator = txtShippingCosts.Text.Contains(".") || txtShippingCosts.Text.Contains(",");
+
+            // Kiểm tra ký tự hiện tại có phải là ký tự phân cách thập phân hay không
+            if ((e.KeyChar == '.') || (e.KeyChar == ','))
+            {
+                // Nếu đã có ký tự phân cách thập phân trong textbox, không cho phép nhập thêm
+                if (hasDecimalSeparator)
+                {
+                    e.Handled = true;
+                    return;
+                }
+                // Nếu chưa có ký tự phân cách thập phân, thêm vào textbox
+                else
+                {
+                    // Thay thế ký tự phân cách thập phân thành ký tự thích hợp (ví dụ: nếu ký tự phân cách là '.', thì thay bằng ',')
+                    e.KeyChar = txtShippingCosts.Text.Contains(".") ? ',' : '.';
+                }
+            }
+        }
+        #endregion
 
     }
 }

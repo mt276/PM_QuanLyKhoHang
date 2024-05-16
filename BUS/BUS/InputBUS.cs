@@ -1,4 +1,5 @@
 ﻿using DAO.DAO;
+using DTO.ACK;
 using DTO.DTO;
 using System;
 using System.Collections.Generic;
@@ -101,6 +102,19 @@ namespace BUS.BUS
         }
         #endregion
 
+        #region "[SearchInputByProductNameAndDate]"
+        public static List<InputDTO> SearchInputByProductNameAndDate(string name, DateTime startDate, DateTime endDate)
+        {
+            List<InputDTO> listResult = new List<InputDTO>();
+            try
+            {
+                listResult = handle.SearchInputByProductNameAndDate(name, startDate, endDate);
+            }
+            catch { }
+            return listResult;
+        }
+        #endregion
+
         #region "[GetInputProductByProductID]"
         public static List<InputDTO> GetInputProductByProductID(int _ProductID)
         {
@@ -122,7 +136,7 @@ namespace BUS.BUS
             {
 
                 listResult = GetInputProductByProductID(_ProductID);
-                if(listResult.Count > 0)
+                if (listResult.Count > 0)
                 {
                     foreach (InputDTO item in listResult)
                     {
@@ -235,11 +249,135 @@ namespace BUS.BUS
             InputDTO objResult = null;
             try
             {
-                objResult = GetAll().Where(p=> p.ProductID == _iProductID).OrderByDescending(p => p.StartDate).FirstOrDefault();
+                objResult = GetAll().Where(p => p.ProductID == _iProductID).OrderByDescending(p => p.StartDate).FirstOrDefault();
             }
             catch { }
             return objResult;
         }
         #endregion
+
+        #region "[GetInputByTimes]"
+        /// <summary>
+        /// Lấy danh sách sản phẩm bán được theo thời gian
+        /// </summary>
+        /// <param name="_dateStart">thời gian bắt đầu</param>
+        /// <param name="_dateEnd">thời gian kết thúc</param>
+        /// <returns></returns>
+        public static List<InputDTO> GetInputByTimes(DateTime _dateStart, DateTime _dateEnd)
+        {
+            List<InputDTO> listResult = new List<InputDTO>();
+            try
+            {
+                DateTime dateStart = _dateStart;
+                DateTime dateEnd = _dateEnd;
+                if (Utils.UtilsOperator.TimeAIsGreaterThanTimeB(_dateStart, _dateEnd))
+                {
+                    dateStart = _dateEnd;
+                    dateEnd = _dateStart;
+                }
+                if (Utils.UtilsOperator.CompareSimilarDateTime(dateEnd, dateStart))
+                    listResult = GetAll().Where(p => Utils.UtilsOperator.CompareSimilarDateTime(p.StartDate, dateStart)).ToList();
+                else
+                    listResult = GetAll().Where(p => Utils.UtilsOperator.TimeAIsGreaterThanTimeB(p.StartDate, dateStart) && Utils.UtilsOperator.TimeAIsGreaterThanTimeB(dateEnd, p.StartDate)).ToList();
+            }
+            catch { }
+            return listResult;
+        }
+        #endregion
+
+        #region "[SelectByYear]"
+        /// <summary>
+        /// Danh sách giá nhập trong 1 năm
+        /// </summary>
+        /// <param name="_iYear"></param>
+        /// <returns></returns>
+        public static List<InputDTO> SelectByYear(int _iYear)
+        {
+            List<InputDTO> listResult = new List<InputDTO>();
+            try
+            {
+                listResult = handle.GetByYear(_iYear);
+            }
+            catch { }
+            return listResult;
+        }
+        #endregion
+
+        #region "[SelectPricesWithMonthByYear]"
+        /// <summary>
+        /// Danh sách giá nhập sản phẩm theo từng tháng trong 1 năm
+        /// </summary>
+        /// <param name="_Year">Năm cần tính</param>
+        /// <returns></returns>
+        public static List<ImportPriceStatisticsACK> SelectPricesWithMonthByYear(int _Year, int _ProductID)
+        {
+            List<ImportPriceStatisticsACK> listResult = new List<ImportPriceStatisticsACK>();
+            try
+            {
+                //lấy danh sách giá nhập trong 1 năm
+                List<InputDTO> listAll = SelectByYear(_Year);
+                if (listAll.Count > 0)
+                {
+                    for (int i = 1; i <= 12; i++)
+                    {
+                        ImportPriceStatisticsACK info = new ImportPriceStatisticsACK();
+                        info.Month = i;
+                        info.ValueAVG = 0;
+                        List<InputDTO> listInfo = listAll.Where(p => p.StartDate.Month == i && p.ProductID == _ProductID).ToList();
+                        if (listInfo.Count > 0)
+                        {
+                            double avg = 0;
+                            foreach (InputDTO item in listInfo)
+                            {
+                                avg += item.ImportPrice;
+                            }
+                            info.ValueAVG = avg / listInfo.Count;
+                        }
+                        listResult.Add(info);
+                    }
+                }
+            }
+            catch { }
+            return listResult;
+        }
+        #endregion
+
+        #region "[SelectImportPriceByYears]"
+        /// <summary>
+        /// Danh sách các giá nhập sản phẩm theo khaon3 thời gian
+        /// </summary>
+        /// <param name="_iYearStart">năm bắt đầu</param>
+        /// <param name="_iYearEnd">năm kết thúc</param>
+        /// <returns></returns>
+        public static List<ImportPriceStatisticsByYearACK> SelectImportPriceByYears(int _iYearStart, int _iYearEnd, int _ProductID)
+        {
+            List<ImportPriceStatisticsByYearACK> listResult = new List<ImportPriceStatisticsByYearACK>();
+            try
+            {
+
+                int yearStart = _iYearStart;
+                int yearEnd = _iYearEnd;
+                if (_iYearStart > _iYearEnd)
+                {
+                    yearStart = _iYearEnd;
+                    yearEnd = _iYearStart;
+                }
+                //lấy danh sách giá nhập theo khoản thời gian
+
+                for (int i = yearStart; i <= yearEnd; i++)
+                {
+                    ImportPriceStatisticsByYearACK info = new ImportPriceStatisticsByYearACK();
+                    info.Year = i;
+                    info.ImportPrice = SelectPricesWithMonthByYear(i, _ProductID);
+                    listResult.Add(info);
+                }
+
+            }
+            catch { }
+            return listResult;
+        }
+        #endregion
+
+       
     }
 }

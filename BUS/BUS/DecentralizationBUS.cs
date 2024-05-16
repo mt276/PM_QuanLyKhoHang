@@ -73,5 +73,58 @@ namespace BUS.BUS
         }
         #endregion
 
+        #region "[Decentralization]"
+        /// <summary>
+        /// Phân quyền
+        /// </summary>
+        /// <param name="_obj"></param>
+        /// <returns></returns>
+        public static bool Decentralization(DecentralizationDTO _obj)
+        {
+            bool isSuccess = false;
+            try
+            {
+                DecentralizationDAO m_Handle = new DecentralizationDAO();
+                DecentralizationDTO item = null;
+                try
+                {
+                    item = m_Handle.SelectByID(_obj.AccountID, _obj.TypeActID);
+                }
+                catch { }
+                if (item != null)
+                {
+                    item.Del = _obj.Del;
+                    isSuccess = Update(item);
+                }
+                else
+                {
+                    if (!_obj.Del)
+                    {
+                        //thêm mới.
+                        int ID = Insert(_obj);
+                        if (ID > 0)
+                            isSuccess = true;
+                    }
+                }
+            }
+            catch { }
+            return isSuccess;
+        }
+        #endregion
+
+        #region "[SelectByAccountID]"
+        public static List<DecentralizationDTO> SelectByAccountID(int _iUserID)
+        {
+            List<DecentralizationDTO> listResult = new List<DecentralizationDTO>();
+            try
+            {
+                DecentralizationDAO m_Handle = new DecentralizationDAO();
+                listResult = m_Handle.SelectByAccountID(_iUserID);
+            }
+            catch { }
+            return listResult;
+        }
+        #endregion
+
     }
 }

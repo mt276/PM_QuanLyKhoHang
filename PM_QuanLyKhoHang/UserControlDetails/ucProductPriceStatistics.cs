@@ -242,6 +242,11 @@ namespace PM_QuanLyKhoHang.UserControlDetails
             threadtgvProduct.IsBackground = true;
             threadtgvProduct.Start();
             threadtgvProduct.Join();
+            #region "[Gridview selection is not allowed]"
+            gvProductInfo.OptionsBehavior.Editable = gvProductInfo.OptionsSelection.EnableAppearanceFocusedCell = false;
+            gvInput.OptionsBehavior.Editable = gvInput.OptionsSelection.EnableAppearanceFocusedCell = false;
+            gvSalePrice.OptionsBehavior.Editable = gvSalePrice.OptionsSelection.EnableAppearanceFocusedCell = false;
+            #endregion
         }
         #endregion
 

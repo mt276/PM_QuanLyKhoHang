@@ -36,7 +36,7 @@ namespace DTO.DTO
             this.PaymentDueDate = DateTime.Parse(row["paymentDueDate"].ToString());
             this.Dividend = double.Parse(row["dividend"].ToString());
             this.Commission = double.Parse(row["commission"].ToString());
-            this.ReceiveCommissionsID = int.Parse(row["receiveCommissionID"].ToString());
+            this.ReceiveCommissionsID = row["receiveCommissionID"] != DBNull.Value ? int.Parse(row["receiveCommissionID"].ToString()) : 0;
             this.ShippingCost = double.Parse(row["shippingCost"].ToString());
             this.Del = bool.Parse(row["del"].ToString());
             this.Note = row["note"].ToString();

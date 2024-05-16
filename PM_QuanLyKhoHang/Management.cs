@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DTO.DTO;
 using PM_QuanLyKhoHang.FormDetails;
+using BUS.BUS;
 
 namespace PM_QuanLyKhoHang
 {
@@ -19,6 +20,133 @@ namespace PM_QuanLyKhoHang
     public delegate void DelegateShowUserControl();
     public partial class Management : DevExpress.XtraBars.Ribbon.RibbonForm
     {
+        #region "[Enum Rules]"
+        public enum Function
+        {
+            Decentralization,
+            Sell,
+            Warehouse,
+            WarehouseManagement,
+            PriceUpdate,
+            AddCustomer,
+            ListCustomer,
+            AddReferrer,
+            AddProduct,
+            ListProduct,
+            AddTypeReferrer,
+            UpdateSystem,
+            SendEmail,
+            Statistics,
+            NULL
+        }
+        public Function GetTypeFunction(int _n)
+        {
+            switch (_n)
+            {
+                case 1:
+                    return Function.Decentralization;
+                case 2:
+                    return Function.Sell;
+                case 3:
+                    return Function.Warehouse;
+                case 4:
+                    return Function.WarehouseManagement;
+                case 5:
+                    return Function.PriceUpdate;
+                case 6:
+                    return Function.AddCustomer;
+                case 7:
+                    return Function.ListCustomer;
+                case 8:
+                    return Function.AddReferrer;
+                case 9:
+                    return Function.AddProduct;
+                case 10:
+                    return Function.ListProduct;
+                case 11:
+                    return Function.AddTypeReferrer;
+                case 12:
+                    return Function.UpdateSystem;
+                case 13:
+                    return Function.SendEmail;
+                case 14:
+                    return Function.Statistics;
+                
+            }
+            return Function.NULL;
+        }
+        #endregion
+
+        #region "[SetUpRules]"
+        /// <summary>
+        /// cho phep su dung theo phan quyền
+        /// </summary>
+        private void SetUpRules()
+        {
+            try
+            {
+                EnableButton();
+                //lấy danh sách các luật được phép.
+                List<DecentralizationDTO> list = DecentralizationBUS.SelectByAccountID(UserLogin.ID).Where(p => p.Del == false).ToList();
+                if (list.Count > 0)
+                {
+                    #region "[GetTypeFunction]"
+                    foreach (DecentralizationDTO item in list)
+                    {
+                        switch (GetTypeFunction(item.TypeActID))
+                        {
+                            case Function.Decentralization:
+                                btnDecentralization.Enabled = true;
+                                break;
+                            case Function.Sell:
+                                btnSell.Enabled = true;
+                                break;
+                            case Function.Warehouse:
+                                btnWarehouse.Enabled = true;
+                                break;
+                            case Function.WarehouseManagement:
+                                btnWarehouseManagement.Enabled = true;
+                                break;
+                            case Function.PriceUpdate:
+                                btnPriceUpdate.Enabled = true;
+                                break;
+                            case Function.AddCustomer:
+                                btnAddCustomer.Enabled = true;
+                                break;
+                            case Function.ListCustomer:
+                                btnListCustomer.Enabled = true;
+                                break;
+                            case Function.AddReferrer:
+                                btnAddReferrer.Enabled = true;
+                                break;
+                            case Function.AddProduct:
+                                btnAddProduct.Enabled = true;
+                                break;
+                            case Function.ListProduct:
+                                btnListProduct.Enabled = true;
+                                break;
+                            case Function.AddTypeReferrer:
+                                btnAddTypeReferrer.Enabled = true;
+                                break;
+                            case Function.UpdateSystem:
+                                btnUpdateSystem.Enabled = true;
+                                break;
+                            case Function.SendEmail:
+                                btnSendEmail.Enabled = true;
+                                break;
+                            case Function.Statistics:
+                                btnStatistics.Enabled = true;
+                                break;
+
+                        }
+                    }
+                    #endregion
+                }
+            }
+            catch { }
+        }
+        #endregion
+
         #region "[Declare Global Variables]"
         /// <summary>
         /// Thông tin Account đang đăng nhập
@@ -73,6 +201,8 @@ namespace PM_QuanLyKhoHang
                 {
                     ResetEnableStateButton(true);
 
+                    SetUpRules();
+
                 }
             }
             catch { }
@@ -124,7 +254,7 @@ namespace PM_QuanLyKhoHang
         }
         #endregion
 
-        #region "[Show usercontrol MyAccount]"
+        #region "[MyAccount]"
         /// <summary>
         /// Show usercontrol TaiKhoanCuaToi
         /// </summary>
@@ -152,7 +282,7 @@ namespace PM_QuanLyKhoHang
         }
         #endregion
 
-        #region "[ucAdvancedDecentralization]"
+        #region "[AdvancedDecentralization]"
         /// <summary>
         /// hiển thị control phân quyền nâng cao
         /// </summary>
@@ -540,6 +670,30 @@ namespace PM_QuanLyKhoHang
                 frm.ShowDialog();
             }
             catch { }
+        }
+        #endregion
+
+        #region "[Enable button]"
+        /// <summary>
+        /// Enable button
+        /// </summary>
+        private void EnableButton()
+        {
+            btnDecentralization.Enabled = false;
+            btnSell.Enabled = false;
+            btnWarehouse.Enabled = false;
+            btnWarehouseManagement.Enabled = false;
+            btnPriceUpdate.Enabled = false;
+            btnAddCustomer.Enabled = false;
+            btnListCustomer.Enabled = false;
+            btnAddReferrer.Enabled = false;
+            btnAddProduct.Enabled = false;
+            btnListProduct.Enabled = false;
+            btnAddTypeReferrer.Enabled = false;
+            btnUpdateSystem.Enabled = false;
+            btnSendEmail.Enabled = false;
+            btnStatistics.Enabled = false;
+
         }
         #endregion
     }

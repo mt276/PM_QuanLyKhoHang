@@ -299,6 +299,7 @@
             this.txtCommission.Name = "txtCommission";
             this.txtCommission.Size = new System.Drawing.Size(277, 26);
             this.txtCommission.TabIndex = 7;
+            this.txtCommission.TextChanged += new System.EventHandler(this.txtCommission_TextChanged);
             // 
             // lbCommission
             // 
@@ -335,6 +336,7 @@
             this.txtTotalBill.Name = "txtTotalBill";
             this.txtTotalBill.Size = new System.Drawing.Size(276, 26);
             this.txtTotalBill.TabIndex = 3;
+            this.txtTotalBill.TextChanged += new System.EventHandler(this.txtTotalBill_TextChanged);
             // 
             // txtShippingCosts
             // 
@@ -343,6 +345,8 @@
             this.txtShippingCosts.Name = "txtShippingCosts";
             this.txtShippingCosts.Size = new System.Drawing.Size(277, 26);
             this.txtShippingCosts.TabIndex = 10;
+            this.txtShippingCosts.TextChanged += new System.EventHandler(this.txtShippingCosts_TextChanged);
+            this.txtShippingCosts.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtShippingCosts_KeyPress);
             // 
             // lbShippingCosts
             // 
@@ -361,6 +365,7 @@
             this.txtChange.Name = "txtChange";
             this.txtChange.Size = new System.Drawing.Size(276, 26);
             this.txtChange.TabIndex = 5;
+            this.txtChange.TextChanged += new System.EventHandler(this.txtChange_TextChanged);
             // 
             // lbChange
             // 
@@ -378,6 +383,8 @@
             this.txtPrepay.Name = "txtPrepay";
             this.txtPrepay.Size = new System.Drawing.Size(276, 26);
             this.txtPrepay.TabIndex = 4;
+            this.txtPrepay.TextChanged += new System.EventHandler(this.txtPrepay_TextChanged);
+            this.txtPrepay.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrepay_KeyPress);
             // 
             // lbPrepay
             // 

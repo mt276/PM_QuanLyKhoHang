@@ -167,7 +167,36 @@ namespace DAO.DAO
             {
                 if (cn != null)
                 {
-                    string sql = string.Format("SELECT * FROM dbo.Products p, dbo.Input i WHERE p.ID = i.ProductID AND dbo.fuConvertToUnsign1(p.name) LIKE N'%' + dbo.fuConvertToUnsign1(N'{0}') + '%'", name);
+                    string sql = string.Format("SELECT p.ID, Name, Dimensions, UnitID, Stock, InputSource, p.Del, p.Note, i.ID, i.ProductID, Count, ImportPrice, i.StartDate, p.StartDate, AccountID, i.Del " +
+                        "FROM dbo.Products p, dbo.Input i WHERE p.ID = i.ProductID AND dbo.fuConvertToUnsign1(p.name) " +
+                        "LIKE N'%' + dbo.fuConvertToUnsign1(N'{0}') + '%'", name);
+                    DataTable dt = SqlDataHelper.GetDataToStringSQL(sql, cn);
+                    if (dt.Rows.Count > 0)
+                    {
+                        foreach (DataRow row in dt.Rows)
+                        {
+                            InputDTO obj = new InputDTO(row);
+                            listResult.Add(obj);
+                        }
+                    }
+                }
+            }
+            catch { }
+            return listResult;
+        }
+        #endregion
+
+        #region "[SearchProductByname]"
+        public List<InputDTO> SearchInputByProductNameAndDate(string name, DateTime startDate, DateTime endDate)
+        {
+            List<InputDTO> listResult = new List<InputDTO>();
+            try
+            {
+                if (cn != null)
+                {
+                    string sql = string.Format("SELECT p.ID, Name, Dimensions, UnitID, Stock, InputSource, p.Del, p.Note, i.ID, i.ProductID, Count, ImportPrice, i.StartDate, p.StartDate, AccountID, i.Del " +
+                        "FROM dbo.Products p, dbo.Input i WHERE p.ID = i.ProductID AND i.StartDate >= '{0}' AND i.StartDate <= '{1}' " +
+                        "AND dbo.fuConvertToUnsign1(p.name) LIKE N'%' + dbo.fuConvertToUnsign1(N'{2}') + '%'", startDate, endDate, name);
                     DataTable dt = SqlDataHelper.GetDataToStringSQL(sql, cn);
                     if (dt.Rows.Count > 0)
                     {
@@ -222,7 +251,7 @@ namespace DAO.DAO
         /// <returns></returns>
         public List<InputDTO> GetInputProductByAccountID(int _AccountID)
         {
-            List<InputDTO> listobjs = new List<InputDTO>();
+            List<InputDTO> listObjs = new List<InputDTO>();
             try
             {
                 if (cn != null)
@@ -234,13 +263,43 @@ namespace DAO.DAO
                         foreach (DataRow row in dt.Rows)
                         {
                             InputDTO obj = new InputDTO(row);
-                            listobjs.Add(obj);
+                            listObjs.Add(obj);
                         }
                     }
                 }
             }
             catch { }
-            return listobjs;
+            return listObjs;
+        }
+        #endregion
+
+        #region "[GetByYear]"
+        /// <summary>
+        /// Lấy danh sách các sản phẩm nhập theo năm
+        /// </summary>
+        /// <param name="_iYear"></param>
+        /// <returns></returns>
+        public List<InputDTO> GetByYear(int _iYear)
+        {
+            List<InputDTO> listResult = new List<InputDTO>();
+            try
+            {
+                if (cn != null)
+                {
+                    string sql = "SELECT * FROM dbo.Input Where Year(StartDate) = " + _iYear.ToString();
+                    DataTable dt = SqlDataHelper.GetDataToStringSQL(sql, cn);
+                    if (dt.Rows.Count > 0)
+                    {
+                        foreach (DataRow row in dt.Rows)
+                        {
+                            InputDTO obj = new InputDTO(row);
+                            listResult.Add(obj);
+                        }
+                    }
+                }
+            }
+            catch { }
+            return listResult;
         }
         #endregion
     }

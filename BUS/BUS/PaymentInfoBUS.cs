@@ -73,5 +73,22 @@ namespace BUS.BUS
         }
         #endregion
 
+        #region "[SelectByBillID]"
+        public static List<PaymentInfoDTO> SelectByBillID(int _OrderID)
+        {
+            List<PaymentInfoDTO> listResult = new List<PaymentInfoDTO>();
+            try
+            {
+                listResult = handle.SelectByBillID(_OrderID);
+                foreach (PaymentInfoDTO item in listResult)
+                {
+                    item.PaymentString = Utils.UtilsOperator.StandardizeTheMoneyChain(item.Payment.ToString());
+                }
+            }
+            catch { }
+            return listResult;
+        }
+        #endregion
+
     }
 }

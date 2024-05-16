@@ -112,7 +112,7 @@
             this.spccW64Main.Panel2.Controls.Add(this.spccW64Search);
             this.spccW64Main.Panel2.Text = "Panel2";
             this.spccW64Main.Size = new System.Drawing.Size(1172, 455);
-            this.spccW64Main.SplitterPosition = 235;
+            this.spccW64Main.SplitterPosition = 373;
             this.spccW64Main.TabIndex = 0;
             this.spccW64Main.Text = "splitContainerControlWin641";
             // 
@@ -124,7 +124,7 @@
             this.dtgvProductInfo.MainView = this.gvProductInfo;
             this.dtgvProductInfo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtgvProductInfo.Name = "dtgvProductInfo";
-            this.dtgvProductInfo.Size = new System.Drawing.Size(235, 455);
+            this.dtgvProductInfo.Size = new System.Drawing.Size(373, 455);
             this.dtgvProductInfo.TabIndex = 0;
             this.dtgvProductInfo.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvProductInfo});
@@ -233,8 +233,8 @@
             // 
             this.spccW64Search.Panel2.Controls.Add(this.tcSalePrice);
             this.spccW64Search.Panel2.Text = "Panel2";
-            this.spccW64Search.Size = new System.Drawing.Size(922, 455);
-            this.spccW64Search.SplitterPosition = 295;
+            this.spccW64Search.Size = new System.Drawing.Size(784, 455);
+            this.spccW64Search.SplitterPosition = 404;
             this.spccW64Search.TabIndex = 0;
             this.spccW64Search.Text = "splitContainerControlWin642";
             // 
@@ -247,7 +247,7 @@
             this.pnlGVInpit.Location = new System.Drawing.Point(6, 85);
             this.pnlGVInpit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pnlGVInpit.Name = "pnlGVInpit";
-            this.pnlGVInpit.Size = new System.Drawing.Size(911, 206);
+            this.pnlGVInpit.Size = new System.Drawing.Size(773, 315);
             this.pnlGVInpit.TabIndex = 1;
             // 
             // dtgvInput
@@ -260,7 +260,7 @@
             this.dtgvInput.Name = "dtgvInput";
             this.dtgvInput.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.rimeNote});
-            this.dtgvInput.Size = new System.Drawing.Size(907, 202);
+            this.dtgvInput.Size = new System.Drawing.Size(769, 311);
             this.dtgvInput.TabIndex = 0;
             this.dtgvInput.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvInput});
@@ -421,7 +421,7 @@
             this.pnlSearch.Location = new System.Drawing.Point(6, 6);
             this.pnlSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pnlSearch.Name = "pnlSearch";
-            this.pnlSearch.Size = new System.Drawing.Size(911, 85);
+            this.pnlSearch.Size = new System.Drawing.Size(773, 85);
             this.pnlSearch.TabIndex = 0;
             // 
             // rdAll
@@ -531,7 +531,7 @@
             this.tcSalePrice.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tcSalePrice.Name = "tcSalePrice";
             this.tcSalePrice.SelectedTabPage = this.tpSalePrice;
-            this.tcSalePrice.Size = new System.Drawing.Size(922, 145);
+            this.tcSalePrice.Size = new System.Drawing.Size(784, 36);
             this.tcSalePrice.TabIndex = 0;
             this.tcSalePrice.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.tpSalePrice});
@@ -541,7 +541,7 @@
             this.tpSalePrice.Controls.Add(this.dtgvSalePrice);
             this.tpSalePrice.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tpSalePrice.Name = "tpSalePrice";
-            this.tpSalePrice.Size = new System.Drawing.Size(920, 110);
+            this.tpSalePrice.Size = new System.Drawing.Size(782, 1);
             this.tpSalePrice.Text = "Danh Sách Giá Bán";
             // 
             // dtgvSalePrice
@@ -552,7 +552,7 @@
             this.dtgvSalePrice.MainView = this.gvSalePrice;
             this.dtgvSalePrice.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtgvSalePrice.Name = "dtgvSalePrice";
-            this.dtgvSalePrice.Size = new System.Drawing.Size(920, 110);
+            this.dtgvSalePrice.Size = new System.Drawing.Size(782, 1);
             this.dtgvSalePrice.TabIndex = 0;
             this.dtgvSalePrice.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvSalePrice});

@@ -38,6 +38,7 @@
             this.colSTT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colProductName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCount = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colStartDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.pnlSearch = new DevExpress.XtraEditors.PanelControl();
             this.btnAll = new DevExpress.XtraEditors.SimpleButton();
             this.btnSearch = new DevExpress.XtraEditors.SimpleButton();
@@ -45,7 +46,6 @@
             this.lbStartDate = new DevExpress.XtraEditors.LabelControl();
             this.dtpkEndDate = new System.Windows.Forms.DateTimePicker();
             this.dtpkStartDate = new System.Windows.Forms.DateTimePicker();
-            this.colStartDate = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pnlMain)).BeginInit();
             this.pnlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tcListProducts)).BeginInit();
@@ -112,7 +112,7 @@
             // 
             this.spccListProducts.Panel2.Text = "Panel2";
             this.spccListProducts.Size = new System.Drawing.Size(972, 463);
-            this.spccListProducts.SplitterPosition = 262;
+            this.spccListProducts.SplitterPosition = 447;
             this.spccListProducts.TabIndex = 0;
             this.spccListProducts.Text = "splitContainerControl1";
             // 
@@ -125,7 +125,7 @@
             this.panelControl3.Location = new System.Drawing.Point(-2, 89);
             this.panelControl3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(977, 171);
+            this.panelControl3.Size = new System.Drawing.Size(977, 356);
             this.panelControl3.TabIndex = 0;
             // 
             // dtgvStatistical
@@ -136,7 +136,7 @@
             this.dtgvStatistical.MainView = this.gvStatistical;
             this.dtgvStatistical.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtgvStatistical.Name = "dtgvStatistical";
-            this.dtgvStatistical.Size = new System.Drawing.Size(973, 167);
+            this.dtgvStatistical.Size = new System.Drawing.Size(973, 352);
             this.dtgvStatistical.TabIndex = 0;
             this.dtgvStatistical.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvStatistical});
@@ -209,6 +209,25 @@
             this.colCount.VisibleIndex = 2;
             this.colCount.Width = 272;
             // 
+            // colStartDate
+            // 
+            this.colStartDate.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.colStartDate.AppearanceCell.Options.UseFont = true;
+            this.colStartDate.AppearanceCell.Options.UseTextOptions = true;
+            this.colStartDate.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colStartDate.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.colStartDate.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.colStartDate.AppearanceHeader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.colStartDate.AppearanceHeader.Options.UseFont = true;
+            this.colStartDate.AppearanceHeader.Options.UseForeColor = true;
+            this.colStartDate.Caption = "Ngày bán";
+            this.colStartDate.FieldName = "StartDate";
+            this.colStartDate.MinWidth = 30;
+            this.colStartDate.Name = "colStartDate";
+            this.colStartDate.Visible = true;
+            this.colStartDate.VisibleIndex = 3;
+            this.colStartDate.Width = 283;
+            // 
             // pnlSearch
             // 
             this.pnlSearch.Controls.Add(this.btnAll);
@@ -278,32 +297,13 @@
             this.dtpkStartDate.Size = new System.Drawing.Size(298, 27);
             this.dtpkStartDate.TabIndex = 0;
             // 
-            // colStartDate
-            // 
-            this.colStartDate.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.colStartDate.AppearanceCell.Options.UseFont = true;
-            this.colStartDate.AppearanceCell.Options.UseTextOptions = true;
-            this.colStartDate.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.colStartDate.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.colStartDate.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            this.colStartDate.AppearanceHeader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.colStartDate.AppearanceHeader.Options.UseFont = true;
-            this.colStartDate.AppearanceHeader.Options.UseForeColor = true;
-            this.colStartDate.Caption = "Ngày bán";
-            this.colStartDate.FieldName = "StartDate";
-            this.colStartDate.MinWidth = 30;
-            this.colStartDate.Name = "colStartDate";
-            this.colStartDate.Visible = true;
-            this.colStartDate.VisibleIndex = 3;
-            this.colStartDate.Width = 283;
-            // 
-            // ucListProducts
+            // ucProductSell
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.pnlMain);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "ucListProducts";
+            this.Name = "ucProductSell";
             this.Size = new System.Drawing.Size(978, 502);
             this.Load += new System.EventHandler(this.ucListProducts_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pnlMain)).EndInit();

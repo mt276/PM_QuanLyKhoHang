@@ -131,5 +131,30 @@ namespace DAO.DAO
         }
         #endregion
 
+        #region "[SelectByOrderID]"
+        public List<PaymentInfoDTO> SelectByBillID(int _billID)
+        {
+            List<PaymentInfoDTO> listResult = new List<PaymentInfoDTO>();
+            try
+            {
+                if (cn != null)
+                {
+                    string sql = "SELECT * FROM dbo.PaymentInfo WHERE BillID = " + _billID.ToString();
+                    DataTable dt = SqlDataHelper.GetDataToStringSQL(sql, cn);
+                    if (dt.Rows.Count > 0)
+                    {
+                        foreach (DataRow row in dt.Rows)
+                        {
+                            PaymentInfoDTO obj = new PaymentInfoDTO(row);
+                            listResult.Add(obj);
+                        }
+                    }
+                }
+            }
+            catch { }
+            return listResult;
+        }
+        #endregion
+
     }
 }

@@ -69,8 +69,9 @@
             this.colTypeActName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colAccountID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colPermission = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.rpstrCheck = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.checkFull = new DevExpress.XtraEditors.CheckEdit();
-            this.btnCancelDL = new DevExpress.XtraEditors.SimpleButton();
+            this.btnExitsDL = new DevExpress.XtraEditors.SimpleButton();
             this.btnUpdateDL = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.pnlMain)).BeginInit();
             this.pnlMain.SuspendLayout();
@@ -99,6 +100,7 @@
             this.spccDecentralization.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvDecentralization)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDecentralization)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rpstrCheck)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkFull.Properties)).BeginInit();
             this.SuspendLayout();
             // 
@@ -193,6 +195,7 @@
             this.gvAccount.OptionsEditForm.PopupEditFormWidth = 1200;
             this.gvAccount.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gvAccount_RowClick);
             this.gvAccount.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.gvAccount_CustomDrawCell);
+            this.gvAccount.PopupMenuShowing += new DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventHandler(this.gvAccount_PopupMenuShowing);
             // 
             // colSTT
             // 
@@ -503,7 +506,7 @@
             // spccDecentralization.Panel2
             // 
             this.spccDecentralization.Panel2.Controls.Add(this.checkFull);
-            this.spccDecentralization.Panel2.Controls.Add(this.btnCancelDL);
+            this.spccDecentralization.Panel2.Controls.Add(this.btnExitsDL);
             this.spccDecentralization.Panel2.Controls.Add(this.btnUpdateDL);
             this.spccDecentralization.Panel2.Text = "Panel2";
             this.spccDecentralization.Size = new System.Drawing.Size(189, 504);
@@ -519,6 +522,8 @@
             this.dtgvDecentralization.MainView = this.gvDecentralization;
             this.dtgvDecentralization.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtgvDecentralization.Name = "dtgvDecentralization";
+            this.dtgvDecentralization.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.rpstrCheck});
             this.dtgvDecentralization.Size = new System.Drawing.Size(189, 362);
             this.dtgvDecentralization.TabIndex = 0;
             this.dtgvDecentralization.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -535,6 +540,7 @@
             this.gvDecentralization.GroupPanelText = " ";
             this.gvDecentralization.Name = "gvDecentralization";
             this.gvDecentralization.OptionsEditForm.PopupEditFormWidth = 1200;
+            this.gvDecentralization.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.gvDecentralization_CustomDrawCell);
             // 
             // colTypeActName
             // 
@@ -556,12 +562,18 @@
             // colPermission
             // 
             this.colPermission.Caption = "Bật/Tắt";
+            this.colPermission.ColumnEdit = this.rpstrCheck;
             this.colPermission.FieldName = "Permission";
             this.colPermission.MinWidth = 30;
             this.colPermission.Name = "colPermission";
             this.colPermission.Visible = true;
             this.colPermission.VisibleIndex = 1;
             this.colPermission.Width = 112;
+            // 
+            // rpstrCheck
+            // 
+            this.rpstrCheck.AutoHeight = false;
+            this.rpstrCheck.Name = "rpstrCheck";
             // 
             // checkFull
             // 
@@ -571,15 +583,17 @@
             this.checkFull.Properties.Caption = "Toàn quyền hệ thống";
             this.checkFull.Size = new System.Drawing.Size(195, 27);
             this.checkFull.TabIndex = 12;
+            this.checkFull.CheckedChanged += new System.EventHandler(this.checkFull_CheckedChanged);
             // 
-            // btnCancelDL
+            // btnExitsDL
             // 
-            this.btnCancelDL.Location = new System.Drawing.Point(157, 52);
-            this.btnCancelDL.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnCancelDL.Name = "btnCancelDL";
-            this.btnCancelDL.Size = new System.Drawing.Size(112, 35);
-            this.btnCancelDL.TabIndex = 14;
-            this.btnCancelDL.Text = "Hủy";
+            this.btnExitsDL.Location = new System.Drawing.Point(157, 52);
+            this.btnExitsDL.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnExitsDL.Name = "btnExitsDL";
+            this.btnExitsDL.Size = new System.Drawing.Size(112, 35);
+            this.btnExitsDL.TabIndex = 14;
+            this.btnExitsDL.Text = "Thoát";
+            this.btnExitsDL.Click += new System.EventHandler(this.btnExitsDL_Click);
             // 
             // btnUpdateDL
             // 
@@ -589,6 +603,7 @@
             this.btnUpdateDL.Size = new System.Drawing.Size(112, 35);
             this.btnUpdateDL.TabIndex = 13;
             this.btnUpdateDL.Text = "Cập Nhật";
+            this.btnUpdateDL.Click += new System.EventHandler(this.btnUpdateDL_Click);
             // 
             // ucAdvancedDecentralization
             // 
@@ -628,6 +643,7 @@
             this.spccDecentralization.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvDecentralization)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDecentralization)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rpstrCheck)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkFull.Properties)).EndInit();
             this.ResumeLayout(false);
 
@@ -668,7 +684,7 @@
         private DevExpress.XtraEditors.SplitContainerControl spccDecentralization;
         private DevExpress.XtraGrid.GridControl dtgvDecentralization;
         private DevExpress.XtraGrid.Views.Grid.GridView gvDecentralization;
-        private DevExpress.XtraEditors.SimpleButton btnCancelDL;
+        private DevExpress.XtraEditors.SimpleButton btnExitsDL;
         private DevExpress.XtraEditors.SimpleButton btnUpdateDL;
         private DevExpress.XtraGrid.Columns.GridColumn colAccountID;
         private DevExpress.XtraGrid.Columns.GridColumn colPermission;
@@ -678,5 +694,6 @@
         private DevExpress.XtraEditors.LabelControl lbTypeID;
         private DevExpress.XtraGrid.Columns.GridColumn colTypeID;
         private System.Windows.Forms.ComboBox cbTypeID;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit rpstrCheck;
     }
 }

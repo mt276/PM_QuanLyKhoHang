@@ -29,7 +29,7 @@ namespace PM_QuanLyKhoHang.UserControlDetails
         /// <summary>
         /// Danh sách các quyền trong hệ thống
         /// </summary>
-        List<TypeActDTO> listTypeAct = new List<TypeActDTO>();
+        List<TypeActDTO> _listTypeAct = new List<TypeActDTO>();
 
         #endregion
 
@@ -134,7 +134,7 @@ namespace PM_QuanLyKhoHang.UserControlDetails
         {
             try
             {
-                List<AccountDTO> acc = AccountBUS.GetAll();
+                List<AccountDTO> acc = AccountBUS.GetAll().Where(p => p.Del == false).ToList();
                 dtgvAccount.DataSource = acc;
                 dtgvAccount.RefreshDataSource();
             }
@@ -309,5 +309,208 @@ namespace PM_QuanLyKhoHang.UserControlDetails
         }
         #endregion
 
+        #region "[Create Menu]"
+
+        private void gvAccount_PopupMenuShowing(object sender, DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs e)
+        {
+            try
+            {
+                GridView view = sender as GridView;
+                if (e.MenuType == GridMenuType.Row)
+                {
+                    int rowHandle = e.HitInfo.RowHandle;
+                    // Delete existing menu items, if any.
+                    e.Menu.Items.Clear();
+
+                    DXMenuItem menuItem;
+
+                    menuItem = new DXMenuItem("Property", new EventHandler(RowClickProperty));
+                    menuItem.Tag = new RowInfo(view, rowHandle);
+                    e.Menu.Items.Add(menuItem);
+
+                    menuItem = new DXMenuItem("Details", new EventHandler(RowClickDetails));
+                    menuItem.Tag = new RowInfo(view, rowHandle);
+                    e.Menu.Items.Add(menuItem);
+                }
+            }
+            catch { }
+        }
+        #endregion
+
+        #region "[RowClickProperty]"
+        private void RowClickProperty(object sender, EventArgs e)
+        {
+            try
+            {
+                dpnlDecentralization.Close();
+
+                DXMenuItem item = sender as DXMenuItem;
+                RowInfo info = item.Tag as RowInfo;
+
+                //lấy thong tin trên 1 dòng đang chọn
+                AccountDTO accountInfo = (AccountDTO)gvAccount.GetRow(info.RowHandle);
+                _iID = accountInfo.ID;
+                //hiển thị thông tin tương ứng
+                _listTypeAct = TypeActBUS.GetAll().Where(p => p.Del == false).ToList();
+
+                //phân quyền cho người dùng
+                List<DecentralizationDTO> listDec = DecentralizationBUS.SelectByAccountID(accountInfo.ID).Where(p => p.Del == false).ToList();
+
+                if (listDec.Count > 0)
+                {
+                    foreach (DecentralizationDTO item1 in listDec)
+                    {
+                        foreach (TypeActDTO item2 in _listTypeAct)
+                        {
+                            if (item1.TypeActID == item2.ID)
+                            {
+                                item2.Permission = true;
+                            }
+                        }
+                    }
+                }
+                gvDecentralization.GroupPanelText = "Nhân Viên: " + accountInfo.FullName;
+                LoadListDecentralization();
+
+                //kiểm tra coi nhân viên này có toàn quyền hay chưa.
+                CheckMutliRules();
+
+                dpnlDecentralization.Show();
+
+            }
+            catch { }
+        }
+        #endregion
+
+        #region "[RowClickDetails]"
+        private void RowClickDetails(object sender, EventArgs e)
+        {
+            try
+            {
+                DXMenuItem item = sender as DXMenuItem;
+                RowInfo info = item.Tag as RowInfo;
+
+                //lấy thong tin trên 1 dòng đang chọn
+                AccountDTO accountInfo = (AccountDTO)gvAccount.GetRow(info.RowHandle);
+                if (accountInfo != null)
+                {
+                    _iID = accountInfo.ID;
+                    LoadInfomation(accountInfo);
+                    EnableButton(false);
+                }
+            }
+            catch { }
+        }
+        #endregion
+
+        #region "[CheckMutliRules]"
+        /// <summary>
+        /// kiểm tra coi nhân viên này có toàn quyền hay chưa.
+        /// </summary>
+        private void CheckMutliRules()
+        {
+            try
+            {
+                List<TypeActDTO> listTemp = _listTypeAct.Where(p => p.Permission == true).ToList();
+                if (_listTypeAct.Count == listTemp.Count)
+                    checkFull.Checked = true;
+                else
+                    checkFull.Checked = false;
+            }
+            catch { }
+        }
+        #endregion
+
+        #region "[LoadListDecentralization]"
+        /// <summary>
+        /// load danh sách các quyền lên datagridview
+        /// </summary>
+        private void LoadListDecentralization()
+        {
+            dtgvDecentralization.DataSource = _listTypeAct;
+            dtgvDecentralization.RefreshDataSource();
+        }
+        #endregion
+
+        #region "[Update Decentrailization]"
+        private void btnUpdateDL_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                //lấy danh sách các dòng check
+                //lấy danh sách các sản phẩm đang được đánh dấu.
+
+                List<TypeActDTO> _listAct = (List<TypeActDTO>)dtgvDecentralization.DataSource;
+                if (_listAct.Count > 0)
+                {
+                    foreach (TypeActDTO item in _listAct)
+                    {
+                        DecentralizationDTO dec = new DecentralizationDTO();
+                        dec.AccountID = _iID;//Management.UserLogin.ID;
+                        dec.TypeActID = item.ID;
+                        dec.Del = !item.Permission;
+
+                        DecentralizationBUS.Decentralization(dec);
+                    }
+                }
+                ClassUtils.Utils.MessageBoxInfomation("Cập nhật phân quyền thành công", "Thông Báo");
+            }
+            catch { }
+        }
+        #endregion
+
+        #region "[SelectUniKeyRulesName]"
+        private void gvDecentralization_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
+        {
+            if (e.Column.Name == "colTypeActName")
+            {
+                TypeActDTO item = (TypeActDTO)gvDecentralization.GetRow(e.RowHandle);
+                e.DisplayText = ClassUtils.Utils.SelectUniKeyRulesName(item.ID);
+            }
+            
+        }
+        #endregion
+
+        #region "[CancelDL]"
+        private void btnExitsDL_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                dpnlDecentralization.Close();
+            }
+            catch { }
+        }
+        #endregion
+
+        #region "[checkFull]"
+        /// <summary>
+        /// khi người dung nhấp vào check Cấp toàn quyền thao tác
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void checkFull_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (checkFull.Checked)
+                {
+                    //nếu check vào thì có toàn quyền.
+                    //lấy danh sách các quyền trên gridview
+                    foreach (TypeActDTO item in _listTypeAct)
+                        item.Permission = true;
+
+                    LoadListDecentralization();
+                }
+                else
+                {
+                    //hiển thị thông tin tương ứng
+                    _listTypeAct = TypeActBUS.GetAll().Where(p => p.Del == false).ToList();
+                    LoadListDecentralization();
+                }
+            }
+            catch { }
+        }
+        #endregion
     }
 }

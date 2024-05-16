@@ -4,16 +4,15 @@ namespace DTO.DTO
 {
     public class BillInfoDTO
     {
-        public BillInfoDTO(int id, int billID, int productID, int count, double importPrice, double salePrice, int vat, double divedend, bool del, string note)
+        public BillInfoDTO(int id, int billID, int productID, int count, double salePrice, int vat, double dividend, bool del, string note)
         {
             this.ID = id;
             this.BillID = billID;
             this.ProductID = productID;
             this.Count = count;
-            this.ImportPrice = importPrice;
             this.SalePrice = salePrice;
             this.VAT = vat;
-            this.Divedend = divedend;
+            this.Dividend = dividend;
             this.Del = del;
             this.Note = note;
         }
@@ -24,10 +23,9 @@ namespace DTO.DTO
             this.BillID = int.Parse(row["billID"].ToString());
             this.ProductID = int.Parse(row["productID"].ToString());
             this.Count = int.Parse(row["count"].ToString());
-            this.ImportPrice = double.Parse(row["importPrice"].ToString());
             this.SalePrice = double.Parse(row["salePrice"].ToString());
             this.VAT = int.Parse(row["vat"].ToString());
-            this.Divedend = double.Parse(row["divedend"].ToString());
+            this.Dividend = double.Parse(row["dividend"].ToString());
             this.Del = bool.Parse(row["del"].ToString());
             this.Note = row["note"].ToString();
         }
@@ -42,8 +40,8 @@ namespace DTO.DTO
         private double salePrice;
         private string salePriceString;
         private int vat;
-        private double divedend;
-        private string divedendString;
+        private double dividend;
+        private string dividendString;
         private bool del;
         private string note;
 
@@ -55,8 +53,8 @@ namespace DTO.DTO
         public double SalePrice { get => salePrice; set => salePrice = value; }
         public string SalePriceString { get => salePriceString; set => salePriceString = value; }
         public int VAT { get => vat; set => vat = value; }
-        public double Divedend { get => divedend; set => divedend = value; }
-        public string DivedendString { get => divedendString; set => divedendString = value; }
+        public double Dividend { get => dividend; set => dividend = value; }
+        public string DividendString { get => dividendString; set => dividendString = value; }
         public bool Del { get => del; set => del = value; }
         public string Note { get => note; set => note = value; }
     }

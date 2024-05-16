@@ -208,10 +208,10 @@ namespace PM_QuanLyKhoHang.UserControlDetails
 
                     //tính tiền lởi của món hàng
                     if (item.VAT > 0)
-                        item.Divedend = price - (item.VAT * price / 100);
+                        item.Dividend = price - (item.VAT * price / 100);
                     else
-                        item.Divedend = price;
-                    item.DivedendString = BUS.Utils.UtilsOperator.StandardizeTheMoneyChain(item.Divedend.ToString());
+                        item.Dividend = price;
+                    item.DividendString = BUS.Utils.UtilsOperator.StandardizeTheMoneyChain(item.Dividend.ToString());
                     item.Del = false;
                     item.Note = mmedNote.Text.Trim();
                     item.ImportPrice = importPrice;

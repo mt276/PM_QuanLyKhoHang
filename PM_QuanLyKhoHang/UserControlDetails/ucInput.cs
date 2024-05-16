@@ -18,7 +18,7 @@ namespace PM_QuanLyKhoHang.UserControlDetails
 
         InputDTO inputSelect = null;
 
-        private static List<InputDTO> listInput = new List<InputDTO>();
+        private static List<InputDTO> _listInput = new List<InputDTO>();
         #endregion
 
         #region "[Default Constructor]"
@@ -70,7 +70,7 @@ namespace PM_QuanLyKhoHang.UserControlDetails
                     itemShow();
                 ucAddProducts uc = new ucAddProducts();
                 uc.Insert += Uc_Insert;
-                uc.Update += Uc_Update;
+                uc.UpdateAP += Uc_Update;
                 uc.Delete += Uc_Delete;            
             }
             catch { }
@@ -146,7 +146,7 @@ namespace PM_QuanLyKhoHang.UserControlDetails
                 if (inputID > 0)
                 {
                     inputItem.ID = inputID;
-                    listInput.Add(inputItem);
+                    _listInput.Add(inputItem);
                     ClearData();
                     LoadListInput();
                     ClassUtils.Utils.MessageBoxInfomation("Thêm sản phẩm vào kho thành công", "Thông báo");
@@ -169,7 +169,7 @@ namespace PM_QuanLyKhoHang.UserControlDetails
                 if (inputSelect != null)
                 {
 
-                    InputDTO itemObj = listInput.Where(p => p.ID == inputSelect.ID).FirstOrDefault();
+                    InputDTO itemObj = _listInput.Where(p => p.ID == inputSelect.ID).FirstOrDefault();
                     inputSelect.ProductID = int.Parse(cbProductName.SelectedValue.ToString());
                     inputSelect.Count = int.Parse(txtCount.Text.Trim());
                     inputSelect.ImportPrice = double.Parse(txtImportPrice.Text.Trim());
@@ -198,8 +198,8 @@ namespace PM_QuanLyKhoHang.UserControlDetails
                     {
                         if(itemObj != null)
                         {
-                            listInput.Remove(itemObj);
-                            listInput.Add(inputSelect);
+                            _listInput.Remove(itemObj);
+                            _listInput.Add(inputSelect);
                         }
                         EnableButton(true);
                         LoadListInput();
@@ -227,9 +227,9 @@ namespace PM_QuanLyKhoHang.UserControlDetails
                     bool isSuccess = InputBUS.DeleteInputProduct(inputSelect.ProductID, inputSelect.ID, inputSelect.Count);
                     if (isSuccess)
                     {
-                        InputDTO item = listInput.Where(p => p.ID == inputSelect.ID).FirstOrDefault();
+                        InputDTO item = _listInput.Where(p => p.ID == inputSelect.ID).FirstOrDefault();
                         if (item != null)
-                            listInput.Remove(inputSelect);
+                            _listInput.Remove(inputSelect);
                         LoadListInput();
                         ClearData();
                         EnableButton(true);
@@ -445,18 +445,6 @@ namespace PM_QuanLyKhoHang.UserControlDetails
                 }
             }
 
-            //// Kiểm tra xem chuỗi có chứa ký tự phân cách hàng nghìn không và chèn ký tự phân cách nếu cần thiết
-            //if (char.IsDigit(e.KeyChar))
-            //{
-            //    // Lấy vị trí của con trỏ văn bản
-            //    int selectionStart = txtImportPrice.SelectionStart;
-            //    // Chèn ký tự phân cách hàng nghìn vào vị trí đúng
-            //    txtImportPrice.Text = txtImportPrice.Text.Insert(selectionStart, e.KeyChar.ToString());
-            //    // Đặt lại con trỏ văn bản sau khi chèn ký tự
-            //    txtImportPrice.SelectionStart = selectionStart + 1;
-            //    // Ngăn chặn sự kiện nhập liệu tiếp theo
-            //    e.Handled = true;
-            //}
         }
         #endregion
 

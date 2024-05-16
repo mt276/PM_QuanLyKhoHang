@@ -61,10 +61,10 @@
             this.colAddress = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colPhone = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colFax = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colRepresentative = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colStartDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDelete = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNote = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colRepresentative = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pnlMain)).BeginInit();
             this.pnlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcAddCustomers)).BeginInit();
@@ -233,6 +233,7 @@
             this.txtPhoneRepresentative.TabIndex = 6;
             this.txtPhoneRepresentative.ToolTip = "Số điện thoại người đại diện";
             this.txtPhoneRepresentative.ToolTipIconType = DevExpress.Utils.ToolTipIconType.Question;
+            this.txtPhoneRepresentative.TextChanged += new System.EventHandler(this.txtPhoneRepresentative_TextChanged);
             this.txtPhoneRepresentative.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPhoneRepresentative_KeyPress);
             // 
             // lbNote
@@ -290,6 +291,7 @@
             this.txtFax.TabIndex = 4;
             this.txtFax.ToolTip = "Fax";
             this.txtFax.ToolTipIconType = DevExpress.Utils.ToolTipIconType.Question;
+            this.txtFax.TextChanged += new System.EventHandler(this.txtFax_TextChanged);
             this.txtFax.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFax_KeyPress);
             // 
             // lbRepresentative
@@ -310,6 +312,7 @@
             this.txtPhone.TabIndex = 3;
             this.txtPhone.ToolTip = "Số Điện thoại liên lạc";
             this.txtPhone.ToolTipIconType = DevExpress.Utils.ToolTipIconType.Question;
+            this.txtPhone.TextChanged += new System.EventHandler(this.txtPhone_TextChanged);
             this.txtPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPhone_KeyPress);
             // 
             // lbPhone
@@ -491,6 +494,21 @@
             this.colFax.VisibleIndex = 4;
             this.colFax.Width = 103;
             // 
+            // colRepresentative
+            // 
+            this.colRepresentative.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.colRepresentative.AppearanceCell.Options.UseFont = true;
+            this.colRepresentative.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.colRepresentative.AppearanceHeader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.colRepresentative.AppearanceHeader.Options.UseFont = true;
+            this.colRepresentative.AppearanceHeader.Options.UseForeColor = true;
+            this.colRepresentative.Caption = "Tên người đại diện";
+            this.colRepresentative.MinWidth = 30;
+            this.colRepresentative.Name = "colRepresentative";
+            this.colRepresentative.Visible = true;
+            this.colRepresentative.VisibleIndex = 5;
+            this.colRepresentative.Width = 162;
+            // 
             // colStartDate
             // 
             this.colStartDate.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 14F);
@@ -532,21 +550,6 @@
             this.colNote.Visible = true;
             this.colNote.VisibleIndex = 7;
             this.colNote.Width = 122;
-            // 
-            // colRepresentative
-            // 
-            this.colRepresentative.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.colRepresentative.AppearanceCell.Options.UseFont = true;
-            this.colRepresentative.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            this.colRepresentative.AppearanceHeader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.colRepresentative.AppearanceHeader.Options.UseFont = true;
-            this.colRepresentative.AppearanceHeader.Options.UseForeColor = true;
-            this.colRepresentative.Caption = "Tên người đại diện";
-            this.colRepresentative.MinWidth = 30;
-            this.colRepresentative.Name = "colRepresentative";
-            this.colRepresentative.Visible = true;
-            this.colRepresentative.VisibleIndex = 5;
-            this.colRepresentative.Width = 162;
             // 
             // ucAddCustomers
             // 
