@@ -150,10 +150,12 @@ namespace PM_QuanLyKhoHang.ClassUtils
             int iResult = -1;
             try
             {
-                TypeActDTO insert = new TypeActDTO();
-                insert.Name = sItem;
-                insert.Del = false;
-                insert.Note = string.Empty;
+                TypeActDTO insert = new TypeActDTO
+                {
+                    Name = sItem,
+                    Del = false,
+                    Note = string.Empty
+                };
 
                 return TypeActBUS.Insert(insert);
             }

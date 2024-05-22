@@ -14,7 +14,7 @@ using System.Windows.Forms.DataVisualization.Charting;
 
 namespace PM_QuanLyKhoHang.UserControlDetails
 {
-    public partial class ucProductPriceChart : UserControl
+    public partial class UcProductPriceChart : UserControl
     {
 
         #region "[Declare Global Variable]"
@@ -25,7 +25,7 @@ namespace PM_QuanLyKhoHang.UserControlDetails
         #endregion
 
         #region "[Default Constructor]"
-        public ucProductPriceChart()
+        public UcProductPriceChart()
         {
             InitializeComponent();
         }
@@ -37,7 +37,7 @@ namespace PM_QuanLyKhoHang.UserControlDetails
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void rdByYear_CheckedChanged(object sender, EventArgs e)
+        private void RdByYear_CheckedChanged(object sender, EventArgs e)
         {
             try
             {
@@ -59,7 +59,7 @@ namespace PM_QuanLyKhoHang.UserControlDetails
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void rdPeriod_CheckedChanged(object sender, EventArgs e)
+        private void RdPeriod_CheckedChanged(object sender, EventArgs e)
         {
             try
             {
@@ -87,7 +87,7 @@ namespace PM_QuanLyKhoHang.UserControlDetails
         #endregion
 
         #region "[Load]"
-        private void ucProductPriceChart_Load(object sender, EventArgs e)
+        private void UcProductPriceChart_Load(object sender, EventArgs e)
         {
             try
             {
@@ -135,7 +135,7 @@ namespace PM_QuanLyKhoHang.UserControlDetails
         #endregion
 
         #region "[Show]"
-        private void btnShow_Click(object sender, EventArgs e)
+        private void BtnShow_Click(object sender, EventArgs e)
         {
             try
             {
@@ -174,10 +174,12 @@ namespace PM_QuanLyKhoHang.UserControlDetails
 
                 for (int i = 0; i < listYears.Count; i++)
                 {
-                    Series s = new Series();
-                    s.ChartType = SeriesChartType.Line;
-                    s.Name = "Nam:" + listYears[i].Year.ToString();
-                    s.BorderColor = ClassUtils.Utils.GetListColor()[i];
+                    Series s = new Series
+                    {
+                        ChartType = SeriesChartType.Line,
+                        Name = "Nam:" + listYears[i].Year.ToString(),
+                        BorderColor = ClassUtils.Utils.GetListColor()[i]
+                    };
                     for (int j = 0; j < listYears[i].ImportPrice.Count; j++)
                     {
                         DataPoint p = new DataPoint();
@@ -228,9 +230,11 @@ namespace PM_QuanLyKhoHang.UserControlDetails
                 chartProductPrice.ChartAreas[0].AxisY.Maximum = MaxOneYear(listOneYear);
                 chartProductPrice.Series.Clear();
 
-                Series s = new Series();
-                s.ChartType = SeriesChartType.Column;
-                s.Name = "Gia Nhap";
+                Series s = new Series
+                {
+                    ChartType = SeriesChartType.Column,
+                    Name = "Gia Nhap"
+                };
                 for (int j = 0; j < listOneYear.Count; j++)
                 {
                     DataPoint p = new DataPoint();

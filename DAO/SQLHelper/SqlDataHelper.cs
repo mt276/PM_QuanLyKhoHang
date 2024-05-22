@@ -11,8 +11,7 @@ namespace DAO.SQLHelper
     public class SqlDataHelper
     {
 
-        public static string strConnectionString = Properties.Settings.Default.QuanLyKhoHangConnectionString.ToString();
-
+        public static string strConnectionString = @"data source=.\SQLEXPRESS;Initial Catalog = QuanLyKhoHang; Persist Security Info=True;User ID = sa; Password=12345678";
 
         public static SqlConnection Connect(string _strConnectionString)
         {
@@ -89,8 +88,10 @@ namespace DAO.SQLHelper
             int IDResult = -1;
             try
             {
-                SqlCommand cmd = new SqlCommand(_strSql, _cn);
-                cmd.CommandType = CommandType.Text;
+                SqlCommand cmd = new SqlCommand(_strSql, _cn)
+                {
+                    CommandType = CommandType.Text
+                };
                 OpenConnection(_cn);
                 IDResult = cmd.ExecuteNonQuery();
                 CloseConnection(_cn);
@@ -110,8 +111,10 @@ namespace DAO.SQLHelper
             int IDResult = -1;
             try
             {
-                SqlCommand cmd = new SqlCommand(_strSql, _cn);
-                cmd.CommandType = CommandType.Text;
+                SqlCommand cmd = new SqlCommand(_strSql, _cn)
+                {
+                    CommandType = CommandType.Text
+                };
                 OpenConnection(_cn);
                 IDResult = int.Parse(cmd.ExecuteScalar().ToString());
                 CloseConnection(_cn);

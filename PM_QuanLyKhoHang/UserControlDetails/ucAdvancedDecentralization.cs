@@ -41,7 +41,7 @@ namespace PM_QuanLyKhoHang.UserControlDetails
         #endregion
 
         #region "[Insert Account]"
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void BtnAdd_Click(object sender, EventArgs e)
         {
             try
             {
@@ -76,13 +76,15 @@ namespace PM_QuanLyKhoHang.UserControlDetails
                 }
                 else
                 {
-                    AccountDTO acc = new AccountDTO();
-                    acc.UserName = txtUserName.Text.Trim();
-                    acc.FullName = txtFullName.Text.Trim();
-                    acc.Address = mmedAddress.Text.Trim();
-                    acc.TypeID = (int)cbTypeID.SelectedValue;
-                    acc.Del = false;
-                    acc.Note = mmedNote.Text.Trim();
+                    AccountDTO acc = new AccountDTO
+                    {
+                        UserName = txtUserName.Text.Trim(),
+                        FullName = txtFullName.Text.Trim(),
+                        Address = mmedAddress.Text.Trim(),
+                        TypeID = (int)cbTypeID.SelectedValue,
+                        Del = false,
+                        Note = mmedNote.Text.Trim()
+                    };
 
                     int id = AccountBUS.Insert(acc);
                     if (id > 0)
@@ -98,7 +100,7 @@ namespace PM_QuanLyKhoHang.UserControlDetails
         #endregion
 
         #region "[Update Account]"
-        private void btnUpdate_Click(object sender, EventArgs e)
+        private void BtnUpdate_Click(object sender, EventArgs e)
         {
             try
             {
@@ -144,7 +146,7 @@ namespace PM_QuanLyKhoHang.UserControlDetails
         #endregion
 
         #region "[Delete]"
-        private void btnDelete_Click(object sender, EventArgs e)
+        private void BtnDelete_Click(object sender, EventArgs e)
         {
             try
             {
@@ -170,7 +172,7 @@ namespace PM_QuanLyKhoHang.UserControlDetails
         #endregion
 
         #region "[Cancel]"
-        private void btnCancel_Click(object sender, EventArgs e)
+        private void BtnCancel_Click(object sender, EventArgs e)
         {
             try { ClearData(); }
             catch { }
@@ -178,19 +180,18 @@ namespace PM_QuanLyKhoHang.UserControlDetails
         #endregion
 
         #region "[Exits]"
-        private void btnExits_Click(object sender, EventArgs e)
+        private void BtnExits_Click(object sender, EventArgs e)
         {
             try
             {
-                if (clearItem != null)
-                    clearItem();
+                clearItem?.Invoke();
             }
             catch { }
         }
         #endregion
 
         #region "[Load]"
-        private void ucAdvancedDecentralization_Load(object sender, EventArgs e)
+        private void UcAdvancedDecentralization_Load(object sender, EventArgs e)
         {
             try
             {
@@ -249,7 +250,7 @@ namespace PM_QuanLyKhoHang.UserControlDetails
         #endregion
 
         #region "[Get information in one line]"
-        private void gvAccount_RowClick(object sender, RowClickEventArgs e)
+        private void GvAccount_RowClick(object sender, RowClickEventArgs e)
         {
             try
             {
@@ -297,7 +298,7 @@ namespace PM_QuanLyKhoHang.UserControlDetails
         #endregion
 
         #region "[Ordinal number]"
-        private void gvAccount_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
+        private void GvAccount_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
         {
             try
             {
@@ -311,7 +312,7 @@ namespace PM_QuanLyKhoHang.UserControlDetails
 
         #region "[Create Menu]"
 
-        private void gvAccount_PopupMenuShowing(object sender, DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs e)
+        private void GvAccount_PopupMenuShowing(object sender, DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs e)
         {
             try
             {
@@ -324,12 +325,16 @@ namespace PM_QuanLyKhoHang.UserControlDetails
 
                     DXMenuItem menuItem;
 
-                    menuItem = new DXMenuItem("Property", new EventHandler(RowClickProperty));
-                    menuItem.Tag = new RowInfo(view, rowHandle);
+                    menuItem = new DXMenuItem("Property", new EventHandler(RowClickProperty))
+                    {
+                        Tag = new RowInfo(view, rowHandle)
+                    };
                     e.Menu.Items.Add(menuItem);
 
-                    menuItem = new DXMenuItem("Details", new EventHandler(RowClickDetails));
-                    menuItem.Tag = new RowInfo(view, rowHandle);
+                    menuItem = new DXMenuItem("Details", new EventHandler(RowClickDetails))
+                    {
+                        Tag = new RowInfo(view, rowHandle)
+                    };
                     e.Menu.Items.Add(menuItem);
                 }
             }
@@ -433,7 +438,7 @@ namespace PM_QuanLyKhoHang.UserControlDetails
         #endregion
 
         #region "[Update Decentrailization]"
-        private void btnUpdateDL_Click(object sender, EventArgs e)
+        private void BtnUpdateDL_Click(object sender, EventArgs e)
         {
 
             try
@@ -446,10 +451,12 @@ namespace PM_QuanLyKhoHang.UserControlDetails
                 {
                     foreach (TypeActDTO item in _listAct)
                     {
-                        DecentralizationDTO dec = new DecentralizationDTO();
-                        dec.AccountID = _iID;//Management.UserLogin.ID;
-                        dec.TypeActID = item.ID;
-                        dec.Del = !item.Permission;
+                        DecentralizationDTO dec = new DecentralizationDTO
+                        {
+                            AccountID = _iID,//Management.UserLogin.ID;
+                            TypeActID = item.ID,
+                            Del = !item.Permission
+                        };
 
                         DecentralizationBUS.Decentralization(dec);
                     }
@@ -461,7 +468,7 @@ namespace PM_QuanLyKhoHang.UserControlDetails
         #endregion
 
         #region "[SelectUniKeyRulesName]"
-        private void gvDecentralization_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
+        private void GvDecentralization_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
         {
             if (e.Column.Name == "colTypeActName")
             {
@@ -473,7 +480,7 @@ namespace PM_QuanLyKhoHang.UserControlDetails
         #endregion
 
         #region "[CancelDL]"
-        private void btnExitsDL_Click(object sender, EventArgs e)
+        private void BtnExitsDL_Click(object sender, EventArgs e)
         {
             try
             {
@@ -489,7 +496,7 @@ namespace PM_QuanLyKhoHang.UserControlDetails
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void checkFull_CheckedChanged(object sender, EventArgs e)
+        private void CheckFull_CheckedChanged(object sender, EventArgs e)
         {
             try
             {

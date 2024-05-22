@@ -1,6 +1,6 @@
 ﻿namespace PM_QuanLyKhoHang.UserControlDetails
 {
-    partial class ucProductPriceChart
+    partial class UcProductPriceChart
     {
         /// <summary> 
         /// Required designer variable.
@@ -86,7 +86,7 @@
             this.btnShow.Size = new System.Drawing.Size(112, 35);
             this.btnShow.TabIndex = 5;
             this.btnShow.Text = "Hiển &Thị";
-            this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
+            this.btnShow.Click += new System.EventHandler(this.BtnShow_Click);
             // 
             // lbEndDate
             // 
@@ -145,7 +145,7 @@
             this.rdPeriod.TabIndex = 1;
             this.rdPeriod.Text = "Biến động giá trong khoản thời gian";
             this.rdPeriod.UseVisualStyleBackColor = true;
-            this.rdPeriod.CheckedChanged += new System.EventHandler(this.rdPeriod_CheckedChanged);
+            this.rdPeriod.CheckedChanged += new System.EventHandler(this.RdPeriod_CheckedChanged);
             // 
             // rdByYear
             // 
@@ -159,7 +159,7 @@
             this.rdByYear.TabStop = true;
             this.rdByYear.Text = "Biến động Giá trong 1 năm";
             this.rdByYear.UseVisualStyleBackColor = true;
-            this.rdByYear.CheckedChanged += new System.EventHandler(this.rdByYear_CheckedChanged);
+            this.rdByYear.CheckedChanged += new System.EventHandler(this.RdByYear_CheckedChanged);
             // 
             // pnlChart
             // 
@@ -199,7 +199,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ucProductPriceChart";
             this.Size = new System.Drawing.Size(960, 471);
-            this.Load += new System.EventHandler(this.ucProductPriceChart_Load);
+            this.Load += new System.EventHandler(this.UcProductPriceChart_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pnlSearch)).EndInit();
             this.pnlSearch.ResumeLayout(false);
             this.pnlSearch.PerformLayout();

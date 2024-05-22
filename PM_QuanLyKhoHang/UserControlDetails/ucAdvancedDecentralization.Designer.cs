@@ -193,9 +193,9 @@
             this.gvAccount.GroupPanelText = " ";
             this.gvAccount.Name = "gvAccount";
             this.gvAccount.OptionsEditForm.PopupEditFormWidth = 1200;
-            this.gvAccount.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gvAccount_RowClick);
-            this.gvAccount.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.gvAccount_CustomDrawCell);
-            this.gvAccount.PopupMenuShowing += new DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventHandler(this.gvAccount_PopupMenuShowing);
+            this.gvAccount.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.GvAccount_RowClick);
+            this.gvAccount.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.GvAccount_CustomDrawCell);
+            this.gvAccount.PopupMenuShowing += new DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventHandler(this.GvAccount_PopupMenuShowing);
             // 
             // colSTT
             // 
@@ -290,7 +290,7 @@
             this.btnDelete.Size = new System.Drawing.Size(112, 35);
             this.btnDelete.TabIndex = 8;
             this.btnDelete.Text = "&Xóa";
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            this.btnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
             // lblsUserName
             // 
@@ -409,7 +409,7 @@
             this.btnExits.Size = new System.Drawing.Size(112, 35);
             this.btnExits.TabIndex = 11;
             this.btnExits.Text = "Th&oát";
-            this.btnExits.Click += new System.EventHandler(this.btnExits_Click);
+            this.btnExits.Click += new System.EventHandler(this.BtnExits_Click);
             // 
             // btnCancel
             // 
@@ -419,7 +419,7 @@
             this.btnCancel.Size = new System.Drawing.Size(112, 35);
             this.btnCancel.TabIndex = 10;
             this.btnCancel.Text = "&Hủy";
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // btnUpdate
             // 
@@ -429,7 +429,7 @@
             this.btnUpdate.Size = new System.Drawing.Size(112, 35);
             this.btnUpdate.TabIndex = 9;
             this.btnUpdate.Text = "Cập &Nhật";
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            this.btnUpdate.Click += new System.EventHandler(this.BtnUpdate_Click);
             // 
             // btnAdd
             // 
@@ -439,7 +439,7 @@
             this.btnAdd.Size = new System.Drawing.Size(112, 35);
             this.btnAdd.TabIndex = 7;
             this.btnAdd.Text = "&Thêm";
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            this.btnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
             // mmedAddress
             // 
@@ -540,7 +540,7 @@
             this.gvDecentralization.GroupPanelText = " ";
             this.gvDecentralization.Name = "gvDecentralization";
             this.gvDecentralization.OptionsEditForm.PopupEditFormWidth = 1200;
-            this.gvDecentralization.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.gvDecentralization_CustomDrawCell);
+            this.gvDecentralization.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.GvDecentralization_CustomDrawCell);
             // 
             // colTypeActName
             // 
@@ -583,7 +583,7 @@
             this.checkFull.Properties.Caption = "Toàn quyền hệ thống";
             this.checkFull.Size = new System.Drawing.Size(195, 27);
             this.checkFull.TabIndex = 12;
-            this.checkFull.CheckedChanged += new System.EventHandler(this.checkFull_CheckedChanged);
+            this.checkFull.CheckedChanged += new System.EventHandler(this.CheckFull_CheckedChanged);
             // 
             // btnExitsDL
             // 
@@ -593,7 +593,7 @@
             this.btnExitsDL.Size = new System.Drawing.Size(112, 35);
             this.btnExitsDL.TabIndex = 14;
             this.btnExitsDL.Text = "Thoát";
-            this.btnExitsDL.Click += new System.EventHandler(this.btnExitsDL_Click);
+            this.btnExitsDL.Click += new System.EventHandler(this.BtnExitsDL_Click);
             // 
             // btnUpdateDL
             // 
@@ -603,7 +603,7 @@
             this.btnUpdateDL.Size = new System.Drawing.Size(112, 35);
             this.btnUpdateDL.TabIndex = 13;
             this.btnUpdateDL.Text = "Cập Nhật";
-            this.btnUpdateDL.Click += new System.EventHandler(this.btnUpdateDL_Click);
+            this.btnUpdateDL.Click += new System.EventHandler(this.BtnUpdateDL_Click);
             // 
             // ucAdvancedDecentralization
             // 
@@ -614,7 +614,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ucAdvancedDecentralization";
             this.Size = new System.Drawing.Size(1458, 546);
-            this.Load += new System.EventHandler(this.ucAdvancedDecentralization_Load);
+            this.Load += new System.EventHandler(this.UcAdvancedDecentralization_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pnlMain)).EndInit();
             this.pnlMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcAdvDecentralization)).EndInit();

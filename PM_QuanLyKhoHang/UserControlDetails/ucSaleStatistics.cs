@@ -208,7 +208,7 @@ namespace PM_QuanLyKhoHang.UserControlDetails
         {
             try
             {
-                ucProductPriceChart uc = new ucProductPriceChart();
+                UcProductPriceChart uc = new UcProductPriceChart();
                 uc.Dock = DockStyle.Fill;
                 pnlMain.Controls.Clear();
                 pnlMain.Controls.Add(uc);

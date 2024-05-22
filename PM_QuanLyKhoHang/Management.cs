@@ -169,7 +169,7 @@ namespace PM_QuanLyKhoHang
 
             if (UserLogin == null)
             {
-                btnLogin_ItemClick(null, null);
+                BtnLogin_ItemClick(null, null);
             }
         }
         #endregion
@@ -178,7 +178,7 @@ namespace PM_QuanLyKhoHang
         /// <summary>
         /// xóa các control đang hiển thị trên Pannel
         /// </summary>
-        private void clearPannel()
+        private void ClearPannel()
         {
             try
             {
@@ -191,7 +191,7 @@ namespace PM_QuanLyKhoHang
         #region "[rbpLogin]"
 
         #region "[Login]"
-        private void btnLogin_ItemClick(object sender, ItemClickEventArgs e)
+        private void BtnLogin_ItemClick(object sender, ItemClickEventArgs e)
         {
             try
             {
@@ -210,7 +210,7 @@ namespace PM_QuanLyKhoHang
         #endregion
 
         #region "[Logout]"
-        private void btnLogout_ItemClick(object sender, ItemClickEventArgs e)
+        private void BtnLogout_ItemClick(object sender, ItemClickEventArgs e)
         {
             try
             {
@@ -248,7 +248,7 @@ namespace PM_QuanLyKhoHang
         #endregion
 
         #region "[Exits]"
-        private void btnExits_ItemClick(object sender, ItemClickEventArgs e)
+        private void BtnExits_ItemClick(object sender, ItemClickEventArgs e)
         {
             this.Close();
         }
@@ -262,9 +262,11 @@ namespace PM_QuanLyKhoHang
         {
             try
             {
-                ucMyAccount uc = new ucMyAccount();
-                uc.clearItem = clearPannel;
-                uc.Dock = DockStyle.Fill;
+                ucMyAccount uc = new ucMyAccount
+                {
+                    clearItem = ClearPannel,
+                    Dock = DockStyle.Fill
+                };
                 pnlMain.Controls.Clear();
                 pnlMain.Controls.Add(uc);
 
@@ -272,7 +274,7 @@ namespace PM_QuanLyKhoHang
             catch { }
         }
 
-        private void btnMyAccount_ItemClick(object sender, ItemClickEventArgs e)
+        private void BtnMyAccount_ItemClick(object sender, ItemClickEventArgs e)
         {
             try
             {
@@ -290,15 +292,17 @@ namespace PM_QuanLyKhoHang
         {
             try
             {
-                ucAdvancedDecentralization uc = new ucAdvancedDecentralization();
-                uc.clearItem = clearPannel;
-                uc.Dock = DockStyle.Fill;
+                ucAdvancedDecentralization uc = new ucAdvancedDecentralization
+                {
+                    clearItem = ClearPannel,
+                    Dock = DockStyle.Fill
+                };
                 pnlMain.Controls.Clear();
                 pnlMain.Controls.Add(uc);
             }
             catch { }
         }
-        private void btnDecentralization_ItemClick(object sender, ItemClickEventArgs e)
+        private void BtnDecentralization_ItemClick(object sender, ItemClickEventArgs e)
         {
             try
             {
@@ -318,17 +322,19 @@ namespace PM_QuanLyKhoHang
             try
             {
                 pnlMain.Controls.Clear();
-                ucBill uc = new ucBill();
-                uc.showBillInfo = ShowBillInfo;
-                uc.clearItem = clearPannel;
-                uc.itemShow = ShowUserControlAddProduct;
-                uc.Dock = DockStyle.Fill;
+                ucBill uc = new ucBill
+                {
+                    showBillInfo = ShowBillInfo,
+                    clearItem = ClearPannel,
+                    itemShow = ShowUserControlAddProduct,
+                    Dock = DockStyle.Fill
+                };
                 pnlMain.Controls.Add(uc);
 
             }
             catch { }
         }
-        private void btnSell_ItemClick(object sender, ItemClickEventArgs e)
+        private void BtnSell_ItemClick(object sender, ItemClickEventArgs e)
         {
             try
             {
@@ -341,11 +347,13 @@ namespace PM_QuanLyKhoHang
         {
             try
             {
-                ucCreateBill uc = new ucCreateBill(_listobjBillInfo, _companyID);
-                uc.showBill = ShowBill;
-                uc.itemShow = ShowUserControlAddReferrer;
-                uc.clearItem = clearPannel;
-                uc.Dock = DockStyle.Fill;
+                ucCreateBill uc = new ucCreateBill(_listobjBillInfo, _companyID)
+                {
+                    showBill = ShowBill,
+                    itemShow = ShowUserControlAddReferrer,
+                    clearItem = ClearPannel,
+                    Dock = DockStyle.Fill
+                };
                 pnlMain.Controls.Clear();
                 pnlMain.Controls.Add(uc);
             }
@@ -356,9 +364,11 @@ namespace PM_QuanLyKhoHang
         {
             try
             {
-                ucBill uc = new ucBill(_listobjBillInfo, _companyID);
-                uc.showBillInfo = ShowBillInfo;
-                uc.Dock = DockStyle.Fill;
+                ucBill uc = new ucBill(_listobjBillInfo, _companyID)
+                {
+                    showBillInfo = ShowBillInfo,
+                    Dock = DockStyle.Fill
+                };
                 pnlMain.Controls.Clear();
                 pnlMain.Controls.Add(uc);
             }
@@ -374,16 +384,18 @@ namespace PM_QuanLyKhoHang
             try
             {
                 pnlMain.Controls.Clear();
-                ucInput uc = new ucInput();
-                uc.clearItem = clearPannel;
-                uc.itemShow = ShowUserControlAddProduct;
-                uc.Dock = DockStyle.Fill;
+                ucInput uc = new ucInput
+                {
+                    clearItem = ClearPannel,
+                    itemShow = ShowUserControlAddProduct,
+                    Dock = DockStyle.Fill
+                };
                 pnlMain.Controls.Add(uc);
 
             }
             catch { }
         }
-        private void btnWarehouse_ItemClick(object sender, ItemClickEventArgs e)
+        private void BtnWarehouse_ItemClick(object sender, ItemClickEventArgs e)
         {
             try
             {
@@ -400,16 +412,18 @@ namespace PM_QuanLyKhoHang
             try
             {
                 pnlMain.Controls.Clear();
-                ucListInput uc = new ucListInput();
-                uc.clearItem = clearPannel;
-                uc.itemShow = ShowUserControlAddProduct;
-                uc.Dock = DockStyle.Fill;
+                ucListInput uc = new ucListInput
+                {
+                    clearItem = ClearPannel,
+                    itemShow = ShowUserControlAddProduct,
+                    Dock = DockStyle.Fill
+                };
                 pnlMain.Controls.Add(uc);
 
             }
             catch { }
         }
-        private void btnWarehouseManagement_ItemClick(object sender, ItemClickEventArgs e)
+        private void BtnWarehouseManagement_ItemClick(object sender, ItemClickEventArgs e)
         {
             try
             {
@@ -425,16 +439,18 @@ namespace PM_QuanLyKhoHang
             try
             {
                 pnlMain.Controls.Clear();
-                ucSalePrice uc = new ucSalePrice();
-                uc.clearItem = clearPannel;
-                uc.Dock = DockStyle.Fill;
+                ucSalePrice uc = new ucSalePrice
+                {
+                    clearItem = ClearPannel,
+                    Dock = DockStyle.Fill
+                };
                 pnlMain.Controls.Add(uc);
 
             }
             catch { }
         }
 
-        private void btnPriceUpdate_ItemClick(object sender, ItemClickEventArgs e)
+        private void BtnPriceUpdate_ItemClick(object sender, ItemClickEventArgs e)
         {
             try
             {
@@ -450,15 +466,17 @@ namespace PM_QuanLyKhoHang
             try
             {
                 pnlMain.Controls.Clear();
-                ucAddCustomers uc = new ucAddCustomers();
-                uc.clearItem = clearPannel;
-                uc.Dock = DockStyle.Fill;
+                ucAddCustomers uc = new ucAddCustomers
+                {
+                    clearItem = ClearPannel,
+                    Dock = DockStyle.Fill
+                };
                 pnlMain.Controls.Add(uc);
 
             }
             catch { }
         }
-        private void btnAddCustomer_ItemClick(object sender, ItemClickEventArgs e)
+        private void BtnAddCustomer_ItemClick(object sender, ItemClickEventArgs e)
         {
             try
             {
@@ -474,15 +492,17 @@ namespace PM_QuanLyKhoHang
             try
             {
                 pnlMain.Controls.Clear();
-                ucListCustomers uc = new ucListCustomers();
-                uc.clearItem = clearPannel;
-                uc.Dock = DockStyle.Fill;
+                ucListCustomers uc = new ucListCustomers
+                {
+                    clearItem = ClearPannel,
+                    Dock = DockStyle.Fill
+                };
                 pnlMain.Controls.Add(uc);
 
             }
             catch { }
         }
-        private void btnListCustomer_ItemClick(object sender, ItemClickEventArgs e)
+        private void BtnListCustomer_ItemClick(object sender, ItemClickEventArgs e)
         {
             try
             {
@@ -498,16 +518,18 @@ namespace PM_QuanLyKhoHang
             try
             {
                 pnlMain.Controls.Clear();
-                ucAddReferrer uc = new ucAddReferrer();
-                uc.clearItem = clearPannel;
-                uc.itemShow = ShowUserControlTypeReferrer;
-                uc.Dock = DockStyle.Fill;
+                ucAddReferrer uc = new ucAddReferrer
+                {
+                    clearItem = ClearPannel,
+                    itemShow = ShowUserControlTypeReferrer,
+                    Dock = DockStyle.Fill
+                };
                 pnlMain.Controls.Add(uc);
 
             }
             catch { }
         }
-        private void btnAddReferrer_ItemClick(object sender, ItemClickEventArgs e)
+        private void BtnAddReferrer_ItemClick(object sender, ItemClickEventArgs e)
         {
             try
             {
@@ -524,15 +546,17 @@ namespace PM_QuanLyKhoHang
             try
             {
                 pnlMain.Controls.Clear();
-                ucAddProducts uc = new ucAddProducts();
-                uc.clearItem = clearPannel;
-                uc.Dock = DockStyle.Fill;
+                ucAddProducts uc = new ucAddProducts
+                {
+                    clearItem = ClearPannel,
+                    Dock = DockStyle.Fill
+                };
                 pnlMain.Controls.Add(uc);
 
             }
             catch { }
         }
-        private void btnAddProduct_ItemClick(object sender, ItemClickEventArgs e)
+        private void BtnAddProduct_ItemClick(object sender, ItemClickEventArgs e)
         {
             try
             {
@@ -548,15 +572,17 @@ namespace PM_QuanLyKhoHang
             try
             {
                 pnlMain.Controls.Clear();
-                ucProductInfo uc = new ucProductInfo();
-                uc.clearItem = clearPannel;
-                uc.Dock = DockStyle.Fill;
+                ucProductInfo uc = new ucProductInfo
+                {
+                    clearItem = ClearPannel,
+                    Dock = DockStyle.Fill
+                };
                 pnlMain.Controls.Add(uc);
 
             }
             catch { }
         }
-        private void btnListProduct_ItemClick(object sender, ItemClickEventArgs e)
+        private void BtnListProduct_ItemClick(object sender, ItemClickEventArgs e)
         {
             try
             {
@@ -572,15 +598,17 @@ namespace PM_QuanLyKhoHang
             try
             {
                 pnlMain.Controls.Clear();
-                ucSaleStatistics uc = new ucSaleStatistics();
-                uc.clearItem = clearPannel;
-                uc.Dock = DockStyle.Fill;
+                ucSaleStatistics uc = new ucSaleStatistics
+                {
+                    clearItem = ClearPannel,
+                    Dock = DockStyle.Fill
+                };
                 pnlMain.Controls.Add(uc);
 
             }
             catch { }
         }
-        private void btnStatistics_ItemClick(object sender, ItemClickEventArgs e)
+        private void BtnStatistics_ItemClick(object sender, ItemClickEventArgs e)
         {
             try
             {
@@ -595,16 +623,18 @@ namespace PM_QuanLyKhoHang
         {
             try
             {
-                ucTypeReferrer uc = new ucTypeReferrer();
-                uc.clearItem = clearPannel;
-                uc.Dock = DockStyle.Fill;
+                ucTypeReferrer uc = new ucTypeReferrer
+                {
+                    clearItem = ClearPannel,
+                    Dock = DockStyle.Fill
+                };
                 pnlMain.Controls.Clear();
                 pnlMain.Controls.Add(uc);
 
             }
             catch { }
         }
-        private void btnAddTypeReferrer_ItemClick(object sender, ItemClickEventArgs e)
+        private void BtnAddTypeReferrer_ItemClick(object sender, ItemClickEventArgs e)
         {
             ShowUserControlTypeReferrer();
         }
@@ -615,21 +645,21 @@ namespace PM_QuanLyKhoHang
         #region "[rbpConfig]"
 
         #region "[btnConfigure_ItemClick]"
-        private void btnConfigure_ItemClick(object sender, ItemClickEventArgs e)
+        private void BtnConfigure_ItemClick(object sender, ItemClickEventArgs e)
         {
 
         }
         #endregion
 
         #region "[btnTrashCan_ItemClick]"
-        private void btnTrashCan_ItemClick(object sender, ItemClickEventArgs e)
+        private void BtnTrashCan_ItemClick(object sender, ItemClickEventArgs e)
         {
 
         }
         #endregion
 
         #region "[UpdateSystem]"
-        private void btnUpdateSystem_ItemClick(object sender, ItemClickEventArgs e)
+        private void BtnUpdateSystem_ItemClick(object sender, ItemClickEventArgs e)
         {
             ClassUtils.Utils.MessageBoxInfomation("Cập nhật thành công", "Thông báo");
         }
@@ -643,15 +673,17 @@ namespace PM_QuanLyKhoHang
             try
             {
                 pnlMain.Controls.Clear();
-                ucSendEmail uc = new ucSendEmail();
-                uc.clearItem = clearPannel;
-                uc.Dock = DockStyle.Fill;
+                ucSendEmail uc = new ucSendEmail
+                {
+                    clearItem = ClearPannel,
+                    Dock = DockStyle.Fill
+                };
                 pnlMain.Controls.Add(uc);
 
             }
             catch { }
         }
-        private void btnSendEmail_ItemClick(object sender, ItemClickEventArgs e)
+        private void BtnSendEmail_ItemClick(object sender, ItemClickEventArgs e)
         {
             try
             {
@@ -662,7 +694,7 @@ namespace PM_QuanLyKhoHang
         #endregion
 
         #region "[SqlServer]"
-        private void btnSqlServer_ItemClick(object sender, ItemClickEventArgs e)
+        private void BtnSqlServer_ItemClick(object sender, ItemClickEventArgs e)
         {
             try
             {

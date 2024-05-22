@@ -2,8 +2,6 @@
 GO
 USE QuanLyKhoHang
 GO
-
-
 CREATE TABLE TypeAct
 (
     ID   INT IDENTITY PRIMARY KEY NOT NULL,
@@ -257,7 +255,7 @@ INSERT dbo.TypeAct (ID, name, Del, Note) VALUES (17, N'ProductPriceChart', 0, N'
 INSERT dbo.TypeAct (ID, name, Del, Note) VALUES (18, N'DebtStatistics', 0, N'');
 INSERT dbo.TypeAct (ID, name, Del, Note) VALUES (19, N'BillStatistics', 0, N'');
 INSERT dbo.TypeAct (ID, name, Del, Note) VALUES (20, N'InputReport', 0, N'');
-
+SET IDENTITY_INSERT dbo.TypeAct OFF
 SET IDENTITY_INSERT dbo.TypeAccount ON
 INSERT dbo.TypeAccount (ID, name, Del, Note) VALUES (1, N'Giám Đốc', 0, N'Giám đốc')
 INSERT dbo.TypeAccount (ID, name, Del, Note) VALUES (2, N'Nhân Viên Nhập Kho', 0, N'Nhân Viên Nhập Kho')
