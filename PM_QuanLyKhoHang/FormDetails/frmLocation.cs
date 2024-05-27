@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -137,14 +138,29 @@ namespace PM_QuanLyKhoHang.FormDetails
             {
                 //lấy thông tin tên database.
                 string nameDatabase = cbDatabaseName.SelectedItem.ToString();
-                strConnection = strConnection + ";database=" + nameDatabase;
-                //thực hiện cấu hình đường dẫn vào file text.
+                string strServerName = txtSeverName.Text.Trim();
+                string strUserName = txtUserName.Text.Trim();
+                string strPassword = txtPassword.Text.Trim();
 
+                strConnection = string.Format("data source={0};Initial Catalog = {1}; Persist Security Info=True;User ID = {2}; Password={3}", strServerName, nameDatabase, strUserName, strPassword);
+                //thực hiện cấu hình đường dẫn vào file text.
+                string filePath = @"C:\QuanLyKhoHang\connect.txt";
+                try
+                {
+                    // Mở tệp để ghi
+                    using (StreamWriter writer = new StreamWriter(filePath, false))
+                    {
+                        // Ghi chuỗi từ TextBox vào tệp
+                        writer.WriteLine(strConnection);
+                    }
+
+                }
+                catch { }
 
                 //ghi file text = 
                 //ClassUtils.Utils.WriteFileText( strConnection);
-                Properties.Settings.Default.LocationSqlserver = strConnection;
-                Properties.Settings.Default.Save();
+                DAO.Properties.Settings.Default.LocationSqlserver = strConnection;
+                DAO.Properties.Settings.Default.Save();
                 ClassUtils.Utils.MessageBoxInfomation("Đã cập nhật đường dẫn đến CSDL\r\nHãy thoát khỏi hệ thống để chương trình hoạt động tốt hơn\r\n\r\nXin Cám Ơn!", "Thông Báo");
                 this.Close();
 

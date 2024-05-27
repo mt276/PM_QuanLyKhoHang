@@ -10,8 +10,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DTO.DTO;
+using DAO.SQLHelper;
 using PM_QuanLyKhoHang.FormDetails;
 using BUS.BUS;
+using System.Data.SqlClient;
 
 namespace PM_QuanLyKhoHang
 {
@@ -152,6 +154,7 @@ namespace PM_QuanLyKhoHang
         /// Thông tin Account đang đăng nhập
         /// </summary>
         public static AccountDTO UserLogin = null;
+        public SqlConnection cn = null;
 
         #endregion
 
@@ -166,11 +169,24 @@ namespace PM_QuanLyKhoHang
         private void Management_Load(object sender, EventArgs e)
         {
             ResetEnableStateButton(false);
-
+            try
+            {
+                cn = SqlDataHelper.Connect(SqlDataHelper.strConnectionString);
+                if (cn.State != ConnectionState.Open)
+                {
+                    ClassUtils.Utils.MessageBoxERROR("Kết nối thất bại", "Thông báo");
+                    return;
+                }
+            }
+            catch {
+                ClassUtils.Utils.MessageBoxERROR("Kết nối thất bại", "Thông báo");
+                return;
+            }
             if (UserLogin == null)
             {
                 BtnLogin_ItemClick(null, null);
             }
+
         }
         #endregion
 

@@ -13,7 +13,7 @@ namespace DAO.Properties {
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.10.0.0")]
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+    public sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
         
@@ -26,11 +26,23 @@ namespace DAO.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=LAPTOP-2BO3HU09\\MINHTRIEU;Initial Catalog=QuanLyKhoHang;Persist Secur" +
-            "ity Info=True;User ID=sa;Password=12345678")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.\\sqlexpress;Initial Catalog=QuanLyKhoHang;Persist Security Info=True" +
+            ";User ID=sa;Password=12345678")]
         public string QuanLyKhoHangConnectionString {
             get {
                 return ((string)(this["QuanLyKhoHangConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string LocationSqlserver {
+            get {
+                return ((string)(this["LocationSqlserver"]));
+            }
+            set {
+                this["LocationSqlserver"] = value;
             }
         }
     }

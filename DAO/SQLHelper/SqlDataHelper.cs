@@ -2,16 +2,22 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace DAO.SQLHelper
 {
     public class SqlDataHelper
     {
 
-        public static string strConnectionString = @"data source=.\SQLEXPRESS;Initial Catalog = QuanLyKhoHang; Persist Security Info=True;User ID = sa; Password=12345678";
+        //public static string strConnectionString = Properties.Settings.Default.LocationSqlserver.ToString();
+        //public static string path = Path.GetFileName();
+        public static string str = File.ReadAllText(@"D:\C#\PM\connect.txt");
+        //public static string str = File.ReadAllText(@"C:\QuanLyKhoHang\connect.txt");
+        public static string strConnectionString = str;
 
         public static SqlConnection Connect(string _strConnectionString)
         {
@@ -20,8 +26,13 @@ namespace DAO.SQLHelper
             {
                 cn = new SqlConnection(_strConnectionString);
                 cn.Open();
+
             }
-            catch { }
+            catch 
+            {
+                
+            }
+            
 
             return cn;
         }
